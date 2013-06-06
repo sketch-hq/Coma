@@ -81,6 +81,7 @@
 		2296283C1760E436008D887F /* LibraryRelease.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryRelease.pch; path = Source/Library/LibraryRelease.pch; sourceTree = SOURCE_ROOT; };
 		2296283D1760E436008D887F /* LibraryShared.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryShared.pch; path = Source/Library/LibraryShared.pch; sourceTree = SOURCE_ROOT; };
 		229628411760E5F1008D887F /* Coma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coma.h; sourceTree = "<group>"; };
+		229628451760E95F008D887F /* Extras */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extras; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 				2296281C1760E1D5008D887F /* Tests */,
 				229627F01760E1BF008D887F /* Frameworks */,
 				229627EF1760E1BF008D887F /* Products */,
+				229628451760E95F008D887F /* Extras */,
 			);
 			sourceTree = "<group>";
 		};

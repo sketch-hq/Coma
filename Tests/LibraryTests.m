@@ -7,6 +7,7 @@
 //
 
 #import "LibraryTests.h"
+#import <Coma/Coma.h>
 
 @implementation LibraryTests
 
@@ -26,7 +27,8 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in LibraryTests");
+    BCComaEngine* engine = [BCComaEngine new];
+    [engine doStuff];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface BCComaEngine : NSObject
 
-+ (void)doStuff;
+- (void)doStuff;
 
 @end

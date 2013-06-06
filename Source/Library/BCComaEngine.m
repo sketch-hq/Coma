@@ -10,7 +10,7 @@
 
 @implementation BCComaEngine
 
-+ (void)doStuff
+- (void)doStuff
 {
     NSLog(@"stuff being done");
 }

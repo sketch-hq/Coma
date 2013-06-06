@@ -14,7 +14,8 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
 
-        [BCComaEngine doStuff];
+        BCComaEngine* engine = [BCComaEngine new];
+        [engine doStuff];
 
         // insert code here...
         NSLog(@"Hello, World!");
