@@ -35,7 +35,9 @@
                     {
                         "getter": "basicGetter",
                         "setter": "basicSetter",
-                        "copy" : "basicCopy",
+                        "copier" : "basicCopy",
+                        "encoder" : "basicEncode",
+                        "decoder" : "basicDecode",
                     },
                     "mode" : "assign",
                     "basic" : true
@@ -46,7 +48,9 @@
                     {
                         "getter": "objectGetter",
                         "setter": "objectSetter",
-                        "copy" : "objectCopy",
+                        "copier" : "objectCopy",
+                        "encoder" : "objectEncode",
+                        "decoder" : "objectDecode",
                     },
 				},
 		        "DeepCopyObject" :
@@ -55,7 +59,9 @@
                     {
                         "getter": "objectGetter",
                         "setter": "objectSetter",
-                        "copy" : "deepCopy",
+                        "copier" : "deepCopy",
+                        "encoder" : "objectEncode",
+                        "decoder" : "objectDecode",
                     },
 				},
 			}

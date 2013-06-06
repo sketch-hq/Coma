@@ -16,29 +16,21 @@
 // Main template for the encode method
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	{{# properties}}
-	// property {{name}} encoding here
-	{{/ properties}}
+{{# properties}}{{encoder}}{{/ properties}}
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-		{{# properties}}
-		// property {{name}} decoding here
-		{{/ properties}}
+{{# properties}}{{decoder}}{{/ properties}}
 	}
     return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-        id copy = [self new];
-		{{# properties}}
-        {{copy}}
-		{{/ properties}}
-
-        return copy;
-    }
+    id copy = [self new];
+{{# properties}}{{copier}}{{/ properties}}
+    return copy;
 }
 
 @end
