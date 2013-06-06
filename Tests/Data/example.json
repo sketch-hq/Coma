@@ -1,5 +1,5 @@
 	{
-        "passes":["header"],
+        "templates":["header", "source"],
 
 		"types":
 		{
@@ -31,23 +31,29 @@
 			{
 		        "Basic" :
 		        {
-		            "setter": "basicSetter.template",
-		            "getter": "basicGetter.template",
-		            "copy": "basicCopy.template",
+                    "templates" :
+                    {
+                        "getter": "basicGetter",
+                        "setter": "basicSetter",
+                    },
                     "mode" : "assign",
                     "basic" : true
 				},
 		        "Object" :
 		        {
-		            "setter": "objectSetter.template",
-		            "getter": "objectGetter.template",
-		            "copy": "object.template",
+                    "templates" :
+                    {
+                        "getter": "objectGetter",
+                        "setter": "basicSetter",
+                    },
 				},
 		        "DeepCopyObject" :
 		        {
-		            "setter": "objectSetter.template",
-		            "getter": "objectGetter.template",
-		            "copy": "deepCopy.template"
+                    "templates" :
+                    {
+                        "getter": "objectGetter",
+                        "setter": "basicSetter",
+                    },
 				},
 			}
 		},

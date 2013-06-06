@@ -18,20 +18,19 @@
 {
     [GRMustacheConfiguration defaultConfiguration].contentType = GRMustacheContentTypeText;
 
-    BCComaModel* model = [BCComaModel modelWithContentsOfURL:modelURL];
     BCComaTemplates* templates = [BCComaTemplates templatesWithURL:templatesURL];
+    BCComaModel* model = [BCComaModel modelWithContentsOfURL:modelURL templates:templates];
 
-    [model enumeratePasses:^(NSString *pass) {
-
-        GRMustacheTemplate* template = [templates templateNamed:pass];
+    [model enumerateTemplates:^(NSString *templateName) {
+        GRMustacheTemplate* template = [templates templateNamed:templateName];
 
         [model enumerateClasses:^(NSString *name, NSDictionary *info) {
-            NSError* error;
+            NSError* error = nil;
             NSString* text = [template renderObject:info error:&error];
             
             if (text)
             {
-                outputBlock(pass, text);
+                outputBlock(templateName, text);
             }
             else
             {

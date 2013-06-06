@@ -1,14 +1,16 @@
+
+
 // ----------------------------------------
-// Template for the source file
+// Template for the {{name}}.m
 // ----------------------------------------
 
-#import "{{class}}.h"
+#import "{{name}}.h"
 
 @implementation {{class}}
 
 {{# properties}}
-	// {{name}} getter here
-	// {{name}} setter here
+{{getter}}
+{{setter}}
 {{/ properties}}
 
 // Main template for the encode method

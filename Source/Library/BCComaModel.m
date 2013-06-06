@@ -7,33 +7,42 @@
 //
 
 #import "BCComaModel.h"
+#import "BCComaTemplates.h"
+
 #import <GRMustache.h>
 
 @interface BCComaModel()
 
 @property (strong, nonatomic) NSMutableDictionary* data;
+@property (strong, nonatomic) BCComaTemplates* templates;
+@property (strong, nonatomic) NSDictionary* types;
+@property (strong, nonatomic) NSDictionary* metas;
 
 @end
 
 @implementation BCComaModel
 
-+ (BCComaModel*)modelWithContentsOfURL:(NSURL*)url
++ (BCComaModel*)modelWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates *)templates
 {
-    BCComaModel* model = [[BCComaModel alloc] initWithContentsOfURL:url];
+    BCComaModel* model = [[BCComaModel alloc] initWithContentsOfURL:url templates:templates];
     return model;
 }
 
-- (id)initWithContentsOfURL:(NSURL*)url
+- (id)initWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates *)templates
 {
     NSMutableDictionary* modelDictionary = [self loadDictionaryAtURL:url];
-    return [self initWithModelDictionary:modelDictionary];
+    return [self initWithModelDictionary:modelDictionary templates:templates];
 }
 
-- (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary
+- (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary templates:(BCComaTemplates *)templates
 {
     if ((self = [super init]) != nil)
     {
         self.data = modelDictionary;
+        self.templates = templates;
+        self.types = (modelDictionary[@"types"])[@"items"];
+        self.metas = (modelDictionary[@"metas"])[@"items"];
+
         [self preprocessClasses];
     }
 
@@ -58,49 +67,54 @@
 }
 
 
-- (void)enumeratePasses:(PassBlock)block
+- (void)enumerateTemplates:(TemplateBlock)block
 {
-    NSArray* passes = self.data[@"passes"];
-    for (NSString* pass in passes)
+    NSArray* templates = self.data[@"templates"];
+    for (NSString* template in templates)
     {
-        block(pass);
+        block(template);
     }
-
 }
 
 - (void)preprocessClasses
 {
-    NSDictionary* types = (self.data[@"types"])[@"items"];
-    NSDictionary* metas = (self.data[@"metas"])[@"items"];
-
     NSMutableDictionary* classes = self.data[@"classes"];
     [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
         info[@"name"] = key;
         NSMutableDictionary* properties = info[@"properties"];
         [properties enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-            [self preprocessProperty:info name:key types:types metas:metas];
+            [self preprocessProperty:info name:key];
         }];
         info[@"properties"] = [properties allValues];
     }];
     self.data[@"classes"] = [classes allValues];
 }
 
-- (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name types:(NSDictionary*)types metas:(NSDictionary*)metas
+- (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name
 {
     info[@"name"] = name;
 
     NSString* type = info[@"type"];
     if (type)
     {
-        NSDictionary* typeInfo = types[type];
+        NSDictionary* typeInfo = self.types[type];
         NSString* requires = typeInfo[@"requires"];
         if (requires)
         {
             info[@"requires"] = @{@"import" : requires };
         }
         NSString* meta = typeInfo[@"metatype"];
-        NSDictionary* metaInfo = metas[meta];
+        NSDictionary* metaInfo = self.metas[meta];
         [info addEntriesFromDictionary:metaInfo];
+
+        NSDictionary* propertyTemplates = metaInfo[@"templates"];
+        [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
+            GRMustacheTemplate* template = [self.templates templateNamed:templateName];
+            if (template)
+            {
+                info[key] = template;
+            }
+        }];
     }
 }
 

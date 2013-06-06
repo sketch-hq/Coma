@@ -37,25 +37,29 @@
 
 - (GRMustacheTemplate*)templateNamed:(NSString*)name
 {
-    NSMutableDictionary* templates = self.templates;
-    if (!templates)
+    GRMustacheTemplate* template = nil;
+    if (name)
     {
-        templates = self.templates = [NSMutableDictionary dictionary];
-    }
-
-    GRMustacheTemplate* template = templates[name];
-    if (!template)
-    {
-        NSError* error;
-        NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
-        template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
-        if (template)
+        NSMutableDictionary* templates = self.templates;
+        if (!templates)
         {
-            templates[name] = template;
+            templates = self.templates = [NSMutableDictionary dictionary];
         }
-        else
+
+        template = templates[name];
+        if (!template)
         {
-            NSLog(@"error loading template %@", error);
+            NSError* error;
+            NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
+            template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
+            if (template)
+            {
+                templates[name] = template;
+            }
+            else
+            {
+                NSLog(@"error loading template %@", error);
+            }
         }
     }
 
