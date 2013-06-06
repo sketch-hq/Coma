@@ -33,13 +33,15 @@
 		        {
 		            "setter": "basicSetter.template",
 		            "getter": "basicGetter.template",
-		            "copy": "basicCopy.template"
+		            "copy": "basicCopy.template",
+                    "mode" : "assign",
+                    "basic" : true
 				},
 		        "Object" :
 		        {
 		            "setter": "objectSetter.template",
 		            "getter": "objectGetter.template",
-		            "copy": "object.template"
+		            "copy": "object.template",
 				},
 		        "DeepCopyObject" :
 		        {

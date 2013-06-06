@@ -1,15 +1,16 @@
 
 
 // ----------------------------------------
-// Template for the header file
+// Template for {{name}}.h file
 // ----------------------------------------
 
-{{# properties}}{{# requires}}@class {{type}};{{/ requires}}{{/ properties}}
+{{# properties}}{{# requires}}@class {{type}};
+{{/ requires}}{{/ properties}}
 
 @interface {{name}} : {{super}}
 
 {{# properties}}
-	// {{name}} property goes here
+{{> property}}
 {{/ properties}}
 
 @end

@@ -98,8 +98,9 @@
         {
             info[@"requires"] = @{@"import" : requires };
         }
-//        NSString* meta = typeInfo[@"metatype"];
-//        NSDictionary* metaInfo = metas[meta];
+        NSString* meta = typeInfo[@"metatype"];
+        NSDictionary* metaInfo = metas[meta];
+        [info addEntriesFromDictionary:metaInfo];
     }
 }
 
