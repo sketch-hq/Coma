@@ -23,6 +23,10 @@
 		229628431760E767008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
 		229628441760E827008D887F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628161760E1D5008D887F /* SenTestingKit.framework */; };
 		229628471760EE33008D887F /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628461760EE33008D887F /* libGRMustache6-MacOS.a */; };
+		2296284A1760F4F7008D887F /* BCComaModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628481760F4F7008D887F /* BCComaModel.h */; };
+		2296284B1760F4F7008D887F /* BCComaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628491760F4F7008D887F /* BCComaModel.m */; };
+		2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296284C1760FBC2008D887F /* BCComaTemplates.h */; };
+		2296284F1760FBC2008D887F /* BCComaTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296284D1760FBC2008D887F /* BCComaTemplates.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,10 @@
 		229628411760E5F1008D887F /* Coma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coma.h; sourceTree = "<group>"; };
 		229628451760E95F008D887F /* Extras */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extras; sourceTree = "<group>"; };
 		229628461760EE33008D887F /* libGRMustache6-MacOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGRMustache6-MacOS.a"; path = "/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug/libGRMustache6-MacOS.a"; sourceTree = "<absolute>"; };
+		229628481760F4F7008D887F /* BCComaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaModel.h; sourceTree = "<group>"; };
+		229628491760F4F7008D887F /* BCComaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaModel.m; sourceTree = "<group>"; };
+		2296284C1760FBC2008D887F /* BCComaTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaTemplates.h; sourceTree = "<group>"; };
+		2296284D1760FBC2008D887F /* BCComaTemplates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaTemplates.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,10 @@
 				229628411760E5F1008D887F /* Coma.h */,
 				2296280D1760E1D5008D887F /* BCComaEngine.h */,
 				2296280E1760E1D5008D887F /* BCComaEngine.m */,
+				229628481760F4F7008D887F /* BCComaModel.h */,
+				229628491760F4F7008D887F /* BCComaModel.m */,
+				2296284C1760FBC2008D887F /* BCComaTemplates.h */,
+				2296284D1760FBC2008D887F /* BCComaTemplates.m */,
 				2296280B1760E1D5008D887F /* Supporting Files */,
 			);
 			name = Library;
@@ -253,6 +265,8 @@
 				2296283F1760E436008D887F /* LibraryRelease.pch in Headers */,
 				229628401760E436008D887F /* LibraryShared.pch in Headers */,
 				229628421760E5F1008D887F /* Coma.h in Headers */,
+				2296284A1760F4F7008D887F /* BCComaModel.h in Headers */,
+				2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2296280F1760E1D5008D887F /* BCComaEngine.m in Sources */,
+				2296284B1760F4F7008D887F /* BCComaModel.m in Sources */,
+				2296284F1760FBC2008D887F /* BCComaTemplates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
