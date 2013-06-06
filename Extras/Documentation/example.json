@@ -1,0 +1,58 @@
+	{
+		"types":
+		{
+			"base" : "standardTypes.json",
+			"types" :
+			{
+				"CustomClass" : "DeepCopyObject",
+			}
+		},
+	
+		"templates":
+		{
+			"base" : "standardTemplates.json",
+			"templates" :
+			{
+		        "DeepCopyObject" : 
+		        {
+		            "setter": "objectSetter.template",
+		            "getter": "objectGetter.template",
+		            "copy": "deepCopy.template"
+				},
+			}
+		},
+	
+		"classes":
+		{
+			"Person" :
+			{
+			    "base": "BaseClass",
+       
+			    "properties":
+			    {
+					"name" :
+			        {
+			            "type" : "NSString",
+			            "undoName" : "Name",
+						"description" : "Person's name"
+			        },
+				
+					"age" :
+			        {
+			            "type" : "NSInteger",
+			            "undoName": "Age",
+						"description" : "Person's age"
+					},
+				
+					"custom" :
+			        {
+			            "type" : "CustomClass",
+			            "undoName": "Custom",
+						"description" : "Property with custom object that needs to be deep copied for some reason"
+					}
+				
+				}		    
+			}
+		}
+	}
+
