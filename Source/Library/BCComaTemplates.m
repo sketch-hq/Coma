@@ -40,15 +40,18 @@
     GRMustacheTemplate* template = nil;
     if (name)
     {
+        // create the cache if we haven't already
         NSMutableDictionary* templates = self.templates;
         if (!templates)
         {
             templates = self.templates = [NSMutableDictionary dictionary];
         }
 
+        // look it up in the cache
         template = templates[name];
         if (!template)
         {
+            // not in the cache, so try to load it
             NSError* error;
             NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
             template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];

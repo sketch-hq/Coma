@@ -52,6 +52,14 @@
     return self;
 }
 
+/**
+ Set things up.
+ 
+ We load the types and metas from the dictionary, processing any inheritance.
+ We then preprocess the classes to tidy them up and add some dynamically generated keys.
+ 
+ */
+
 - (void)setupWithModelDictionary:(NSMutableDictionary*)modelDictionary
 {
     self.data = modelDictionary;
@@ -60,6 +68,12 @@
 
     [self preprocessClasses];
 }
+
+#pragma mark - Dictionary Support
+
+/**
+ Load a dictionary from a json file.
+ */
 
 - (NSMutableDictionary*)loadDictionaryAtURL:(NSURL*)url
 {
@@ -77,6 +91,17 @@
 
     return result;
 }
+
+/** 
+ Return some items from a dictionary.
+ 
+ The items are expected to be under a key called "items".
+
+ If a "base" key is present, this is treated as the name of another JSON file to inherit values from. 
+ The contents of this file are loaded and this routine is called recursively to get items from it. 
+ These inherited items are then merged in to the original dictionary.
+ If the original and inhertied dictionaries both contain a particular key, the original one wins.
+ */
 
 - (NSMutableDictionary*)loadItemsWithInheritance:(NSDictionary*)dictionary
 {
@@ -97,6 +122,8 @@
     return items;
 }
 
+#pragma mark - Enumeration
+
 - (void)enumerateTemplates:(TemplateBlock)block
 {
     NSArray* templates = self.data[@"templates"];
@@ -105,6 +132,34 @@
         block(template);
     }
 }
+
+
+- (void)enumerateClasses:(ClassBlock)block
+{
+    NSArray* classes = self.data[@"classes"];
+    for (NSDictionary* class in classes)
+    {
+        block(class[@"name"], class);
+    }
+}
+
+#pragma mark - Preprocessing
+
+/**
+ Perform some processing on the classes.
+ 
+ When loaded from the json file, the classes are a dictionary, with the key being the name of the class, and
+ the value being another dictionary describing the class.
+
+ This is a cleaner format from the point of view of authoring the file, but at the top level we really want a list instead.
+ 
+ So we run through each entry in the top level dictionary. Since the top level key for each class is the only thing that gives its
+ name, we add these to the dictionary for the class so that we can use it later.
+ 
+ Whilst we're at it, we run through the properties dictionary in the class and process that a bit too, turning it into a list.
+
+ We then turn the top level dictionary into a list.
+ */
 
 - (void)preprocessClasses
 {
@@ -120,28 +175,44 @@
     self.data[@"classes"] = [classes allValues];
 }
 
+/**
+ Perform some processing on a property dictionary.
+ */
+
 - (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name
 {
+    // add the name of the property to the info dictionary, so we can fetch it later
     info[@"name"] = name;
 
-    NSString* type = info[@"type"];
-    if (type)
+    // look up the property type and try to obtain some type info for it
+    NSDictionary* typeInfo = [self infoForTypeNamed:info[@"type"]];
+    if (typeInfo)
     {
-        NSDictionary* typeInfo = self.types[type];
-        if (!typeInfo)
-        {
-            typeInfo = self.types[@"«default»"];
-        }
-        
+        // if the type requires some headers, add them to the import property
         NSString* requires = typeInfo[@"requires"];
         if (requires)
         {
             info[@"requires"] = @{@"import" : requires };
         }
+
+        // try to get the metatype data associated with the type
+        // (for convenience, mutliple types share the same metatype - eg most basic types will have a metatype of "Basic")
         NSString* meta = typeInfo[@"metatype"];
         NSDictionary* metaInfo = self.metas[meta];
+
+        // add the metatype entries to the property info
+        // this allows templates to pick up and use these properties directly
         [info addEntriesFromDictionary:metaInfo];
 
+        // process the list of template names in the meta info
+        // for each of these, we try to load the corresponding template
+        // if successful, we add the template as an entry in the property dictionary
+        // this allows the top-level templates to "include" one of these type-specific templates just by referring to it
+        // (eg a type-specific template called "getters" is expanded by an entry in a top-level template of {{gettters}})
+        //
+        // the purpose of all this is to allow top-level templates to refer to a sub-template by name (eg "getters") but to have the
+        // engine actually use a different template depending on the type of the property being processed.
+        // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
         NSDictionary* propertyTemplates = metaInfo[@"templates"];
         [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
             GRMustacheTemplate* template = [self.templates templateNamed:templateName];
@@ -153,13 +224,25 @@
     }
 }
 
-- (void)enumerateClasses:(ClassBlock)block
+/**
+ Return information from the types dictionary for a type of a given name.
+ If an entry for the given type isn't found, we use the default entry instead.
+ */
+
+- (NSDictionary*)infoForTypeNamed:(NSString*)name
 {
-    NSArray* classes = self.data[@"classes"];
-    for (NSDictionary* class in classes)
+    NSDictionary* result = nil;
+    if (name)
     {
-        block(class[@"name"], class);
+        result = self.types[name];
     }
+
+    if (!result)
+    {
+        result = self.types[@"«default»"];
+    }
+
+    return result;
 }
 
 @end
