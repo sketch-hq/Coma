@@ -14,6 +14,8 @@ typedef void (^ClassBlock)(NSString* name, NSDictionary* info);
 @class BCComaTemplates;
 @interface BCComaModel : NSObject
 
+@property (strong, nonatomic) NSURL* root;
+
 + (BCComaModel*)modelWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates*)templates;
 - (id)initWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates*)templates;
 - (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary templates:(BCComaTemplates*)templates;

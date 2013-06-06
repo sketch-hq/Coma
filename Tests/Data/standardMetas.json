@@ -1,0 +1,30 @@
+{
+    "items" :
+    {
+        "Basic" :
+        {
+            "templates" :
+            {
+                "getter": "basicGetter",
+                "setter": "basicSetter",
+                "copier" : "basicCopy",
+                "encoder" : "basicEncode",
+                "decoder" : "basicDecode",
+            },
+            "mode" : "assign",
+            "basic" : true
+        },
+        
+        "NSObject" :
+        {
+            "templates" :
+            {
+                "getter": "objectGetter",
+                "setter": "objectSetter",
+                "copier" : "objectCopy",
+                "encoder" : "objectEncode",
+                "decoder" : "objectDecode",
+            },
+        },
+    }
+}

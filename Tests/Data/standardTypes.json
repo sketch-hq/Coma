@@ -1,0 +1,14 @@
+{
+    "items" :
+    {
+        "NSString" :
+        {
+            "metatype" : "NSObject",
+        },
+
+        "NSInteger" :
+        {
+            "metatype" : "Basic",
+        },
+    }
+}

@@ -31,7 +31,13 @@
 - (id)initWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates *)templates
 {
     NSMutableDictionary* modelDictionary = [self loadDictionaryAtURL:url];
-    return [self initWithModelDictionary:modelDictionary templates:templates];
+    self = [self initWithModelDictionary:modelDictionary templates:templates];
+    if (self != nil)
+    {
+        self.root = [url URLByDeletingLastPathComponent];
+    }
+
+    return self;
 }
 
 - (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary templates:(BCComaTemplates *)templates
@@ -40,8 +46,8 @@
     {
         self.data = modelDictionary;
         self.templates = templates;
-        self.types = (modelDictionary[@"types"])[@"items"];
-        self.metas = (modelDictionary[@"metas"])[@"items"];
+        self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
+        self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
 
         [self preprocessClasses];
     }
@@ -66,6 +72,24 @@
     return result;
 }
 
+- (NSMutableDictionary*)loadItemsWithInheritance:(NSDictionary*)dictionary
+{
+    NSMutableDictionary* items = dictionary[@"items"];
+    NSString* base = dictionary[@"base"];
+    if (base)
+    {
+        NSURL* baseURL = [[self.root URLByAppendingPathComponent:base] URLByAppendingPathExtension:@"json"];
+        NSMutableDictionary* baseDictionary = [self loadDictionaryAtURL:baseURL];
+        if (baseDictionary)
+        {
+            NSMutableDictionary* baseItems = [self loadItemsWithInheritance:baseDictionary];
+            [baseItems addEntriesFromDictionary:items];
+            items = baseItems;
+        }
+    }
+    
+    return items;
+}
 
 - (void)enumerateTemplates:(TemplateBlock)block
 {
