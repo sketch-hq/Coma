@@ -34,7 +34,7 @@
 - (id)copyWithZone:(NSZone *)zone {
         id copy = [self new];
 		{{# properties}}
-		// property {{name}} copying here
+        {{copy}}
 		{{/ properties}}
 
         return copy;
