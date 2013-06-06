@@ -1,0 +1,28 @@
+#include "ComaShared.xcconfig"
+
+// Release only settings for all Coma targets
+
+// Deployment
+
+DEPLOYMENT_POSTPROCESSING = YES
+STRIP_INSTALLED_PRODUCT = YES
+
+
+// Build options
+
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+
+// Linking
+
+DEAD_CODE_STRIPPING = YES
+
+
+// Code Generation
+
+GCC_OPTIMIZATION_LEVEL = s
+
+
+// Language
+
+GCC_PRECOMPILE_PREFIX_HEADER = YES

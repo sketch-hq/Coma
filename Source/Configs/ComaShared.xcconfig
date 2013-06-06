@@ -1,0 +1,83 @@
+// Standard settings for all Coma targets.
+
+// Coma stuff
+
+MODULES_PATH = ${SRCROOT}/../Modules
+ECLOGGING_SCRIPT_PATH = ${MODULES_PATH}/ECLogging/Extras/Scripts/
+
+
+// Architectures
+
+ARCHS = $(ARCHS_STANDARD_64_BIT)
+SDKROOT = macosx
+VALID_ARCHS = x86_64
+
+
+// Build Options
+
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+
+// Deployment
+
+COMBINE_HIDPI_IMAGES = YES
+INSTALL_PATH = /Applications
+MACOSX_DEPLOYMENT_TARGET = 10.8
+SKIP_INSTALL = NO
+COPY_PHASE_STRIP = NO
+
+
+// Linking
+
+OTHER_LDFLAGS = -ObjC -all_load
+LD_RUNPATH_SEARCH_PATHS = @executable_path/../Frameworks
+
+
+// Packaging
+
+WRAPPER_EXTENSION = app
+PRODUCT_NAME = Coma
+
+
+
+// Search Paths
+
+FRAMEWORK_SEARCH_PATHS =
+HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/include" "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include"
+
+// Code Generation
+
+GCC_GENERATE_DEBUGGING_SYMBOLS = YES
+GCC_DYNAMIC_NO_PIC = NO
+
+
+// Language
+
+GCC_C_LANGUAGE_STANDARD = c99
+GCC_ENABLE_CPP_EXCEPTIONS = YES
+GCC_ENABLE_CPP_RTTI = YES
+GCC_PREFIX_HEADER = Prefixes/Coma$(TARGET_NAME)$(CONFIGURATION).pch
+
+
+// Warnings
+
+GCC_TREAT_WARNINGS_AS_ERRORS = YES
+GCC_WARN_ABOUT_RETURN_TYPE = YES
+GCC_WARN_UNUSED_VARIABLE = YES
+CLANG_WARN_EMPTY_BODY = YES
+GCC_WARN_SHADOW = NO
+GCC_WARN_SIGN_COMPARE = NO
+
+
+// Interface Builder
+
+IBC_ERRORS = YES
+IBC_NOTICES = NO
+IBC_WARNINGS = NO
+
+
+// Legacy
+// (I think we probably don't need these anymore)
+GCC_ENABLE_SYMBOL_SEPARATION = YES
+GCC_ENABLE_OBJC_GC = unsupported
+GCC_MODEL_TUNING = G5

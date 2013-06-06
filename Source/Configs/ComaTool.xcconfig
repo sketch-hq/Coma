@@ -1,0 +1,3 @@
+PRODUCT_NAME = coma
+
+GCC_PREFIX_HEADER = Source/Tool/Tool$(CONFIGURATION).pch

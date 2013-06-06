@@ -1,0 +1,2 @@
+#include "ComaDebug.xcconfig"
+#include "ComaTool.xcconfig"

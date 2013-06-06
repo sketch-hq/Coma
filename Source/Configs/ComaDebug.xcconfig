@@ -1,0 +1,35 @@
+#include "ComaShared.xcconfig"
+
+// Debug only settings for all Coma targets
+
+DEPLOYMENT_POSTPROCESSING = NO
+DEAD_CODE_STRIPPING = NO
+
+
+// Build options
+
+DEBUG_INFORMATION_FORMAT = dwarf
+
+
+// Code Signing
+
+OTHER_CODE_SIGN_FLAGS = --timestamp=none  // uncomment to allow us to sign offline for debug builds
+
+// Deployment
+
+STRIP_INSTALLED_PRODUCT = NO
+
+
+// Linking
+
+DEAD_CODE_STRIPPING = NO
+
+
+// Code Generation
+
+GCC_OPTIMIZATION_LEVEL = 0
+
+
+// Language
+
+GCC_PRECOMPILE_PREFIX_HEADER = NO

@@ -1,0 +1,2 @@
+#include "ComaRelease.xcconfig"
+#include "ComaTool.xcconfig"

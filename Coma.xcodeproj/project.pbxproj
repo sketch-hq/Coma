@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		229627F21760E1BF008D887F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229627F11760E1BF008D887F /* Foundation.framework */; };
+		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
+		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
+		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
+		2296280F1760E1D5008D887F /* BCComaEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296280E1760E1D5008D887F /* BCComaEngine.m */; };
+		229628171760E1D5008D887F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628161760E1D5008D887F /* SenTestingKit.framework */; };
+		229628181760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
+		2296281B1760E1D5008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
+		229628211760E1D5008D887F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2296281F1760E1D5008D887F /* InfoPlist.strings */; };
+		229628241760E1D5008D887F /* LibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628231760E1D5008D887F /* LibraryTests.m */; };
+		2296283E1760E436008D887F /* LibraryDebug.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2296283B1760E436008D887F /* LibraryDebug.pch */; };
+		2296283F1760E436008D887F /* LibraryRelease.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2296283C1760E436008D887F /* LibraryRelease.pch */; };
+		229628401760E436008D887F /* LibraryShared.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2296283D1760E436008D887F /* LibraryShared.pch */; };
+		229628421760E5F1008D887F /* Coma.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628411760E5F1008D887F /* Coma.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229628431760E767008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		229628191760E1D5008D887F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229627E61760E1BF008D887F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 229628021760E1D5008D887F;
+			remoteInfo = Library;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		229627EC1760E1BF008D887F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				229627F91760E1C0008D887F /* Coma.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
+		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		229627F81760E1C0008D887F /* Coma.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Coma.1; sourceTree = "<group>"; };
+		229628031760E1D5008D887F /* libComa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComa.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628041760E1D5008D887F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		229628071760E1D5008D887F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		229628081760E1D5008D887F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		229628091760E1D5008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2296280D1760E1D5008D887F /* BCComaEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCComaEngine.h; sourceTree = "<group>"; };
+		2296280E1760E1D5008D887F /* BCComaEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCComaEngine.m; sourceTree = "<group>"; };
+		229628151760E1D5008D887F /* LibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628161760E1D5008D887F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2296281E1760E1D5008D887F /* LibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LibraryTests-Info.plist"; sourceTree = "<group>"; };
+		229628201760E1D5008D887F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		229628221760E1D5008D887F /* LibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryTests.h; sourceTree = "<group>"; };
+		229628231760E1D5008D887F /* LibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryTests.m; sourceTree = "<group>"; };
+		2296282C1760E30A008D887F /* ComaTool.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaTool.xcconfig; sourceTree = "<group>"; };
+		2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaToolDebug.xcconfig; sourceTree = "<group>"; };
+		2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaToolRelease.xcconfig; sourceTree = "<group>"; };
+		2296282F1760E30A008D887F /* ComaLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaLibrary.xcconfig; sourceTree = "<group>"; };
+		229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaLibraryDebug.xcconfig; sourceTree = "<group>"; };
+		229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaLibraryRelease.xcconfig; sourceTree = "<group>"; };
+		229628321760E30A008D887F /* ComaDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaDebug.xcconfig; sourceTree = "<group>"; };
+		229628361760E30A008D887F /* ComaRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaRelease.xcconfig; sourceTree = "<group>"; };
+		229628371760E30A008D887F /* ComaShared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ComaShared.xcconfig; sourceTree = "<group>"; };
+		229628381760E3D6008D887F /* ToolDebug.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDebug.pch; sourceTree = "<group>"; };
+		229628391760E3D6008D887F /* ToolRelease.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolRelease.pch; sourceTree = "<group>"; };
+		2296283A1760E3D6008D887F /* ToolShared.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShared.pch; sourceTree = "<group>"; };
+		2296283B1760E436008D887F /* LibraryDebug.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryDebug.pch; path = Source/Library/LibraryDebug.pch; sourceTree = SOURCE_ROOT; };
+		2296283C1760E436008D887F /* LibraryRelease.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryRelease.pch; path = Source/Library/LibraryRelease.pch; sourceTree = SOURCE_ROOT; };
+		2296283D1760E436008D887F /* LibraryShared.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryShared.pch; path = Source/Library/LibraryShared.pch; sourceTree = SOURCE_ROOT; };
+		229628411760E5F1008D887F /* Coma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coma.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		229627EB1760E1BF008D887F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229628431760E767008D887F /* libComa.a in Frameworks */,
+				229627F21760E1BF008D887F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		229628001760E1D5008D887F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229628051760E1D5008D887F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		229628111760E1D5008D887F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229628171760E1D5008D887F /* SenTestingKit.framework in Frameworks */,
+				229628181760E1D5008D887F /* Cocoa.framework in Frameworks */,
+				2296281B1760E1D5008D887F /* libComa.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		229627E51760E1BF008D887F = {
+			isa = PBXGroup;
+			children = (
+				2296282B1760E30A008D887F /* Configs */,
+				229627F31760E1BF008D887F /* Tool */,
+				2296280A1760E1D5008D887F /* Library */,
+				2296281C1760E1D5008D887F /* Tests */,
+				229627F01760E1BF008D887F /* Frameworks */,
+				229627EF1760E1BF008D887F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		229627EF1760E1BF008D887F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				229627EE1760E1BF008D887F /* coma */,
+				229628031760E1D5008D887F /* libComa.a */,
+				229628151760E1D5008D887F /* LibraryTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		229627F01760E1BF008D887F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				229627F11760E1BF008D887F /* Foundation.framework */,
+				229628041760E1D5008D887F /* Cocoa.framework */,
+				229628161760E1D5008D887F /* SenTestingKit.framework */,
+				229628061760E1D5008D887F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		229627F31760E1BF008D887F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				229627F41760E1BF008D887F /* main.m */,
+				229627F81760E1C0008D887F /* Coma.1 */,
+				229627F61760E1BF008D887F /* Supporting Files */,
+			);
+			name = Tool;
+			path = Source/Tool;
+			sourceTree = "<group>";
+		};
+		229627F61760E1BF008D887F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				229628381760E3D6008D887F /* ToolDebug.pch */,
+				229628391760E3D6008D887F /* ToolRelease.pch */,
+				2296283A1760E3D6008D887F /* ToolShared.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		229628061760E1D5008D887F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				229628071760E1D5008D887F /* AppKit.framework */,
+				229628081760E1D5008D887F /* CoreData.framework */,
+				229628091760E1D5008D887F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2296280A1760E1D5008D887F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				229628411760E5F1008D887F /* Coma.h */,
+				2296280D1760E1D5008D887F /* BCComaEngine.h */,
+				2296280E1760E1D5008D887F /* BCComaEngine.m */,
+				2296280B1760E1D5008D887F /* Supporting Files */,
+			);
+			name = Library;
+			path = Source/Library;
+			sourceTree = "<group>";
+		};
+		2296280B1760E1D5008D887F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2296283B1760E436008D887F /* LibraryDebug.pch */,
+				2296283C1760E436008D887F /* LibraryRelease.pch */,
+				2296283D1760E436008D887F /* LibraryShared.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2296281C1760E1D5008D887F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				229628221760E1D5008D887F /* LibraryTests.h */,
+				229628231760E1D5008D887F /* LibraryTests.m */,
+				2296281D1760E1D5008D887F /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2296281D1760E1D5008D887F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2296281E1760E1D5008D887F /* LibraryTests-Info.plist */,
+				2296281F1760E1D5008D887F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2296282B1760E30A008D887F /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				2296282C1760E30A008D887F /* ComaTool.xcconfig */,
+				2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */,
+				2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */,
+				2296282F1760E30A008D887F /* ComaLibrary.xcconfig */,
+				229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */,
+				229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */,
+				229628321760E30A008D887F /* ComaDebug.xcconfig */,
+				229628361760E30A008D887F /* ComaRelease.xcconfig */,
+				229628371760E30A008D887F /* ComaShared.xcconfig */,
+			);
+			name = Configs;
+			path = Source/Configs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		229628011760E1D5008D887F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2296283E1760E436008D887F /* LibraryDebug.pch in Headers */,
+				2296283F1760E436008D887F /* LibraryRelease.pch in Headers */,
+				229628401760E436008D887F /* LibraryShared.pch in Headers */,
+				229628421760E5F1008D887F /* Coma.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		229627ED1760E1BF008D887F /* Tool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229627FC1760E1C0008D887F /* Build configuration list for PBXNativeTarget "Tool" */;
+			buildPhases = (
+				229627EA1760E1BF008D887F /* Sources */,
+				229627EB1760E1BF008D887F /* Frameworks */,
+				229627EC1760E1BF008D887F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tool;
+			productName = Coma;
+			productReference = 229627EE1760E1BF008D887F /* coma */;
+			productType = "com.apple.product-type.tool";
+		};
+		229628021760E1D5008D887F /* Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229628251760E1D5008D887F /* Build configuration list for PBXNativeTarget "Library" */;
+			buildPhases = (
+				229627FF1760E1D5008D887F /* Sources */,
+				229628001760E1D5008D887F /* Frameworks */,
+				229628011760E1D5008D887F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Library;
+			productName = Library;
+			productReference = 229628031760E1D5008D887F /* libComa.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		229628141760E1D5008D887F /* LibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229628281760E1D5008D887F /* Build configuration list for PBXNativeTarget "LibraryTests" */;
+			buildPhases = (
+				229628101760E1D5008D887F /* Sources */,
+				229628111760E1D5008D887F /* Frameworks */,
+				229628121760E1D5008D887F /* Resources */,
+				229628131760E1D5008D887F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2296281A1760E1D5008D887F /* PBXTargetDependency */,
+			);
+			name = LibraryTests;
+			productName = LibraryTests;
+			productReference = 229628151760E1D5008D887F /* LibraryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		229627E61760E1BF008D887F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BC;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Bohemian Coding";
+			};
+			buildConfigurationList = 229627E91760E1BF008D887F /* Build configuration list for PBXProject "Coma" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 229627E51760E1BF008D887F;
+			productRefGroup = 229627EF1760E1BF008D887F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				229627ED1760E1BF008D887F /* Tool */,
+				229628021760E1D5008D887F /* Library */,
+				229628141760E1D5008D887F /* LibraryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		229628121760E1D5008D887F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229628211760E1D5008D887F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		229628131760E1D5008D887F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		229627EA1760E1BF008D887F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229627F51760E1BF008D887F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		229627FF1760E1D5008D887F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2296280F1760E1D5008D887F /* BCComaEngine.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		229628101760E1D5008D887F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2296281A1760E1D5008D887F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 229628021760E1D5008D887F /* Library */;
+			targetProxy = 229628191760E1D5008D887F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2296281F1760E1D5008D887F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				229628201760E1D5008D887F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		229627FA1760E1C0008D887F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		229627FB1760E1C0008D887F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		229627FD1760E1C0008D887F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		229627FE1760E1C0008D887F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		229628261760E1D5008D887F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		229628271760E1D5008D887F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		229628291760E1D5008D887F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/Library-Prefix.pch";
+				INFOPLIST_FILE = "LibraryTests/LibraryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2296282A1760E1D5008D887F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/Library-Prefix.pch";
+				INFOPLIST_FILE = "LibraryTests/LibraryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		229627E91760E1BF008D887F /* Build configuration list for PBXProject "Coma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229627FA1760E1C0008D887F /* Debug */,
+				229627FB1760E1C0008D887F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		229627FC1760E1C0008D887F /* Build configuration list for PBXNativeTarget "Tool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229627FD1760E1C0008D887F /* Debug */,
+				229627FE1760E1C0008D887F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		229628251760E1D5008D887F /* Build configuration list for PBXNativeTarget "Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229628261760E1D5008D887F /* Debug */,
+				229628271760E1D5008D887F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		229628281760E1D5008D887F /* Build configuration list for PBXNativeTarget "LibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229628291760E1D5008D887F /* Debug */,
+				2296282A1760E1D5008D887F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 229627E61760E1BF008D887F /* Project object */;
+}
