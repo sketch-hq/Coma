@@ -3,3 +3,5 @@ PRODUCT_NAME = Coma
 GCC_PREFIX_HEADER = Source/Library/Library$(CONFIGURATION).pch
 
 PUBLIC_HEADERS_FOLDER_PATH = include/$(PRODUCT_NAME)
+
+HEADER_SEARCH_PATHS = $(inherited) "$(TARGET_BUILD_DIR)/usr/local/include"

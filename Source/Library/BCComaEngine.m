@@ -8,11 +8,17 @@
 
 #import "BCComaEngine.h"
 
+#import <GRMustache.h>
+
 @implementation BCComaEngine
 
 - (void)doStuff
 {
-    NSLog(@"stuff being done");
+    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"name": @"Arthur" }
+                                                fromString:@"Hello {{name}}!"
+                                                     error:NULL];
+
+    NSLog(@"rendering was %@", rendering);
 }
 
 @end
