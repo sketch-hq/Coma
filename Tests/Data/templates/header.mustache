@@ -1,12 +1,12 @@
+
+
 // ----------------------------------------
 // Template for the header file
 // ----------------------------------------
 
-{{# properties}}
-@class {{name}}
-{{/ properties}}
+{{# properties}}{{# requires}}@class {{type}};{{/ requires}}{{/ properties}}
 
-@interface {{name}} : {{base}}
+@interface {{name}} : {{super}}
 
 {{# properties}}
 	// {{name}} property goes here

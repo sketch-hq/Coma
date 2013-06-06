@@ -4,22 +4,44 @@
 		"types":
 		{
 			"base" : "standardTypes",
-			"types" :
+			"items" :
 			{
+				"NSString" :
+				{
+					"metatype" : "Object",
+				},
+
+				"NSInteger" :
+				{
+					"metatype" : "Basic",
+				},
+
 				"CustomClass" :
 				{
 					"metatype" : "DeepCopyObject",
-					"import" : "CustomClass.h"
+                    "requires" : "CustomClass.h",
 				}
 			}
 		},
 	
-		"templates":
+		"metas":
 		{
 			"base" : "standardTemplates",
-			"templates" :
+			"items" :
 			{
-		        "DeepCopyObject" : 
+		        "Basic" :
+		        {
+		            "setter": "basicSetter.template",
+		            "getter": "basicGetter.template",
+		            "copy": "basicCopy.template"
+				},
+		        "Object" :
+		        {
+		            "setter": "objectSetter.template",
+		            "getter": "objectGetter.template",
+		            "copy": "object.template"
+				},
+		        "DeepCopyObject" :
 		        {
 		            "setter": "objectSetter.template",
 		            "getter": "objectGetter.template",

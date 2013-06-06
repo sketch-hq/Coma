@@ -70,16 +70,37 @@
 
 - (void)preprocessClasses
 {
+    NSDictionary* types = (self.data[@"types"])[@"items"];
+    NSDictionary* metas = (self.data[@"metas"])[@"items"];
+
     NSMutableDictionary* classes = self.data[@"classes"];
     [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
         info[@"name"] = key;
         NSMutableDictionary* properties = info[@"properties"];
         [properties enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-            info[@"name"] = key;
+            [self preprocessProperty:info name:key types:types metas:metas];
         }];
         info[@"properties"] = [properties allValues];
     }];
     self.data[@"classes"] = [classes allValues];
+}
+
+- (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name types:(NSDictionary*)types metas:(NSDictionary*)metas
+{
+    info[@"name"] = name;
+
+    NSString* type = info[@"type"];
+    if (type)
+    {
+        NSDictionary* typeInfo = types[type];
+        NSString* requires = typeInfo[@"requires"];
+        if (requires)
+        {
+            info[@"requires"] = @{@"import" : requires };
+        }
+//        NSString* meta = typeInfo[@"metatype"];
+//        NSDictionary* metaInfo = metas[meta];
+    }
 }
 
 - (void)enumerateClasses:(ClassBlock)block
