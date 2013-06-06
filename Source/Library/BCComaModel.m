@@ -56,22 +56,24 @@
     return result;
 }
 
-- (void)generateWithTemplatesAtURL:(NSURL*)templatesURL
+
+- (void)enumerateWithPasses:(void (^)(NSString *))block
 {
     NSArray* passes = self.data[@"passes"];
     for (NSString* pass in passes)
     {
-        [self generatePass:pass withTemplatesAtURL:templatesURL];
+        block(pass);
     }
 
 }
 
-- (void)generatePass:(NSString*)pass withTemplatesAtURL:(NSURL*)templatesURL
+- (void)enumerateClasses:(void (^)(NSDictionary* classInfo))block
 {
-    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"name": @"Arthur" }
-                                                fromString:@"Hello {{name}}!"
-                                                     error:NULL];
-
+    NSArray* classes = self.data[@"classes"];
+    for (NSDictionary* classInfo in classes)
+    {
+        block(classInfo);
+    }
 }
 
 @end

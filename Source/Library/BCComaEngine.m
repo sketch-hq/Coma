@@ -7,18 +7,36 @@
 //
 
 #import "BCComaEngine.h"
-
+#import "BCComaModel.h"
+#import "BCComaTemplates.h"
 #import <GRMustache.h>
 
 @implementation BCComaEngine
 
-- (void)doStuff
-{
-    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"name": @"Arthur" }
-                                                fromString:@"Hello {{name}}!"
-                                                     error:NULL];
 
-    NSLog(@"rendering was %@", rendering);
+- (void)generateModelAtURL:(NSURL*)modelURL withTemplatesAtURL:(NSURL*)templatesURL outputBlock:(OutputBlock)outputBlock
+{
+    BCComaModel* model = [BCComaModel modelWithContentsOfURL:modelURL];
+    BCComaTemplates* templates = [BCComaTemplates templatesWithURL:templatesURL];
+
+    [model enumeratePasses:^(NSString *pass) {
+
+        GRMustacheTemplate* template = [templates templateNamed:pass];
+
+        [model enumerateClasses:^(NSDictionary *classInfo) {
+            NSError* error;
+            NSString* text = [template renderObject:classInfo error:&error];
+            
+            if (text)
+            {
+                outputBlock(pass, text);
+            }
+            else
+            {
+                NSLog(@"rendering error %@", error);
+            }
+        }];
+    }];
 }
 
 @end

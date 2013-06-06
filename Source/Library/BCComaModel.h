@@ -14,6 +14,7 @@
 - (id)initWithContentsOfURL:(NSURL*)url;
 - (id)initWithModelDictionary:(NSDictionary*)modelDictionary;
 
-- (void)generateWithTemplatesAtURL:(NSURL*)templatesURL;
+- (void)enumeratePasses:(void (^)(NSString* pass))block;
+- (void)enumerateClasses:(void (^)(NSDictionary* classInfo))block;
 
 @end

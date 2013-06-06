@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^OutputBlock)(NSString* name, NSString* output);
+
 @interface BCComaEngine : NSObject
 
-- (void)doStuff;
+- (void)generateModelAtURL:(NSURL*)modelURL withTemplatesAtURL:(NSURL*)templatesURL outputBlock:(OutputBlock)outputBlock;
 
 @end

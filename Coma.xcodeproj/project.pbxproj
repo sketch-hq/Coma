@@ -27,6 +27,7 @@
 		2296284B1760F4F7008D887F /* BCComaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628491760F4F7008D887F /* BCComaModel.m */; };
 		2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296284C1760FBC2008D887F /* BCComaTemplates.h */; };
 		2296284F1760FBC2008D887F /* BCComaTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296284D1760FBC2008D887F /* BCComaTemplates.m */; };
+		229628511761014B008D887F /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 229628501761014B008D887F /* Data */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		229628491760F4F7008D887F /* BCComaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaModel.m; sourceTree = "<group>"; };
 		2296284C1760FBC2008D887F /* BCComaTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaTemplates.h; sourceTree = "<group>"; };
 		2296284D1760FBC2008D887F /* BCComaTemplates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaTemplates.m; sourceTree = "<group>"; };
+		229628501761014B008D887F /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		2296281C1760E1D5008D887F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				229628501761014B008D887F /* Data */,
 				229628221760E1D5008D887F /* LibraryTests.h */,
 				229628231760E1D5008D887F /* LibraryTests.m */,
 				2296281D1760E1D5008D887F /* Supporting Files */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				229628211760E1D5008D887F /* InfoPlist.strings in Resources */,
+				229628511761014B008D887F /* Data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
