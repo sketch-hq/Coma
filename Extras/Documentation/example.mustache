@@ -1,12 +1,31 @@
-// Generated Person.m
+// ----------------------------------------
+// Template for the header file
+// ----------------------------------------
 
-#import "{{ class }}.h"
+{{# classes}}
+@class {{name}}
+{{/ classes}}
+
+@interface {{class}} : {{base}}
+
+{{# properties}}
+	{{> property-template}}
+{{/ properties}}
+
+@end
+
+
+// ----------------------------------------
+// Template for the source file
+// ----------------------------------------
+
+#import "{{class}}.h"
 
 {{# imports}}
-	#import {{ name }}
+	#import {{name}}
 {{/ imports}}
 
-@implementation {{ class }}
+@implementation {{class}}
 
 {{# properties}}
 	{{> getter-template}}
@@ -24,23 +43,30 @@
 @end
 
 
+// ----------------------------------------
+// Getter Template
+// ----------------------------------------
 
-// Standard Getter template
-
-- ({{ type }}){{ name }} {
-	return _{{ name }};
+- ({{type}}){{name}} {
+	return _{{name}};
 }
 
-// Standard Setter template 
+// ----------------------------------------
+// Setter Template
+// ----------------------------------------
 
-- (void){{ setterName }}:({{ type }}){{name}} {
+- (void){{setterName}}:({{type}}){{name}} {
 
-	if ({{ name }} != _{{ name }}) {
-		_{{ name }} = {{ name }}
+	if ({{name}} != _{{name}}) {
+		_{{name}} = {{name}}
 	}
 }
 
-// Encoding Template 
+// ----------------------------------------
+// Encoding Templates
+// ----------------------------------------
+
+// Main template for the encode method
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	{{# encoding}}
@@ -48,15 +74,19 @@
 	{{/ encoding}}
 }
 
-// Encoding Object Template
+// Template for encoding an object
 
-[self encodeObject:{{ name }} forKey:@"{{ name }}"];
+[self encodeObject:{{name}} forKey:@"{{name}}"];
 
-// Encoding Integer Template
+// Template for encoding an integer
 
-[self encodeInteger:{{ name }} forKey:@"{{ name }}"];
+[self encodeInteger:{{name}} forKey:@"{{name}}"];
 
-// Decoding Template
+// ----------------------------------------
+// Decoding Templates
+// ----------------------------------------
+
+// Main template for the decode method
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
@@ -68,15 +98,20 @@
     return self;
 }
 
-// Decoding Object Template
+// Template for decoding an object
 
-_{{ name }} = [coder decodeObjectForKey:@"{{ name }}"];
+_{{name}} = [coder decodeObjectForKey:@"{{name}}"];
 
-// Decoding Integer Template
+// Template for decoding an integer
 
-_{{ name }} = [coder decodeIntegerForKey:@"{{ name }}"];
+_{{name}} = [coder decodeIntegerForKey:@"{{name}}"];
 
-// Copying Template
+
+// ----------------------------------------
+// Copying Templates
+// ----------------------------------------
+
+// Main template for the copyWithZone method
 
 - (id)copyWithZone:(NSZone *)zone {
         id copy = [self new];
@@ -87,15 +122,15 @@ _{{ name }} = [coder decodeIntegerForKey:@"{{ name }}"];
     }
 }
 
-// Copying Object Template
+// Template for copying an object
 
-copy.{{ name }} = [self.{{ name }} copyWithZone:zone];
+copy.{{name}} = [self.{{name}} copyWithZone:zone];
 
-// Copying Basic Template
+// Template for copying a basic (non-object) value
 
-copy.{{ name }} = self.{{ name }};
+copy.{{name}} = self.{{name}};
 
-// Deep Copying Template
+// Custom template for deepCopying an object
 
-copy.{{ name }} = [self.{{ name }} deepCopyWithZone:zone];
+copy.{{name}} = [self.{{name}} deepCopyWithZone:zone];
 
