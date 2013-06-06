@@ -47,11 +47,15 @@
     if (!template)
     {
         NSError* error;
-        NSURL* url = [self.url URLByAppendingPathComponent:name];
+        NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
         template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
-        if (!template)
+        if (template)
         {
             templates[name] = template;
+        }
+        else
+        {
+            NSLog(@"error loading template %@", error);
         }
     }
 

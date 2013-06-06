@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^PassBlock)(NSString* pass);
+typedef void (^ClassBlock)(NSString* name, NSDictionary* info);
+
 @interface BCComaModel : NSObject
 
 + (BCComaModel*)modelWithContentsOfURL:(NSURL*)url;
 - (id)initWithContentsOfURL:(NSURL*)url;
-- (id)initWithModelDictionary:(NSDictionary*)modelDictionary;
+- (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary;
 
-- (void)enumeratePasses:(void (^)(NSString* pass))block;
-- (void)enumerateClasses:(void (^)(NSDictionary* classInfo))block;
+- (void)enumeratePasses:(PassBlock)block;
+- (void)enumerateClasses:(ClassBlock)block;
 
 @end

@@ -2,135 +2,14 @@
 // Template for the header file
 // ----------------------------------------
 
-{{# classes}}
+{{# properties}}
 @class {{name}}
-{{/ classes}}
+{{/ properties}}
 
-@interface {{class}} : {{base}}
+@interface {{name}} : {{base}}
 
 {{# properties}}
-	{{> property-template}}
+	// {{name}} property goes here
 {{/ properties}}
 
 @end
-
-
-// ----------------------------------------
-// Template for the source file
-// ----------------------------------------
-
-#import "{{class}}.h"
-
-{{# imports}}
-	#import {{name}}
-{{/ imports}}
-
-@implementation {{class}}
-
-{{# properties}}
-	{{> getter-template}}
-	{{> setter-template}}
-{{/ properties}}
-
-{{# encoding}}
-	{{> encoding-template}}
-{{/ encoding}}
-
-{{# copying}}
-	{{> copying-template}}
-{{/ copying}}
-
-@end
-
-
-// ----------------------------------------
-// Getter Template
-// ----------------------------------------
-
-- ({{type}}){{name}} {
-	return _{{name}};
-}
-
-// ----------------------------------------
-// Setter Template
-// ----------------------------------------
-
-- (void){{setterName}}:({{type}}){{name}} {
-
-	if ({{name}} != _{{name}}) {
-		_{{name}} = {{name}}
-	}
-}
-
-// ----------------------------------------
-// Encoding Templates
-// ----------------------------------------
-
-// Main template for the encode method
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-	{{# encoding}}
-	{{> encode-property-template}}
-	{{/ encoding}}
-}
-
-// Template for encoding an object
-
-[self encodeObject:{{name}} forKey:@"{{name}}"];
-
-// Template for encoding an integer
-
-[self encodeInteger:{{name}} forKey:@"{{name}}"];
-
-// ----------------------------------------
-// Decoding Templates
-// ----------------------------------------
-
-// Main template for the decode method
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (self) {
-		{{# decoding}}
-		{{> decode-property-template}}
-		{{/ decoding}}
-	}
-    return self;
-}
-
-// Template for decoding an object
-
-_{{name}} = [coder decodeObjectForKey:@"{{name}}"];
-
-// Template for decoding an integer
-
-_{{name}} = [coder decodeIntegerForKey:@"{{name}}"];
-
-
-// ----------------------------------------
-// Copying Templates
-// ----------------------------------------
-
-// Main template for the copyWithZone method
-
-- (id)copyWithZone:(NSZone *)zone {
-        id copy = [self new];
-		{{# copying}}
-		{{> copy-property-template}}
-		{{/ copying}}
-        return copy;
-    }
-}
-
-// Template for copying an object
-
-copy.{{name}} = [self.{{name}} copyWithZone:zone];
-
-// Template for copying a basic (non-object) value
-
-copy.{{name}} = self.{{name}};
-
-// Custom template for deepCopying an object
-
-copy.{{name}} = [self.{{name}} deepCopyWithZone:zone];
-

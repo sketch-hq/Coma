@@ -16,6 +16,8 @@
 
 - (void)generateModelAtURL:(NSURL*)modelURL withTemplatesAtURL:(NSURL*)templatesURL outputBlock:(OutputBlock)outputBlock
 {
+    [GRMustacheConfiguration defaultConfiguration].contentType = GRMustacheContentTypeText;
+
     BCComaModel* model = [BCComaModel modelWithContentsOfURL:modelURL];
     BCComaTemplates* templates = [BCComaTemplates templatesWithURL:templatesURL];
 
@@ -23,9 +25,9 @@
 
         GRMustacheTemplate* template = [templates templateNamed:pass];
 
-        [model enumerateClasses:^(NSDictionary *classInfo) {
+        [model enumerateClasses:^(NSString *name, NSDictionary *info) {
             NSError* error;
-            NSString* text = [template renderObject:classInfo error:&error];
+            NSString* text = [template renderObject:info error:&error];
             
             if (text)
             {

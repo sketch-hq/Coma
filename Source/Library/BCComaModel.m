@@ -11,7 +11,7 @@
 
 @interface BCComaModel()
 
-@property (strong, nonatomic) NSDictionary* data;
+@property (strong, nonatomic) NSMutableDictionary* data;
 
 @end
 
@@ -25,28 +25,29 @@
 
 - (id)initWithContentsOfURL:(NSURL*)url
 {
-    NSDictionary* modelDictionary = [self loadDictionaryAtURL:url];
+    NSMutableDictionary* modelDictionary = [self loadDictionaryAtURL:url];
     return [self initWithModelDictionary:modelDictionary];
 }
 
-- (id)initWithModelDictionary:(NSDictionary*)modelDictionary
+- (id)initWithModelDictionary:(NSMutableDictionary*)modelDictionary
 {
     if ((self = [super init]) != nil)
     {
         self.data = modelDictionary;
+        [self preprocessClasses];
     }
 
     return self;
 }
 
-- (NSDictionary*)loadDictionaryAtURL:(NSURL*)url
+- (NSMutableDictionary*)loadDictionaryAtURL:(NSURL*)url
 {
-    NSDictionary* result = nil;
+    NSMutableDictionary* result = nil;
     NSData* data = [NSData dataWithContentsOfURL:url];
     if (data)
     {
         NSError* error;
-        result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         if (!result)
         {
             NSLog(@"error %@", error); // TODO: EClogging...
@@ -57,7 +58,7 @@
 }
 
 
-- (void)enumerateWithPasses:(void (^)(NSString *))block
+- (void)enumeratePasses:(PassBlock)block
 {
     NSArray* passes = self.data[@"passes"];
     for (NSString* pass in passes)
@@ -67,12 +68,26 @@
 
 }
 
-- (void)enumerateClasses:(void (^)(NSDictionary* classInfo))block
+- (void)preprocessClasses
+{
+    NSMutableDictionary* classes = self.data[@"classes"];
+    [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
+        info[@"name"] = key;
+        NSMutableDictionary* properties = info[@"properties"];
+        [properties enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
+            info[@"name"] = key;
+        }];
+        info[@"properties"] = [properties allValues];
+    }];
+    self.data[@"classes"] = [classes allValues];
+}
+
+- (void)enumerateClasses:(ClassBlock)block
 {
     NSArray* classes = self.data[@"classes"];
-    for (NSDictionary* classInfo in classes)
+    for (NSDictionary* class in classes)
     {
-        block(classInfo);
+        block(class[@"name"], class);
     }
 }
 

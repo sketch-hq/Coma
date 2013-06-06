@@ -30,8 +30,8 @@
     BCComaEngine* engine = [BCComaEngine new];
 
     NSBundle* bundle = [NSBundle bundleForClass:[self class]];
-    NSURL* input = [bundle URLForResource:@"example" withExtension:@"json"];
-    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@""];
+    NSURL* input = [bundle URLForResource:@"example" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data"];
 
     [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output) {
         NSLog(@"output %@: %@", name, output);
