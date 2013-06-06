@@ -12,7 +12,6 @@
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
 		2296280F1760E1D5008D887F /* BCComaEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296280E1760E1D5008D887F /* BCComaEngine.m */; };
-		229628171760E1D5008D887F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628161760E1D5008D887F /* SenTestingKit.framework */; };
 		229628181760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
 		2296281B1760E1D5008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
 		229628211760E1D5008D887F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2296281F1760E1D5008D887F /* InfoPlist.strings */; };
@@ -22,6 +21,7 @@
 		229628401760E436008D887F /* LibraryShared.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2296283D1760E436008D887F /* LibraryShared.pch */; };
 		229628421760E5F1008D887F /* Coma.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628411760E5F1008D887F /* Coma.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		229628431760E767008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
+		229628441760E827008D887F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628161760E1D5008D887F /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		2296280E1760E1D5008D887F /* BCComaEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCComaEngine.m; sourceTree = "<group>"; };
 		229628151760E1D5008D887F /* LibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628161760E1D5008D887F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2296281E1760E1D5008D887F /* LibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LibraryTests-Info.plist"; sourceTree = "<group>"; };
+		2296281E1760E1D5008D887F /* Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		229628201760E1D5008D887F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		229628221760E1D5008D887F /* LibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryTests.h; sourceTree = "<group>"; };
 		229628231760E1D5008D887F /* LibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryTests.m; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229628171760E1D5008D887F /* SenTestingKit.framework in Frameworks */,
+				229628441760E827008D887F /* SenTestingKit.framework in Frameworks */,
 				229628181760E1D5008D887F /* Cocoa.framework in Frameworks */,
 				2296281B1760E1D5008D887F /* libComa.a in Frameworks */,
 			);
@@ -213,7 +213,7 @@
 		2296281D1760E1D5008D887F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2296281E1760E1D5008D887F /* LibraryTests-Info.plist */,
+				2296281E1760E1D5008D887F /* Tests.plist */,
 				2296281F1760E1D5008D887F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -451,12 +451,16 @@
 		};
 		229628291760E1D5008D887F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/Library-Prefix.pch";
-				INFOPLIST_FILE = "LibraryTests/LibraryTests-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
+				INFOPLIST_FILE = Tests/Tests.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -464,12 +468,16 @@
 		};
 		2296282A1760E1D5008D887F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/Library-Prefix.pch";
-				INFOPLIST_FILE = "LibraryTests/LibraryTests-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
+				INFOPLIST_FILE = Tests/Tests.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
