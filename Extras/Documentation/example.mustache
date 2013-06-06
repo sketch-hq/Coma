@@ -1,0 +1,101 @@
+// Generated Person.m
+
+#import "{{ class }}.h"
+
+{{# imports}}
+	#import {{ name }}
+{{/ imports}}
+
+@implementation {{ class }}
+
+{{# properties}}
+	{{> getter-template}}
+	{{> setter-template}}
+{{/ properties}}
+
+{{# encoding}}
+	{{> encoding-template}}
+{{/ encoding}}
+
+{{# copying}}
+	{{> copying-template}}
+{{/ copying}}
+
+@end
+
+
+
+// Standard Getter template
+
+- ({{ type }}){{ name }} {
+	return _{{ name }};
+}
+
+// Standard Setter template 
+
+- (void){{ setterName }}:({{ type }}){{name}} {
+
+	if ({{ name }} != _{{ name }}) {
+		_{{ name }} = {{ name }}
+	}
+}
+
+// Encoding Template 
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	{{# encoding}}
+	{{> encode-property-template}}
+	{{/ encoding}}
+}
+
+// Encoding Object Template
+
+[self encodeObject:{{ name }} forKey:@"{{ name }}"];
+
+// Encoding Integer Template
+
+[self encodeInteger:{{ name }} forKey:@"{{ name }}"];
+
+// Decoding Template
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+		{{# decoding}}
+		{{> decode-property-template}}
+		{{/ decoding}}
+	}
+    return self;
+}
+
+// Decoding Object Template
+
+_{{ name }} = [coder decodeObjectForKey:@"{{ name }}"];
+
+// Decoding Integer Template
+
+_{{ name }} = [coder decodeIntegerForKey:@"{{ name }}"];
+
+// Copying Template
+
+- (id)copyWithZone:(NSZone *)zone {
+        id copy = [self new];
+		{{# copying}}
+		{{> copy-property-template}}
+		{{/ copying}}
+        return copy;
+    }
+}
+
+// Copying Object Template
+
+copy.{{ name }} = [self.{{ name }} copyWithZone:zone];
+
+// Copying Basic Template
+
+copy.{{ name }} = self.{{ name }};
+
+// Deep Copying Template
+
+copy.{{ name }} = [self.{{ name }} deepCopyWithZone:zone];
+
