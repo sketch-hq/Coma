@@ -30,11 +30,12 @@
 
 - (id)initWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates *)templates
 {
-    NSMutableDictionary* modelDictionary = [self loadDictionaryAtURL:url];
-    self = [self initWithModelDictionary:modelDictionary templates:templates];
-    if (self != nil)
+    if ((self = [super init]) != nil)
     {
         self.root = [url URLByDeletingLastPathComponent];
+        self.templates = templates;
+        NSMutableDictionary* modelDictionary = [self loadDictionaryAtURL:url];
+        [self setupWithModelDictionary:modelDictionary];
     }
 
     return self;
@@ -44,15 +45,20 @@
 {
     if ((self = [super init]) != nil)
     {
-        self.data = modelDictionary;
         self.templates = templates;
-        self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
-        self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
-
-        [self preprocessClasses];
+        [self setupWithModelDictionary:modelDictionary];
     }
 
     return self;
+}
+
+- (void)setupWithModelDictionary:(NSMutableDictionary*)modelDictionary
+{
+    self.data = modelDictionary;
+    self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
+    self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
+
+    [self preprocessClasses];
 }
 
 - (NSMutableDictionary*)loadDictionaryAtURL:(NSURL*)url
@@ -122,6 +128,11 @@
     if (type)
     {
         NSDictionary* typeInfo = self.types[type];
+        if (!typeInfo)
+        {
+            typeInfo = self.types[@"«default»"];
+        }
+        
         NSString* requires = typeInfo[@"requires"];
         if (requires)
         {
