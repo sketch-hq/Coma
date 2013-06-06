@@ -14,14 +14,14 @@
 - (void)setUp
 {
     [super setUp];
-    
+
     // Set-up code here.
 }
 
 - (void)tearDown
 {
     // Tear-down code here.
-    
+
     [super tearDown];
 }
 
@@ -33,10 +33,19 @@
     NSURL* input = [bundle URLForResource:@"example" withExtension:@"json" subdirectory:@"Data"];
     NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data"];
 
-    [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output) {
-        NSLog(@"output %@: %@", name, output);
-    }];
+    [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
+        
+        if (output)
+        {
+            NSLog(@"output %@: %@", name, output);
+        }
+        else
+        {
+            NSLog(@"rendering error %@", error);
+        }
 
+    }];
+    
 }
 
 @end
