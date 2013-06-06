@@ -1,11 +1,11 @@
-// Generated .h
+// Generated Person.h
 
-@class MyClass;
+@class CustomClass;
 
-@interface ExampleClass : BaseClass
+@interface Person : BaseClass<NSCopying, NSCoding>
 
-@property (strong, nonatomic) NSString* exampleString;
-@property (assign, nonatomic) NSInteger exampleNumber;
-@property (strong, nonatomic) MyClass* exampleCustom;
+@property (strong, nonatomic) NSString* name;
+@property (assign, nonatomic) NSInteger age;
+@property (strong, nonatomic) CustomClass* custom;
 
 @end

@@ -4,7 +4,11 @@
 			"base" : "standardTypes.json",
 			"types" :
 			{
-				"CustomClass" : "DeepCopyObject",
+				"CustomClass" :
+				{
+					"metatype" : "DeepCopyObject",
+					"import" : "CustomClass.h"
+				}
 			}
 		},
 	
