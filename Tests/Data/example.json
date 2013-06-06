@@ -26,6 +26,7 @@
                         "getter": "objectGetter",
                         "setter": "objectSetter",
                         "copier" : "deepCopy",
+                        "mutableCopier" : "deepMutableCopy",
                         "encoder" : "objectEncode",
                         "decoder" : "objectDecode",
                     },
@@ -38,7 +39,7 @@
 			"Person" :
 			{
 			    "super": "BaseClass",
-       
+                "generateMutableCopy" : true,
 			    "properties":
 			    {
 					"name" :
@@ -54,7 +55,7 @@
 			            "undoName": "Age",
 						"description" : "Person's age"
 					},
-				
+
 					"custom" :
 			        {
 			            "type" : "CustomClass",
@@ -62,7 +63,7 @@
 						"description" : "Property with custom object that needs to be deep copied for some reason"
 					}
 				
-				}		    
+				}    
 			}
 		}
 	}

@@ -9,10 +9,24 @@
 
 @implementation {{class}}
 
+static NSArray* s{{name}}Properties = nil;
+
 {{# properties}}
 {{getter}}
 {{setter}}
 {{/ properties}}
+
++ (NSArray*)propertyNames {
+    if (!s{{name}}Properties) {
+        s{{name}}Properties = [@[
+        {{# properties}}@"{{name}}",{{/ properties}}
+        ] retain];
+    }
+    
+    return s{{name}}Properties;
+}
+
+#pragma mark - NSCoder
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 {{# properties}}{{encoder}}{{/ properties}}
@@ -26,10 +40,20 @@
     return self;
 }
 
+#pragma mark - NSCopying
+
 - (id)copyWithZone:(NSZone *)zone {
     id copy = [self new];
 {{# properties}}{{copier}}{{/ properties}}
     return copy;
 }
+
+{{# generateMutableCopy}}
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    id copy = [self new];
+{{# properties}}{{mutableCopier}}{{/ properties}}
+    return copy;
+}
+{{/ generateMutableCopy}}
 
 @end
