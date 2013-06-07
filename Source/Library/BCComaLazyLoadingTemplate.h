@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GRMustache.h>
 
-@interface BCLazyLoadingTemplate : NSObject
+@class BCComaTemplates;
+
+@interface BCComaLazyLoadingTemplate : NSObject<GRMustacheRendering>
+
++ (BCComaLazyLoadingTemplate*)templateWithName:(NSString*)name templates:(BCComaTemplates*)templates;
 
 @end
