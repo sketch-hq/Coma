@@ -163,9 +163,16 @@
 
 - (void)preprocessClasses
 {
+    NSDictionary* comaInfo = @{
+                               @"name" : @"Coma",
+                               @"version" : @"1.0",
+                               @"date": [NSDate date]
+                               };
+
     NSMutableDictionary* classes = self.data[@"classes"];
     [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
         info[@"name"] = key;
+        info[@"coma"] = comaInfo;
         NSMutableDictionary* properties = info[@"properties"];
         [properties enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
             [self preprocessProperty:info name:key];
