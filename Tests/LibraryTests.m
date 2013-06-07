@@ -7,6 +7,9 @@
 //
 
 #import "LibraryTests.h"
+#import "PersonBasic.h"
+#import "CustomClass.h"
+
 #import <Coma/Coma.h>
 
 @interface NSString(Extras)
@@ -40,23 +43,10 @@
 
 @implementation LibraryTests
 
-- (void)setUp
+- (void)testGeneratedExample
 {
-    [super setUp];
-
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-
-    [super tearDown];
-}
-
-
-- (void)testExample
-{
+    // Generate the classes, and check that they match the versions linked in to these tests.
+    
     BCComaEngine* engine = [BCComaEngine new];
 
     NSBundle* bundle = [NSBundle bundleForClass:[self class]];
@@ -88,6 +78,32 @@
 
     }];
     
+}
+
+- (void)testExample
+{
+    // Check that the version of the test classes linked in to this project actually works.
+    // This isn't the actual code that is generated (we're not compiling it on the fly or anthing clever like that), but it should be identical to it,
+    // so it's a sanity check that we're generating sensible code.
+    
+    PersonBasic* test = [PersonBasic new];
+
+    test.name = @"Name";
+    test.age = 123;
+    test.custom = [CustomClass new];
+    test.custom.string = @"Test";
+
+    PersonBasic* copy = [test copy];
+    STAssertTrue([copy.name isEqualToString:@"Name"], @"unexpected name %@", copy.name);
+    STAssertTrue(copy.age == 123, @"unexpected age %ld", copy.age);
+    STAssertTrue([copy.custom.string isEqualToString:@"Test"], @"unexpected string %@", copy.custom.string);
+
+    NSData* encoded = [NSKeyedArchiver archivedDataWithRootObject:test];
+
+    PersonBasic* decoded = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    STAssertTrue([decoded.name isEqualToString:@"Name"], @"unexpected name %@", decoded.name);
+    STAssertTrue(decoded.age == 123, @"unexpected age %ld", decoded.age);
+    STAssertTrue([decoded.custom.string isEqualToString:@"Test"], @"unexpected string %@", decoded.custom.string);
 }
 
 @end

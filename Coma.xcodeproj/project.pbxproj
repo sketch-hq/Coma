@@ -32,6 +32,7 @@
 		2296285C1761D9E2008D887F /* CustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628591761D9DC008D887F /* CustomClass.m */; };
 		2296285F1761DA1A008D887F /* BaseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296285D1761DA1A008D887F /* BaseClass.h */; };
 		229628611761DA20008D887F /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296285E1761DA1A008D887F /* BaseClass.m */; };
+		229628641761F29E008D887F /* PersonBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628531761D8AC008D887F /* PersonBasic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -453,6 +454,7 @@
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
+				229628641761F29E008D887F /* PersonBasic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -14,10 +14,10 @@ static NSArray* s{{name}}Properties = nil;
 
 + (NSArray*)propertyNames {
     if (!s{{name}}Properties) {
-        s{{name}}Properties = [@[
+        s{{name}}Properties = @[
                              {{# properties}}@"{{name}}",
                              {{/ properties}}
-                             ] retain];
+                             ];
     }
 
     return s{{name}}Properties;

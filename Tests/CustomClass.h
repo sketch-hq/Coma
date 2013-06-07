@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CustomClass : NSObject
+@interface CustomClass : NSObject<NSCoding, NSCopying>
+
+@property (strong, nonatomic) NSString* string;
 
 - (id)deepCopyWithZone:(NSZone *)zone;
 

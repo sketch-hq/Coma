@@ -14,12 +14,12 @@ static NSArray* sPersonProperties = nil;
 
 + (NSArray*)propertyNames {
     if (!sPersonProperties) {
-        sPersonProperties = [@[
+        sPersonProperties = @[
                              @"name",
                              @"age",
                              @"custom",
                              
-                             ] retain];
+                             ];
     }
 
     return sPersonProperties;
