@@ -38,7 +38,12 @@
 		{
 			"Person" :
 			{
-			    "super": "BaseClass",
+			    "super":
+                {
+                    "class" : "BaseClass",
+                    "import" : "BaseClass.h"
+                },
+                "protocols" : "<NSCoding, NSCopying>",
                 "generateMutableCopy" : true,
 			    "properties":
 			    {

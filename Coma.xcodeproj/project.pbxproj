@@ -28,6 +28,10 @@
 		2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296284C1760FBC2008D887F /* BCComaTemplates.h */; };
 		2296284F1760FBC2008D887F /* BCComaTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296284D1760FBC2008D887F /* BCComaTemplates.m */; };
 		229628511761014B008D887F /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 229628501761014B008D887F /* Data */; };
+		2296285A1761D9DC008D887F /* CustomClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628581761D9DB008D887F /* CustomClass.h */; };
+		2296285C1761D9E2008D887F /* CustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628591761D9DC008D887F /* CustomClass.m */; };
+		2296285F1761DA1A008D887F /* BaseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296285D1761DA1A008D887F /* BaseClass.h */; };
+		229628611761DA20008D887F /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296285E1761DA1A008D887F /* BaseClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +98,12 @@
 		2296284C1760FBC2008D887F /* BCComaTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaTemplates.h; sourceTree = "<group>"; };
 		2296284D1760FBC2008D887F /* BCComaTemplates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaTemplates.m; sourceTree = "<group>"; };
 		229628501761014B008D887F /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		229628521761D8AC008D887F /* PersonBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonBasic.h; path = Data/basic/PersonBasic.h; sourceTree = "<group>"; };
+		229628531761D8AC008D887F /* PersonBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonBasic.m; path = Data/basic/PersonBasic.m; sourceTree = "<group>"; };
+		229628581761D9DB008D887F /* CustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClass.h; sourceTree = "<group>"; };
+		229628591761D9DC008D887F /* CustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClass.m; sourceTree = "<group>"; };
+		2296285D1761DA1A008D887F /* BaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClass.h; sourceTree = "<group>"; };
+		2296285E1761DA1A008D887F /* BaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +236,7 @@
 				229628501761014B008D887F /* Data */,
 				229628221760E1D5008D887F /* LibraryTests.h */,
 				229628231760E1D5008D887F /* LibraryTests.m */,
+				229628621761DA2C008D887F /* Test Output */,
 				2296281D1760E1D5008D887F /* Supporting Files */,
 			);
 			path = Tests;
@@ -257,6 +268,19 @@
 			path = Source/Configs;
 			sourceTree = "<group>";
 		};
+		229628621761DA2C008D887F /* Test Output */ = {
+			isa = PBXGroup;
+			children = (
+				2296285D1761DA1A008D887F /* BaseClass.h */,
+				2296285E1761DA1A008D887F /* BaseClass.m */,
+				229628521761D8AC008D887F /* PersonBasic.h */,
+				229628531761D8AC008D887F /* PersonBasic.m */,
+				229628581761D9DB008D887F /* CustomClass.h */,
+				229628591761D9DC008D887F /* CustomClass.m */,
+			);
+			name = "Test Output";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -270,6 +294,8 @@
 				229628421760E5F1008D887F /* Coma.h in Headers */,
 				2296284A1760F4F7008D887F /* BCComaModel.h in Headers */,
 				2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */,
+				2296285A1761D9DC008D887F /* CustomClass.h in Headers */,
+				2296285F1761DA1A008D887F /* BaseClass.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +343,7 @@
 				229628101760E1D5008D887F /* Sources */,
 				229628111760E1D5008D887F /* Frameworks */,
 				229628121760E1D5008D887F /* Resources */,
+				229628631761DC14008D887F /* Copy Example Source */,
 				229628131760E1D5008D887F /* ShellScript */,
 			);
 			buildRules = (
@@ -384,6 +411,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		229628631761DC14008D887F /* Copy Example Source */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Example Source";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${SOURCE_ROOT}/Tests/Data/basic/PersonBasic.\"* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -410,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
+				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
+				229628611761DA20008D887F /* BaseClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
