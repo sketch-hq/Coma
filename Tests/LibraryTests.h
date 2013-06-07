@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <ECUnitTests/ECUnitTests.h>
 
-@interface LibraryTests : SenTestCase
+@interface LibraryTests : ECTestCase
 
 @end

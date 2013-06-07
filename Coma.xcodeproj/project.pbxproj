@@ -39,6 +39,7 @@
 		229628CB176221F6008D887F /* libECCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628C9176221F5008D887F /* libECCore.a */; };
 		229628CC176221F6008D887F /* libECLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CA176221F6008D887F /* libECLogging.a */; };
 		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
+		229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D2176238D5008D887F /* ECUnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		229628C9176221F5008D887F /* libECCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628CA176221F6008D887F /* libECLogging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628CF17622726008D887F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
+		229628D2176238D5008D887F /* ECUnitTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */,
 				229628D017622726008D887F /* IOKit.framework in Frameworks */,
 				229628CB176221F6008D887F /* libECCore.a in Frameworks */,
 				229628CC176221F6008D887F /* libECLogging.a in Frameworks */,
@@ -181,6 +184,7 @@
 		229627F01760E1BF008D887F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				229628D2176238D5008D887F /* ECUnitTests.framework */,
 				229628CF17622726008D887F /* IOKit.framework */,
 				229628C9176221F5008D887F /* libECCore.a */,
 				229628CA176221F6008D887F /* libECLogging.a */,
@@ -563,6 +567,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
@@ -585,6 +590,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";

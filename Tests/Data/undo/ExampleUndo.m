@@ -18,7 +18,6 @@
     }
 }
 
-
 - (void)setInteger:(NSInteger)value {
     if (self.integer != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
@@ -28,7 +27,6 @@
         [super setInteger:value];
     }
 }
-
 
 - (void)setCustom:(CustomClass*)value {
     if (self.custom != value) {
@@ -40,7 +38,6 @@
     }
 }
 
-
 - (void)setPoint:(NSPoint)value {
     if (!NSEqualPoints(self.point, value)) {
         [[self.undoManager prepareWithInvocationTarget:self]
@@ -51,7 +48,6 @@
     }
 }
 
-
 - (void)setUnsignedInteger:(NSUInteger)value {
     if (self.unsignedInteger != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
@@ -61,7 +57,6 @@
         [super setUnsignedInteger:value];
     }
 }
-
 
 - (void)setRect:(NSRect)value {
     if (!NSEqualRects(self.rect, value)) {
@@ -83,7 +78,6 @@
     }
 }
 
-
 - (void)setBoolean:(BOOL)value {
     if (self.boolean != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
@@ -93,7 +87,6 @@
         [super setBoolean:value];
     }
 }
-
 
 - (void)setReal:(CGFloat)value {
     if (self.real != value) {

@@ -16,34 +16,6 @@ ECDeclareDebugChannel(ComaEngineChannel);
 ECDeclareDebugChannel(ComaTemplatesChannel);
 ECDeclareDebugChannel(ComaModelChannel);
 
-@interface NSString(Extras)
-- (NSString*)lastLines:(NSUInteger)count;
-- (NSString*)firstLines:(NSUInteger)count;
-@end
-
-@implementation NSString(Extras)
-
-- (NSString*)lastLines:(NSUInteger)count
-{
-    NSArray* lines = [self componentsSeparatedByString:@"\n"];
-    NSUInteger lineCount = [lines count];
-    NSUInteger n = MIN(lineCount, count);
-
-    NSArray* linesToReturn = [lines subarrayWithRange:NSMakeRange(lineCount - n, n)];
-    return [linesToReturn componentsJoinedByString:@"\n"];
-}
-
-- (NSString*)firstLines:(NSUInteger)count
-{
-    NSArray* lines = [self componentsSeparatedByString:@"\n"];
-    NSUInteger lineCount = [lines count];
-    NSUInteger n = MIN(lineCount, count);
-
-    NSArray* linesToReturn = [lines subarrayWithRange:NSMakeRange(0, n)];
-    return [linesToReturn componentsJoinedByString:@"\n"];
-}
-
-@end
 
 @interface LibraryTests()
 @property (strong, nonatomic) NSDate* date;
@@ -79,13 +51,7 @@ ECDeclareDebugChannel(ComaModelChannel);
         if (output)
         {
             NSString* expectedOutput = expected[name];
-            if (![output isEqualToString:expectedOutput])
-            {
-                NSString* common = [output commonPrefixWithString:expectedOutput options:0];
-                NSString* outputDiverged = [[output substringFromIndex:[common length]] firstLines:2];
-                NSString* expectedDiverged = [[expectedOutput substringFromIndex:[common length]] firstLines:2];
-                STFail(@"output didn't match:\n%@\n\nwas:'%@'\n\nexpected:'%@'\n\nfull:\n%@", [common lastLines:1], outputDiverged, expectedDiverged, output);
-            }
+            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLines];
         }
         else
         {
