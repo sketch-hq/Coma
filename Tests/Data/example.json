@@ -44,7 +44,7 @@
                     "import" : "BaseClass.h"
                 },
                 "protocols" : "<NSCoding, NSCopying>",
-                "generateMutableCopy" : true,
+                "generateMutableCopy" : false,
 			    "properties":
 			    {
 					"name" :
