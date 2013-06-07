@@ -10,10 +10,35 @@
 @class CustomClass;
 
 
-@interface Person : BaseClass<NSCopying, NSCoding>
+@interface PersonBase : BaseClass<NSCoding, NSCopying>
+
+
+/**
+ Person's name
+ */
 
 @property (strong, nonatomic) NSString* name;
+
+
+/**
+ Person's age
+ */
+
 @property (assign, nonatomic) NSInteger age;
+
+
+/**
+ Property with custom object that needs to be deep copied for some reason
+ */
+
 @property (strong, nonatomic) CustomClass* custom;
+
+
+
+/**
+ Returns a list of NSStrings with the names of the properties in it.
+ */
+
++ (NSArray*)propertyNames;
 
 @end

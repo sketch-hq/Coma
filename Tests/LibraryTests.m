@@ -78,7 +78,7 @@
                 NSString* common = [output commonPrefixWithString:expectedOutput options:0];
                 NSString* outputDiverged = [[output substringFromIndex:[common length]] firstLines:2];
                 NSString* expectedDiverged = [[expectedOutput substringFromIndex:[common length]] firstLines:2];
-                STFail(@"output didn't match:\n%@\n\nwas:\n%@\n\nexpected:\n%@\n\nfull:\n%@", [common lastLines:1], outputDiverged, expectedDiverged, output);
+                STFail(@"output didn't match:\n%@\n\nwas:'%@'\n\nexpected:'%@'\n\nfull:\n%@", [common lastLines:1], outputDiverged, expectedDiverged, output);
             }
         }
         else
