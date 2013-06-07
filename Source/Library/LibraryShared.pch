@@ -4,4 +4,6 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import <ECLogging/ECLogging.h>
+    #import <ECCore/ECCore.h>
 #endif
