@@ -23,6 +23,8 @@
 
 @implementation BCComaModel
 
+ECDefineDebugChannel(ComaModelChannel);
+
 + (BCComaModel*)modelWithContentsOfURL:(NSURL*)url templates:(BCComaTemplates *)templates
 {
     BCComaModel* model = [[BCComaModel alloc] initWithContentsOfURL:url templates:templates];
@@ -63,6 +65,8 @@
 
 - (void)setupWithModelDictionary:(NSMutableDictionary*)modelDictionary
 {
+    ECDebug(ComaModelChannel, @"setting up");
+    
     self.data = modelDictionary;
     self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
     self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
@@ -86,7 +90,7 @@
         result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         if (!result)
         {
-            NSLog(@"error %@", error); // TODO: EClogging...
+            [ECErrorReporter reportError:error message:@"error loading dictionary from %@", url];
         }
     }
 
@@ -130,6 +134,7 @@
     NSArray* templates = self.data[@"templates"];
     for (NSString* template in templates)
     {
+        ECDebug(ComaModelChannel, @"enumerating template %@", template);
         block(template);
     }
 }
@@ -140,7 +145,9 @@
     NSArray* classes = self.data[@"classes"];
     for (NSDictionary* class in classes)
     {
-        block(class[@"name"], class);
+        NSString* name = class[@"name"];
+        ECDebug(ComaModelChannel, @"enumerating class %@", name);
+        block(name, class);
     }
 }
 

@@ -36,6 +36,9 @@
 		22962867176204D2008D887F /* ExampleUndo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22962866176204D2008D887F /* ExampleUndo.m */; };
 		2296286A1762198A008D887F /* BCComaLazyLoadingTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628681762198A008D887F /* BCComaLazyLoadingTemplate.h */; };
 		2296286B1762198A008D887F /* BCComaLazyLoadingTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628691762198A008D887F /* BCComaLazyLoadingTemplate.m */; };
+		229628CB176221F6008D887F /* libECCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628C9176221F5008D887F /* libECCore.a */; };
+		229628CC176221F6008D887F /* libECLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CA176221F6008D887F /* libECLogging.a */; };
+		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,9 @@
 		22962866176204D2008D887F /* ExampleUndo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleUndo.m; path = Data/undo/ExampleUndo.m; sourceTree = "<group>"; };
 		229628681762198A008D887F /* BCComaLazyLoadingTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaLazyLoadingTemplate.h; sourceTree = "<group>"; };
 		229628691762198A008D887F /* BCComaLazyLoadingTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaLazyLoadingTemplate.m; sourceTree = "<group>"; };
+		229628C9176221F5008D887F /* libECCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628CA176221F6008D887F /* libECLogging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628CF17622726008D887F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229628D017622726008D887F /* IOKit.framework in Frameworks */,
+				229628CB176221F6008D887F /* libECCore.a in Frameworks */,
+				229628CC176221F6008D887F /* libECLogging.a in Frameworks */,
 				229628441760E827008D887F /* SenTestingKit.framework in Frameworks */,
 				229628181760E1D5008D887F /* Cocoa.framework in Frameworks */,
 				2296281B1760E1D5008D887F /* libComa.a in Frameworks */,
@@ -172,6 +181,9 @@
 		229627F01760E1BF008D887F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				229628CF17622726008D887F /* IOKit.framework */,
+				229628C9176221F5008D887F /* libECCore.a */,
+				229628CA176221F6008D887F /* libECLogging.a */,
 				229628461760EE33008D887F /* libGRMustache6-MacOS.a */,
 				229627F11760E1BF008D887F /* Foundation.framework */,
 				229628041760E1D5008D887F /* Cocoa.framework */,
@@ -555,6 +567,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -573,6 +589,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

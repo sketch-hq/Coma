@@ -14,9 +14,12 @@
 
 @implementation BCComaEngine
 
+ECDefineDebugChannel(ComaEngineChannel);
 
 - (void)generateModelAtURL:(NSURL*)modelURL withTemplatesAtURL:(NSURL*)templatesURL outputBlock:(OutputBlock)outputBlock
 {
+    ECDebug(ComaEngineChannel, @"rendering model %@ with templates %@", [modelURL lastPathComponent], [templatesURL lastPathComponent]);
+
     // we want to generate text, not HTML (don't need to escape stuff)
     [GRMustacheConfiguration defaultConfiguration].contentType = GRMustacheContentTypeText;
 

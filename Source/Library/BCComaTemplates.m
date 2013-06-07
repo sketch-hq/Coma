@@ -18,6 +18,8 @@
 
 @implementation BCComaTemplates
 
+ECDefineDebugChannel(ComaTemplatesChannel);
+
 + (BCComaTemplates*)templatesWithURL:(NSURL*)url
 {
     BCComaTemplates* result = [[BCComaTemplates alloc] initWithURL:url];
@@ -64,11 +66,11 @@
                 templates[name] = [NSNull null];
                 if (error.code != 260)
                 {
-                    NSLog(@"error loading template %@", error);
+                    [ECErrorReporter reportError:error message:@"error loading template %@", url];
                 }
                 else
                 {
-                    NSLog(@"Template %@ missing (this may not be a problem)", name);
+                    ECDebug(ComaTemplatesChannel, @"Template %@ missing (this may not be a problem)", name);
                 }
             }
         }
