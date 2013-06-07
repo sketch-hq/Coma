@@ -47,7 +47,7 @@
 
 @implementation LibraryTests
 
-- (void)testGeneratedExample
+- (void)doTestForGeneratedName:(NSString*)generatedName withTemplateName:(NSString*)templateName
 {
     // Generate the classes, and check that they match the versions linked in to these tests.
     
@@ -55,11 +55,11 @@
 
     NSBundle* bundle = [NSBundle bundleForClass:[self class]];
     NSURL* input = [bundle URLForResource:@"example" withExtension:@"json" subdirectory:@"Data"];
-    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data/basic"];
+    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:[NSString stringWithFormat:@"Data/%@", templateName]];
 
     NSError* error;
-    NSString* expectedHeader = [NSString stringWithContentsOfURL:[bundle URLForResource:@"ExampleBasic" withExtension:@"h"] encoding:NSUTF8StringEncoding error:&error];
-    NSString* expectedSource = [NSString stringWithContentsOfURL:[bundle URLForResource:@"ExampleBasic" withExtension:@"m"] encoding:NSUTF8StringEncoding error:&error];
+    NSString* expectedHeader = [NSString stringWithContentsOfURL:[bundle URLForResource:generatedName withExtension:@"h"] encoding:NSUTF8StringEncoding error:&error];
+    NSString* expectedSource = [NSString stringWithContentsOfURL:[bundle URLForResource:generatedName withExtension:@"m"] encoding:NSUTF8StringEncoding error:&error];
     NSDictionary* expected = @{ @"header" : expectedHeader, @"source" : expectedSource };
 
     [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
@@ -82,6 +82,16 @@
 
     }];
     
+}
+
+- (void)testGeneratedBasicExample
+{
+    [self doTestForGeneratedName:@"ExampleBasic" withTemplateName:@"basic"];
+}
+
+- (void)testGeneratedUndoExample
+{
+    [self doTestForGeneratedName:@"ExampleUndo" withTemplateName:@"undo"];
 }
 
 - (void)checkExample:(ExampleBasic*)example

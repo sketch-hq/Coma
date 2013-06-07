@@ -1,5 +1,5 @@
-- (void)set{{capitalized(name)}}:({{type}}*)value {
-    if (self.{{name}} != value) {
+- (void)set{{capitalized(name)}}:({{type}})value {
+    if (_{{name}} != value) {
         [self.undoManager registerUndoWithTarget:self
                                    selector:_cmd
                                      object:self.{{name}}];

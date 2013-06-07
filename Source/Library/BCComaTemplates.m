@@ -61,7 +61,15 @@
             }
             else
             {
-                NSLog(@"error loading template %@", error);
+                templates[name] = [NSNull null];
+                if (error.code != 260)
+                {
+                    NSLog(@"error loading template %@", error);
+                }
+                else
+                {
+                    NSLog(@"Template %@ missing (this may not be a problem)", name);
+                }
             }
         }
     }

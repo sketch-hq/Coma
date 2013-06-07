@@ -1,5 +1,9 @@
 - (void)set{{capitalized(name)}}:({{type}})value {
-    if (_{{name}} != value) {
-        _{{name}} = value;
+    if (self.{{name}} != value) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+                set{{capitalized(name)}}:self.{{name}}];
+
+        [self.undoManager setActionName:@"Change {{undo}}"];
+        [super set{{capitalized(name)}}:value];
     }
 }

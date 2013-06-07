@@ -33,6 +33,9 @@
 		2296285F1761DA1A008D887F /* BaseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296285D1761DA1A008D887F /* BaseClass.h */; };
 		229628611761DA20008D887F /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296285E1761DA1A008D887F /* BaseClass.m */; };
 		229628641761F29E008D887F /* ExampleBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628531761D8AC008D887F /* ExampleBasic.m */; };
+		22962867176204D2008D887F /* ExampleUndo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22962866176204D2008D887F /* ExampleUndo.m */; };
+		2296286A1762198A008D887F /* BCComaLazyLoadingTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628681762198A008D887F /* BCComaLazyLoadingTemplate.h */; };
+		2296286B1762198A008D887F /* BCComaLazyLoadingTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628691762198A008D887F /* BCComaLazyLoadingTemplate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,10 @@
 		229628591761D9DC008D887F /* CustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClass.m; sourceTree = "<group>"; };
 		2296285D1761DA1A008D887F /* BaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClass.h; sourceTree = "<group>"; };
 		2296285E1761DA1A008D887F /* BaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClass.m; sourceTree = "<group>"; };
+		22962865176204D2008D887F /* ExampleUndo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleUndo.h; path = Data/undo/ExampleUndo.h; sourceTree = "<group>"; };
+		22962866176204D2008D887F /* ExampleUndo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleUndo.m; path = Data/undo/ExampleUndo.m; sourceTree = "<group>"; };
+		229628681762198A008D887F /* BCComaLazyLoadingTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaLazyLoadingTemplate.h; sourceTree = "<group>"; };
+		229628691762198A008D887F /* BCComaLazyLoadingTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaLazyLoadingTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +218,8 @@
 				229628411760E5F1008D887F /* Coma.h */,
 				2296280D1760E1D5008D887F /* BCComaEngine.h */,
 				2296280E1760E1D5008D887F /* BCComaEngine.m */,
+				229628681762198A008D887F /* BCComaLazyLoadingTemplate.h */,
+				229628691762198A008D887F /* BCComaLazyLoadingTemplate.m */,
 				229628481760F4F7008D887F /* BCComaModel.h */,
 				229628491760F4F7008D887F /* BCComaModel.m */,
 				2296284C1760FBC2008D887F /* BCComaTemplates.h */,
@@ -276,6 +285,8 @@
 				2296285E1761DA1A008D887F /* BaseClass.m */,
 				229628521761D8AC008D887F /* ExampleBasic.h */,
 				229628531761D8AC008D887F /* ExampleBasic.m */,
+				22962865176204D2008D887F /* ExampleUndo.h */,
+				22962866176204D2008D887F /* ExampleUndo.m */,
 				229628581761D9DB008D887F /* CustomClass.h */,
 				229628591761D9DC008D887F /* CustomClass.m */,
 			);
@@ -297,6 +308,7 @@
 				2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */,
 				2296285A1761D9DC008D887F /* CustomClass.h in Headers */,
 				2296285F1761DA1A008D887F /* BaseClass.h in Headers */,
+				2296286A1762198A008D887F /* BCComaLazyLoadingTemplate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp \"${SOURCE_ROOT}/Tests/Data/basic/ExampleBasic.\"* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"";
+			shellScript = "cp \"${SOURCE_ROOT}/Tests/Data/basic/ExampleBasic.\"* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${SOURCE_ROOT}/Tests/Data/undo/ExampleUndo.\"* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -444,6 +456,7 @@
 				2296280F1760E1D5008D887F /* BCComaEngine.m in Sources */,
 				2296284B1760F4F7008D887F /* BCComaModel.m in Sources */,
 				2296284F1760FBC2008D887F /* BCComaTemplates.m in Sources */,
+				2296286B1762198A008D887F /* BCComaLazyLoadingTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +468,7 @@
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
 				229628641761F29E008D887F /* ExampleBasic.m in Sources */,
+				22962867176204D2008D887F /* ExampleUndo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

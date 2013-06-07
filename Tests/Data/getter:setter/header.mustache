@@ -6,7 +6,7 @@
 
 #import "{{name}}Basic.h"
 
-@interface {{name}}Undo : {{name}}Basic
+@interface {{name}}Undo : {{super.class}}{{protocols}}
 
 @property (strong, nonatomic) NSUndoManager* undoManager;
 

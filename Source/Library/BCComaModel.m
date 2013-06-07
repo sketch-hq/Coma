@@ -8,6 +8,7 @@
 
 #import "BCComaModel.h"
 #import "BCComaTemplates.h"
+#import "BCComaLazyLoadingTemplate.h"
 
 #import <GRMustache.h>
 
@@ -223,7 +224,7 @@
         // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
         NSDictionary* propertyTemplates = metaInfo[@"templates"];
         [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
-            GRMustacheTemplate* template = [self.templates templateNamed:templateName];
+            BCComaLazyLoadingTemplate* template = [BCComaLazyLoadingTemplate templateWithName:templateName templates:self.templates];
             if (template)
             {
                 info[key] = template;
