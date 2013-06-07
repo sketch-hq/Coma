@@ -36,7 +36,7 @@
 	
 		"classes":
 		{
-			"Person" :
+			"Example" :
 			{
 			    "super":
                 {
@@ -47,24 +47,57 @@
                 "generateMutableCopy" : false,
 			    "properties":
 			    {
-					"name" :
+					"string" :
 			        {
 			            "type" : "NSString",
-			            "undoName" : "Name",
-						"description" : "Person's name"
+						"description" : "NSString example"
 			        },
 				
-					"age" :
+					"integer" :
 			        {
 			            "type" : "NSInteger",
-			            "undoName": "Age",
-						"description" : "Person's age"
+						"description" : "NSInteger example"
+					},
+
+                    "unsignedInteger" :
+			        {
+			            "type" : "NSUInteger",
+						"description" : "NSUInteger example"
+					},
+
+                    "real" :
+			        {
+			            "type" : "CGFloat",
+						"description" : "CGFloat example"
+					},
+
+                    "rect" :
+			        {
+			            "type" : "NSRect",
+						"description" : "NSRect example"
+					},
+
+                    "point" :
+			        {
+			            "type" : "NSPoint",
+						"description" : "NSPoint example"
+					},
+
+                    "date" :
+			        {
+			            "type" : "NSDate",
+						"description" : "NSDate example"
+					},
+
+                    "boolean" :
+			        {
+			            "type" : "BOOL",
+						"description" : "BOOL example"
 					},
 
 					"custom" :
 			        {
 			            "type" : "CustomClass",
-			            "undoName": "Custom",
 						"description" : "Property with custom object that needs to be deep copied for some reason"
 					}
 				

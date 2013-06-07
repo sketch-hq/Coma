@@ -7,7 +7,7 @@
 //
 
 #import "LibraryTests.h"
-#import "PersonBasic.h"
+#import "ExampleBasic.h"
 #import "CustomClass.h"
 
 #import <Coma/Coma.h>
@@ -54,8 +54,8 @@
     NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data/basic"];
 
     NSError* error;
-    NSString* expectedHeader = [NSString stringWithContentsOfURL:[bundle URLForResource:@"PersonBasic" withExtension:@"h"] encoding:NSUTF8StringEncoding error:&error];
-    NSString* expectedSource = [NSString stringWithContentsOfURL:[bundle URLForResource:@"PersonBasic" withExtension:@"m"] encoding:NSUTF8StringEncoding error:&error];
+    NSString* expectedHeader = [NSString stringWithContentsOfURL:[bundle URLForResource:@"ExampleBasic" withExtension:@"h"] encoding:NSUTF8StringEncoding error:&error];
+    NSString* expectedSource = [NSString stringWithContentsOfURL:[bundle URLForResource:@"ExampleBasic" withExtension:@"m"] encoding:NSUTF8StringEncoding error:&error];
     NSDictionary* expected = @{ @"header" : expectedHeader, @"source" : expectedSource };
 
     [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
@@ -80,30 +80,43 @@
     
 }
 
+- (void)checkExample:(ExampleBasic*)example
+{
+    STAssertTrue([example.string isEqualToString:@"String"], @"unexpected string %@", example.string);
+    STAssertTrue(example.integer == -123, @"unexpected integer %ld", example.integer);
+    STAssertTrue(example.unsignedInteger == 123, @"unexpected unsigned %ld", example.unsignedInteger);
+    STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
+    STAssertTrue([example.date isEqualToDate:[NSDate dateWithString:@"1969-11-12"]], @"unexpected date %@", example.date);
+    STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
+    STAssertTrue([example.custom.string isEqualToString:@"Test"], @"unexpected string %@", example.custom.string);
+}
+
 - (void)testExample
 {
     // Check that the version of the test classes linked in to this project actually works.
     // This isn't the actual code that is generated (we're not compiling it on the fly or anthing clever like that), but it should be identical to it,
     // so it's a sanity check that we're generating sensible code.
     
-    PersonBasic* test = [PersonBasic new];
+    ExampleBasic* test = [ExampleBasic new];
 
-    test.name = @"Name";
-    test.age = 123;
+    test.string = @"String";
+    test.integer = -123;
+    test.unsignedInteger = 123;
+    test.real = 1.234;
+    test.date = [NSDate dateWithString:@"1969-11-12"];
+    test.rect = NSMakeRect(1, 2, 3, 4);
+    test.point= NSMakePoint(1, 2);
+    test.boolean = YES;
     test.custom = [CustomClass new];
     test.custom.string = @"Test";
 
-    PersonBasic* copy = [test copy];
-    STAssertTrue([copy.name isEqualToString:@"Name"], @"unexpected name %@", copy.name);
-    STAssertTrue(copy.age == 123, @"unexpected age %ld", copy.age);
-    STAssertTrue([copy.custom.string isEqualToString:@"Test"], @"unexpected string %@", copy.custom.string);
+    ExampleBasic* copy = [test copy];
+    [self checkExample:copy];
 
     NSData* encoded = [NSKeyedArchiver archivedDataWithRootObject:test];
 
-    PersonBasic* decoded = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    STAssertTrue([decoded.name isEqualToString:@"Name"], @"unexpected name %@", decoded.name);
-    STAssertTrue(decoded.age == 123, @"unexpected age %ld", decoded.age);
-    STAssertTrue([decoded.custom.string isEqualToString:@"Test"], @"unexpected string %@", decoded.custom.string);
+    ExampleBasic* decoded = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    [self checkExample:decoded];
 }
 
 @end

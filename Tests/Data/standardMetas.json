@@ -15,7 +15,22 @@
             "mode" : "assign",
             "basic" : true
         },
-        
+
+        "BasicEncodedAsString" :
+        {
+            "templates" :
+            {
+                "getter": "basicGetter",
+                "setter": "basicSetter",
+                "copier" : "basicCopy",
+                "mutableCopier" : "basicMutableCopy",
+                "encoder" : "basicEncodeAsString",
+                "decoder" : "basicDecodeAsString",
+            },
+            "mode" : "assign",
+            "basic" : true
+        },
+
         "NSObject" :
         {
             "templates" :

@@ -200,9 +200,10 @@
         NSString* meta = typeInfo[@"metatype"];
         NSDictionary* metaInfo = self.metas[meta];
 
-        // add the metatype entries to the property info
+        // add the type and metatype entries to the property info
         // this allows templates to pick up and use these properties directly
-        [info addEntriesFromDictionary:metaInfo];
+        info[@"typeInfo"] = typeInfo;
+        info[@"metaInfo"] = metaInfo;
 
         // process the list of template names in the meta info
         // for each of these, we try to load the corresponding template

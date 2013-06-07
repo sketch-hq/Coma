@@ -16,6 +16,23 @@
             "metatype" : "Basic",
         },
 
+        "NSRect" :
+        {
+            "metatype" : "BasicEncodedAsString",
+            "encodeType" : "Rect",
+        },
+
+        "NSPoint" :
+        {
+            "metatype" : "BasicEncodedAsString",
+            "encodeType" : "Point",
+        },
+
+        "BOOL" :
+        {
+            "metatype" : "Basic",
+        },
+
         "«default»" :
         {
             "metatype" : "NSObject",

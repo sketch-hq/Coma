@@ -2,4 +2,4 @@
  {{description}}
  */
 
-@property ({{#mode}}{{.}}{{/mode}}{{^mode}}strong{{/mode}}, nonatomic) {{type}}{{^basic}}*{{/basic}} {{name}};
+@property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) {{type}}{{^metaInfo.basic}}*{{/metaInfo.basic}} {{name}};
