@@ -41,6 +41,10 @@
 
 @end
 
+@interface LibraryTests()
+@property (strong, nonatomic) NSDate* date;
+@end
+
 @implementation LibraryTests
 
 - (void)testGeneratedExample
@@ -86,7 +90,7 @@
     STAssertTrue(example.integer == -123, @"unexpected integer %ld", example.integer);
     STAssertTrue(example.unsignedInteger == 123, @"unexpected unsigned %ld", example.unsignedInteger);
     STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
-    STAssertTrue([example.date isEqualToDate:[NSDate dateWithString:@"1969-11-12"]], @"unexpected date %@", example.date);
+    STAssertTrue([example.date isEqualToDate:self.date], @"unexpected date %@", example.date);
     STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
     STAssertTrue([example.custom.string isEqualToString:@"Test"], @"unexpected string %@", example.custom.string);
 }
@@ -99,11 +103,13 @@
     
     ExampleBasic* test = [ExampleBasic new];
 
+    self.date = [NSDate date];
+
     test.string = @"String";
     test.integer = -123;
     test.unsignedInteger = 123;
     test.real = 1.234;
-    test.date = [NSDate dateWithString:@"1969-11-12"];
+    test.date = self.date;
     test.rect = NSMakeRect(1, 2, 3, 4);
     test.point= NSMakePoint(1, 2);
     test.boolean = YES;
