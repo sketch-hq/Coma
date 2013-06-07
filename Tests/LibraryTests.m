@@ -12,6 +12,10 @@
 
 #import <Coma/Coma.h>
 
+ECDeclareDebugChannel(ComaEngineChannel);
+ECDeclareDebugChannel(ComaTemplatesChannel);
+ECDeclareDebugChannel(ComaModelChannel);
+
 @interface NSString(Extras)
 - (NSString*)lastLines:(NSUInteger)count;
 - (NSString*)firstLines:(NSUInteger)count;
@@ -46,6 +50,14 @@
 @end
 
 @implementation LibraryTests
+
++ (void)setUp
+{
+    // turn on some logging for the tests
+    ECEnableChannel(ComaEngineChannel);
+    ECEnableChannel(ComaModelChannel);
+    ECEnableChannel(ComaTemplatesChannel);
+}
 
 - (void)doTestForGeneratedName:(NSString*)generatedName withTemplateName:(NSString*)templateName
 {
