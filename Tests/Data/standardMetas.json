@@ -16,16 +16,16 @@
             "basic" : true
         },
 
-        "BasicEncodedAsString" :
+        "BasicNSType" :
         {
             "templates" :
             {
                 "getter": "basicGetter",
-                "setter": "basicSetter",
+                "setter": "basicNSTypeSetter",
                 "copier" : "basicCopy",
                 "mutableCopier" : "basicMutableCopy",
-                "encoder" : "basicEncodeAsString",
-                "decoder" : "basicDecodeAsString",
+                "encoder" : "basicNSTypeEncode",
+                "decoder" : "basicNSTypeDecode",
             },
             "mode" : "assign",
             "basic" : true

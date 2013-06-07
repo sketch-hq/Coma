@@ -18,14 +18,14 @@
 
         "NSRect" :
         {
-            "metatype" : "BasicEncodedAsString",
-            "encodeType" : "Rect",
+            "metatype" : "BasicNSType",
+            "NSType" : "Rect",
         },
 
         "NSPoint" :
         {
-            "metatype" : "BasicEncodedAsString",
-            "encodeType" : "Point",
+            "metatype" : "BasicNSType",
+            "NSType" : "Point",
         },
 
         "BOOL" :

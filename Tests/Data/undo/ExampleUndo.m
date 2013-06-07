@@ -41,6 +41,38 @@
 }
 
 
+- (void)setPoint:(NSPoint)value {
+    if (!NSEqualPoints(self.point, value)) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+         setPoint:self.point];
+
+        [self.undoManager setActionName:@"Change "];
+        [super setPoint:value];
+    }
+}
+
+
+- (void)setUnsignedInteger:(NSUInteger)value {
+    if (self.unsignedInteger != value) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+         setUnsignedInteger:self.unsignedInteger];
+
+        [self.undoManager setActionName:@"Change "];
+        [super setUnsignedInteger:value];
+    }
+}
+
+
+- (void)setRect:(NSRect)value {
+    if (!NSEqualRects(self.rect, value)) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+         setRect:self.rect];
+
+        [self.undoManager setActionName:@"Change "];
+        [super setRect:value];
+    }
+}
+
 - (void)setDate:(NSDate*)value {
     if (self.date != value) {
         [self.undoManager registerUndoWithTarget:self

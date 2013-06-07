@@ -186,6 +186,7 @@ ECDefineDebugChannel(ComaModelChannel);
             [self preprocessProperty:info name:key];
         }];
         info[@"properties"] = [properties allValues];
+        [self addFiltersToDictionary:info];
     }];
     self.data[@"classes"] = [classes allValues];
 }
@@ -238,6 +239,20 @@ ECDefineDebugChannel(ComaModelChannel);
             }
         }];
     }
+}
+
+- (void)addFiltersToDictionary:(NSMutableDictionary*)dictionary
+{
+    dictionary[@"mixedcaps"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+        NSString* string = [value description];
+        return [string mixedcaseStringFromMixedCaseWithInitialCapital];
+    }];
+
+    dictionary[@"mixedcapsInitialCapital"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+        NSString* string = [value description];
+        return [string mixedcaseStringInitialCapitalFromMixedCase];
+    }];
+
 }
 
 /**
