@@ -51,7 +51,7 @@ ECDeclareDebugChannel(ComaModelChannel);
         if (output)
         {
             NSString* expectedOutput = expected[name];
-            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLines];
+            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLinesIgnoreWhitespace];
         }
         else
         {
