@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		229627F21760E1BF008D887F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229627F11760E1BF008D887F /* Foundation.framework */; };
+		2207E4CB176883800003F042 /* libECCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628C9176221F5008D887F /* libECCore.a */; };
+		2207E4CC176883800003F042 /* libECLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CA176221F6008D887F /* libECLogging.a */; };
+		2207E4CD176883800003F042 /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628461760EE33008D887F /* libGRMustache6-MacOS.a */; };
+		2207E4CF176883810003F042 /* libECCommandLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2207E4CE176883810003F042 /* libECCommandLine.a */; };
+		2207E4D0176883AC0003F042 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
+		2207E4D1176883BC0003F042 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -22,7 +27,6 @@
 		229628421760E5F1008D887F /* Coma.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628411760E5F1008D887F /* Coma.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		229628431760E767008D887F /* libComa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628031760E1D5008D887F /* libComa.a */; };
 		229628441760E827008D887F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628161760E1D5008D887F /* SenTestingKit.framework */; };
-		229628471760EE33008D887F /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628461760EE33008D887F /* libGRMustache6-MacOS.a */; };
 		2296284A1760F4F7008D887F /* BCComaModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 229628481760F4F7008D887F /* BCComaModel.h */; };
 		2296284B1760F4F7008D887F /* BCComaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229628491760F4F7008D887F /* BCComaModel.m */; };
 		2296284E1760FBC2008D887F /* BCComaTemplates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296284C1760FBC2008D887F /* BCComaTemplates.h */; };
@@ -67,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		2207E4CA176877760003F042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2207E4CE176883810003F042 /* libECCommandLine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECCommandLine.a; path = "../../../../../../../../../Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug/libECCommandLine.a"; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,8 +133,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2207E4D0176883AC0003F042 /* Cocoa.framework in Frameworks */,
+				2207E4D1176883BC0003F042 /* IOKit.framework in Frameworks */,
+				2207E4CF176883810003F042 /* libECCommandLine.a in Frameworks */,
+				2207E4CB176883800003F042 /* libECCore.a in Frameworks */,
+				2207E4CC176883800003F042 /* libECLogging.a in Frameworks */,
+				2207E4CD176883800003F042 /* libGRMustache6-MacOS.a in Frameworks */,
 				229628431760E767008D887F /* libComa.a in Frameworks */,
-				229627F21760E1BF008D887F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229628471760EE33008D887F /* libGRMustache6-MacOS.a in Frameworks */,
 				229628051760E1D5008D887F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +194,7 @@
 		229627F01760E1BF008D887F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2207E4CE176883810003F042 /* libECCommandLine.a */,
 				229628D2176238D5008D887F /* ECUnitTests.framework */,
 				229628CF17622726008D887F /* IOKit.framework */,
 				229628C9176221F5008D887F /* libECCore.a */,
@@ -530,6 +540,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -537,6 +553,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks",
+				);
 			};
 			name = Release;
 		};
@@ -544,10 +566,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
-				);
 			};
 			name = Debug;
 		};
@@ -555,10 +573,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
-				);
 			};
 			name = Release;
 		};
@@ -576,10 +590,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -599,10 +609,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

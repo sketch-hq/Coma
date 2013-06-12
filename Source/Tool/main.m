@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Bohemian Coding. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <Coma/Coma.h>
 #import <ECCommandLine/ECCommandLine.h>
 

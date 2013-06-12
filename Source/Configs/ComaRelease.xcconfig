@@ -1,4 +1,4 @@
-#include "../ECLogging/Source/Configuration/ECMacRelease.xcconfig"
+#include "../../Modules/ECLogging/Source/Configuration/ECMacRelease.xcconfig"
 #include "ComaShared.xcconfig"
 
 // Release only settings for all Coma targets

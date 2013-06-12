@@ -1,5 +1,7 @@
-#include "../ECLogging/Source/Configuration/ECMacCommandLine.xcconfig"
+#include "../../Modules/ECLogging/Source/Configuration/ECMacCommandLine.xcconfig"
 
 PRODUCT_NAME = coma
 
 GCC_PREFIX_HEADER = Source/Tool/Tool$(CONFIGURATION).pch
+
+INFOPLIST_FILE = Source/Tool/Info.plist

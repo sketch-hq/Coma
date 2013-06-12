@@ -2,4 +2,6 @@
 // Prefix header for all source files of the 'Coma' target in the 'Coma' project
 //
 
+#import <ECLogging/ECLoggingRelease.pch>
+
 #import "ComaShared.pch"

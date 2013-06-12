@@ -1,4 +1,4 @@
-#include "../ECLogging/Source/Configuration/ECMacDebug.xcconfig"
+#include "../../Modules/ECLogging/Source/Configuration/ECMacDebug.xcconfig"
 #include "ComaShared.xcconfig"
 
 // Debug only settings for all Coma targets
