@@ -20,7 +20,7 @@
     NSURL* inputURL = [NSURL fileURLWithPath:arguments[0]];
     NSURL* templatesURL = [NSURL fileURLWithPath:arguments[1]];
 
-    NSURL* outputURL = [NSURL fileURLWithPath:@"./'"];
+    NSURL* outputURL = [NSURL fileURLWithPath:@"./"];
     BCComaEngine* generator = [BCComaEngine new];
 
     __block ECCommandLineResult result = ECCommandLineResultOK;
@@ -28,7 +28,7 @@
 
         if (output)
         {
-            NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
+            NSURL* fileURL = [[outputURL URLByAppendingPathComponent:name] URLByStandardizingPath];
             if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
             {
                 [engine outputFormat:@"Generated %@\n", name];
