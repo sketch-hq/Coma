@@ -46,7 +46,7 @@
 	<string>NSApplication</string>
 	<key>Commands</key>
 	<dict>
-		<key>load</key>
+		<key>generate</key>
 		<dict>
 			<key>class</key>
 			<string>LoadCommand</string>
@@ -65,65 +65,19 @@
 				</array>
 			</dict>
 		</dict>
-		<key>save</key>
-		<dict>
-			<key>class</key>
-			<string>SaveCommand</string>
-			<key>help</key>
-			<string>save some stuff to somewhere</string>
-			<key>options</key>
-			<dict>
-				<key>required</key>
-				<array>
-					<string>string</string>
-					<string>number</string>
-				</array>
-				<key>optional</key>
-				<array>
-					<string>boolean</string>
-				</array>
-			</dict>
-		</dict>
 	</dict>
 	<key>Options</key>
 	<dict>
-		<key>string</key>
+		<key>overwrite</key>
 		<dict>
 			<key>short</key>
-			<string>s</string>
-			<key>mode</key>
-			<string>required</string>
-			<key>help</key>
-			<string>a string argument</string>
-		</dict>
-		<key>string2</key>
-		<dict>
-			<key>short</key>
-			<string>t</string>
-			<key>default</key>
-			<string>default value</string>
-			<key>mode</key>
-			<string>required</string>
-			<key>help</key>
-			<string>another string argument with a default value</string>
-		</dict>
-		<key>number</key>
-		<dict>
-			<key>short</key>
-			<string>n</string>
-			<key>mode</key>
-			<string>required</string>
-			<key>help</key>
-			<string>a number argument</string>
-		</dict>
-		<key>boolean</key>
-		<dict>
-			<key>short</key>
-			<string>b</string>
+			<string>o</string>
 			<key>mode</key>
 			<string>optional</string>
 			<key>help</key>
-			<string>a boolean argument</string>
+			<string>set this to YES to allow coda to overwrite existing files with newly generated ones</string>
+			<key>default</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>ECLoggingDebug</key>
