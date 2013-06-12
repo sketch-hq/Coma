@@ -8,19 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <Coma/Coma.h>
+#import <ECCommandLine/ECCommandLine.h>
 
 int main(int argc, const char * argv[])
 {
-
+    int result;
     @autoreleasepool {
 
-        BCComaEngine* engine = [BCComaEngine new];
-        [engine doStuff];
+        result = ECCommandLineMain(argc, argv);
 
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
     }
-    return 0;
+
+    return result;
 }
 
