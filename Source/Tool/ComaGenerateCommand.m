@@ -20,18 +20,29 @@
     NSURL* inputURL = [NSURL fileURLWithPath:arguments[0]];
     NSURL* templatesURL = [NSURL fileURLWithPath:arguments[1]];
 
-    NSURL* outputURL = [NSURL fileURLWithPath:@"./"];
+    BOOL overwriting = [[engine optionForKey:@"overwriting"] boolValue];
+    NSString* outputOption = [[engine optionForKey:@"output"] stringByStandardizingPath];
+    NSURL* outputURL = [NSURL fileURLWithPath:outputOption ? outputOption : [@"./" stringByStandardizingPath]];
     BCComaEngine* generator = [BCComaEngine new];
 
+    NSFileManager* fm = [NSFileManager defaultManager];
+    
     __block ECCommandLineResult result = ECCommandLineResultOK;
     [generator generateModelAtURL:inputURL withTemplatesAtURL:templatesURL outputBlock:^(NSString *name, NSString *output, NSError* error) {
 
         if (output)
         {
-            NSURL* fileURL = [[outputURL URLByAppendingPathComponent:name] URLByStandardizingPath];
-            if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
+            NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
+            BOOL fileExists = [fm fileExistsAtPath:[outputURL path]];
+            BOOL okToWrite = overwriting || !fileExists;
+            if (okToWrite && [output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
             {
                 [engine outputFormat:@"Generated %@\n", name];
+            }
+            else if (!okToWrite)
+            {
+                [engine outputError:error format:@"Could not overwrite %@ -- file already exists. Use option --overwrite to force overwriting.", name];
+                result = ECCommandLineResultImplementationReturnedError;
             }
             else
             {
