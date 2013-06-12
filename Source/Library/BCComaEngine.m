@@ -12,6 +12,8 @@
 
 #import <GRMustache.h>
 
+NSString *const BCComaEngineErrorDomain = @"BCComaEngineErrorDomain";
+
 @implementation BCComaEngine
 
 ECDefineDebugChannel(ComaEngineChannel);
@@ -34,15 +36,36 @@ ECDefineDebugChannel(ComaEngineChannel);
 
         // get the actual template
         GRMustacheTemplate* template = [templates templateNamed:templateName];
+        NSString* nameTemplateName = [NSString stringWithFormat:@"%@.name", templateName];
+        GRMustacheTemplate* nameTemplate = [templates templateNamed:nameTemplateName];
+        if (!template || !nameTemplate)
+        {
+            NSDictionary* info = @{
+                                   NSLocalizedDescriptionKey : @"Template missing",
+                                   @"TemplateName" : template ? nameTemplateName : templateName,
+                                   @"TemplatesURL" : templatesURL
+                                   };
+            NSError* error = [NSError errorWithDomain:BCComaEngineErrorDomain code:BCComaEngineErrorMissingTemplate userInfo:info];
+            outputBlock(templateName, nil, error);
+        }
+        else
+        {
+            // enumerate each class in the mode, applying it to the template
+            [model enumerateClasses:^(NSString *name, NSDictionary *info) {
+                NSError* error = nil;
 
-        // enumerate each class in the mode, applying it to the template
-        [model enumerateClasses:^(NSString *name, NSDictionary *info) {
-            NSError* error = nil;
+                // render the text from the template
+                NSString* output = [template renderObject:info error:&error];
+                NSString* outputName = templateName;
+                if (output)
+                {
+                    // use the name template to figure out the final name for the output
+                    outputName = [nameTemplate renderObject:info error:&error];
+                }
 
-            // render the text from the template
-            NSString* text = [template renderObject:info error:&error];
-            outputBlock(templateName, text, error);
-        }];
+                outputBlock(outputName, output, error);
+            }];
+        }
     }];
 }
 

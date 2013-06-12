@@ -10,6 +10,13 @@
 
 typedef void (^OutputBlock)(NSString* name, NSString* output, NSError* error);
 
+NSString *const BCComaEngineErrorDomain;
+
+typedef NS_ENUM(NSUInteger, BCComaEngineError)
+{
+    BCComaEngineErrorMissingTemplate
+};
+
 @interface BCComaEngine : NSObject
 
 /**

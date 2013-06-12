@@ -44,6 +44,7 @@
 		229628CC176221F6008D887F /* libECLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CA176221F6008D887F /* libECLogging.a */; };
 		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 		229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D2176238D5008D887F /* ECUnitTests.framework */; };
+		2296A8541768987E00BF0566 /* ComaGenerateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296A8531768987E00BF0566 /* ComaGenerateCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		229628CA176221F6008D887F /* libECLogging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628CF17622726008D887F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		229628D2176238D5008D887F /* ECUnitTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2296A8521768987E00BF0566 /* ComaGenerateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComaGenerateCommand.h; sourceTree = "<group>"; };
+		2296A8531768987E00BF0566 /* ComaGenerateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComaGenerateCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 				229627F41760E1BF008D887F /* main.m */,
 				229627F81760E1C0008D887F /* Coma.1 */,
 				2207E4CA176877760003F042 /* Info.plist */,
+				2296A8521768987E00BF0566 /* ComaGenerateCommand.h */,
+				2296A8531768987E00BF0566 /* ComaGenerateCommand.m */,
 				229627F61760E1BF008D887F /* Supporting Files */,
 			);
 			name = Tool;
@@ -473,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2296A8541768987E00BF0566 /* ComaGenerateCommand.m in Sources */,
 				229627F51760E1BF008D887F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

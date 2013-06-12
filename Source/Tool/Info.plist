@@ -49,19 +49,27 @@
 		<key>generate</key>
 		<dict>
 			<key>class</key>
-			<string>LoadCommand</string>
+			<string>ComaGenerateCommand</string>
 			<key>help</key>
-			<string>load some stuff from somewhere</string>
+			<string>Generate classes using a template</string>
+			<key>arguments</key>
+			<array>
+				<dict>
+					<key>description</key>
+					<string>model</string>
+				</dict>
+				<dict>
+					<key>description</key>
+					<string>templates</string>
+				</dict>
+			</array>
 			<key>options</key>
 			<dict>
 				<key>required</key>
-				<array>
-					<string>string</string>
-					<string>number</string>
-				</array>
+				<array/>
 				<key>optional</key>
 				<array>
-					<string>boolean</string>
+					<string>output</string>
 				</array>
 			</dict>
 		</dict>
@@ -71,13 +79,22 @@
 		<key>overwrite</key>
 		<dict>
 			<key>short</key>
-			<string>o</string>
+			<string>f</string>
 			<key>mode</key>
 			<string>optional</string>
 			<key>help</key>
 			<string>set this to YES to allow coda to overwrite existing files with newly generated ones</string>
 			<key>default</key>
 			<false/>
+		</dict>
+		<key>output</key>
+		<dict>
+			<key>short</key>
+			<string>o</string>
+			<key>mode</key>
+			<string>optional</string>
+			<key>help</key>
+			<string>where to output the generated files - defaults to the current working directory</string>
 		</dict>
 	</dict>
 	<key>ECLoggingDebug</key>
