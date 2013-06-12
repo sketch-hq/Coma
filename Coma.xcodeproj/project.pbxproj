@@ -541,11 +541,6 @@
 			baseConfigurationReference = 2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks",
-				);
 			};
 			name = Debug;
 		};
@@ -554,11 +549,6 @@
 			baseConfigurationReference = 2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks",
-				);
 			};
 			name = Release;
 		};
