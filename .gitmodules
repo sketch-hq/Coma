@@ -7,3 +7,6 @@
 [submodule "Modules/ECLogging"]
 	path = Modules/ECLogging
 	url = git@github.com:elegantchaos/ECLogging.git
+[submodule "Modules/ECCommandLine"]
+	path = Modules/ECCommandLine
+	url = git@github.com:elegantchaos/ECCommandLine.git
