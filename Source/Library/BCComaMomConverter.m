@@ -172,15 +172,27 @@
         switch (attribute.attributeType)
         {
             case NSInteger16AttributeType:
+                basicType = @"int16_t";
+                break;
+
             case NSInteger32AttributeType:
+                basicType = @"int32_t";
+                break;
+
             case NSInteger64AttributeType:
+                basicType = @"int64_t";
+                break;
+
             case NSDecimalAttributeType:
                 basicType = @"NSInteger";
                 break;
 
             case NSDoubleAttributeType:
+                basicType = @"double";
+                break;
+
             case NSFloatAttributeType:
-                basicType = @"CGFloat";
+                basicType = @"float";
                 break;
 
             case NSBooleanAttributeType:
@@ -214,6 +226,11 @@
           @"maximum" : @(relationship.maxCount)
           }];
 
+        if ((relationship.minCount > 1) || (relationship.maxCount > 1))
+        {
+            info[@"toMany"] = @YES;
+        }
+        
         NSRelationshipDescription* inverse = relationship.inverseRelationship;
         if (inverse)
         {

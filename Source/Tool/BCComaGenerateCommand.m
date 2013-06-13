@@ -22,35 +22,78 @@
     NSURL* inputURL = [NSURL fileURLWithPath:arguments[0]];
     NSURL* templatesURL = [NSURL fileURLWithPath:arguments[1]];
 
-    BCComaEngine* generator = [BCComaEngine new];
-    [generator generateModelAtURL:inputURL withTemplatesAtURL:templatesURL outputBlock:^(NSString *name, NSString *output, NSError* error) {
-
-        if (output)
+    if ([[inputURL pathExtension] isEqualToString:@"xcdatamodeld"])
+    {
+        NSURL* converted = [self convertToTemporaryFileFromCoreDataModel:inputURL];
+        if (!converted)
         {
-            NSURL* fileURL = nil;
-            result = [self outputFileWithName:name engine:engine URL:&fileURL];
-            if (result == ECCommandLineResultOK)
+            [engine outputError:nil format:@"Failed to convert %@", [inputURL lastPathComponent]];
+            result = ECCommandLineResultImplementationReturnedError;
+        }
+    }
+
+    if (result == ECCommandLineResultOK)
+    {
+        BCComaEngine* generator = [BCComaEngine new];
+        [generator generateModelAtURL:inputURL withTemplatesAtURL:templatesURL outputBlock:^(NSString *name, NSString *output, NSError* error) {
+
+            if (output)
             {
-                if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
+                NSURL* fileURL = nil;
+                result = [self outputFileWithName:name engine:engine URL:&fileURL];
+                if (result == ECCommandLineResultOK)
                 {
-                    [engine outputFormat:@"Generated %@\n", name];
+                    if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
+                    {
+                        [engine outputFormat:@"Generated %@\n", name];
+                    }
+                    else
+                    {
+                        [engine outputError:error format:@"Failed to write %@", name];
+                        result = ECCommandLineResultImplementationReturnedError;
+                    }
                 }
-                else
+            }
+
+            else
+            {
+                [engine outputError:error format:@"Failed to generate %@", name];
+                result = ECCommandLineResultImplementationReturnedError;
+            }
+        }];
+    }
+
+	return result;
+}
+
+- (NSURL*)convertToTemporaryFileFromCoreDataModel:(NSURL*)inputURL
+{
+    // we've been given a model - try to convert it
+    NSError* error;
+    NSURL* result = nil;
+    NSString* name = [[inputURL lastPathComponent] stringByDeletingPathExtension];
+    NSURL* baseURL = [[[inputURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"json"];
+    NSData* baseData = [[NSData alloc] initWithContentsOfURL:baseURL options:0 error:&error];
+    if (baseData)
+    {
+        NSDictionary* baseDictionary = [NSJSONSerialization JSONObjectWithData:baseData options:0 error:&error];
+        if (baseDictionary)
+        {
+            BCComaMomConverter* generator = [BCComaMomConverter new];
+            NSDictionary* mergedDictionary = [generator mergeModelAtURL:inputURL into:baseDictionary error:&error];
+            if (mergedDictionary)
+            {
+                NSURL* tempURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"ComaTemp.json"];
+                NSData* tempData = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
+                if ([tempData writeToURL:tempURL atomically:YES])
                 {
-                    [engine outputError:error format:@"Failed to write %@", name];
-                    result = ECCommandLineResultImplementationReturnedError;
+                    result = tempURL;
                 }
             }
         }
-        
-        else
-        {
-            [engine outputError:error format:@"Failed to generate %@", name];
-            result = ECCommandLineResultImplementationReturnedError;
-        }
-    }];
+    }
 
-	return result;
+    return result;
 }
 
 @end

@@ -1,12 +1,37 @@
 {
     "items" :
     {
+        "int16_t" :
+        {
+            "metatype" : "Basic",
+        },
+
+        "int32_t" :
+        {
+            "metatype" : "Basic",
+        },
+
+        "int64_t" :
+        {
+            "metatype" : "Basic",
+        },
+
         "NSInteger" :
         {
             "metatype" : "Basic",
         },
 
         "NSUInteger" :
+        {
+            "metatype" : "Basic",
+        },
+
+        "float" :
+        {
+            "metatype" : "Basic",
+        },
+
+        "double" :
         {
             "metatype" : "Basic",
         },
