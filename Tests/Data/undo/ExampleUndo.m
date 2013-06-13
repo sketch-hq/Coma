@@ -13,7 +13,7 @@
         [self.undoManager registerUndoWithTarget:self
                                         selector:_cmd
                                           object:self.string];
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set String"];
         [super setString:value];
     }
 }
@@ -23,7 +23,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setInteger:self.integer];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Integer"];
         [super setInteger:value];
     }
 }
@@ -33,7 +33,7 @@
         [self.undoManager registerUndoWithTarget:self
                                         selector:_cmd
                                           object:self.custom];
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Custom"];
         [super setCustom:value];
     }
 }
@@ -43,7 +43,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setPoint:self.point];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Point"];
         [super setPoint:value];
     }
 }
@@ -53,7 +53,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setUnsignedInteger:self.unsignedInteger];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set UInteger"];
         [super setUnsignedInteger:value];
     }
 }
@@ -63,7 +63,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setRect:self.rect];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Rect"];
         [super setRect:value];
     }
 }
@@ -73,7 +73,7 @@
         [self.undoManager registerUndoWithTarget:self
                                         selector:_cmd
                                           object:self.date];
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Date"];
         [super setDate:value];
     }
 }
@@ -83,7 +83,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setBoolean:self.boolean];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Boolean"];
         [super setBoolean:value];
     }
 }
@@ -93,7 +93,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
          setReal:self.real];
 
-        [self.undoManager setActionName:@"Change "];
+        [self.undoManager setActionName:@"Set Real"];
         [super setReal:value];
     }
 }

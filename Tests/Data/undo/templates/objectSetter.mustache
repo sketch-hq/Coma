@@ -3,7 +3,7 @@
         [self.undoManager registerUndoWithTarget:self
                                    selector:_cmd
                                      object:self.{{name}}];
-        [self.undoManager setActionName:@"Change {{undo}}"];
+        [self.undoManager setActionName:@"{{undo}}"];
         [super set{{capitalized(name)}}:value];
     }
 }

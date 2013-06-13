@@ -3,7 +3,7 @@
         [[self.undoManager prepareWithInvocationTarget:self]
                 set{{mixedcapsInitialCapital(name)}}:self.{{name}}];
 
-        [self.undoManager setActionName:@"Change {{undo}}"];
+        [self.undoManager setActionName:@"{{undo}}"];
         [super set{{mixedcapsInitialCapital(name)}}:value];
     }
 }

@@ -50,54 +50,63 @@
 					"string" :
 			        {
 			            "type" : "NSString",
-						"description" : "NSString example"
+                        "undo" : "Set String",
+						"description" : "NSString example",
 			        },
 				
 					"integer" :
 			        {
 			            "type" : "NSInteger",
+                        "undo" : "Set Integer",
 						"description" : "NSInteger example"
 					},
 
                     "unsignedInteger" :
 			        {
 			            "type" : "NSUInteger",
+                        "undo" : "Set UInteger",
 						"description" : "NSUInteger example"
 					},
 
                     "real" :
 			        {
 			            "type" : "CGFloat",
+                        "undo" : "Set Real",
 						"description" : "CGFloat example"
 					},
 
                     "rect" :
 			        {
 			            "type" : "NSRect",
+                        "undo" : "Set Rect",
 						"description" : "NSRect example"
 					},
 
                     "point" :
 			        {
 			            "type" : "NSPoint",
+                        "undo" : "Set Point",
 						"description" : "NSPoint example"
 					},
 
                     "date" :
 			        {
 			            "type" : "NSDate",
+                        "undo" : "Set Date",
 						"description" : "NSDate example"
 					},
 
                     "boolean" :
 			        {
 			            "type" : "BOOL",
+                        "undo" : "Set Boolean",
 						"description" : "BOOL example"
 					},
 
 					"custom" :
 			        {
 			            "type" : "CustomClass",
+                        "undo" : "Set Custom",
 						"description" : "Property with custom object that needs to be deep copied for some reason"
 					}
 				
