@@ -70,6 +70,7 @@
 				<key>optional</key>
 				<array>
 					<string>output</string>
+					<string>overwriting</string>
 				</array>
 			</dict>
 		</dict>
@@ -97,13 +98,14 @@
 				<key>optional</key>
 				<array>
 					<string>output</string>
+					<string>overwriting</string>
 				</array>
 			</dict>
 		</dict>
 	</dict>
 	<key>Options</key>
 	<dict>
-		<key>overwrite</key>
+		<key>overwriting</key>
 		<dict>
 			<key>short</key>
 			<string>f</string>

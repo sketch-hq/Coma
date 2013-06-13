@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Bohemian Coding. All rights reserved.
 //
 
-#import <ECCommandLine/ECCommandLine.h>
+#import "BCComaCommand.h"
 
-@interface BCComaConvertCommand : ECCommandLineCommand
+@interface BCComaConvertCommand : BCComaCommand
 
 @end

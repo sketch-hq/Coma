@@ -32,55 +32,48 @@
     else
     {
         NSDictionary* modelDictionary = [NSJSONSerialization JSONObjectWithData:mergeData options:0 error:&error];
-        if (modelDictionary)
+        if (!modelDictionary)
         {
             [engine outputError:error format:@"Couldn't parse template to merge into."];
             result = ECCommandLineResultImplementationReturnedError;
         }
         else
         {
-            BOOL overwriting = [[engine optionForKey:@"overwriting"] boolValue];
-            NSString* outputOption = [[engine optionForKey:@"output"] stringByStandardizingPath];
-            NSURL* outputURL = [NSURL fileURLWithPath:outputOption ? outputOption : [@"./" stringByStandardizingPath]];
-            BCComaMomConverter* generator = [BCComaMomConverter new];
+            NSString* inputName = [modelURL lastPathComponent];
+            NSString* name = [[inputName stringByDeletingPathExtension] stringByAppendingPathExtension:@"json"];
+            NSURL* fileURL = nil;
+            result = [self outputFileWithName:name engine:engine URL:&fileURL];
 
-            NSFileManager* fm = [NSFileManager defaultManager];
-            NSString* name = [modelURL lastPathComponent];
-
-            NSDictionary* mergedDictionary = [generator mergeModelAtURL:modelURL into:modelDictionary error:&error];
-            if (mergedDictionary)
+            if (result == ECCommandLineResultOK)
             {
-                NSData* data = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
-                if (data)
+                BCComaMomConverter* generator = [BCComaMomConverter new];
+                NSDictionary* mergedDictionary = [generator mergeModelAtURL:modelURL into:modelDictionary error:&error];
+                if (mergedDictionary)
                 {
-                    NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
-                    BOOL fileExists = [fm fileExistsAtPath:[outputURL path]];
-                    BOOL okToWrite = overwriting || !fileExists;
-                    if (okToWrite && [data writeToURL:fileURL options:NSDataWritingAtomic error:&error])
+                    NSData* data = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
+                    if (data)
                     {
-                        [engine outputFormat:@"Converted %@\n", name];
-                    }
-                    else if (!okToWrite)
-                    {
-                        [engine outputError:error format:@"Could not overwrite %@ -- file already exists. Use option --overwrite to force overwriting.", name];
-                        result = ECCommandLineResultImplementationReturnedError;
+                        if ([data writeToURL:fileURL options:NSDataWritingAtomic error:&error])
+                        {
+                            [engine outputFormat:@"Converted %@ to %@\n", inputName, name];
+                        }
+                        else
+                        {
+                            [engine outputError:error format:@"Failed to write %@", name];
+                            result = ECCommandLineResultImplementationReturnedError;
+                        }
                     }
                     else
                     {
-                        [engine outputError:error format:@"Failed to write %@", name];
+                        [engine outputError:error format:@"Failed to generate JSON for %@", name];
                         result = ECCommandLineResultImplementationReturnedError;
                     }
                 }
                 else
                 {
-                    [engine outputError:error format:@"Failed to generate JSON for %@", name];
+                    [engine outputError:error format:@"Failed to convert %@", inputName];
                     result = ECCommandLineResultImplementationReturnedError;
                 }
-            }
-            else
-            {
-                [engine outputError:error format:@"Failed to convert %@", name];
-                result = ECCommandLineResultImplementationReturnedError;
             }
         }
     }

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Bohemian Coding. All rights reserved.
 //
 
-#import <ECCommandLine/ECCommandLine.h>
+#import "BCComaCommand.h"
 
-@interface BCComaGenerateCommand : ECCommandLineCommand
+@interface BCComaGenerateCommand : BCComaCommand
 
 @end

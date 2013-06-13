@@ -17,6 +17,7 @@
 		227867A61769CD7F001F96FB /* BCComaMomConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867A41769CD7F001F96FB /* BCComaMomConverter.m */; };
 		227867A81769CF82001F96FB /* ConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867A71769CF82001F96FB /* ConverterTests.m */; };
 		227867AB1769FC9A001F96FB /* BCComaConvertCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */; };
+		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -83,6 +84,8 @@
 		227867A71769CF82001F96FB /* ConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterTests.m; sourceTree = "<group>"; };
 		227867A91769FC9A001F96FB /* BCComaConvertCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaConvertCommand.h; sourceTree = "<group>"; };
 		227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaConvertCommand.m; sourceTree = "<group>"; };
+		227867AC176A01FB001F96FB /* BCComaCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCComaCommand.h; path = ../Configs/BCComaCommand.h; sourceTree = "<group>"; };
+		227867AD176A01FB001F96FB /* BCComaCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BCComaCommand.m; path = ../Configs/BCComaCommand.m; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				229627F41760E1BF008D887F /* main.m */,
 				229627F81760E1C0008D887F /* Coma.1 */,
 				2207E4CA176877760003F042 /* Info.plist */,
+				227867AC176A01FB001F96FB /* BCComaCommand.h */,
+				227867AD176A01FB001F96FB /* BCComaCommand.m */,
 				227867A91769FC9A001F96FB /* BCComaConvertCommand.h */,
 				227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */,
 				2296A8521768987E00BF0566 /* BCComaGenerateCommand.h */,
@@ -495,6 +500,7 @@
 			files = (
 				2296A8541768987E00BF0566 /* BCComaGenerateCommand.m in Sources */,
 				227867AB1769FC9A001F96FB /* BCComaConvertCommand.m in Sources */,
+				227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */,
 				229627F51760E1BF008D887F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +571,7 @@
 			baseConfigurationReference = 2296282D1760E30A008D887F /* ComaToolDebug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 			};
 			name = Debug;
 		};
@@ -573,6 +580,7 @@
 			baseConfigurationReference = 2296282E1760E30A008D887F /* ComaToolRelease.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 			};
 			name = Release;
 		};
