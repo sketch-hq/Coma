@@ -18,6 +18,7 @@
 @property (strong, nonatomic) BCComaTemplates* templates;
 @property (strong, nonatomic) NSDictionary* types;
 @property (strong, nonatomic) NSDictionary* metas;
+@property (strong, nonatomic) NSDictionary* classes;
 
 @end
 
@@ -142,7 +143,7 @@ ECDefineDebugChannel(ComaModelChannel);
 
 - (void)enumerateClasses:(ClassBlock)block
 {
-    NSArray* classes = self.data[@"classes"];
+    NSArray* classes = [self.classes allValues];
     for (NSDictionary* class in classes)
     {
         NSString* name = class[@"name"];
@@ -179,6 +180,7 @@ ECDefineDebugChannel(ComaModelChannel);
 
     NSDictionary* defaults = self.data[@"defaults"];
     NSMutableDictionary* classes = self.data[@"classes"];
+    self.classes = classes;
     [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
         info[@"name"] = key;
         info[@"coma"] = comaInfo;
@@ -204,7 +206,6 @@ ECDefineDebugChannel(ComaModelChannel);
 
         [self addFiltersToDictionary:info];
     }];
-    self.data[@"classes"] = [classes allValues];
 }
 
 /**
@@ -217,7 +218,8 @@ ECDefineDebugChannel(ComaModelChannel);
     info[@"name"] = name;
 
     // look up the property type and try to obtain some type info for it
-    NSDictionary* typeInfo = [self infoForTypeNamed:info[@"type"]];
+    NSString* type = info[@"type"];
+    NSDictionary* typeInfo = [self infoForTypeNamed:type];
     if (typeInfo)
     {
         // if the type requires some headers, add them to the import property
@@ -225,6 +227,10 @@ ECDefineDebugChannel(ComaModelChannel);
         if (requires)
         {
             info[@"requires"] = @{@"import" : requires };
+        }
+        else if ([self.classes objectForKey:type])
+        {
+            info[@"requires"] = @{@"import" : [NSString stringWithFormat:@"%@.h", type] };
         }
 
         // try to get the metatype data associated with the type
