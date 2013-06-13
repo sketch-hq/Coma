@@ -1,6 +1,14 @@
 	{
         "templates":["header", "source"],
 
+        "defaults" :
+        {
+            "super" :
+            {
+                "class" : "NSObject",
+            }
+        },
+
 		"types":
 		{
 			"base" : "standardTypes",

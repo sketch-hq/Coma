@@ -1,4 +1,12 @@
 {
+    "defaults" :
+    {
+        "super" :
+        {
+            "class" : "NSObject",
+        }
+    },
+
   "classes" : {
     "SVGClipPath" : {
       "super" : {
