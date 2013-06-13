@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class BCComaMomConverter;
+
+typedef void (^EntityBlock)(BCComaMomConverter* converter, NSEntityDescription* entity);
+
 @interface BCComaMomConverter : NSObject
 
 - (NSManagedObjectModel*)loadModel:(NSURL*)momOrXCDataModelURL error:(NSError**)error;
+- (void)enumerateEntitiesInModel:(NSManagedObjectModel*)model block:(EntityBlock)block;
+- (NSDictionary*)infoForModel:(NSManagedObjectModel*)model;
 
 @end

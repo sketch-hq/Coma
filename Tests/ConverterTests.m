@@ -40,8 +40,7 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)testLoadModel
 {
-    NSBundle* bundle = [NSBundle bundleForClass:[self class]];
-    NSURL* modelURL = [bundle URLForResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
 
     BCComaMomConverter* converter = [BCComaMomConverter new];
     NSError* error;
@@ -50,5 +49,43 @@ ECDeclareDebugChannel(ComaModelChannel);
     ECTestAssertNotNil(model);
 }
 
+- (void)testEnumerateEntities
+{
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+
+    BCComaMomConverter* converter = [BCComaMomConverter new];
+    NSError* error;
+    NSManagedObjectModel* model = [converter loadModel:modelURL error:&error];
+    ECTestAssertNotNil(model);
+
+    [converter enumerateEntitiesInModel:model block:^(BCComaMomConverter *converter, NSEntityDescription *entity) {
+        NSLog(@"%@", entity.name);
+    }];
+}
+
+- (void)testInfoForModel
+{
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+
+    BCComaMomConverter* converter = [BCComaMomConverter new];
+    NSError* error;
+    NSManagedObjectModel* model = [converter loadModel:modelURL error:&error];
+    ECTestAssertNotNil(model);
+
+    NSDictionary* info = [converter infoForModel:model];
+    ECTestAssertNotNil(info);
+
+    NSURL* expectedURL = [self URLForTestResource:@"SVGConverted" withExtension:@"json" subdirectory:@"Data"];
+    NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
+    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
+
+    ECTestAssertTrue([info isEqualTo:expected]);
+
+#if WRITE_INFO
+    NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];
+    NSData* output = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
+    [output writeToURL:outputURL atomically:YES];
+#endif
+}
 
 @end

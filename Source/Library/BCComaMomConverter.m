@@ -151,4 +151,95 @@
     return result;
 }
 
+- (void)enumerateEntitiesInModel:(NSManagedObjectModel*)model block:(EntityBlock)block
+{
+    NSArray* entities = model.entities;
+    for (NSEntityDescription* entity in entities)
+    {
+        block(self, entity);
+    }
+}
+
+- (NSDictionary*)infoForEntity:(NSEntityDescription*)entity
+{
+    __block NSMutableDictionary* properties = [NSMutableDictionary dictionary];
+    [entity.attributesByName enumerateKeysAndObjectsUsingBlock:^(NSString* attributeName, NSAttributeDescription* attribute, BOOL *stop) {
+        NSString* className = attribute.attributeValueClassName;
+        if (!className)
+            className = attribute.userInfo[@"attributeValueClassName"];
+        NSDictionary* info =
+        @{
+          @"type" : className ? className : @"NSObject"
+          };
+        properties[attributeName] = info;
+    }];
+
+    __block NSMutableDictionary* relationships = [NSMutableDictionary dictionary];
+    [entity.relationshipsByName enumerateKeysAndObjectsUsingBlock:^(NSString* relationshipName, NSRelationshipDescription* relationship, BOOL *stop) {
+        NSString* className = relationship.destinationEntity.name;
+        NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
+        @{
+          @"type" : className,
+          @"minimum" : @(relationship.minCount),
+          @"maximum" : @(relationship.maxCount)
+          }];
+
+        NSRelationshipDescription* inverse = relationship.inverseRelationship;
+        if (inverse)
+        {
+            info[@"inverse"] = inverse.name;
+        }
+
+        relationships[relationshipName] = info;
+    }];
+
+    NSMutableDictionary* result = [NSMutableDictionary dictionaryWithDictionary:
+    @{
+      @"properties" : properties,
+      @"relationships" : relationships,
+      }];
+
+    NSString* superName = entity.superentity.name;
+    if (superName)
+    {
+        NSString* superImport = [NSString stringWithFormat:@"%@.h", superName];
+        result[@"super"] = @{@"class" : superName, @"import" : superImport };
+    }
+
+    return result;
+}
+
+#if 0 // some example output
+
+"Example" :
+{
+    "super":
+    {
+        "class" : "BaseClass",
+        "import" : "BaseClass.h"
+    },
+    "protocols" : "<NSCoding, NSCopying>",
+    "generateMutableCopy" : false,
+    "properties":
+    {
+        "string" :
+        {
+            "type" : "NSString",
+            "undo" : "Set String",
+            "description" : "NSString example",
+        },
+
+
+#endif
+        
+
+- (NSDictionary*)infoForModel:(NSManagedObjectModel*)model
+{
+    __block NSMutableDictionary* classes = [NSMutableDictionary dictionary];
+    [self enumerateEntitiesInModel:model block:^(BCComaMomConverter *converter, NSEntityDescription *entity) {
+        classes[entity.name] = [self infoForEntity:entity];
+    }];
+
+    return classes;
+}
 @end
