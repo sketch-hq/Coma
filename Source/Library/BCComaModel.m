@@ -177,6 +177,7 @@ ECDefineDebugChannel(ComaModelChannel);
                                @"date": [NSDate date]
                                };
 
+    NSDictionary* defaults = self.data[@"defaults"];
     NSMutableDictionary* classes = self.data[@"classes"];
     [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
         info[@"name"] = key;
@@ -186,6 +187,15 @@ ECDefineDebugChannel(ComaModelChannel);
             [self preprocessProperty:info name:key];
         }];
         info[@"properties"] = [properties allValues];
+
+        // merge in any default values that are missing
+        [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+            if (![info objectForKey:key])
+            {
+                info[key] = value;
+            }
+        }];
+
         [self addFiltersToDictionary:info];
     }];
     self.data[@"classes"] = [classes allValues];
