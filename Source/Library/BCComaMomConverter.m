@@ -167,10 +167,40 @@
         NSString* className = attribute.attributeValueClassName;
         if (!className)
             className = attribute.userInfo[@"attributeValueClassName"];
-        NSDictionary* info =
+
+        NSString* basicType;
+        switch (attribute.attributeType)
+        {
+            case NSInteger16AttributeType:
+            case NSInteger32AttributeType:
+            case NSInteger64AttributeType:
+            case NSDecimalAttributeType:
+                basicType = @"NSInteger";
+                break;
+
+            case NSDoubleAttributeType:
+            case NSFloatAttributeType:
+                basicType = @"CGFloat";
+                break;
+
+            case NSBooleanAttributeType:
+                basicType = @"BOOL";
+                break;
+
+            default:
+                basicType = nil;
+        }
+
+        NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
         @{
-          @"type" : className ? className : @"NSObject"
-          };
+          @"type" : basicType ? basicType : (className ? className : @"NSObject")
+          }];
+
+//        if (basicType)
+//        {
+//            info[@"basic"] = basicType;
+//        }
+
         properties[attributeName] = info;
     }];
 

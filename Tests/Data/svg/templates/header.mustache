@@ -9,16 +9,22 @@
 {{# properties}}{{# requires}}@class {{type}};
 {{/ requires}}{{/ properties}}
 
-@interface {{name}} : {{super.class}}{{protocols}}
+@interface _{{name}} : {{super.class}}{{protocols}}
 
 {{# properties}}
 {{> property}}
 {{/ properties}}
+
+{{# relationships}}
+{{> relationship}}
+{{/ relationships}}
 
 /**
  Returns a list of NSStrings with the names of the properties in it.
  */
 
 + (NSArray*)propertyNames;
+
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
 
 @end

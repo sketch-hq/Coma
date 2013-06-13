@@ -14,6 +14,11 @@
 			"base" : "standardTypes",
 			"items" :
 			{
+                "SVGColor" :
+                {
+                    "metatype" : "NSObject",
+                    "requires" : "SVGColor.h",
+                }
 			}
 		},
 	

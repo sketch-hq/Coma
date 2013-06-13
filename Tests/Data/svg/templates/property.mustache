@@ -1,5 +1,10 @@
-/**
- {{description}}
- */
+{{#description}}/**
+ {{.}}
+ */{{/}}
 
-@property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) {{type}}{{^metaInfo.basic}}*{{/metaInfo.basic}} {{name}};
+{{#metaInfo.basic}}
+@property (assign, nonatomic) {{type}} {{name}}Value;
+@property (strong, nonatomic) NSNumber* {{name}};
+{{^}}
+@property (strong, nonatomic) {{type}}* {{name}};
+{{/}}
