@@ -16,6 +16,7 @@
 		227867A51769CD7F001F96FB /* BCComaMomConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 227867A31769CD7F001F96FB /* BCComaMomConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		227867A61769CD7F001F96FB /* BCComaMomConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867A41769CD7F001F96FB /* BCComaMomConverter.m */; };
 		227867A81769CF82001F96FB /* ConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867A71769CF82001F96FB /* ConverterTests.m */; };
+		227867AB1769FC9A001F96FB /* BCComaConvertCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -47,7 +48,7 @@
 		229628CC176221F6008D887F /* libECLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CA176221F6008D887F /* libECLogging.a */; };
 		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 		229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D2176238D5008D887F /* ECUnitTests.framework */; };
-		2296A8541768987E00BF0566 /* ComaGenerateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296A8531768987E00BF0566 /* ComaGenerateCommand.m */; };
+		2296A8541768987E00BF0566 /* BCComaGenerateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */; };
 		22F06D2A1768D138005E727B /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628461760EE33008D887F /* libGRMustache6-MacOS.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		227867A31769CD7F001F96FB /* BCComaMomConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaMomConverter.h; sourceTree = "<group>"; };
 		227867A41769CD7F001F96FB /* BCComaMomConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaMomConverter.m; sourceTree = "<group>"; };
 		227867A71769CF82001F96FB /* ConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterTests.m; sourceTree = "<group>"; };
+		227867A91769FC9A001F96FB /* BCComaConvertCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaConvertCommand.h; sourceTree = "<group>"; };
+		227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaConvertCommand.m; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,8 +136,8 @@
 		229628CA176221F6008D887F /* libECLogging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libECLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628CF17622726008D887F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		229628D2176238D5008D887F /* ECUnitTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2296A8521768987E00BF0566 /* ComaGenerateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComaGenerateCommand.h; sourceTree = "<group>"; };
-		2296A8531768987E00BF0566 /* ComaGenerateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComaGenerateCommand.m; sourceTree = "<group>"; };
+		2296A8521768987E00BF0566 /* BCComaGenerateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaGenerateCommand.h; sourceTree = "<group>"; };
+		2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaGenerateCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +227,10 @@
 				229627F41760E1BF008D887F /* main.m */,
 				229627F81760E1C0008D887F /* Coma.1 */,
 				2207E4CA176877760003F042 /* Info.plist */,
-				2296A8521768987E00BF0566 /* ComaGenerateCommand.h */,
-				2296A8531768987E00BF0566 /* ComaGenerateCommand.m */,
+				227867A91769FC9A001F96FB /* BCComaConvertCommand.h */,
+				227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */,
+				2296A8521768987E00BF0566 /* BCComaGenerateCommand.h */,
+				2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */,
 				229627F61760E1BF008D887F /* Supporting Files */,
 			);
 			name = Tool;
@@ -488,7 +493,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2296A8541768987E00BF0566 /* ComaGenerateCommand.m in Sources */,
+				2296A8541768987E00BF0566 /* BCComaGenerateCommand.m in Sources */,
+				227867AB1769FC9A001F96FB /* BCComaConvertCommand.m in Sources */,
 				229627F51760E1BF008D887F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

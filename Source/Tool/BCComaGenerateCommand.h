@@ -8,6 +8,6 @@
 
 #import <ECCommandLine/ECCommandLine.h>
 
-@interface ComaGenerateCommand : ECCommandLineCommand
+@interface BCComaGenerateCommand : ECCommandLineCommand
 
 @end

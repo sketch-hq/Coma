@@ -220,12 +220,11 @@
     return classes;
 }
 
-- (NSDictionary*)mergeModelAtURL:(NSURL*)momOrXCDataModelURL into:(NSDictionary*)existingInfo
+- (NSDictionary*)mergeModelAtURL:(NSURL*)momOrXCDataModelURL into:(NSDictionary*)existingInfo error:(NSError**)error
 {
     NSDictionary* result = nil;
 
-    NSError* error;
-    NSManagedObjectModel* model = [self loadModel:momOrXCDataModelURL error:&error];
+    NSManagedObjectModel* model = [self loadModel:momOrXCDataModelURL error:error];
     if (model)
     {
         NSDictionary* classInfo = [self infoForModel:model];

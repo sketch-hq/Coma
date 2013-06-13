@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Bohemian Coding. All rights reserved.
 //
 
-#import "ComaGenerateCommand.h"
+#import "BCComaGenerateCommand.h"
 #import <Coma/Coma.h>
 
-@interface ComaGenerateCommand()
+@interface BCComaGenerateCommand()
 
 @end
 
-@implementation ComaGenerateCommand
+@implementation BCComaGenerateCommand
 
 - (ECCommandLineResult)engine:(ECCommandLineEngine*)engine didProcessWithArguments:(NSMutableArray *)arguments
 {

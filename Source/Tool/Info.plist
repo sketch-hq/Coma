@@ -49,7 +49,7 @@
 		<key>generate</key>
 		<dict>
 			<key>class</key>
-			<string>ComaGenerateCommand</string>
+			<string>BCComaGenerateCommand</string>
 			<key>help</key>
 			<string>Generate classes using a template</string>
 			<key>arguments</key>
@@ -61,6 +61,33 @@
 				<dict>
 					<key>description</key>
 					<string>templates</string>
+				</dict>
+			</array>
+			<key>options</key>
+			<dict>
+				<key>required</key>
+				<array/>
+				<key>optional</key>
+				<array>
+					<string>output</string>
+				</array>
+			</dict>
+		</dict>
+		<key>convert</key>
+		<dict>
+			<key>class</key>
+			<string>BCComaConvertCommand</string>
+			<key>help</key>
+			<string>Convert a Core Data model.mom file into a Coma model.json file</string>
+			<key>arguments</key>
+			<array>
+				<dict>
+					<key>description</key>
+					<string>model</string>
+				</dict>
+				<dict>
+					<key>description</key>
+					<string>json file to insert class definitions into</string>
 				</dict>
 			</array>
 			<key>options</key>
