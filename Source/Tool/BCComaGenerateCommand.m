@@ -30,6 +30,10 @@
             [engine outputError:nil format:@"Failed to convert %@", [inputURL lastPathComponent]];
             result = ECCommandLineResultImplementationReturnedError;
         }
+        else
+        {
+            inputURL = converted;
+        }
     }
 
     if (result == ECCommandLineResultOK)
@@ -72,7 +76,7 @@
     NSError* error;
     NSURL* result = nil;
     NSString* name = [[inputURL lastPathComponent] stringByDeletingPathExtension];
-    NSURL* baseURL = [[[inputURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"json"];
+    NSURL* baseURL = [[[inputURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@Base", name]] URLByAppendingPathExtension:@"json"];
     NSData* baseData = [[NSData alloc] initWithContentsOfURL:baseURL options:0 error:&error];
     if (baseData)
     {
@@ -83,7 +87,8 @@
             NSDictionary* mergedDictionary = [generator mergeModelAtURL:inputURL into:baseDictionary error:&error];
             if (mergedDictionary)
             {
-                NSURL* tempURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"ComaTemp.json"];
+                //                NSURL* tempURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"ComaTemp.json"];
+                NSURL* tempURL = [inputURL URLByAppendingPathExtension:@"json"];
                 NSData* tempData = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
                 if ([tempData writeToURL:tempURL atomically:YES])
                 {

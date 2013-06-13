@@ -226,7 +226,7 @@
           @"maximum" : @(relationship.maxCount)
           }];
 
-        if ((relationship.minCount > 1) || (relationship.maxCount > 1))
+        if (relationship.maxCount == 0)
         {
             info[@"toMany"] = @YES;
         }
