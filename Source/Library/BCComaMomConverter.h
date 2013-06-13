@@ -1,5 +1,5 @@
 //
-//  BCMomConverter.h
+//  BCComaMomConverter.h
 //  Coma
 //
 //  Created by Sam Deane on 13/06/2013.
@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BCMomConverter : NSObject
+@interface BCComaMomConverter : NSObject
+
+- (NSManagedObjectModel*)loadModel:(NSURL*)momOrXCDataModelURL error:(NSError**)error;
 
 @end

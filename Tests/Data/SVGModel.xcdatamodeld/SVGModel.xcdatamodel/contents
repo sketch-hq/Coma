@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SVGBasicShape" representedClassName="SVGBasicShape" parentEntity="SVGDrawableElement" syncable="YES"/>
+    <entity name="SVGCircleShape" representedClassName="SVGCircleShape" parentEntity="SVGBasicShape" syncable="YES">
+        <attribute name="cx" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="r" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="SVGClipPath" representedClassName="SVGClipPath" parentEntity="SVGGroupElement" syncable="YES">
+        <relationship name="clipping" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGDrawableElement" inverseName="clip" inverseEntity="SVGDrawableElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGDrawableElement" representedClassName="SVGDrawableElement" parentEntity="SVGElement" syncable="YES">
+        <attribute name="clips" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="opacity" optional="YES" attributeType="Double" syncable="YES"/>
+        <attribute name="rect_" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="scalarAttributeType" value="NSRect"/>
+            </userInfo>
+        </attribute>
+        <attribute name="transform" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="NSAffineTransform"/>
+            </userInfo>
+        </attribute>
+        <relationship name="clip" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGClipPath" inverseName="clipping" inverseEntity="SVGClipPath" syncable="YES"/>
+        <relationship name="fill" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGFill" inverseName="usedBy" inverseEntity="SVGFill" syncable="YES"/>
+        <relationship name="font" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGFont" inverseName="usedBy" inverseEntity="SVGFont" syncable="YES"/>
+        <relationship name="stroke" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGStroke" inverseName="usedBy" inverseEntity="SVGStroke" syncable="YES"/>
+    </entity>
+    <entity name="SVGElement" representedClassName="SVGElement" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGElement" inverseName="parent" inverseEntity="SVGElement" syncable="YES"/>
+        <relationship name="linked" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGLink" inverseName="link" inverseEntity="SVGLink" syncable="YES"/>
+        <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGElement" inverseName="children" inverseEntity="SVGElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGEllipseShape" representedClassName="SVGEllipseShape" parentEntity="SVGBasicShape" syncable="YES">
+        <attribute name="cx" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rx" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ry" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="SVGFill" representedClassName="SVGFill" parentEntity="SVGElement" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="SVGColor"/>
+            </userInfo>
+        </attribute>
+        <relationship name="gradient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SVGGradient" inverseName="usedByFills" inverseEntity="SVGGradient" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGDrawableElement" inverseName="fill" inverseEntity="SVGDrawableElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGFont" representedClassName="SVGFont" parentEntity="SVGElement" syncable="YES">
+        <attribute name="family" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGDrawableElement" inverseName="font" inverseEntity="SVGDrawableElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGGradient" representedClassName="SVGGradient" parentEntity="SVGElement" syncable="YES">
+        <attribute name="absolute" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="fromX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fromY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="radial" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="toX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="toY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="transform" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="NSAffineTransform"/>
+            </userInfo>
+        </attribute>
+        <relationship name="linkedFrom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGGradient" inverseName="linkedTo" inverseEntity="SVGGradient" syncable="YES"/>
+        <relationship name="linkedTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGGradient" inverseName="linkedFrom" inverseEntity="SVGGradient" syncable="YES"/>
+        <relationship name="usedByFills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGFill" inverseName="gradient" inverseEntity="SVGFill" syncable="YES"/>
+        <relationship name="usedByStrokes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGStroke" inverseName="gradient" inverseEntity="SVGStroke" syncable="YES"/>
+    </entity>
+    <entity name="SVGGradientStop" representedClassName="SVGGradientStop" parentEntity="SVGElement" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="SVGColor"/>
+            </userInfo>
+        </attribute>
+        <attribute name="position" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="SVGGroupElement" representedClassName="SVGGroupElement" parentEntity="SVGDrawableElement" syncable="YES"/>
+    <entity name="SVGImage" representedClassName="SVGImage" parentEntity="SVGDrawableElement" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="NSImage"/>
+            </userInfo>
+        </attribute>
+    </entity>
+    <entity name="SVGLineShape" representedClassName="SVGLineShape" parentEntity="SVGBasicShape" syncable="YES">
+        <attribute name="x1" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="x2" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="y1" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="y2" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="SVGLink" representedClassName="SVGLink" parentEntity="SVGDrawableElement" syncable="YES">
+        <relationship name="link" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SVGElement" inverseName="linked" inverseEntity="SVGElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGPathShape" representedClassName="SVGPathShape" parentEntity="SVGDrawableElement" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="NSBezierPath"/>
+            </userInfo>
+        </attribute>
+    </entity>
+    <entity name="SVGPolygonShape" representedClassName="SVGPolygonShape" parentEntity="SVGPathShape" syncable="YES"/>
+    <entity name="SVGRectangleShape" representedClassName="SVGRectangleShape" parentEntity="SVGBasicShape" syncable="YES">
+        <attribute name="cornerRadius" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="SVGStroke" representedClassName="SVGStroke" parentEntity="SVGElement" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="SVGColor"/>
+            </userInfo>
+        </attribute>
+        <attribute name="dashes" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="attributeValueClassName" value="NSArray"/>
+            </userInfo>
+        </attribute>
+        <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="gradient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SVGGradient" inverseName="usedByStrokes" inverseEntity="SVGGradient" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SVGDrawableElement" inverseName="stroke" inverseEntity="SVGDrawableElement" syncable="YES"/>
+    </entity>
+    <entity name="SVGText" representedClassName="SVGText" parentEntity="SVGDrawableElement" syncable="YES">
+        <attribute name="adjustSpacingAndGlyphs" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="anchor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dx" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rotate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <fetchRequest name="elementWithTypeAndID" entity="SVGElement" predicateString="type == $TYPE AND identifier == $ID"/>
+    <elements>
+        <element name="SVGBasicShape" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="SVGCircleShape" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="SVGClipPath" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="SVGDrawableElement" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="SVGElement" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="SVGEllipseShape" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SVGFill" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="SVGFont" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SVGGradient" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="SVGGradientStop" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SVGGroupElement" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="SVGImage" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="SVGLineShape" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SVGLink" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="SVGPathShape" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SVGPolygonShape" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="SVGRectangleShape" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="SVGStroke" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="SVGText" positionX="0" positionY="0" width="128" height="165"/>
+    </elements>
+</model>
