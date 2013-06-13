@@ -14,26 +14,37 @@
 {
     ECAssertNonNil(url);
 
-    ECCommandLineResult result;
+    ECCommandLineResult result = ECCommandLineResultOK;
     BOOL overwriting = [[engine optionForKey:@"overwriting"] boolValue];
     NSString* outputOption = [[engine optionForKey:@"output"] stringByStandardizingPath];
     NSURL* outputURL = [NSURL fileURLWithPath:outputOption ? outputOption : [@"./" stringByStandardizingPath]];
+
     NSFileManager* fm = [NSFileManager defaultManager];
 
-    NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
-    BOOL fileExists = [fm fileExistsAtPath:[fileURL path]];
-    BOOL okToWrite = overwriting || !fileExists;
-    if (okToWrite)
+    // make intermediate directories if necessary
+    NSError* error;
+    if (![fm createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error])
     {
-        result = ECCommandLineResultOK;
-        if (url)
-            *url = fileURL;
-    }
-    else
-    {
-        NSError* error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteFileExistsError userInfo:@{}];
-        [engine outputError:error format:@"Could not overwrite %@ -- file already exists. Use option --overwriting to force overwriting.", name];
         result = ECCommandLineResultImplementationReturnedError;
+    }
+
+    // does the file exist already? if so, can we overwrite it?
+    if (result == ECCommandLineResultOK)
+    {
+        NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
+        BOOL fileExists = [fm fileExistsAtPath:[fileURL path]];
+        BOOL okToWrite = overwriting || !fileExists;
+        if (okToWrite)
+        {
+            if (url)
+                *url = fileURL;
+        }
+        else
+        {
+            NSError* error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteFileExistsError userInfo:@{}];
+            [engine outputError:error format:@"Could not overwrite %@ -- file already exists. Use option --overwriting to force overwriting.", name];
+            result = ECCommandLineResultImplementationReturnedError;
+        }
     }
 
     return result;
