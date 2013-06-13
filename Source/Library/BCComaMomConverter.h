@@ -14,6 +14,8 @@ typedef void (^EntityBlock)(BCComaMomConverter* converter, NSEntityDescription* 
 
 @interface BCComaMomConverter : NSObject
 
+- (NSDictionary*)mergeModelAtURL:(NSURL*)momOrXCDataModelURL into:(NSDictionary*)existingInfo;
+
 - (NSManagedObjectModel*)loadModel:(NSURL*)momOrXCDataModelURL error:(NSError**)error;
 - (void)enumerateEntitiesInModel:(NSManagedObjectModel*)model block:(EntityBlock)block;
 - (NSDictionary*)infoForModel:(NSManagedObjectModel*)model;

@@ -81,11 +81,37 @@ ECDeclareDebugChannel(ComaModelChannel);
 
     ECTestAssertTrue([info isEqualTo:expected]);
 
-#if WRITE_INFO
+#if WRITE_TO_DESKTOP
     NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];
     NSData* output = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
     [output writeToURL:outputURL atomically:YES];
 #endif
 }
 
+- (void)testMerging
+{
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+
+    BCComaMomConverter* converter = [BCComaMomConverter new];
+
+    NSError* error;
+    NSURL* svgURL = [self URLForTestResource:@"svg-base" withExtension:@"json" subdirectory:@"Data"];
+    NSData* svgData = [NSData dataWithContentsOfURL:svgURL];
+    NSDictionary* svgBase = [NSJSONSerialization JSONObjectWithData:svgData options:0 error:&error];
+
+    NSDictionary* svgMerged = [converter mergeModelAtURL:modelURL into:svgBase];
+    ECTestAssertNotNil(svgMerged);
+
+    NSURL* expectedURL = [self URLForTestResource:@"svg" withExtension:@"json" subdirectory:@"Data"];
+    NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
+    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
+
+    ECTestAssertTrue([svgMerged isEqualTo:expected]);
+
+#if WRITE_TO_DESKTOP
+    NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/svg.json" stringByStandardizingPath]];
+    NSData* output = [NSJSONSerialization dataWithJSONObject:svgMerged options:NSJSONWritingPrettyPrinted error:&error];
+    [output writeToURL:outputURL atomically:YES];
+#endif
+}
 @end

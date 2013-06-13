@@ -1,0 +1,1532 @@
+{
+  "classes" : {
+    "SVGClipPath" : {
+      "super" : {
+        "class" : "SVGGroupElement",
+        "import" : "SVGGroupElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        },
+        "clipping" : {
+          "minimum" : 0,
+          "inverse" : "clip",
+          "type" : "SVGDrawableElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGFont" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "weight" : {
+          "type" : "NSNumber"
+        },
+        "family" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "size" : {
+          "type" : "NSNumber"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "usedBy" : {
+          "minimum" : 0,
+          "inverse" : "font",
+          "type" : "SVGDrawableElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGGradientStop" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "position" : {
+          "type" : "NSNumber"
+        },
+        "color" : {
+          "type" : "SVGColor"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGRectangleShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "cornerRadius" : {
+          "type" : "NSNumber"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGEllipseShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "cx" : {
+          "type" : "NSNumber"
+        },
+        "rx" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "cy" : {
+          "type" : "NSNumber"
+        },
+        "ry" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGText" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "dx" : {
+          "type" : "NSNumber"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "anchor" : {
+          "type" : "NSNumber"
+        },
+        "rotate" : {
+          "type" : "NSNumber"
+        },
+        "x" : {
+          "type" : "NSNumber"
+        },
+        "dy" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "y" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "length" : {
+          "type" : "NSNumber"
+        },
+        "text" : {
+          "type" : "NSString"
+        },
+        "adjustSpacingAndGlyphs" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGCircleShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "cx" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "cy" : {
+          "type" : "NSNumber"
+        },
+        "r" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGElement" : {
+      "properties" : {
+        "desc" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGGradient" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "toY" : {
+          "type" : "NSNumber"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "absolute" : {
+          "type" : "NSNumber"
+        },
+        "radial" : {
+          "type" : "NSNumber"
+        },
+        "fromY" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "toX" : {
+          "type" : "NSNumber"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "fromX" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "usedByStrokes" : {
+          "minimum" : 0,
+          "inverse" : "gradient",
+          "type" : "SVGStroke",
+          "maximum" : 0
+        },
+        "linkedTo" : {
+          "minimum" : 1,
+          "inverse" : "linkedFrom",
+          "type" : "SVGGradient",
+          "maximum" : 1
+        },
+        "linkedFrom" : {
+          "minimum" : 0,
+          "inverse" : "linkedTo",
+          "type" : "SVGGradient",
+          "maximum" : 0
+        },
+        "usedByFills" : {
+          "minimum" : 0,
+          "inverse" : "gradient",
+          "type" : "SVGFill",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGLineShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "y2" : {
+          "type" : "NSNumber"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "x2" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "y1" : {
+          "type" : "NSNumber"
+        },
+        "x1" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGDrawableElement" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGBasicShape" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGPathShape" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "closed" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "path" : {
+          "type" : "NSBezierPath"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGPolygonShape" : {
+      "super" : {
+        "class" : "SVGPathShape",
+        "import" : "SVGPathShape.h"
+      },
+      "properties" : {
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "closed" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        },
+        "path" : {
+          "type" : "NSBezierPath"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGGroupElement" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGStroke" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "dashes" : {
+          "type" : "NSArray"
+        },
+        "color" : {
+          "type" : "SVGColor"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "width" : {
+          "type" : "NSNumber"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "gradient" : {
+          "minimum" : 0,
+          "inverse" : "usedByStrokes",
+          "type" : "SVGGradient",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "usedBy" : {
+          "minimum" : 0,
+          "inverse" : "stroke",
+          "type" : "SVGDrawableElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGFill" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "color" : {
+          "type" : "SVGColor"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        }
+      },
+      "relationships" : {
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "gradient" : {
+          "minimum" : 0,
+          "inverse" : "usedByFills",
+          "type" : "SVGGradient",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "usedBy" : {
+          "minimum" : 0,
+          "inverse" : "fill",
+          "type" : "SVGDrawableElement",
+          "maximum" : 0
+        }
+      }
+    },
+    "SVGLink" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "link" : {
+          "minimum" : 1,
+          "inverse" : "linked",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    },
+    "SVGImage" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "hidden" : {
+          "type" : "NSNumber"
+        },
+        "clips" : {
+          "type" : "NSNumber"
+        },
+        "desc" : {
+          "type" : "NSString"
+        },
+        "index" : {
+          "type" : "NSNumber"
+        },
+        "title" : {
+          "type" : "NSString"
+        },
+        "image" : {
+          "type" : "NSImage"
+        },
+        "identifier" : {
+          "type" : "NSString"
+        },
+        "type" : {
+          "type" : "NSString"
+        },
+        "opacity" : {
+          "type" : "NSNumber"
+        },
+        "transform" : {
+          "type" : "NSAffineTransform"
+        },
+        "rect_" : {
+          "type" : "NSObject"
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "maximum" : 1
+        },
+        "linked" : {
+          "minimum" : 0,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "maximum" : 0
+        },
+        "parent" : {
+          "minimum" : 1,
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "maximum" : 1
+        },
+        "children" : {
+          "minimum" : 0,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "maximum" : 0
+        },
+        "fill" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "maximum" : 1
+        },
+        "clip" : {
+          "minimum" : 1,
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "maximum" : 1
+        },
+        "font" : {
+          "minimum" : 1,
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "maximum" : 1
+        }
+      }
+    }
+  },
+  "templates" : [
+    "header",
+    "source"
+  ],
+  "types" : {
+    "base" : "standardTypes",
+    "items" : {
+
+    }
+  },
+  "metas" : {
+    "base" : "standardMetas",
+    "items" : {
+
+    }
+  }
+}

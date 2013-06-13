@@ -209,29 +209,6 @@
     return result;
 }
 
-#if 0 // some example output
-
-"Example" :
-{
-    "super":
-    {
-        "class" : "BaseClass",
-        "import" : "BaseClass.h"
-    },
-    "protocols" : "<NSCoding, NSCopying>",
-    "generateMutableCopy" : false,
-    "properties":
-    {
-        "string" :
-        {
-            "type" : "NSString",
-            "undo" : "Set String",
-            "description" : "NSString example",
-        },
-
-
-#endif
-        
 
 - (NSDictionary*)infoForModel:(NSManagedObjectModel*)model
 {
@@ -242,4 +219,24 @@
 
     return classes;
 }
+
+- (NSDictionary*)mergeModelAtURL:(NSURL*)momOrXCDataModelURL into:(NSDictionary*)existingInfo
+{
+    NSDictionary* result = nil;
+
+    NSError* error;
+    NSManagedObjectModel* model = [self loadModel:momOrXCDataModelURL error:&error];
+    if (model)
+    {
+        NSDictionary* classInfo = [self infoForModel:model];
+        NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:existingInfo];
+        merged[@"classes"] = classInfo;
+        result = merged;
+    }
+
+    return result;
+}
+
+
+        
 @end

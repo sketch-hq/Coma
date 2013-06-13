@@ -1,0 +1,24 @@
+	{
+        "templates":["header", "source"],
+
+		"types":
+		{
+			"base" : "standardTypes",
+			"items" :
+			{
+			}
+		},
+	
+		"metas":
+		{
+			"base" : "standardMetas",
+			"items" :
+			{
+            }
+		},
+	
+		"classes":
+		{
+        }
+	}
+
