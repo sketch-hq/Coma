@@ -14,12 +14,12 @@
 #pragma mark - NSCoder
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-{{# properties}}{{> encoding}}{{/ properties}}}
+{{# properties}}{{> ../../standard/encoding.m}}{{/ properties}}}
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-{{# properties}}{{> decoding}}{{/ properties}}    }
+{{# properties}}{{> ../../standard/decoding.m}}{{/ properties}}    }
     return self;
 }
 
@@ -28,13 +28,13 @@
 - (id)copyWithZone:(NSZone *)zone {
     {{name}}Basic* copy = [super copyWithZone:zone];
 
-{{# properties}}{{> copying}}{{/ properties}}
+{{# properties}}{{> ../../standard/copying.m}}{{/ properties}}
     return copy;
 }
 {{# generateMutableCopy}}- (id)mutableCopyWithZone:(NSZone *)zone {
     {{name}}Basic* copy = [self new];
 
-{{# properties}}{{> mutableCopying}}{{/ properties}}
+{{# properties}}{{> ../../standard/mutableCopying.m}}{{/ properties}}
     return copy;
 }{{/ generateMutableCopy}}
 @end
