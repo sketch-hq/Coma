@@ -11,8 +11,22 @@
 
 #import <Coma/Coma.h>
 
-#import "Person.h"
-#import "Job.h"
+// if this is 1, you need to link in the mogenerator versions of the classes
+// if it is 0, you need to link in the Coma versions of the classes
+
+#define TEST_MOGENERATED 0
+
+#if TEST_MOGENERATED
+
+#import "Data/coredata/Mogenerator/Person.h"
+#import "Data/coredata/Mogenerator/Job.h"
+
+#else
+
+#import "Data/coredata/Coma/Person.h"
+#import "Data/coredata/Coma/Job.h"
+
+#endif
 
 @interface CoreDataTests : ECTestCase
 
@@ -58,32 +72,23 @@ ECDeclareDebugChannel(ComaModelChannel);
     
 }
 
-#if TEST_MOGENERATED
 
-- (void)testCoreDataClasses
+- (void)testTwoWayRelationships
 {
     [self setupCoreData];
 
+#if TEST_MOGENERATED
     Person* person = [[Person alloc] initWithEntity:[NSEntityDescription entityForName:@"Person" inManagedObjectContext:self.context] insertIntoManagedObjectContext:self.context];
     Job* job = [[Job alloc] initWithEntity:[NSEntityDescription entityForName:@"Job" inManagedObjectContext:self.context] insertIntoManagedObjectContext:self.context];
-
-    person.job = job;
-
-    ECTestAssertTrue([job.staff containsObject:person]);
-}
-
 #else
-- (void)testComaClasses
-{
     Person* person = [[Person alloc] init];
     Job* job = [[Job alloc] init];
+#endif
 
     person.job = job;
 
     ECTestAssertTrue([job.staff containsObject:person]);
 }
-
-#endif
 
 #define WRITE_TO_DESKTOP 1
 

@@ -20,14 +20,10 @@
 		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
 		227867B3176B7061001F96FB /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867B2176B7061001F96FB /* CoreDataTests.m */; };
 		227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */; };
-		227867C6176B7356001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867BF176B7356001F96FB /* _Job.m */; };
-		227867C7176B7356001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C1176B7356001F96FB /* _Person.m */; };
-		227867C8176B7356001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C3176B7356001F96FB /* Job.m */; };
-		227867C9176B7356001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C5176B7356001F96FB /* Person.m */; };
-		227867D5176B7B18001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
-		227867D6176B7B18001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
-		227867D7176B7B18001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
-		227867D8176B7B18001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D4176B7B18001F96FB /* Person.m */; };
+		227867D9176B804D001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
+		227867DA176B804D001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
+		227867DB176B804D001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
+		227867DC176B804D001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D4176B7B18001F96FB /* Person.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -510,7 +506,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BC;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Bohemian Coding";
 			};
 			buildConfigurationList = 229627E91760E1BF008D887F /* Build configuration list for PBXProject "Coma" */;
@@ -616,22 +612,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227867D7176B7B18001F96FB /* Job.m in Sources */,
-				227867D6176B7B18001F96FB /* _Person.m in Sources */,
-				227867D5176B7B18001F96FB /* _Job.m in Sources */,
+				227867DB176B804D001F96FB /* Job.m in Sources */,
+				227867DA176B804D001F96FB /* _Person.m in Sources */,
+				227867D9176B804D001F96FB /* _Job.m in Sources */,
 				227867B3176B7061001F96FB /* CoreDataTests.m in Sources */,
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
 				227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */,
-				227867C8176B7356001F96FB /* Job.m in Sources */,
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
-				227867C6176B7356001F96FB /* _Job.m in Sources */,
-				227867D8176B7B18001F96FB /* Person.m in Sources */,
+				227867DC176B804D001F96FB /* Person.m in Sources */,
 				229628641761F29E008D887F /* ExampleBasic.m in Sources */,
 				227867A81769CF82001F96FB /* ConverterTests.m in Sources */,
-				227867C9176B7356001F96FB /* Person.m in Sources */,
 				22962867176204D2008D887F /* ExampleUndo.m in Sources */,
-				227867C7176B7356001F96FB /* _Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@
 // ----------------------------------------
 
 #import "_Person.h"
-
+#import "Job.h"
 
 @implementation _Person
 
@@ -96,7 +96,29 @@ static NSArray* sPersonAttributes = nil;
 
 #pragma mark - Relationships
 
+- (void)setJob:(Job *)job
+{
+    if (_job != job)
+    {
+        [_job willChangeValueForKey:@"staff"];
+        [job willChangeValueForKey:@"staff"];
 
+        if (_job)
+        {
+            [_job primitiveRemoveStaffObject:self];
+        }
+
+        _job = job;
+
+        if (job)
+        {
+            [job primitiveAddStaffObject:self];
+        }
+
+        [_job didChangeValueForKey:@"staff"];
+        [job didChangeValueForKey:@"staff"];
+    }
+}
 
 
 

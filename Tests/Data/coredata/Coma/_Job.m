@@ -96,8 +96,24 @@ static NSArray* sJobAttributes = nil;
 
 #pragma mark - Relationships
 
+- (void)primitiveAddStaffObject:(id)object
+{
+    if (_staff)
+    {
+        NSMutableSet* set = [self mutableSetValueForKey:@"staff"];
+        [set addObject:object];
+    }
+    else
+    {
+        self.staff = [NSSet setWithObject:object];
+    }
+}
 
-
+- (void)primitiveRemoveStaffObject:(id)object
+{
+    NSMutableSet* set = [self mutableSetValueForKey:@"staff"];
+    [set removeObject:object];
+}
 
 
 @end

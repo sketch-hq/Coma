@@ -56,4 +56,7 @@
 
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
 
+- (void)primitiveAddStaffObject:(id)object;
+- (void)primitiveRemoveStaffObject:(id)object;
+
 @end
