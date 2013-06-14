@@ -11,6 +11,8 @@
 
         "NSObject" :
         {
+            "copyMethod" : "copyWithZone",
+            "mutableCopyMethod" : "mutableCopyWithZone",
             "dynamicTemplates" :
             {
             },

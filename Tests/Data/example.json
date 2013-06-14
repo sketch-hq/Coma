@@ -24,7 +24,8 @@
                     "dynamicTemplates" :
                     {
                     },
-                    "deepCopy" : true,
+                    "copyMethod" : "deepCopyWithZone",
+                    "mutableCopyMethod" : "mutableDeepCopyWithZone",
 				},
 			}
 		},

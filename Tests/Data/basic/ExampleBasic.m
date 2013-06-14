@@ -220,15 +220,7 @@ static NSArray* sExampleAttributes = nil;
 
 
 
-
-
-
-
-
     copy.string = [self.string copyWithZone:zone];
-
-
-
 
 
     copy.integer = self.integer;
@@ -237,39 +229,19 @@ static NSArray* sExampleAttributes = nil;
     copy.custom = [self.custom deepCopyWithZone:zone];
 
 
-
-
-
     copy.point = self.point;
-
-
-
 
 
     copy.unsignedInteger = self.unsignedInteger;
 
 
-
-
-
     copy.rect = self.rect;
-
-
-
-
-
 
 
     copy.date = [self.date copyWithZone:zone];
 
 
-
-
-
     copy.boolean = self.boolean;
-
-
-
 
 
     copy.real = self.real;

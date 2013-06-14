@@ -263,6 +263,19 @@ ECDefineDebugChannel(ComaModelChannel);
                 info[key] = template;
             }
         }];
+
+        // merge in any type info keys that don't have values set in the property
+        [typeInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if (!info[key])
+                info[key] = obj;
+        }];
+
+        // merge in any meta info keys that don't have values set in the property or the type info
+        [metaInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if (!info[key])
+                info[key] = obj;
+        }];
+
     }
 }
 
