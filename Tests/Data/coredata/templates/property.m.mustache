@@ -1,0 +1,17 @@
+{{#description}}/**
+ {{.}}
+ */{{/}}
+
+{{#typeInfo.basicType}}
+
+- ({{type}}) {{name}}Value
+{
+    return [self.{{name}} {{typeInfo.NSNumberType}}Value];
+}
+
+- (void) set{{mixedcapsInitialCapital(name)}}Value:({{type}})value
+{
+    self.{{name}} = @(value);
+}
+
+{{/}}

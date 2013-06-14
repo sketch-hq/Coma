@@ -11,7 +11,7 @@
 
 		"types":
 		{
-			"base" : "standardTypes",
+			"base" : "../standard/standardTypes",
 			"items" :
 			{
                 "SVGColor" :
@@ -24,7 +24,7 @@
 	
 		"metas":
 		{
-			"base" : "standardMetas",
+			"base" : "../standard/standardMetas",
 			"items" :
 			{
             }

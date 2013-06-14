@@ -18,6 +18,12 @@
 		227867A81769CF82001F96FB /* ConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867A71769CF82001F96FB /* ConverterTests.m */; };
 		227867AB1769FC9A001F96FB /* BCComaConvertCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */; };
 		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
+		227867B3176B7061001F96FB /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867B2176B7061001F96FB /* CoreDataTests.m */; };
+		227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */; };
+		227867C6176B7356001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867BF176B7356001F96FB /* _Job.m */; };
+		227867C7176B7356001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C1176B7356001F96FB /* _Person.m */; };
+		227867C8176B7356001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C3176B7356001F96FB /* Job.m */; };
+		227867C9176B7356001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C5176B7356001F96FB /* Person.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -86,6 +92,16 @@
 		227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaConvertCommand.m; sourceTree = "<group>"; };
 		227867AC176A01FB001F96FB /* BCComaCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCComaCommand.h; path = ../Configs/BCComaCommand.h; sourceTree = "<group>"; };
 		227867AD176A01FB001F96FB /* BCComaCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BCComaCommand.m; path = ../Configs/BCComaCommand.m; sourceTree = "<group>"; };
+		227867B2176B7061001F96FB /* CoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTests.m; sourceTree = "<group>"; };
+		227867B6176B72C0001F96FB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		227867BE176B7356001F96FB /* _Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Job.h; sourceTree = "<group>"; };
+		227867BF176B7356001F96FB /* _Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Job.m; sourceTree = "<group>"; };
+		227867C0176B7356001F96FB /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		227867C1176B7356001F96FB /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		227867C2176B7356001F96FB /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
+		227867C3176B7356001F96FB /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
+		227867C4176B7356001F96FB /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		227867C5176B7356001F96FB /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -184,6 +200,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		227867BC176B7356001F96FB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				227867BD176B7356001F96FB /* Generated */,
+				227867C2176B7356001F96FB /* Job.h */,
+				227867C3176B7356001F96FB /* Job.m */,
+				227867C4176B7356001F96FB /* Person.h */,
+				227867C5176B7356001F96FB /* Person.m */,
+			);
+			name = Source;
+			path = Data/coredata/Source;
+			sourceTree = "<group>";
+		};
+		227867BD176B7356001F96FB /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				227867BE176B7356001F96FB /* _Job.h */,
+				227867BF176B7356001F96FB /* _Job.m */,
+				227867C0176B7356001F96FB /* _Person.h */,
+				227867C1176B7356001F96FB /* _Person.m */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		227867CA176B7365001F96FB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				227867B2176B7061001F96FB /* CoreDataTests.m */,
+				227867BC176B7356001F96FB /* Source */,
+				227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		227867CB176B745B001F96FB /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				229628231760E1D5008D887F /* LibraryTests.m */,
+				2296285D1761DA1A008D887F /* BaseClass.h */,
+				2296285E1761DA1A008D887F /* BaseClass.m */,
+				229628521761D8AC008D887F /* ExampleBasic.h */,
+				229628531761D8AC008D887F /* ExampleBasic.m */,
+				22962865176204D2008D887F /* ExampleUndo.h */,
+				22962866176204D2008D887F /* ExampleUndo.m */,
+				229628581761D9DB008D887F /* CustomClass.h */,
+				229628591761D9DC008D887F /* CustomClass.m */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
 		229627E51760E1BF008D887F = {
 			isa = PBXGroup;
 			children = (
@@ -296,9 +362,9 @@
 			isa = PBXGroup;
 			children = (
 				227867A71769CF82001F96FB /* ConverterTests.m */,
-				229628231760E1D5008D887F /* LibraryTests.m */,
+				227867CA176B7365001F96FB /* CoreData */,
+				227867CB176B745B001F96FB /* Basic */,
 				229628501761014B008D887F /* Data */,
-				229628621761DA2C008D887F /* Test Output */,
 				2296281D1760E1D5008D887F /* Supporting Files */,
 			);
 			path = Tests;
@@ -328,21 +394,6 @@
 			);
 			name = Configs;
 			path = Source/Configs;
-			sourceTree = "<group>";
-		};
-		229628621761DA2C008D887F /* Test Output */ = {
-			isa = PBXGroup;
-			children = (
-				2296285D1761DA1A008D887F /* BaseClass.h */,
-				2296285E1761DA1A008D887F /* BaseClass.m */,
-				229628521761D8AC008D887F /* ExampleBasic.h */,
-				229628531761D8AC008D887F /* ExampleBasic.m */,
-				22962865176204D2008D887F /* ExampleUndo.h */,
-				22962866176204D2008D887F /* ExampleUndo.m */,
-				229628581761D9DB008D887F /* CustomClass.h */,
-				229628591761D9DC008D887F /* CustomClass.m */,
-			);
-			name = "Test Output";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +457,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229628281760E1D5008D887F /* Build configuration list for PBXNativeTarget "LibraryTests" */;
 			buildPhases = (
+				227867B4176B70F1001F96FB /* Run Mogenerator */,
 				229628101760E1D5008D887F /* Sources */,
 				229628111760E1D5008D887F /* Frameworks */,
 				229628121760E1D5008D887F /* Resources */,
@@ -464,6 +516,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		227867B4176B70F1001F96FB /* Run Mogenerator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Mogenerator";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HUMAN_DIR=\"${SOURCE_ROOT}/Tests/Data/coredata/Source/\"\nMACHINE_DIR=\"${HUMAN_DIR}/Generated\"\n\nmkdir -p \"${HUMAN_DIR}\"\nmkdir -p \"${MACHINE_DIR}\"\n\nmg=/usr/local/bin/mogenerator\n\n$mg --model \"${SOURCE_ROOT}/Tests/Data/coredata/CoreData.xcdatamodeld/CoreData.xcdatamodel\" --human-dir \"${HUMAN_DIR}\" --machine-dir \"${MACHINE_DIR}\" --template-var arc=true\n\n";
+		};
 		229628131760E1D5008D887F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,12 +587,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227867B3176B7061001F96FB /* CoreDataTests.m in Sources */,
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
+				227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */,
+				227867C8176B7356001F96FB /* Job.m in Sources */,
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
+				227867C6176B7356001F96FB /* _Job.m in Sources */,
 				229628641761F29E008D887F /* ExampleBasic.m in Sources */,
 				227867A81769CF82001F96FB /* ConverterTests.m in Sources */,
+				227867C9176B7356001F96FB /* Person.m in Sources */,
 				22962867176204D2008D887F /* ExampleUndo.m in Sources */,
+				227867C7176B7356001F96FB /* _Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +756,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				227867B6176B72C0001F96FB /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 227867B6176B72C0001F96FB /* CoreData.xcdatamodel */;
+			name = CoreData.xcdatamodeld;
+			path = Data/coredata/CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 229627E61760E1BF008D887F /* Project object */;
 }

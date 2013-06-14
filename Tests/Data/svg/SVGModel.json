@@ -1572,8 +1572,8 @@
         }
     },
     "templates" : [
-                   "header",
-                   "source"
+                   "source.h",
+                   "source.m"
                    ],
     "defaults" : {
         "super" : {
@@ -1581,7 +1581,7 @@
         }
     },
     "types" : {
-        "base" : "standardTypes",
+        "base" : "../standard/standardTypes",
         "items" : {
             "SVGColor" : {
                 "metatype" : "NSObject",
@@ -1590,7 +1590,7 @@
         }
     },
     "metas" : {
-        "base" : "standardMetas",
+        "base" : "../standard/standardMetas",
         "items" : {
             
         }

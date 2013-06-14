@@ -40,7 +40,7 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)testLoadModel
 {
-    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data/svg"];
 
     BCComaMomConverter* converter = [BCComaMomConverter new];
     NSError* error;
@@ -51,7 +51,7 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)testEnumerateEntities
 {
-    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data/svg"];
 
     BCComaMomConverter* converter = [BCComaMomConverter new];
     NSError* error;
@@ -67,7 +67,7 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)testInfoForModel
 {
-    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data/svg"];
 
     BCComaMomConverter* converter = [BCComaMomConverter new];
     NSError* error;
@@ -92,19 +92,19 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)testMerging
 {
-    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
+    NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data/svg"];
 
     BCComaMomConverter* converter = [BCComaMomConverter new];
 
     NSError* error;
-    NSURL* svgURL = [self URLForTestResource:@"SVGModelBase" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* svgURL = [self URLForTestResource:@"SVGModelBase" withExtension:@"json" subdirectory:@"Data/svg"];
     NSData* svgData = [NSData dataWithContentsOfURL:svgURL];
     NSDictionary* svgBase = [NSJSONSerialization JSONObjectWithData:svgData options:0 error:&error];
 
     NSDictionary* svgMerged = [converter mergeModelAtURL:modelURL into:svgBase error:&error];
     ECTestAssertNotNil(svgMerged);
 
-    NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data/svg"];
     NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
 

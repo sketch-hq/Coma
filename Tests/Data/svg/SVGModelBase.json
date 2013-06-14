@@ -1,0 +1,37 @@
+	{
+        "templates":["source.h", "source.m"],
+
+        "defaults" :
+        {
+            "super" :
+            {
+                "class" : "NSObject",
+            }
+        },
+
+		"types":
+		{
+			"base" : "../standard/standardTypes",
+			"items" :
+			{
+                "SVGColor" :
+                {
+                    "metatype" : "NSObject",
+                    "requires" : "SVGColor.h",
+                }
+			}
+		},
+	
+		"metas":
+		{
+			"base" : "../standard/standardMetas",
+			"items" :
+			{
+            }
+		},
+	
+		"classes":
+		{
+        }
+	}
+
