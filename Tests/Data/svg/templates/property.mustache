@@ -2,9 +2,13 @@
  {{.}}
  */{{/}}
 
+{{#transform}}
+@property (strong, nonatomic) id {{name}};
+{{^}}
 {{#metaInfo.basic}}
 @property (assign, nonatomic) {{type}} {{name}}Value;
 @property (strong, nonatomic) NSNumber* {{name}};
 {{^}}
 @property (strong, nonatomic) {{type}}* {{name}};
+{{/}}
 {{/}}

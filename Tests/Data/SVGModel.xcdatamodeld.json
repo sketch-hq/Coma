@@ -34,7 +34,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -240,7 +241,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -327,7 +329,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "opacity" : {
           "type" : "double"
@@ -432,7 +435,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "desc" : {
           "type" : "NSString"
@@ -531,7 +535,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "opacity" : {
           "type" : "double"
@@ -755,7 +760,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "opacity" : {
           "type" : "double"
@@ -854,7 +860,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -938,7 +945,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -1016,7 +1024,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "path" : {
           "type" : "NSBezierPath"
@@ -1106,7 +1115,8 @@
           "type" : "NSString"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         },
         "path" : {
           "type" : "NSBezierPath"
@@ -1202,7 +1212,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -1414,7 +1425,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {
@@ -1507,7 +1519,8 @@
           "type" : "NSAffineTransform"
         },
         "rect_" : {
-          "type" : "NSObject"
+          "type" : "id",
+          "transform" : "NSRect"
         }
       },
       "relationships" : {

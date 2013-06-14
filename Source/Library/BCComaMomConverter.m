@@ -203,15 +203,35 @@
                 basicType = nil;
         }
 
+        NSString* transform = attribute.userInfo[@"scalarAttributeType"];
+        NSString* type;
+        if (transform)
+        {
+            type = @"id";
+        }
+        else if (basicType)
+        {
+            type = basicType;
+        }
+        else if (className)
+        {
+            type = className;
+        }
+        else
+        {
+            type = @"NSObject";
+        }
+
         NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
         @{
-          @"type" : basicType ? basicType : (className ? className : @"NSObject")
+          @"type" : type
           }];
 
-//        if (basicType)
-//        {
-//            info[@"basic"] = basicType;
-//        }
+        if (transform)
+        {
+            info[@"transform"] = transform;
+        }
+
 
         properties[attributeName] = info;
     }];

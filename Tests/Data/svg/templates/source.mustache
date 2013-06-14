@@ -20,3 +20,12 @@ static NSArray* s{{name}}Properties = nil;
 
     return s{{name}}Properties;
 }
+
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
+{
+    self = [super init];
+    
+    return self;
+}
+
+@end
