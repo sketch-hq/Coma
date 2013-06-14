@@ -1,13 +1,18 @@
 
 #pragma mark - Introspection
 
+/**
+ Some static arrays containing lists of properties. These are populated once at +initialize time.
+ */
 
 static NSArray* s{{name}}Properties = nil;
 static NSArray* s{{name}}Relationships = nil;
 static NSArray* s{{name}}Attributes = nil;
 
+
 /**
- * Return the names of every property in this class.
+ Returns a list of NSStrings with the names of the properties in it.
+ @return Array of property names.
  */
 
 + (NSArray*)propertyNames {
@@ -24,6 +29,12 @@ static NSArray* s{{name}}Attributes = nil;
     return s{{name}}Properties;
 }
 
+
+/**
+ Returns a list of NSStrings with the names of the relationship properties in it.
+ @return Array of relationship names.
+ */
+
 + (NSArray*)relationshipNames {
     if (!s{{name}}Relationships) {
         s{{name}}Relationships = @[{{# relationships}}
@@ -36,6 +47,12 @@ static NSArray* s{{name}}Attributes = nil;
 
     return s{{name}}Properties;
 }
+
+
+/**
+ Returns a list of NSStrings with the names of the attribute properties in it.
+ @return Array of attribute names.
+ */
 
 + (NSArray*)attributeNames {
     if (!s{{name}}Attributes) {
