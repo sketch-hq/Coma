@@ -1,0 +1,49 @@
+
+{{! if the type has a special comparison method, use it }}
+{{#typeInfo.NSCompareType}}
+
+- (void)set{{mixedcapsInitialCapital(name)}}:({{type}})value {
+    if (!NSEqual{{typeInfo.NSCompareType}}s(self.{{name}}, value)) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+                set{{mixedcapsInitialCapital(name)}}:self.{{name}}];
+
+        [self.undoManager setActionName:@"{{undo}}"];
+        [super set{{mixedcapsInitialCapital(name)}}:value];
+    }
+}
+
+{{^}}
+
+{{! otherwise, if it's a basic type, we have one variant of the setter }}
+
+{{#metaInfo.basic}}
+
+- (void)set{{mixedcapsInitialCapital(name)}}:({{type}})value {
+    if (self.{{name}} != value) {
+        [[self.undoManager prepareWithInvocationTarget:self]
+                set{{mixedcapsInitialCapital(name)}}:self.{{name}}];
+
+        [self.undoManager setActionName:@"{{undo}}"];
+        [super set{{mixedcapsInitialCapital(name)}}:value];
+    }
+}
+
+{{^}}
+
+{{! if it's an object type, we have a slightly different variant }}
+
+- (void)set{{capitalized(name)}}:({{type}}*)value {
+    if (self.{{name}} != value) {
+    if (![self isEqual:value]) {
+            [self.undoManager registerUndoWithTarget:self
+                                       selector:_cmd
+                                         object:self.{{name}}];
+            [self.undoManager setActionName:@"{{undo}}"];
+            [super set{{capitalized(name)}}:value];
+    }
+    }
+}
+
+{{/}}
+
+{{/}}

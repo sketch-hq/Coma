@@ -53,12 +53,14 @@
         {
             "metatype" : "BasicNSType",
             "NSType" : "Rect",
+            "NSCompareType" : "Rect",
         },
 
         "NSPoint" :
         {
             "metatype" : "BasicNSType",
             "NSType" : "Point",
+            "NSCompareType" : "Point",
         },
 
         "BOOL" :

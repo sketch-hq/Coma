@@ -8,94 +8,186 @@
 
 @implementation ExampleUndo
 
+
+
+
+
+
+
+
+
+
+
 - (void)setString:(NSString*)value {
     if (self.string != value) {
-        [self.undoManager registerUndoWithTarget:self
-                                        selector:_cmd
-                                          object:self.string];
-        [self.undoManager setActionName:@"Set String"];
-        [super setString:value];
+    if (![self isEqual:value]) {
+            [self.undoManager registerUndoWithTarget:self
+                                       selector:_cmd
+                                         object:self.string];
+            [self.undoManager setActionName:@"Set String"];
+            [super setString:value];
+    }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 - (void)setInteger:(NSInteger)value {
     if (self.integer != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setInteger:self.integer];
+                setInteger:self.integer];
 
         [self.undoManager setActionName:@"Set Integer"];
         [super setInteger:value];
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 - (void)setCustom:(CustomClass*)value {
     if (self.custom != value) {
-        [self.undoManager registerUndoWithTarget:self
-                                        selector:_cmd
-                                          object:self.custom];
-        [self.undoManager setActionName:@"Set Custom"];
-        [super setCustom:value];
+    if (![self isEqual:value]) {
+            [self.undoManager registerUndoWithTarget:self
+                                       selector:_cmd
+                                         object:self.custom];
+            [self.undoManager setActionName:@"Set Custom"];
+            [super setCustom:value];
+    }
     }
 }
+
+
+
+
+
+
 
 - (void)setPoint:(NSPoint)value {
     if (!NSEqualPoints(self.point, value)) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setPoint:self.point];
+                setPoint:self.point];
 
         [self.undoManager setActionName:@"Set Point"];
         [super setPoint:value];
     }
 }
 
+
+
+
+
+
+
+
+
 - (void)setUnsignedInteger:(NSUInteger)value {
     if (self.unsignedInteger != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setUnsignedInteger:self.unsignedInteger];
+                setUnsignedInteger:self.unsignedInteger];
 
         [self.undoManager setActionName:@"Set UInteger"];
         [super setUnsignedInteger:value];
     }
 }
 
+
+
+
+
+
+
 - (void)setRect:(NSRect)value {
     if (!NSEqualRects(self.rect, value)) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setRect:self.rect];
+                setRect:self.rect];
 
         [self.undoManager setActionName:@"Set Rect"];
         [super setRect:value];
     }
 }
 
+
+
+
+
+
+
+
+
+
+
 - (void)setDate:(NSDate*)value {
     if (self.date != value) {
-        [self.undoManager registerUndoWithTarget:self
-                                        selector:_cmd
-                                          object:self.date];
-        [self.undoManager setActionName:@"Set Date"];
-        [super setDate:value];
+    if (![self isEqual:value]) {
+            [self.undoManager registerUndoWithTarget:self
+                                       selector:_cmd
+                                         object:self.date];
+            [self.undoManager setActionName:@"Set Date"];
+            [super setDate:value];
+    }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 - (void)setBoolean:(BOOL)value {
     if (self.boolean != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setBoolean:self.boolean];
+                setBoolean:self.boolean];
 
         [self.undoManager setActionName:@"Set Boolean"];
         [super setBoolean:value];
     }
 }
 
+
+
+
+
+
+
+
+
+
+
 - (void)setReal:(CGFloat)value {
     if (self.real != value) {
         [[self.undoManager prepareWithInvocationTarget:self]
-         setReal:self.real];
+                setReal:self.real];
 
         [self.undoManager setActionName:@"Set Real"];
         [super setReal:value];
     }
 }
+
+
+
+
 
 @end
