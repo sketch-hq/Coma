@@ -58,6 +58,8 @@ ECDeclareDebugChannel(ComaModelChannel);
     
 }
 
+#if TEST_MOGENERATED
+
 - (void)testCoreDataClasses
 {
     [self setupCoreData];
@@ -68,6 +70,74 @@ ECDeclareDebugChannel(ComaModelChannel);
     person.job = job;
 
     ECTestAssertTrue([job.staff containsObject:person]);
+}
+
+#else
+- (void)testComaClasses
+{
+    Person* person = [[Person alloc] init];
+    Job* job = [[Job alloc] init];
+
+    person.job = job;
+
+    ECTestAssertTrue([job.staff containsObject:person]);
+}
+
+#endif
+
+#define WRITE_TO_DESKTOP 1
+
+- (void)testGeneratingComaClasses
+{
+    NSURL* modelURL = [self URLForTestResource:@"CoreData" withExtension:@"xcdatamodeld" subdirectory:@"Data/coredata"];
+    BCComaMomConverter* converter = [BCComaMomConverter new];
+
+    NSError* error;
+    NSURL* coreDataURL = [self URLForTestResource:@"CoreDataBase" withExtension:@"json" subdirectory:@"Data/coredata"];
+    NSData* coreDataData = [NSData dataWithContentsOfURL:coreDataURL];
+    NSDictionary* coreDataBase = [NSJSONSerialization JSONObjectWithData:coreDataData options:0 error:&error];
+
+    NSDictionary* coreDataMerged = [converter mergeModelAtURL:modelURL into:coreDataBase error:&error];
+    ECTestAssertNotNil(coreDataMerged);
+
+    NSURL* mergedURL = [modelURL URLByAppendingPathExtension:@"json"];
+    NSData* mergedData = [NSJSONSerialization dataWithJSONObject:coreDataMerged options:NSJSONWritingPrettyPrinted error:&error];
+    [mergedData writeToURL:mergedURL atomically:YES];
+
+    BCComaEngine* engine = [BCComaEngine new];
+
+    NSBundle* bundle = [NSBundle bundleForClass:[self class]];
+    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data/coredata"];
+
+    NSArray* expectedNames = @[@"Person.h", @"Person.m", @"Job.h", @"Job.m"];
+    NSMutableDictionary* expected = [NSMutableDictionary dictionary];
+    for (NSString* expectedName in expectedNames)
+    {
+        NSString* expectedValue = [NSString stringWithContentsOfURL:[bundle URLForResource:[expectedName stringByDeletingPathExtension] withExtension:[expectedName pathExtension]] encoding:NSUTF8StringEncoding error:&error];
+        if (expectedValue)
+            expected[expectedName] = expectedValue;
+    }
+
+    [engine generateModelAtURL:mergedURL withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
+
+        if (output)
+        {
+            NSString* expectedOutput = expected[name];
+            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLinesIgnoreWhitespace];
+
+#if WRITE_TO_DESKTOP
+            NSURL* outputURL = [NSURL fileURLWithPath:[[@"~/Desktop" stringByStandardizingPath] stringByAppendingPathComponent:name]];
+            [output writeToURL:outputURL atomically:YES encoding:NSUTF8StringEncoding error:&error];
+#endif
+
+        }
+        else
+        {
+            STFail(@"rendering error %@", error);
+        }
+        
+    }];
+
 }
 
 @end

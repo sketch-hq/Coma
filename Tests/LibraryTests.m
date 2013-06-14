@@ -37,7 +37,7 @@ ECDeclareDebugChannel(ComaModelChannel);
     ECEnableChannel(ComaTemplatesChannel);
 }
 
-#define WRITE_TO_DESKTOP 1
+#define WRITE_TO_DESKTOP 0
 
 - (void)doTestForGeneratedName:(NSString*)generatedName withTemplateName:(NSString*)templateName
 {

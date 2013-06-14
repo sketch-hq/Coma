@@ -1,5 +1,5 @@
 	{
-        "templates":["source.h", "source.m"],
+        "templates":["source.h", "source.m", "_source.h", "_source.m"],
 
         "defaults" :
         {

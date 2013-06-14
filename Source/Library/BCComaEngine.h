@@ -19,6 +19,8 @@ typedef NS_ENUM(NSUInteger, BCComaEngineError)
 
 @interface BCComaEngine : NSObject
 
+@property (strong, nonatomic) NSString* classNamePrefix;
+
 /**
  Given a model.json file, and a directory containing templates, generate files.
  The given block will be called once for each generated file.

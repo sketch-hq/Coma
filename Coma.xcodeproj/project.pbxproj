@@ -24,6 +24,10 @@
 		227867C7176B7356001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C1176B7356001F96FB /* _Person.m */; };
 		227867C8176B7356001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C3176B7356001F96FB /* Job.m */; };
 		227867C9176B7356001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867C5176B7356001F96FB /* Person.m */; };
+		227867D5176B7B18001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
+		227867D6176B7B18001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
+		227867D7176B7B18001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
+		227867D8176B7B18001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D4176B7B18001F96FB /* Person.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -102,6 +106,14 @@
 		227867C3176B7356001F96FB /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
 		227867C4176B7356001F96FB /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		227867C5176B7356001F96FB /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		227867CD176B7B18001F96FB /* _Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Job.h; sourceTree = "<group>"; };
+		227867CE176B7B18001F96FB /* _Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Job.m; sourceTree = "<group>"; };
+		227867CF176B7B18001F96FB /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		227867D0176B7B18001F96FB /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		227867D1176B7B18001F96FB /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
+		227867D2176B7B18001F96FB /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
+		227867D3176B7B18001F96FB /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		227867D4176B7B18001F96FB /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -200,7 +212,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		227867BC176B7356001F96FB /* Source */ = {
+		227867BC176B7356001F96FB /* Mogenerator */ = {
 			isa = PBXGroup;
 			children = (
 				227867BD176B7356001F96FB /* Generated */,
@@ -209,8 +221,8 @@
 				227867C4176B7356001F96FB /* Person.h */,
 				227867C5176B7356001F96FB /* Person.m */,
 			);
-			name = Source;
-			path = Data/coredata/Source;
+			name = Mogenerator;
+			path = Data/coredata/Mogenerator;
 			sourceTree = "<group>";
 		};
 		227867BD176B7356001F96FB /* Generated */ = {
@@ -228,7 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				227867B2176B7061001F96FB /* CoreDataTests.m */,
-				227867BC176B7356001F96FB /* Source */,
+				227867CC176B7B18001F96FB /* Coma */,
+				227867BC176B7356001F96FB /* Mogenerator */,
 				227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -248,6 +261,22 @@
 				229628591761D9DC008D887F /* CustomClass.m */,
 			);
 			name = Basic;
+			sourceTree = "<group>";
+		};
+		227867CC176B7B18001F96FB /* Coma */ = {
+			isa = PBXGroup;
+			children = (
+				227867CD176B7B18001F96FB /* _Job.h */,
+				227867CE176B7B18001F96FB /* _Job.m */,
+				227867CF176B7B18001F96FB /* _Person.h */,
+				227867D0176B7B18001F96FB /* _Person.m */,
+				227867D1176B7B18001F96FB /* Job.h */,
+				227867D2176B7B18001F96FB /* Job.m */,
+				227867D3176B7B18001F96FB /* Person.h */,
+				227867D4176B7B18001F96FB /* Person.m */,
+			);
+			name = Coma;
+			path = Data/coredata/Coma;
 			sourceTree = "<group>";
 		};
 		229627E51760E1BF008D887F = {
@@ -528,7 +557,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "HUMAN_DIR=\"${SOURCE_ROOT}/Tests/Data/coredata/Source/\"\nMACHINE_DIR=\"${HUMAN_DIR}/Generated\"\n\nmkdir -p \"${HUMAN_DIR}\"\nmkdir -p \"${MACHINE_DIR}\"\n\nmg=/usr/local/bin/mogenerator\n\n$mg --model \"${SOURCE_ROOT}/Tests/Data/coredata/CoreData.xcdatamodeld/CoreData.xcdatamodel\" --human-dir \"${HUMAN_DIR}\" --machine-dir \"${MACHINE_DIR}\" --template-var arc=true\n\n";
+			shellScript = "HUMAN_DIR=\"${SOURCE_ROOT}/Tests/Data/coredata/Mogenerator/\"\nMACHINE_DIR=\"${HUMAN_DIR}/Generated\"\n\nmkdir -p \"${HUMAN_DIR}\"\nmkdir -p \"${MACHINE_DIR}\"\n\nmg=/usr/local/bin/mogenerator\n\n$mg --model \"${SOURCE_ROOT}/Tests/Data/coredata/CoreData.xcdatamodeld/CoreData.xcdatamodel\" --human-dir \"${HUMAN_DIR}\" --machine-dir \"${MACHINE_DIR}\" --template-var arc=true\n\n";
 		};
 		229628131760E1D5008D887F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -587,6 +616,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227867D7176B7B18001F96FB /* Job.m in Sources */,
+				227867D6176B7B18001F96FB /* _Person.m in Sources */,
+				227867D5176B7B18001F96FB /* _Job.m in Sources */,
 				227867B3176B7061001F96FB /* CoreDataTests.m in Sources */,
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
 				227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */,
@@ -594,6 +626,7 @@
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
 				227867C6176B7356001F96FB /* _Job.m in Sources */,
+				227867D8176B7B18001F96FB /* Person.m in Sources */,
 				229628641761F29E008D887F /* ExampleBasic.m in Sources */,
 				227867A81769CF82001F96FB /* ConverterTests.m in Sources */,
 				227867C9176B7356001F96FB /* Person.m in Sources */,
