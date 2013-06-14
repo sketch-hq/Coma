@@ -1,5 +1,5 @@
 	{
-        "templates":["header", "source"],
+        "templates":["source.h", "source.m"],
 
 		"types":
 		{
