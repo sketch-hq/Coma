@@ -77,7 +77,7 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSDictionary* info = [converter infoForModel:model];
     ECTestAssertNotNil(info);
 
-    NSURL* expectedURL = [self URLForTestResource:@"SVGConverted" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* expectedURL = [self URLForTestResource:@"SVGConverted" withExtension:@"json" subdirectory:@"Data/svg"];
     NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
 
