@@ -4,41 +4,49 @@
         "int16_t" :
         {
             "metatype" : "Basic",
+            "NSType" : "integer",
         },
 
         "int32_t" :
         {
             "metatype" : "Basic",
+            "NSType" : "integer",
         },
 
         "int64_t" :
         {
             "metatype" : "Basic",
+            "NSType" : "integer",
         },
 
         "NSInteger" :
         {
             "metatype" : "Basic",
+            "NSType" : "integer",
         },
 
         "NSUInteger" :
         {
             "metatype" : "Basic",
+            "NSType" : "unsignedInteger",
         },
 
         "float" :
         {
             "metatype" : "Basic",
+            "NSType" : "float",
         },
 
         "double" :
         {
             "metatype" : "Basic",
+            "NSType" : "double",
         },
 
         "CGFloat" :
         {
             "metatype" : "Basic",
+            "NSType" : "double",
         },
 
         "NSRect" :
@@ -56,6 +64,7 @@
         "BOOL" :
         {
             "metatype" : "Basic",
+            "NSType" : "bool",
         },
 
         "«default»" :
