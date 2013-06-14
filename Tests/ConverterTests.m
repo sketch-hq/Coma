@@ -63,6 +63,8 @@ ECDeclareDebugChannel(ComaModelChannel);
     }];
 }
 
+#define WRITE_TO_DESKTOP 1
+
 - (void)testInfoForModel
 {
     NSURL* modelURL = [self URLForTestResource:@"SVGModel" withExtension:@"xcdatamodeld" subdirectory:@"Data"];
@@ -95,14 +97,14 @@ ECDeclareDebugChannel(ComaModelChannel);
     BCComaMomConverter* converter = [BCComaMomConverter new];
 
     NSError* error;
-    NSURL* svgURL = [self URLForTestResource:@"svg-base" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* svgURL = [self URLForTestResource:@"SVGModelBase" withExtension:@"json" subdirectory:@"Data"];
     NSData* svgData = [NSData dataWithContentsOfURL:svgURL];
     NSDictionary* svgBase = [NSJSONSerialization JSONObjectWithData:svgData options:0 error:&error];
 
-    NSDictionary* svgMerged = [converter mergeModelAtURL:modelURL into:svgBase];
+    NSDictionary* svgMerged = [converter mergeModelAtURL:modelURL into:svgBase error:&error];
     ECTestAssertNotNil(svgMerged);
 
-    NSURL* expectedURL = [self URLForTestResource:@"svg" withExtension:@"json" subdirectory:@"Data"];
+    NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data"];
     NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
 
