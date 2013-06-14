@@ -246,7 +246,7 @@ ECDefineDebugChannel(ComaModelChannel);
         info[@"typeInfo"] = typeInfo;
         info[@"metaInfo"] = metaInfo;
 
-        // process the list of template names in the meta info
+        // process the list of dynamic template names in the meta info
         // for each of these, we try to load the corresponding template
         // if successful, we add the template as an entry in the property dictionary
         // this allows the top-level templates to "include" one of these type-specific templates just by referring to it
@@ -255,7 +255,7 @@ ECDefineDebugChannel(ComaModelChannel);
         // the purpose of all this is to allow top-level templates to refer to a sub-template by name (eg "getters") but to have the
         // engine actually use a different template depending on the type of the property being processed.
         // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
-        NSDictionary* propertyTemplates = metaInfo[@"templates"];
+        NSDictionary* propertyTemplates = metaInfo[@"dynamicTemplates"];
         [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
             BCComaLazyLoadingTemplate* template = [BCComaLazyLoadingTemplate templateWithName:templateName templates:self.templates];
             if (template)

@@ -4,7 +4,7 @@
 {{^}}
 
 {{! otherwise if it's a basic type, we have one variant of the copying }}
-{{#metaInfo.basic}}
+{{#typeInfo.basicType}}
     copy.{{name}} = self.{{name}};
 {{^}}
 

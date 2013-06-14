@@ -16,7 +16,7 @@
 
 {{! otherwise, if it's a basic type, we have one variant of the setter }}
 
-{{#metaInfo.basic}}
+{{#typeInfo.basicType}}
 
 - (void)set{{mixedcapsInitialCapital(name)}}:({{type}})value {
     if (self.{{name}} != value) {

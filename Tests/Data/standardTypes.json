@@ -4,71 +4,82 @@
         "int16_t" :
         {
             "metatype" : "Basic",
-            "NSType" : "integer",
+            "basicType" : "integer",
+            "NSNumberType" : "integer",
         },
 
         "int32_t" :
         {
             "metatype" : "Basic",
-            "NSType" : "integer",
+            "basicType" : "integer",
+            "NSNumberType" : "integer",
         },
 
         "int64_t" :
         {
             "metatype" : "Basic",
-            "NSType" : "integer",
+            "basicType" : "integer",
+            "NSNumberType" : "integer",
         },
 
         "NSInteger" :
         {
             "metatype" : "Basic",
-            "NSType" : "integer",
+            "basicType" : "integer",
+            "NSNumberType" : "integer",
         },
 
         "NSUInteger" :
         {
             "metatype" : "Basic",
-            "NSType" : "unsignedInteger",
+            "basicType" : "integer",
+            "NSNumberType" : "unsignedInteger",
         },
 
         "float" :
         {
             "metatype" : "Basic",
-            "NSType" : "float",
+            "basicType" : "float",
+            "NSNumberType" : "float",
         },
 
         "double" :
         {
             "metatype" : "Basic",
-            "NSType" : "double",
+            "basicType" : "double",
+            "NSNumberType" : "double",
         },
 
         "CGFloat" :
         {
             "metatype" : "Basic",
-            "NSType" : "double",
+            "basicType" : "double",
+            "NSNumberType" : "double",
         },
 
         "NSRect" :
         {
-            "metatype" : "BasicNSType",
+            "metatype" : "Basic",
             "NSEncodeTransformer" : "NSStringFromRect",
             "NSDecodeTransformer" : "NSRectFromString",
+            "basicType" : "NSRect",
             "NSCompareType" : "Rect",
         },
 
         "NSPoint" :
         {
-            "metatype" : "BasicNSType",
+            "metatype" : "Basic",
             "NSEncodeTransformer" : "NSStringFromPoint",
             "NSDecodeTransformer" : "NSPointFromString",
+            "basicType" : "NSPoint",
             "NSCompareType" : "Point",
         },
 
         "BOOL" :
         {
             "metatype" : "Basic",
-            "NSType" : "bool",
+            "basicType" : "bool",
+            "NSNumberType" : "bool",
         },
 
         "«default»" :

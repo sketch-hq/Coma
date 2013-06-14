@@ -3,44 +3,16 @@
     {
         "Basic" :
         {
-            "templates" :
+            "dynamicTemplates" :
             {
-                "getter": "basicGetter",
-                "setter": "basicSetter",
-                "copier" : "basicCopy",
-                "mutableCopier" : "basicMutableCopy",
-                "encoder" : "basicEncode",
-                "decoder" : "basicDecode",
             },
             "mode" : "assign",
-            "basic" : true
-        },
-
-        "BasicNSType" :
-        {
-            "templates" :
-            {
-                "getter": "basicGetter",
-                "setter": "basicNSTypeSetter",
-                "copier" : "basicCopy",
-                "mutableCopier" : "basicMutableCopy",
-                "encoder" : "basicNSTypeEncode",
-                "decoder" : "basicNSTypeDecode",
-            },
-            "mode" : "assign",
-            "basic" : true
         },
 
         "NSObject" :
         {
-            "templates" :
+            "dynamicTemplates" :
             {
-                "getter": "objectGetter",
-                "setter": "objectSetter",
-                "copier" : "objectCopy",
-                "mutableCopier" : "objectMutableCopy",
-                "encoder" : "objectEncode",
-                "decoder" : "objectDecode",
             },
         },
     }

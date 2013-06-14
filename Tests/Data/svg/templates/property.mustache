@@ -5,7 +5,7 @@
 {{#transform}}
 @property (strong, nonatomic) id {{name}};
 {{^}}
-{{#metaInfo.basic}}
+{{#typeInfo.basicType}}
 @property (assign, nonatomic) {{type}} {{name}}Value;
 @property (strong, nonatomic) NSNumber* {{name}};
 {{^}}

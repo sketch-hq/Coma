@@ -126,7 +126,7 @@ static NSArray* sExampleAttributes = nil;
 
 
 
-    [coder encodeUnsignedInteger:self.unsignedInteger forKey:@"unsignedInteger"];
+    [coder encodeInteger:self.unsignedInteger forKey:@"unsignedInteger"];
 
 
     [coder encodeObject:NSStringFromRect(self.rect) forKey:@"rect"];
@@ -185,7 +185,7 @@ static NSArray* sExampleAttributes = nil;
 
 
 
-        _unsignedInteger = [coder decodeUnsignedIntegerForKey:@"unsignedInteger"];
+        _unsignedInteger = [coder decodeIntegerForKey:@"unsignedInteger"];
 
 
         _rect = NSRectFromString([coder decodeObjectForKey:@"rect"]);

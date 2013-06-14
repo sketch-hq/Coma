@@ -16,12 +16,16 @@
  NSString example
  */
 
+// 
+
 @property (strong, nonatomic) NSString* string;
 
 
 /**
  NSInteger example
  */
+
+// integer
 
 @property (assign, nonatomic) NSInteger integer;
 
@@ -30,12 +34,16 @@
  Property with custom object that needs to be deep copied for some reason
  */
 
+// 
+
 @property (strong, nonatomic) CustomClass* custom;
 
 
 /**
  NSPoint example
  */
+
+// NSPoint
 
 @property (assign, nonatomic) NSPoint point;
 
@@ -44,12 +52,16 @@
  NSUInteger example
  */
 
+// integer
+
 @property (assign, nonatomic) NSUInteger unsignedInteger;
 
 
 /**
  NSRect example
  */
+
+// NSRect
 
 @property (assign, nonatomic) NSRect rect;
 
@@ -58,6 +70,8 @@
  NSDate example
  */
 
+// 
+
 @property (strong, nonatomic) NSDate* date;
 
 
@@ -65,12 +79,16 @@
  BOOL example
  */
 
+// bool
+
 @property (assign, nonatomic) BOOL boolean;
 
 
 /**
  CGFloat example
  */
+
+// double
 
 @property (assign, nonatomic) CGFloat real;
 

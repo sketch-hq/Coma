@@ -21,14 +21,8 @@
 			{
 		        "DeepCopyObject" :
 		        {
-                    "templates" :
+                    "dynamicTemplates" :
                     {
-                        "getter": "objectGetter",
-                        "setter": "objectSetter",
-                        "copier" : "deepCopy",
-                        "mutableCopier" : "deepMutableCopy",
-                        "encoder" : "objectEncode",
-                        "decoder" : "objectDecode",
                     },
                     "deepCopy" : true,
 				},
