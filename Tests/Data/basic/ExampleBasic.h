@@ -80,6 +80,27 @@
  Returns a list of NSStrings with the names of the properties in it.
  */
 
+
+/**
+ Returns a list of NSStrings with the names of the properties in it.
+ @return Array of property names.
+ */
+
 + (NSArray*)propertyNames;
+
+/**
+ Returns a list of NSStrings with the names of the relationship properties in it.
+ @return Array of relationship names.
+ */
+
++ (NSArray*)relationshipNames;
+
+/**
+ Returns a list of NSStrings with the names of the attribute properties in it.
+ @return Array of attribute names.
+ */
+
++ (NSArray*)attributeNames;
+
 
 @end

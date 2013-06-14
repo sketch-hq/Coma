@@ -9,7 +9,22 @@
 
 @implementation ExampleBasic
 
+
+#pragma mark - Introspection
+
+/**
+ Some static arrays containing lists of properties. These are populated once at +initialize time.
+ */
+
 static NSArray* sExampleProperties = nil;
+static NSArray* sExampleRelationships = nil;
+static NSArray* sExampleAttributes = nil;
+
+
+/**
+ Returns a list of NSStrings with the names of the properties in it.
+ @return Array of property names.
+ */
 
 + (NSArray*)propertyNames {
     if (!sExampleProperties) {
@@ -23,11 +38,60 @@ static NSArray* sExampleProperties = nil;
                              @"date",
                              @"boolean",
                              @"real",
-                             ];
+              ];
+
+        if ([super respondsToSelector:@selector(propertyNames)])
+            sExampleProperties = [sExampleProperties arrayByAddingObjectsFromArray:[super performSelector:@selector(propertyNames)]];
     }
 
     return sExampleProperties;
 }
+
+
+/**
+ Returns a list of NSStrings with the names of the relationship properties in it.
+ @return Array of relationship names.
+ */
+
++ (NSArray*)relationshipNames {
+    if (!sExampleRelationships) {
+        sExampleRelationships = @[
+              ];
+
+        if ([super respondsToSelector:@selector(relationshipNames)])
+            sExampleRelationships = [sExampleRelationships arrayByAddingObjectsFromArray:[super performSelector:@selector(relationshipNames)]];
+    }
+
+    return sExampleProperties;
+}
+
+
+/**
+ Returns a list of NSStrings with the names of the attribute properties in it.
+ @return Array of attribute names.
+ */
+
++ (NSArray*)attributeNames {
+    if (!sExampleAttributes) {
+        sExampleAttributes = @[
+                             @"string",
+                             @"integer",
+                             @"custom",
+                             @"point",
+                             @"unsignedInteger",
+                             @"rect",
+                             @"date",
+                             @"boolean",
+                             @"real",
+              ];
+
+        if ([super respondsToSelector:@selector(attributeNames)])
+            sExampleAttributes = [sExampleAttributes arrayByAddingObjectsFromArray:[super performSelector:@selector(attributeNames)]];
+    }
+
+    return sExampleProperties;
+}
+
 
 #pragma mark - NSCoder
 
