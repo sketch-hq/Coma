@@ -1572,8 +1572,8 @@
     }
   },
   "templates" : [
-    "header",
-    "source"
+    "source.h",
+    "source.m"
   ],
   "defaults" : {
     "super" : {

@@ -14,7 +14,7 @@ NSString *const BCComaEngineErrorDomain;
 
 typedef NS_ENUM(NSUInteger, BCComaEngineError)
 {
-    BCComaEngineErrorMissingTemplate
+    BCComaEngineErrorMissingTemplate = 1
 };
 
 @interface BCComaEngine : NSObject
