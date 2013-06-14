@@ -191,10 +191,13 @@ ECDefineDebugChannel(ComaModelChannel);
         info[@"properties"] = [properties allValues];
 
         NSMutableDictionary* relationships = info[@"relationships"];
-        [relationships enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-            [self preprocessProperty:info name:key];
-        }];
-        info[@"relationships"] = [relationships allValues];
+        if (relationships)
+        {
+            [relationships enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
+                [self preprocessProperty:info name:key];
+            }];
+            info[@"relationships"] = [relationships allValues];
+        }
 
         // merge in any default values that are missing
         [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {

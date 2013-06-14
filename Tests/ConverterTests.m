@@ -63,7 +63,7 @@ ECDeclareDebugChannel(ComaModelChannel);
     }];
 }
 
-#define WRITE_TO_DESKTOP 1
+#define WRITE_TO_DESKTOP 0
 
 - (void)testInfoForModel
 {

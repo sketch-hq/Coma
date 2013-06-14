@@ -37,6 +37,8 @@ ECDeclareDebugChannel(ComaModelChannel);
     ECEnableChannel(ComaTemplatesChannel);
 }
 
+#define WRITE_TO_DESKTOP 0
+
 - (void)doTestForGeneratedName:(NSString*)generatedName withTemplateName:(NSString*)templateName
 {
     // Generate the classes, and check that they match the versions linked in to these tests.
@@ -58,6 +60,12 @@ ECDeclareDebugChannel(ComaModelChannel);
         {
             NSString* expectedOutput = expected[name];
             [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLinesIgnoreWhitespace];
+
+#if WRITE_TO_DESKTOP
+            NSURL* outputURL = [NSURL fileURLWithPath:[[@"~/Desktop" stringByStandardizingPath] stringByAppendingPathComponent:name]];
+            [output writeToURL:outputURL atomically:YES encoding:NSUTF8StringEncoding error:&error];
+#endif
+
         }
         else
         {
