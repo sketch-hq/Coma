@@ -30,6 +30,7 @@
                         "encoder" : "objectEncode",
                         "decoder" : "objectDecode",
                     },
+                    "deepCopy" : true,
 				},
 			}
 		},

@@ -52,14 +52,16 @@
         "NSRect" :
         {
             "metatype" : "BasicNSType",
-            "NSType" : "Rect",
+            "NSEncodeTransformer" : "NSStringFromRect",
+            "NSDecodeTransformer" : "NSRectFromString",
             "NSCompareType" : "Rect",
         },
 
         "NSPoint" :
         {
             "metatype" : "BasicNSType",
-            "NSType" : "Point",
+            "NSEncodeTransformer" : "NSStringFromPoint",
+            "NSDecodeTransformer" : "NSPointFromString",
             "NSCompareType" : "Point",
         },
 

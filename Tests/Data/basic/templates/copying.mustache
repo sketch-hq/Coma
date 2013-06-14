@@ -1,0 +1,13 @@
+{{! are we supposed to deep copy? }}
+{{#metaInfo.deepCopy}}
+    copy.{{name}} = [self.{{name}} deepCopyWithZone:zone];
+{{^}}
+
+{{! otherwise if it's a basic type, we have one variant of the copying }}
+{{#metaInfo.basic}}
+    copy.{{name}} = self.{{name}};
+{{^}}
+
+{{! if it's an object type, we have a slightly different variant }}
+    copy.{{name}} = [self.{{name}} copyWithZone:zone];
+{{/}}{{/}}

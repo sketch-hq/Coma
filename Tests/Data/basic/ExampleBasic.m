@@ -96,29 +96,119 @@ static NSArray* sExampleAttributes = nil;
 #pragma mark - NSCoder
 
 - (void)encodeWithCoder:(NSCoder *)coder {
+
+
+
+
+
+
+
     [coder encodeObject:self.string forKey:@"string"];
-    [coder encodeObject:@(self.integer) forKey:@"integer"];
+
+
+
+
+
+    [coder encodeInteger:self.integer forKey:@"integer"];
+
+
+
+
+
+
+
     [coder encodeObject:self.custom forKey:@"custom"];
+
+
     [coder encodeObject:NSStringFromPoint(self.point) forKey:@"point"];
-    [coder encodeObject:@(self.unsignedInteger) forKey:@"unsignedInteger"];
+
+
+
+
+
+    [coder encodeUnsignedInteger:self.unsignedInteger forKey:@"unsignedInteger"];
+
+
     [coder encodeObject:NSStringFromRect(self.rect) forKey:@"rect"];
+
+
+
+
+
+
+
     [coder encodeObject:self.date forKey:@"date"];
-    [coder encodeObject:@(self.boolean) forKey:@"boolean"];
-    [coder encodeObject:@(self.real) forKey:@"real"];
+
+
+
+
+
+    [coder encodeBool:self.boolean forKey:@"boolean"];
+
+
+
+
+
+    [coder encodeDouble:self.real forKey:@"real"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
+
+
+
+
+
+
+
         _string = [coder decodeObjectForKey:@"string"];
-        [[coder decodeObjectForKey:@"integer"] getValue:&_integer];
+
+
+
+
+
+        _integer = [coder decodeIntegerForKey:@"integer"];
+
+
+
+
+
+
+
         _custom = [coder decodeObjectForKey:@"custom"];
+
+
         _point = NSPointFromString([coder decodeObjectForKey:@"point"]);
-        [[coder decodeObjectForKey:@"unsignedInteger"] getValue:&_unsignedInteger];
+
+
+
+
+
+        _unsignedInteger = [coder decodeUnsignedIntegerForKey:@"unsignedInteger"];
+
+
         _rect = NSRectFromString([coder decodeObjectForKey:@"rect"]);
+
+
+
+
+
+
+
         _date = [coder decodeObjectForKey:@"date"];
-        [[coder decodeObjectForKey:@"boolean"] getValue:&_boolean];
-        [[coder decodeObjectForKey:@"real"] getValue:&_real];
+
+
+
+
+
+        _boolean = [coder decodeBoolForKey:@"boolean"];
+
+
+
+
+
+        _real = [coder decodeDoubleForKey:@"real"];
     }
     return self;
 }
@@ -128,14 +218,60 @@ static NSArray* sExampleAttributes = nil;
 - (id)copyWithZone:(NSZone *)zone {
     ExampleBasic* copy = [super copyWithZone:zone];
 
+
+
+
+
+
+
+
     copy.string = [self.string copyWithZone:zone];
+
+
+
+
+
     copy.integer = self.integer;
+
+
     copy.custom = [self.custom deepCopyWithZone:zone];
+
+
+
+
+
     copy.point = self.point;
+
+
+
+
+
     copy.unsignedInteger = self.unsignedInteger;
+
+
+
+
+
     copy.rect = self.rect;
+
+
+
+
+
+
+
     copy.date = [self.date copyWithZone:zone];
+
+
+
+
+
     copy.boolean = self.boolean;
+
+
+
+
+
     copy.real = self.real;
 
     return copy;
