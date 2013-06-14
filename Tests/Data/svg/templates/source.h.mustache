@@ -17,11 +17,11 @@
 
 {{! Declaration for each property }}
 {{# properties}}
-{{> property}}
+{{> property.h}}
 {{/ properties}}
 
 {{# relationships}}
-{{> relationship}}
+{{> relationship.h}}
 {{/ relationships}}
 
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
