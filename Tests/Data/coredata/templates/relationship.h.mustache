@@ -4,6 +4,10 @@
 
 {{# toMany}}
 @property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) NSSet* {{name}};
+
+- (void)primitiveAdd{{mixedcapsInitialCapital(name)}}Object:(id)object;
+- (void)primitiveRemove{{mixedcapsInitialCapital(name)}}Object:(id)object;
+
 {{^}}
 @property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) {{type}}* {{name}};
 {{/}}

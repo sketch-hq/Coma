@@ -1,0 +1,18 @@
+{{^toMany}}
+- (void)set{{mixedcapsInitialCapital(name)}}:({{type}} *)newValue
+{
+  {{type}}* oldValue = _{{name}};
+    if (oldValue != newValue)
+    {
+        [oldValue willChangeValueForKey:@"{{inverse}}"];
+        [newValue willChangeValueForKey:@"{{inverse}}"];
+
+    [oldValue primitiveRemoveStaffObject:self];
+        _{{name}} = newValue;
+    [newValue primitiveAddStaffObject:self];
+
+        [oldValue didChangeValueForKey:@"{{inverse}}"];
+        [newValue didChangeValueForKey:@"{{inverse}}"];
+    }
+}
+{{/}}

@@ -1,0 +1,61 @@
+{
+  "classes" : {
+    "Job" : {
+      "properties" : {
+        "name" : {
+          "type" : "NSString"
+        }
+      },
+      "relationships" : {
+        "staff" : {
+          "minimum" : 0,
+          "inverse" : "job",
+          "type" : "Person",
+          "maximum" : 0,
+          "toMany" : true
+        }
+      }
+    },
+    "Person" : {
+      "properties" : {
+        "name" : {
+          "type" : "NSString"
+        }
+      },
+      "relationships" : {
+        "job" : {
+          "minimum" : 0,
+          "inverse" : "staff",
+          "type" : "Job",
+          "maximum" : 1
+        }
+      }
+    }
+  },
+  "templates" : [
+    "source.h",
+    "source.m",
+    "_source.h",
+    "_source.m"
+  ],
+  "defaults" : {
+    "super" : {
+      "class" : "NSObject"
+    }
+  },
+  "types" : {
+    "base" : "..\/standard\/standardTypes",
+    "items" : {
+      "SVGColor" : {
+        "metatype" : "NSObject",
+        "requires" : "SVGColor.h"
+      }
+    }
+  },
+  "metas" : {
+    "base" : "..\/standard\/standardMetas",
+    "items" : {
+
+    }
+  }
+}

@@ -6,6 +6,7 @@
 
 #import "_{{name}}.h"
 {{# properties}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ properties}}
+{{# relationships}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ relationships}}
 
 @implementation _{{name}}
 
