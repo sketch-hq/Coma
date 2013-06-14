@@ -9,40 +9,7 @@
 
 @implementation _{{name}}
 
-static NSArray* s{{name}}Properties = nil;
-static NSArray* s{{name}}Relationships = nil;
-static NSArray* s{{name}}Attributes = nil;
-
-+ (NSArray*)propertyNames {
-    if (!s{{name}}Properties) {
-        s{{name}}Properties = @[{{# properties}}
-                             @"{{name}}",{{/ properties}}{{# relationships}}
-                             @"{{name}}",{{/ relationships}}
-              ];
-    }
-
-    return s{{name}}Properties;
-}
-
-+ (NSArray*)relationshipNames {
-    if (!s{{name}}Relationships) {
-        s{{name}}Relationships = @[{{# relationships}}
-                             @"{{name}}",{{/ relationships}}
-              ];
-    }
-
-    return s{{name}}Properties;
-}
-
-+ (NSArray*)attributeNames {
-    if (!s{{name}}Attributes) {
-        s{{name}}Attributes = @[{{# properties}}
-                             @"{{name}}",{{/ properties}}
-              ];
-    }
-
-    return s{{name}}Properties;
-}
+{{> introspection.m}}
 
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {

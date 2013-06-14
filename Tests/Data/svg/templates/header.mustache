@@ -13,6 +13,8 @@
 
 @interface _{{name}} : {{super.class}}{{protocols}}
 
+{{> introspection.h}}
+
 {{! Declaration for each property }}
 {{# properties}}
 {{> property}}
@@ -21,12 +23,6 @@
 {{# relationships}}
 {{> relationship}}
 {{/ relationships}}
-
-/**
- Returns a list of NSStrings with the names of the properties in it.
- */
-
-+ (NSArray*)propertyNames;
 
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
 
