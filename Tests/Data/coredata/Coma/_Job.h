@@ -28,8 +28,11 @@
  */
 
 + (NSArray*)attributeNames;
+
 @property (strong, nonatomic) NSString* name;
+
 @property (strong, nonatomic) NSSet* staff;
+
 - (void)primitiveAddStaffObject:(id)object;
 - (void)primitiveRemoveStaffObject:(id)object;
 

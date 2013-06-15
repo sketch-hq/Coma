@@ -28,6 +28,7 @@
  */
 
 + (NSArray*)attributeNames;
+
 @property (strong, nonatomic) NSString* name;
 
 /**

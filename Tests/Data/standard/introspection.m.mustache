@@ -1,68 +1,74 @@
-
+¶
 #pragma mark - Introspection
 
+¶
 /**
  Some static arrays containing lists of properties. These are populated once at +initialize time.
  */
 
+¶
 static NSArray* s{{name}}Properties = nil;
 static NSArray* s{{name}}Relationships = nil;
 static NSArray* s{{name}}Attributes = nil;
 
-
+¶
 /**
  Returns a list of NSStrings with the names of the properties in it.
  @return Array of property names.
  */
 
+¶
 + (NSArray*)propertyNames {
     if (!s{{name}}Properties) {
         s{{name}}Properties = @[{{# properties}}
                              @"{{name}}",{{/ properties}}{{# relationships}}
                              @"{{name}}",{{/ relationships}}
               ];
-
+¶
         if ([super respondsToSelector:@selector(propertyNames)])
             s{{name}}Properties = [s{{name}}Properties arrayByAddingObjectsFromArray:[super performSelector:@selector(propertyNames)]];
     }
-
+¶
     return s{{name}}Properties;
 }
 
-
+¶
 /**
  Returns a list of NSStrings with the names of the relationship properties in it.
  @return Array of relationship names.
  */
 
+¶
 + (NSArray*)relationshipNames {
     if (!s{{name}}Relationships) {
         s{{name}}Relationships = @[{{# relationships}}
                              @"{{name}}",{{/ relationships}}
               ];
-
+¶
         if ([super respondsToSelector:@selector(relationshipNames)])
             s{{name}}Relationships = [s{{name}}Relationships arrayByAddingObjectsFromArray:[super performSelector:@selector(relationshipNames)]];
     }
-
+¶
     return s{{name}}Properties;
 }
 
 
+¶
 /**
  Returns a list of NSStrings with the names of the attribute properties in it.
  @return Array of attribute names.
  */
 
+¶
 + (NSArray*)attributeNames {
     if (!s{{name}}Attributes) {
         s{{name}}Attributes = @[{{# properties}}
                              @"{{name}}",{{/ properties}}
               ];
-
+¶
         if ([super respondsToSelector:@selector(attributeNames)])
             s{{name}}Attributes = [s{{name}}Attributes arrayByAddingObjectsFromArray:[super performSelector:@selector(attributeNames)]];
     }
-
+¶
     return s{{name}}Properties;
 }
