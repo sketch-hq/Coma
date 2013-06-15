@@ -61,9 +61,14 @@ ECDefineDebugChannel(ComaTemplatesChannel);
             if (self.filterNewlines)
             {
                 NSString* filtered = [self filterContentsOfURL:url error:&error];
-                template = [GRMustacheTemplate templateFromString:filtered error:&error];
+                GRMustacheTemplateRepository* repo = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:[url URLByDeletingLastPathComponent]];
+                template = [repo templateFromString:filtered error:&error];
             }
-            template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
+            else
+            {
+                template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
+            }
+            
             if (template)
             {
                 templates[name] = template;
@@ -92,23 +97,10 @@ ECDefineDebugChannel(ComaTemplatesChannel);
     NSString* raw = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:error];
     if (raw)
     {
-        NSMutableString* modified = [NSMutableString stringWithString:@""];
-        __block NSUInteger position = 0;
-        NSUInteger length = [raw length];
-        NSRegularExpression* exp = [[NSRegularExpression alloc] initWithPattern:@"\\}\\}[ \\t]*\n" options:NSRegularExpressionCaseInsensitive | NSRegularExpressionDotMatchesLineSeparators error:error];
-        [exp enumerateMatchesInString:raw options:0 range:NSMakeRange(position, length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-            NSRange match = [result rangeAtIndex:0];
-            [modified appendString:[raw substringWithRange:NSMakeRange(position, match.location - position)]];
-            [modified appendString:@"}}"];
-            position = match.location + match.length;
-        }];
-        if (position < length)
-        {
-            [modified appendString:[raw substringFromIndex:position]];
-        }
-
-        
-        result = modified;
+        result = [raw stringByReplacingOccurrencesOfString:@"}}\n" withString:@"}}"];
+        result = [raw stringByReplacingOccurrencesOfString:@"\n{{" withString:@"{{"];
+        result = [result stringByReplacingOccurrencesOfString:@"{{!}}" withString:@"\n"];
+        NSLog(@"%@", result);
     }
 
     return result;
