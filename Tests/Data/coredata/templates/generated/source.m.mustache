@@ -6,8 +6,7 @@
 
 ¶
 #import "_{{name}}.h"
-{{# properties}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ properties}}
-{{# relationships}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ relationships}}
+{{> ../../../standard/imports.m}}
 
 ¶
 @implementation _{{name}}

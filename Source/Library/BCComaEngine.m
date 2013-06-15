@@ -62,7 +62,7 @@ ECDefineDebugChannel(ComaEngineChannel);
 
                 if (self.filterNewlines)
                 {
-                    output = [output stringByReplacingOccurrencesOfString:@"\n\n+" withString:@"\n" options:NSRegularExpressionSearch range:NSMakeRange(0, [output length])];
+                    output = [output stringByReplacingOccurrencesOfString:@"\n[ \t\n]*\n" withString:@"\n" options:NSRegularExpressionSearch range:NSMakeRange(0, [output length])];
                     output = [output stringByReplacingOccurrencesOfString:@"\n¶\n" withString:@"\n\n"];
                     output = [output stringByReplacingOccurrencesOfString:@"¶" withString:@"\n"];
                 }

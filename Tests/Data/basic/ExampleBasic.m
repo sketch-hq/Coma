@@ -9,7 +9,6 @@
 
 @implementation ExampleBasic
 
-
 #pragma mark - Introspection
 
 /**
@@ -19,7 +18,6 @@
 static NSArray* sExampleProperties = nil;
 static NSArray* sExampleRelationships = nil;
 static NSArray* sExampleAttributes = nil;
-
 
 /**
  Returns a list of NSStrings with the names of the properties in it.
@@ -47,7 +45,6 @@ static NSArray* sExampleAttributes = nil;
     return sExampleProperties;
 }
 
-
 /**
  Returns a list of NSStrings with the names of the relationship properties in it.
  @return Array of relationship names.
@@ -64,7 +61,6 @@ static NSArray* sExampleAttributes = nil;
 
     return sExampleProperties;
 }
-
 
 /**
  Returns a list of NSStrings with the names of the attribute properties in it.
@@ -92,122 +88,31 @@ static NSArray* sExampleAttributes = nil;
     return sExampleProperties;
 }
 
-
 #pragma mark - NSCoder
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-
-
-
-
-
-
-
     [coder encodeObject:self.string forKey:@"string"];
-
-
-
-
-
     [coder encodeInteger:self.integer forKey:@"integer"];
-
-
-
-
-
-
-
     [coder encodeObject:self.custom forKey:@"custom"];
-
-
     [coder encodeObject:NSStringFromPoint(self.point) forKey:@"point"];
-
-
-
-
-
     [coder encodeInteger:self.unsignedInteger forKey:@"unsignedInteger"];
-
-
     [coder encodeObject:NSStringFromRect(self.rect) forKey:@"rect"];
-
-
-
-
-
-
-
     [coder encodeObject:self.date forKey:@"date"];
-
-
-
-
-
     [coder encodeBool:self.boolean forKey:@"boolean"];
-
-
-
-
-
     [coder encodeDouble:self.real forKey:@"real"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-
-
-
-
-
-
-
         _string = [coder decodeObjectForKey:@"string"];
-
-
-
-
-
         _integer = [coder decodeIntegerForKey:@"integer"];
-
-
-
-
-
-
-
         _custom = [coder decodeObjectForKey:@"custom"];
-
-
         _point = NSPointFromString([coder decodeObjectForKey:@"point"]);
-
-
-
-
-
         _unsignedInteger = [coder decodeIntegerForKey:@"unsignedInteger"];
-
-
         _rect = NSRectFromString([coder decodeObjectForKey:@"rect"]);
-
-
-
-
-
-
-
         _date = [coder decodeObjectForKey:@"date"];
-
-
-
-
-
         _boolean = [coder decodeBoolForKey:@"boolean"];
-
-
-
-
-
         _real = [coder decodeDoubleForKey:@"real"];
     }
     return self;
@@ -217,36 +122,18 @@ static NSArray* sExampleAttributes = nil;
 
 - (id)copyWithZone:(NSZone *)zone {
     ExampleBasic* copy = [super copyWithZone:zone];
-
-
-
     copy.string = [self.string copyWithZone:zone];
-
-
     copy.integer = self.integer;
-
-
     copy.custom = [self.custom deepCopyWithZone:zone];
-
-
     copy.point = self.point;
-
-
     copy.unsignedInteger = self.unsignedInteger;
-
-
     copy.rect = self.rect;
-
-
     copy.date = [self.date copyWithZone:zone];
-
-
     copy.boolean = self.boolean;
-
-
     copy.real = self.real;
-
     return copy;
 }
+
+
 
 @end
