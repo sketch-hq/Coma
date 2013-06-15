@@ -14,7 +14,7 @@
 // if this is 1, you need to link in the mogenerator versions of the classes
 // if it is 0, you need to link in the Coma versions of the classes
 
-#define TEST_MOGENERATED 0
+#define TEST_MOGENERATED 1
 
 #if TEST_MOGENERATED
 
@@ -88,6 +88,20 @@ ECDeclareDebugChannel(ComaModelChannel);
     person.job = job;
 
     ECTestAssertTrue([job.staff containsObject:person]);
+
+    person.job = nil;
+
+    ECTestAssertFalse([job.staff containsObject:person]);
+
+    NSMutableSet* staff = [job mutableSetValueForKey:@"staff"];
+    [staff addObject:person];
+
+    ECTestAssertTrue(person.job == job);
+
+    [staff removeObject:person];
+
+    ECTestAssertFalse(person.job == job);
+
 }
 
 #define WRITE_TO_DESKTOP 1
