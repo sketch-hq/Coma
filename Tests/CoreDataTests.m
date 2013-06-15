@@ -126,13 +126,20 @@ ECDeclareDebugChannel(ComaModelChannel);
     BCComaEngine* engine = [BCComaEngine new];
 
     NSBundle* bundle = [NSBundle bundleForClass:[self class]];
-    NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:@"Data/coredata"];
+    NSURL* templates = [bundle URLForResource:@"generated" withExtension:@"" subdirectory:@"Data/coredata/templates"];
 
-    NSArray* expectedNames = @[@"Person.h", @"Person.m", @"Job.h", @"Job.m"];
+    NSArray* expectedNames = @[@"_Person.h", @"_Person.m", @"_Job.h", @"_Job.m"];
     NSMutableDictionary* expected = [NSMutableDictionary dictionary];
     for (NSString* expectedName in expectedNames)
     {
-        NSString* expectedValue = [NSString stringWithContentsOfURL:[bundle URLForResource:[expectedName stringByDeletingPathExtension] withExtension:[expectedName pathExtension]] encoding:NSUTF8StringEncoding error:&error];
+#if TEST_MOGENERATED
+        NSString* engine = @"Mogenerator";
+#else
+        NSString* engine = @"Coma";
+#endif
+        NSString* subdirectory = [NSString stringWithFormat:@"Data/coredata/%@/Generated", engine];
+        NSURL* expectedURL = [bundle URLForResource:[expectedName stringByDeletingPathExtension] withExtension:[expectedName pathExtension] subdirectory:subdirectory];
+        NSString* expectedValue = [NSString stringWithContentsOfURL:expectedURL encoding:NSUTF8StringEncoding error:&error];
         if (expectedValue)
             expected[expectedName] = expectedValue;
     }
