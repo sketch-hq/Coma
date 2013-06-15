@@ -58,6 +58,10 @@
 
 
 
-- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
+/**
+ Fake version of the CoreData init method. It actually just calls init.
+ */
+
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

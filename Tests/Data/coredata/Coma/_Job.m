@@ -98,7 +98,9 @@ static NSArray* sJobAttributes = nil;
 #pragma mark - Relationships
 
 
-- (void)addStaffObject:(Person*)object
+
+
+- (void)addStaffObject:(id)object
 {
     [object willChangeValueForKey:@"job"];
     [object primitiveSetJob:self];
@@ -106,7 +108,7 @@ static NSArray* sJobAttributes = nil;
     [object didChangeValueForKey:@"job"];
 }
 
-- (void)removeStaffObject:(Person*)object
+- (void)removeStaffObject:(id)object
 {
     [object willChangeValueForKey:@"job"];
     [object primitiveSetJob:nil];

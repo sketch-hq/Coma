@@ -43,17 +43,35 @@
 
 @property (strong, nonatomic) NSString* name;
 
+
+
+
+
+
+
+
+
+/**
+ Set value of job.
+ Also updates the inverse property staff on the Job object; this
+ should generated KVO notifications for changes to Job.staff as well as to job.
+ */
+
+@property (strong, nonatomic) Job* job;
+
+/**
+ Set value of job without sending notifications or updating inverse relationships.
+ */
+
 - (void)primitiveSetJob:(id)job;
 
 
 
 
+/**
+ Fake version of the CoreData init method. It actually just calls init.
+ */
 
-
-@property (strong, nonatomic) Job* job;
-
-
-
-- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;   // TODO: temporary, fake
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

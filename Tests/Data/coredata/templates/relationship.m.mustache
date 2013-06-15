@@ -1,17 +1,32 @@
 {{#toMany}}
 
+- (void)add{{mixedcapsInitialCapital(name)}}Object:(id)object
+{
+    [object willChangeValueForKey:@"{{inverse}}"];
+    [object primitiveSet{{mixedcapsInitialCapital(inverse)}}:self];
+    [self primitiveAdd{{mixedcapsInitialCapital(name)}}Object:object];
+    [object didChangeValueForKey:@"{{inverse}}"];
+}
+
+- (void)remove{{mixedcapsInitialCapital(name)}}Object:(id)object
+{
+    [object willChangeValueForKey:@"{{inverse}}"];
+    [object primitiveSet{{mixedcapsInitialCapital(inverse)}}:nil];
+    [self primitiveRemove{{mixedcapsInitialCapital(name)}}Object:object];
+    [object didChangeValueForKey:@"{{inverse}}"];
+}
+
 - (void)primitiveAdd{{mixedcapsInitialCapital(name)}}Object:(id)object
 {
     NSAssert(object != nil, @"trying to add a nil object");
 
     if (_{{name}})
     {
-        NSMutableSet* set = [self mutableSetValueForKey:@"{{name}}"];
-        [set addObject:object];
+        [(NSMutableSet*)_{{name}} addObject:object];
     }
     else
     {
-        self.{{name}} = [NSMutableSet setWithObject:object];
+        _{{name}} = [NSMutableSet setWithObject:object];
     }
 }
 
@@ -19,11 +34,16 @@
 {
     NSAssert(object != nil, @"trying to remove a nil object");
 
-    NSMutableSet* set = [self mutableSetValueForKey:@"{{name}}"];
-    [set removeObject:object];
+    [(NSMutableSet*)_{{name}} removeObject:object];
 }
 
 {{^}}
+
+/**
+ Set value of {{name}}.
+ Also updates the inverse property {{inverse}} on the {{type}} object; this
+ should generated KVO notifications for changes to {{type}}.{{inverse}} as well as to {{name}}.
+ */
 
 - (void)set{{mixedcapsInitialCapital(name)}}:({{type}} *)newValue
 {
@@ -41,4 +61,14 @@
         [newValue didChangeValueForKey:@"{{inverse}}"];
     }
 }
+
+/**
+ Set value of {{name}} without sending notifications or updating inverse relationships.
+ */
+
+- (void)primitiveSet{{mixedcapsInitialCapital(name)}}:(id){{name}}
+{
+    _{{name}} = {{name}};
+}
+
 {{/}}

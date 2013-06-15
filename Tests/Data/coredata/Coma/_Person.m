@@ -98,11 +98,13 @@ static NSArray* sPersonAttributes = nil;
 #pragma mark - Relationships
 
 
-- (void)primitiveSetJob:(Job*)job
-{
-    _job = job;
-}
 
+
+/**
+ Set value of job.
+ Also updates the inverse property staff on the Job object; this
+ should generated KVO notifications for changes to Job.staff as well as to job.
+ */
 
 - (void)setJob:(Job *)newValue
 {
@@ -120,6 +122,16 @@ static NSArray* sPersonAttributes = nil;
         [newValue didChangeValueForKey:@"staff"];
     }
 }
+
+/**
+ Set value of job without sending notifications or updating inverse relationships.
+ */
+
+- (void)primitiveSetJob:(id)job
+{
+    _job = job;
+}
+
 
 
 
