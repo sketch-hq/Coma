@@ -6,7 +6,6 @@
 #import "_Job.h"
 #import "Person.h"
 @implementation _Job
-
 #pragma mark - Introspection
 /**
  Some static arrays containing lists of properties. These are populated once at +initialize time.
@@ -14,7 +13,6 @@
 static NSArray* sJobProperties = nil;
 static NSArray* sJobRelationships = nil;
 static NSArray* sJobAttributes = nil;
-
 /**
  Returns a list of NSStrings with the names of the properties in it.
  @return Array of property names.
@@ -30,7 +28,6 @@ static NSArray* sJobAttributes = nil;
     }
     return sJobProperties;
 }
-
 /**
  Returns a list of NSStrings with the names of the relationship properties in it.
  @return Array of relationship names.
@@ -45,7 +42,6 @@ static NSArray* sJobAttributes = nil;
     }
     return sJobProperties;
 }
-
 /**
  Returns a list of NSStrings with the names of the attribute properties in it.
  @return Array of attribute names.
@@ -60,7 +56,6 @@ static NSArray* sJobAttributes = nil;
     }
     return sJobProperties;
 }
-
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super init];
@@ -68,12 +63,7 @@ static NSArray* sJobAttributes = nil;
     return self;
 }
 #pragma mark - Attributes
-
-
-
 #pragma mark - Relationships
-
-
 - (void)addStaffObject:(id)object
 {
     [object willChangeValueForKey:@"job"];
@@ -105,6 +95,4 @@ static NSArray* sJobAttributes = nil;
     NSAssert(object != nil, @"trying to remove a nil object");
     [(NSMutableSet*)_staff removeObject:object];
 }
-
-
 @end

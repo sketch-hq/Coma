@@ -6,7 +6,6 @@
 #import "_Person.h"
 #import "Job.h"
 @implementation _Person
-
 #pragma mark - Introspection
 /**
  Some static arrays containing lists of properties. These are populated once at +initialize time.
@@ -14,7 +13,6 @@
 static NSArray* sPersonProperties = nil;
 static NSArray* sPersonRelationships = nil;
 static NSArray* sPersonAttributes = nil;
-
 /**
  Returns a list of NSStrings with the names of the properties in it.
  @return Array of property names.
@@ -30,7 +28,6 @@ static NSArray* sPersonAttributes = nil;
     }
     return sPersonProperties;
 }
-
 /**
  Returns a list of NSStrings with the names of the relationship properties in it.
  @return Array of relationship names.
@@ -45,7 +42,6 @@ static NSArray* sPersonAttributes = nil;
     }
     return sPersonProperties;
 }
-
 /**
  Returns a list of NSStrings with the names of the attribute properties in it.
  @return Array of attribute names.
@@ -60,7 +56,6 @@ static NSArray* sPersonAttributes = nil;
     }
     return sPersonProperties;
 }
-
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super init];
@@ -68,12 +63,7 @@ static NSArray* sPersonAttributes = nil;
     return self;
 }
 #pragma mark - Attributes
-
-
-
 #pragma mark - Relationships
-
-
 /**
  Set value of job.
  Also updates the inverse property staff on the Job object; this
@@ -100,6 +90,4 @@ static NSArray* sPersonAttributes = nil;
 {
     _job = job;
 }
-
-
 @end

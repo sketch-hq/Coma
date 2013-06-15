@@ -6,14 +6,17 @@
 
 {{# super.import}}#import "{{.}}"{{/ super.import}}
 
+¶
 {{# properties}}{{# requires}}@class {{type}};
 {{/ requires}}{{/ properties}}
 {{# relationships}}{{# requires}}@class {{type}};
 {{/ requires}}{{/ relationships}}
 
+¶
 @interface _{{name}} : {{super.class}}{{protocols}}
 
 {{> ../../standard/introspection.h}}
+
 
 {{! Declaration for each property }}
 {{# properties}}
@@ -24,10 +27,13 @@
 {{> relationship.h}}
 {{/ relationships}}
 
+¶
 /**
  Fake version of the CoreData init method. It actually just calls init.
  */
 
+¶
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
+¶
 @end

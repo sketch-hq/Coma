@@ -41,7 +41,6 @@ ECDefineDebugChannel(ComaTemplatesChannel);
 
 - (GRMustacheTemplate*)templateNamed:(NSString*)name
 {
-    BCComaEngine* engine = self.engine;
     GRMustacheTemplate* template = nil;
     if (name)
     {
@@ -59,17 +58,8 @@ ECDefineDebugChannel(ComaTemplatesChannel);
             // not in the cache, so try to load it
             NSError* error;
             NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
-            if (engine.filterNewlines)
-            {
-                NSString* filtered = [self filterContentsOfURL:url error:&error];
-                GRMustacheTemplateRepository* repo = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:[url URLByDeletingLastPathComponent]];
-                template = [repo templateFromString:filtered error:&error];
-            }
-            else
-            {
-                template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
-            }
-            
+            template = [GRMustacheTemplate templateFromContentsOfURL:url error:&error];
+
             if (template)
             {
                 templates[name] = template;
