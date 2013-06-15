@@ -1,4 +1,30 @@
-{{^toMany}}
+{{#toMany}}
+
+- (void)primitiveAdd{{mixedcapsInitialCapital(name)}}Object:(id)object
+{
+    NSAssert(object != nil, @"trying to add a nil object");
+
+    if (_{{name}})
+    {
+        NSMutableSet* set = [self mutableSetValueForKey:@"{{name}}"];
+        [set addObject:object];
+    }
+    else
+    {
+        self.{{name}} = [NSMutableSet setWithObject:object];
+    }
+}
+
+- (void)primitiveRemove{{mixedcapsInitialCapital(name)}}Object:(id)object
+{
+    NSAssert(object != nil, @"trying to remove a nil object");
+
+    NSMutableSet* set = [self mutableSetValueForKey:@"{{name}}"];
+    [set removeObject:object];
+}
+
+{{^}}
+
 - (void)set{{mixedcapsInitialCapital(name)}}:({{type}} *)newValue
 {
   {{type}}* oldValue = _{{name}};
