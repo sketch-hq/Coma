@@ -7,13 +7,14 @@
 //
 
 #import "BCComaTemplates.h"
+#import "BCComaEngine.h"
+
 #import <GRMustache.h>
 
 @interface BCComaTemplates()
 
 @property (strong, nonatomic) NSURL* url;
 @property (strong, nonatomic) NSMutableDictionary* templates;
-@property (assign, nonatomic) BOOL filterNewlines;
 
 @end
 
@@ -33,7 +34,6 @@ ECDefineDebugChannel(ComaTemplatesChannel);
     if ((self = [super init]) != nil)
     {
         self.url = url;
-        self.filterNewlines = YES;
     }
 
     return self;
@@ -41,6 +41,7 @@ ECDefineDebugChannel(ComaTemplatesChannel);
 
 - (GRMustacheTemplate*)templateNamed:(NSString*)name
 {
+    BCComaEngine* engine = self.engine;
     GRMustacheTemplate* template = nil;
     if (name)
     {
@@ -58,7 +59,7 @@ ECDefineDebugChannel(ComaTemplatesChannel);
             // not in the cache, so try to load it
             NSError* error;
             NSURL* url = [[self.url URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"mustache"];
-            if (self.filterNewlines)
+            if (engine.filterNewlines)
             {
                 NSString* filtered = [self filterContentsOfURL:url error:&error];
                 GRMustacheTemplateRepository* repo = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:[url URLByDeletingLastPathComponent]];
@@ -97,10 +98,7 @@ ECDefineDebugChannel(ComaTemplatesChannel);
     NSString* raw = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:error];
     if (raw)
     {
-        result = [raw stringByReplacingOccurrencesOfString:@"}}\n" withString:@"}}"];
-        result = [raw stringByReplacingOccurrencesOfString:@"\n{{" withString:@"{{"];
-        result = [result stringByReplacingOccurrencesOfString:@"{{!}}" withString:@"\n"];
-        NSLog(@"%@", result);
+        result = [raw stringByReplacingOccurrencesOfString:@"\n\n" withString:@"<--blank-->"];
     }
 
     return result;

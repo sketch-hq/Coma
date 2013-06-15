@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, BCComaEngineError)
 @interface BCComaEngine : NSObject
 
 @property (strong, nonatomic) NSString* classNamePrefix;
+@property (assign, nonatomic) BOOL filterNewlines;
 
 /**
  Given a model.json file, and a directory containing templates, generate files.

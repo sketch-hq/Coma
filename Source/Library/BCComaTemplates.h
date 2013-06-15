@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @class GRMustacheTemplate;
+@class BCComaEngine;
 
 /**
  Represents a collection of templates.
  */
 
 @interface BCComaTemplates : NSObject
+
+@property (weak, nonatomic) BCComaEngine* engine;
 
 /**
  Return a new template collection, using the given url to locate the templates.

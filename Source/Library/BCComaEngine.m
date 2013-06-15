@@ -22,12 +22,15 @@ ECDefineDebugChannel(ComaEngineChannel);
 {
     ECDebug(ComaEngineChannel, @"rendering model %@ with templates %@", [modelURL lastPathComponent], [templatesURL lastPathComponent]);
 
+    self.filterNewlines = YES;
+
     // we want to generate text, not HTML (don't need to escape stuff)
     [GRMustacheConfiguration defaultConfiguration].contentType = GRMustacheContentTypeText;
 
     // load the templates
     BCComaTemplates* templates = [BCComaTemplates templatesWithURL:templatesURL];
-
+    templates.engine = self;
+    
     // load and set up the model
     BCComaModel* model = [BCComaModel modelWithContentsOfURL:modelURL templates:templates];
 
@@ -56,6 +59,13 @@ ECDefineDebugChannel(ComaEngineChannel);
 
                 // render the text from the template
                 NSString* output = [template renderObject:info error:&error];
+
+                if (self.filterNewlines)
+                {
+                    output = [output stringByReplacingOccurrencesOfString:@"\n\n" withString:@"\n"];
+                    output = [output stringByReplacingOccurrencesOfString:@"<--blank-->" withString:@"\n"];
+                }
+                
                 NSString* outputName = templateName;
                 if (output)
                 {
