@@ -14,7 +14,7 @@
 // if this is 1, you need to link in the mogenerator versions of the classes
 // if it is 0, you need to link in the Coma versions of the classes
 
-#define TEST_MOGENERATED 1
+#define TEST_MOGENERATED 0
 
 #if TEST_MOGENERATED
 

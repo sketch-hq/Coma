@@ -98,6 +98,11 @@ static NSArray* sPersonAttributes = nil;
 #pragma mark - Relationships
 
 
+- (void)primitiveSetJob:(Job*)job
+{
+    _job = job;
+}
+
 
 - (void)setJob:(Job *)newValue
 {

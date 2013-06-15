@@ -43,7 +43,7 @@
 
 @property (strong, nonatomic) NSString* name;
 
-
+- (void)primitiveSetJob:(id)job;
 
 
 

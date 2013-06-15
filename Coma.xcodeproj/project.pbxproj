@@ -20,10 +20,6 @@
 		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
 		227867B3176B7061001F96FB /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867B2176B7061001F96FB /* CoreDataTests.m */; };
 		227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */; };
-		227867D9176B804D001F96FB /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
-		227867DA176B804D001F96FB /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
-		227867DB176B804D001F96FB /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
-		227867DC176B804D001F96FB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D4176B7B18001F96FB /* Person.m */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -56,6 +52,10 @@
 		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 		229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D2176238D5008D887F /* ECUnitTests.framework */; };
 		2296A8541768987E00BF0566 /* BCComaGenerateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */; };
+		22C112ED176C93B50056A4B6 /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
+		22C112EE176C93B50056A4B6 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
+		22C112EF176C93B50056A4B6 /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
+		22C112F0176C93B50056A4B6 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D4176B7B18001F96FB /* Person.m */; };
 		22F06D2A1768D138005E727B /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628461760EE33008D887F /* libGRMustache6-MacOS.a */; };
 /* End PBXBuildFile section */
 
@@ -612,15 +612,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227867DB176B804D001F96FB /* Job.m in Sources */,
-				227867DA176B804D001F96FB /* _Person.m in Sources */,
-				227867D9176B804D001F96FB /* _Job.m in Sources */,
+				22C112EF176C93B50056A4B6 /* Job.m in Sources */,
+				22C112EE176C93B50056A4B6 /* _Person.m in Sources */,
+				22C112ED176C93B50056A4B6 /* _Job.m in Sources */,
 				227867B3176B7061001F96FB /* CoreDataTests.m in Sources */,
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
 				227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */,
+				22C112F0176C93B50056A4B6 /* Person.m in Sources */,
 				2296285C1761D9E2008D887F /* CustomClass.m in Sources */,
 				229628611761DA20008D887F /* BaseClass.m in Sources */,
-				227867DC176B804D001F96FB /* Person.m in Sources */,
 				229628641761F29E008D887F /* ExampleBasic.m in Sources */,
 				227867A81769CF82001F96FB /* ConverterTests.m in Sources */,
 				22962867176204D2008D887F /* ExampleUndo.m in Sources */,
@@ -714,6 +714,7 @@
 					"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -737,6 +738,7 @@
 					"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

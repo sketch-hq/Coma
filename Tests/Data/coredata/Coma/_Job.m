@@ -98,6 +98,43 @@ static NSArray* sJobAttributes = nil;
 #pragma mark - Relationships
 
 
+- (void)addStaffObject:(Person*)object
+{
+    [object willChangeValueForKey:@"job"];
+    [object primitiveSetJob:self];
+    [self primitiveAddStaffObject:object];
+    [object didChangeValueForKey:@"job"];
+}
+
+- (void)removeStaffObject:(Person*)object
+{
+    [object willChangeValueForKey:@"job"];
+    [object primitiveSetJob:nil];
+    [self primitiveRemoveStaffObject:object];
+    [object didChangeValueForKey:@"job"];
+}
+
+- (void)primitiveAddStaffObject:(id)object
+{
+    NSAssert(object != nil, @"trying to add a nil object");
+
+    if (_staff)
+    {
+        [(NSMutableSet*)_staff addObject:object];
+    }
+    else
+    {
+        _staff = [NSMutableSet setWithObject:object];
+    }
+}
+
+- (void)primitiveRemoveStaffObject:(id)object
+{
+    NSAssert(object != nil, @"trying to remove a nil object");
+
+    [(NSMutableSet*)_staff removeObject:object];
+}
+
 
 
 
