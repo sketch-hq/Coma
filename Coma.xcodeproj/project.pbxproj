@@ -262,10 +262,7 @@
 		227867CC176B7B18001F96FB /* Coma */ = {
 			isa = PBXGroup;
 			children = (
-				227867CD176B7B18001F96FB /* _Job.h */,
-				227867CE176B7B18001F96FB /* _Job.m */,
-				227867CF176B7B18001F96FB /* _Person.h */,
-				227867D0176B7B18001F96FB /* _Person.m */,
+				22F6BBA2176CD82F005F878C /* Generated */,
 				227867D1176B7B18001F96FB /* Job.h */,
 				227867D2176B7B18001F96FB /* Job.m */,
 				227867D3176B7B18001F96FB /* Person.h */,
@@ -419,6 +416,17 @@
 			);
 			name = Configs;
 			path = Source/Configs;
+			sourceTree = "<group>";
+		};
+		22F6BBA2176CD82F005F878C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				227867CD176B7B18001F96FB /* _Job.h */,
+				227867CE176B7B18001F96FB /* _Job.m */,
+				227867CF176B7B18001F96FB /* _Person.h */,
+				227867D0176B7B18001F96FB /* _Person.m */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

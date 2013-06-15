@@ -8,4 +8,7 @@
 #import "_Person.h"
 
 @interface Person : _Person
+
+// Public interface goes here
+
 @end

@@ -8,4 +8,7 @@
 #import "_Job.h"
 
 @interface Job : _Job
+
+// Public interface goes here
+
 @end
