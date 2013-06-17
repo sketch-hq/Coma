@@ -3,5 +3,4 @@
 //
 
 #import <ECLogging/ECLoggingRelease.pch>
-
-#import "ComaShared.pch"
+#import "ToolShared.pch"

@@ -20,6 +20,7 @@
 		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
 		227867B3176B7061001F96FB /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867B2176B7061001F96FB /* CoreDataTests.m */; };
 		227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */; };
+		2282891B176F132A008A8B6F /* standard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2282891A176F132A008A8B6F /* standard */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
 		229628051760E1D5008D887F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628041760E1D5008D887F /* Cocoa.framework */; };
@@ -70,10 +71,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		22828919176F12D1008A8B6F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/local/share/coma;
+			dstSubfolderSpec = 0;
+			files = (
+				2282891B176F132A008A8B6F /* standard in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		229627EC1760E1BF008D887F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/local/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 				229627F91760E1C0008D887F /* Coma.1 in CopyFiles */,
@@ -110,6 +121,7 @@
 		227867D2176B7B18001F96FB /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
 		227867D3176B7B18001F96FB /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		227867D4176B7B18001F96FB /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		2282891A176F132A008A8B6F /* standard */ = {isa = PBXFileReference; lastKnownFileType = folder; name = standard; path = ../../Tests/Data/standard; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		229627F41760E1BF008D887F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -336,6 +348,7 @@
 				229628381760E3D6008D887F /* ToolDebug.pch */,
 				229628391760E3D6008D887F /* ToolRelease.pch */,
 				2296283A1760E3D6008D887F /* ToolShared.pch */,
+				2282891A176F132A008A8B6F /* standard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -459,6 +472,7 @@
 				229627EA1760E1BF008D887F /* Sources */,
 				229627EB1760E1BF008D887F /* Frameworks */,
 				229627EC1760E1BF008D887F /* CopyFiles */,
+				22828919176F12D1008A8B6F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -712,15 +726,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = octest;
@@ -736,15 +745,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
-					"\"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Library/Library$(CONFIGURATION).pch";
 				INFOPLIST_FILE = Tests/Tests.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = octest;
