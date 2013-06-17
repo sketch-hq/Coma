@@ -236,33 +236,9 @@ ECDefineDebugChannel(ComaModelChannel);
             info[@"requires"] = @{@"import" : [NSString stringWithFormat:@"%@.h", type] };
         }
 
-        // try to get the metatype data associated with the type
-        // (for convenience, mutliple types share the same metatype - eg most basic types will have a metatype of "Basic")
-        NSString* meta = typeInfo[@"metatype"];
-        NSDictionary* metaInfo = self.metas[meta];
-
         // add the type and metatype entries to the property info
         // this allows templates to pick up and use these properties directly
         info[@"typeInfo"] = typeInfo;
-        info[@"metaInfo"] = metaInfo;
-
-        // process the list of dynamic template names in the meta info
-        // for each of these, we try to load the corresponding template
-        // if successful, we add the template as an entry in the property dictionary
-        // this allows the top-level templates to "include" one of these type-specific templates just by referring to it
-        // (eg a type-specific template called "getters" is expanded by an entry in a top-level template of {{gettters}})
-        //
-        // the purpose of all this is to allow top-level templates to refer to a sub-template by name (eg "getters") but to have the
-        // engine actually use a different template depending on the type of the property being processed.
-        // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
-        NSDictionary* propertyTemplates = metaInfo[@"dynamicTemplates"];
-        [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
-            BCComaLazyLoadingTemplate* template = [BCComaLazyLoadingTemplate templateWithName:templateName templates:self.templates];
-            if (template)
-            {
-                info[key] = template;
-            }
-        }];
 
         // merge in any type info keys that don't have values set in the property
         [typeInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -270,12 +246,49 @@ ECDefineDebugChannel(ComaModelChannel);
                 info[key] = obj;
         }];
 
-        // merge in any meta info keys that don't have values set in the property or the type info
-        [metaInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if (!info[key])
-                info[key] = obj;
-        }];
 
+        // try to get the metatype data associated with the type
+        // (for convenience, mutliple types share the same metatype - eg most basic types will have a metatype of "Basic")
+        NSString* meta = typeInfo[@"metatype"];
+        NSDictionary* metaInfo = self.metas[meta];
+        if (metaInfo)
+        {
+            info[@"metaInfo"] = metaInfo;
+
+            // process the list of dynamic template names in the meta info
+            // for each of these, we try to load the corresponding template
+            // if successful, we add the template as an entry in the property dictionary
+            // this allows the top-level templates to "include" one of these type-specific templates just by referring to it
+            // (eg a type-specific template called "getters" is expanded by an entry in a top-level template of {{gettters}})
+            //
+            // the purpose of all this is to allow top-level templates to refer to a sub-template by name (eg "getters") but to have the
+            // engine actually use a different template depending on the type of the property being processed.
+            // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
+            NSDictionary* propertyTemplates = metaInfo[@"dynamicTemplates"];
+            [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
+                BCComaLazyLoadingTemplate* template = [BCComaLazyLoadingTemplate templateWithName:templateName templates:self.templates];
+                if (template)
+                {
+                    info[key] = template;
+                }
+            }];
+
+            // merge in any meta info keys that don't have values set in the property or the type info
+            [metaInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                if (!info[key])
+                    info[key] = obj;
+            }];
+        }
+        else
+        {
+            NSLog(@"error - meta info missing for %@ in type %@", meta, type);
+            // TODO: better error reporting
+        }
+    }
+    else
+    {
+        NSLog(@"error - type info missing for %@", type);
+        // TODO: better error reporting
     }
 }
 
