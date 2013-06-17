@@ -707,6 +707,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628301760E30A008D887F /* ComaLibraryDebug.xcconfig */;
 			buildSettings = {
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -714,6 +715,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229628311760E30A008D887F /* ComaLibraryRelease.xcconfig */;
 			buildSettings = {
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
