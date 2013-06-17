@@ -15,8 +15,15 @@
 
 @implementation BCComaGenerateCommand
 
+ECDeclareDebugChannel(ErrorChannel);
+ECDeclareDebugChannel(ComaTemplatesChannel);
+
 - (ECCommandLineResult)engine:(ECCommandLineEngine*)engine didProcessWithArguments:(NSMutableArray *)arguments
 {
+    // TODO: need a command line way of turning these on
+    ECEnableChannel(ErrorChannel);
+    ECEnableChannel(ComaTemplatesChannel);
+
     __block ECCommandLineResult result = ECCommandLineResultOK;
 
     NSURL* inputURL = [NSURL fileURLWithPath:arguments[0]];

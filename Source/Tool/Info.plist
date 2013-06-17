@@ -171,7 +171,7 @@
 				<true/>
 				<key>Handlers</key>
 				<array>
-					<string>ErrorPresenter</string>
+					<string>NSLog</string>
 				</array>
 			</dict>
 		</dict>

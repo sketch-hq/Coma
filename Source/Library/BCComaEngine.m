@@ -44,7 +44,7 @@ ECDefineDebugChannel(ComaEngineChannel);
         if (!template || !nameTemplate)
         {
             NSDictionary* info = @{
-                                   NSLocalizedDescriptionKey : @"Template missing",
+                                   NSLocalizedFailureReasonErrorKey : [NSString stringWithFormat:@"Template %@ failed to load.", templateName],
                                    @"TemplateName" : template ? nameTemplateName : templateName,
                                    @"TemplatesURL" : templatesURL
                                    };

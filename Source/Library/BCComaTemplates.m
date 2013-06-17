@@ -73,7 +73,7 @@ ECDefineDebugChannel(ComaTemplatesChannel);
                 }
                 else
                 {
-                    ECDebug(ComaTemplatesChannel, @"Template %@ missing (this may not be a problem)", name);
+                    ECDebug(ComaTemplatesChannel, @"Template %@ didn't load (this may not be a problem). Underlying error: %@", name, error.localizedDescription);
                 }
             }
         }
