@@ -21,9 +21,11 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
 - (ECCommandLineResult)engine:(ECCommandLineEngine*)engine didProcessWithArguments:(NSMutableArray *)arguments
 {
     // TODO: need a command line way of turning these on
+#if EC_DEBUG
     ECEnableChannel(ErrorChannel);
     ECEnableChannel(ComaTemplatesChannel);
-
+#endif
+    
     __block ECCommandLineResult result = ECCommandLineResultOK;
 
     NSURL* inputURL = [NSURL fileURLWithPath:arguments[0]];
