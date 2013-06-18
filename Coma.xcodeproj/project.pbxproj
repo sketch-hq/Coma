@@ -469,6 +469,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229627FC1760E1C0008D887F /* Build configuration list for PBXNativeTarget "Tool" */;
 			buildPhases = (
+				22949B9A1770DF07008E8174 /* Update Version */,
 				229627EA1760E1BF008D887F /* Sources */,
 				229627EB1760E1BF008D887F /* Frameworks */,
 				229627EC1760E1BF008D887F /* CopyFiles */,
@@ -576,6 +577,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "HUMAN_DIR=\"${SOURCE_ROOT}/Tests/Data/coredata/Mogenerator/\"\nMACHINE_DIR=\"${HUMAN_DIR}/Generated\"\n\nmkdir -p \"${HUMAN_DIR}\"\nmkdir -p \"${MACHINE_DIR}\"\n\nmg=/usr/local/bin/mogenerator\n\n$mg --model \"${SOURCE_ROOT}/Tests/Data/coredata/CoreData.xcdatamodeld/CoreData.xcdatamodel\" --human-dir \"${HUMAN_DIR}\" --machine-dir \"${MACHINE_DIR}\" --template-var arc=true\n\n";
+		};
+		22949B9A1770DF07008E8174 /* Update Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# copy the info plist into the build products dir - the linker will pick up this version\ncp \"${SOURCE_ROOT}/Source/Tool/Info.plist\" \"${TARGET_BUILD_DIR}/Info.plist\"\n\n# update the version information in the copy\n\"${SOURCE_ROOT}/Modules/ECLogging/Extras/Scripts/update-version.sh\" \"${TARGET_BUILD_DIR}/Info.plist\"\n";
+			showEnvVarsInLog = 0;
 		};
 		229628131760E1D5008D887F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -691,6 +707,14 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(TARGET_BUILD_DIR)/Info.plist",
+				);
 			};
 			name = Debug;
 		};
@@ -700,6 +724,14 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(TARGET_BUILD_DIR)/Info.plist",
+				);
 			};
 			name = Release;
 		};
