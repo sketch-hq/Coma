@@ -42,7 +42,8 @@
             NSString* inputName = [modelURL lastPathComponent];
             NSString* name = [[inputName stringByDeletingPathExtension] stringByAppendingPathExtension:@"json"];
             NSURL* fileURL = nil;
-            result = [self outputFileWithName:name engine:engine URL:&fileURL];
+            NSString* existing = nil;
+            result = [self outputFileWithName:name engine:engine URL:&fileURL existing:&existing];
 
             if (result == ECCommandLineResultOK)
             {
@@ -53,7 +54,12 @@
                     NSData* data = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
                     if (data)
                     {
-                        if ([data writeToURL:fileURL options:NSDataWritingAtomic error:&error])
+                        NSString* dataAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                        if ([existing isEqualToString:dataAsString])
+                        {
+                            [engine outputFormat:@"Converted %@ to %@ - Unchanged\n", inputName, name];
+                        }
+                        else if ([data writeToURL:fileURL options:NSDataWritingAtomic error:&error])
                         {
                             [engine outputFormat:@"Converted %@ to %@\n", inputName, name];
                         }

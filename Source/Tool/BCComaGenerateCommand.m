@@ -51,10 +51,15 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
             if (output)
             {
                 NSURL* fileURL = nil;
-                result = [self outputFileWithName:name engine:engine URL:&fileURL];
+                NSString* existing = nil;
+                result = [self outputFileWithName:name engine:engine URL:&fileURL existing:&existing];
                 if (result == ECCommandLineResultOK)
                 {
-                    if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
+                    if ([existing isEqualToString:output])
+                    {
+                        [engine outputFormat:@"Generated %@ - unchanged\n", name];
+                    }
+                    else if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
                     {
                         [engine outputFormat:@"Generated %@\n", name];
                     }

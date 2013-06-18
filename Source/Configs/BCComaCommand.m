@@ -10,7 +10,7 @@
 
 @implementation BCComaCommand
 
-- (ECCommandLineResult)outputFileWithName:(NSString*)name engine:(ECCommandLineEngine*)engine URL:(NSURL**)url
+- (ECCommandLineResult)outputFileWithName:(NSString*)name engine:(ECCommandLineEngine*)engine URL:(NSURL**)url existing:(NSString *__autoreleasing *)existing
 {
     ECAssertNonNil(url);
 
@@ -32,12 +32,16 @@
     if (result == ECCommandLineResultOK)
     {
         NSURL* fileURL = [outputURL URLByAppendingPathComponent:name];
-        BOOL fileExists = [fm fileExistsAtPath:[fileURL path]];
+        NSString* content = [NSString stringWithContentsOfURL:fileURL encoding:NSUTF8StringEncoding error:&error];
+        BOOL fileExists = [content length] > 0;
         BOOL okToWrite = overwriting || !fileExists;
         if (okToWrite)
         {
             if (url)
                 *url = fileURL;
+
+            if (existing)
+                *existing = content;
         }
         else
         {

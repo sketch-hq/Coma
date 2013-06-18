@@ -77,7 +77,6 @@ static NSArray* sJobAttributes = nil;
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super init];
-    
     return self;
 }
 

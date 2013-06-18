@@ -77,7 +77,6 @@ static NSArray* sPersonAttributes = nil;
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super init];
-    
     return self;
 }
 

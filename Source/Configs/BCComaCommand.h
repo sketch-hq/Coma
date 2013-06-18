@@ -10,6 +10,6 @@
 
 @interface BCComaCommand : ECCommandLineCommand
 
-- (ECCommandLineResult)outputFileWithName:(NSString*)name engine:(ECCommandLineEngine*)engine URL:(NSURL**)url;
+- (ECCommandLineResult)outputFileWithName:(NSString*)name engine:(ECCommandLineEngine*)engine URL:(NSURL**)url existing:(NSString**)existing;
 
 @end
