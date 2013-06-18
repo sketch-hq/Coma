@@ -51,14 +51,18 @@
 			<key>class</key>
 			<string>BCComaGenerateCommand</string>
 			<key>help</key>
-			<string>Generate classes using a template</string>
+			<string>Generate classes using a template.</string>
 			<key>arguments</key>
 			<array>
 				<dict>
+					<key>short</key>
+					<string>model</string>
 					<key>description</key>
 					<string>model</string>
 				</dict>
 				<dict>
+					<key>short</key>
+					<string>templates</string>
 					<key>description</key>
 					<string>templates</string>
 				</dict>
@@ -79,14 +83,18 @@
 			<key>class</key>
 			<string>BCComaConvertCommand</string>
 			<key>help</key>
-			<string>Convert a Core Data model.mom file into a Coma model.json file</string>
+			<string>Convert a Core Data model.xcodemodel file into a Coma model.json file.</string>
 			<key>arguments</key>
 			<array>
 				<dict>
+					<key>short</key>
+					<string>model</string>
 					<key>description</key>
 					<string>model</string>
 				</dict>
 				<dict>
+					<key>short</key>
+					<string>base</string>
 					<key>description</key>
 					<string>json file to insert class definitions into</string>
 				</dict>
@@ -115,6 +123,8 @@
 			<string>set this to YES to allow coda to overwrite existing files with newly generated ones</string>
 			<key>default</key>
 			<false/>
+			<key>type</key>
+			<string>boolean</string>
 		</dict>
 		<key>output</key>
 		<dict>
@@ -124,6 +134,8 @@
 			<string>optional</string>
 			<key>help</key>
 			<string>where to output the generated files - defaults to the current working directory</string>
+			<key>type</key>
+			<string>path</string>
 		</dict>
 	</dict>
 	<key>ECLoggingDebug</key>
