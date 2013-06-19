@@ -172,31 +172,31 @@
         switch (attribute.attributeType)
         {
             case NSInteger16AttributeType:
-                basicType = @"int16_t";
+                basicType = @"CoreDataScalarInt16";
                 break;
 
             case NSInteger32AttributeType:
-                basicType = @"int32_t";
+                basicType = @"CoreDataScalarInt32";
                 break;
 
             case NSInteger64AttributeType:
-                basicType = @"int64_t";
+                basicType = @"CoreDataScalarInt64";
                 break;
 
             case NSDecimalAttributeType:
-                basicType = @"NSInteger";
+                basicType = @"CoreDataScalarDecimal";
                 break;
 
             case NSDoubleAttributeType:
-                basicType = @"double";
+                basicType = @"CoreDataScalarDouble";
                 break;
 
             case NSFloatAttributeType:
-                basicType = @"float";
+                basicType = @"CoreDataScalarFloat";
                 break;
 
             case NSBooleanAttributeType:
-                basicType = @"BOOL";
+                basicType = @"CoreDataScalarBoolean";
                 break;
 
             default:
@@ -207,7 +207,10 @@
         NSString* type;
         if (transform)
         {
-            type = @"id";
+            if (basicType)
+                type = transform;
+            else
+                type = @"id";
         }
         else if (basicType)
         {
