@@ -177,8 +177,11 @@ ECDefineDebugChannel(ComaModelChannel);
             }
         }
 
-        typeInfo[@"originalTypeName"] = typeName;
-        typeInfo[@"resolvedTypeName"] = resolvedTypeName;
+        if (![typeName isEqualToString:@"«default»"])
+        {
+            typeInfo[@"originalTypeName"] = typeName;
+            typeInfo[@"resolvedTypeName"] = resolvedTypeName;
+        }
     }];
 }
 
@@ -253,7 +256,9 @@ ECDefineDebugChannel(ComaModelChannel);
     NSDictionary* typeInfo = [self infoForTypeNamed:type];
     if (typeInfo)
     {
-        info[@"type"] = typeInfo[@"resolvedTypeName"];
+        NSString* resolvedName = typeInfo[@"resolvedTypeName"];
+        if (resolvedName)
+            info[@"type"] = resolvedName;
         
         // if the type requires some headers, add them to the import property
         NSString* requires = typeInfo[@"requires"];
