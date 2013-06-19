@@ -72,6 +72,7 @@ ECDefineDebugChannel(ComaModelChannel);
     self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
     self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
 
+    [self preprocessTypes];
     [self preprocessClasses];
 }
 
@@ -155,6 +156,33 @@ ECDefineDebugChannel(ComaModelChannel);
 #pragma mark - Preprocessing
 
 /**
+ Perform some processing on the types.
+ We resolve aliases, and add names to the type info
+ */
+
+- (void)preprocessTypes
+{
+    NSDictionary* types = self.types;
+    [types enumerateKeysAndObjectsUsingBlock:^(NSString* typeName, NSMutableDictionary* typeInfo, BOOL *stop) {
+        NSString* alias;
+        NSString* resolvedTypeName = typeName;
+        while ((alias = typeInfo[@"alias"]) != nil)
+        {
+            if (alias)
+            {
+                [typeInfo removeObjectForKey:@"alias"];
+                NSMutableDictionary* resolvedInfo = self.types[alias];
+                [typeInfo addEntriesFromDictionary:resolvedInfo];
+                resolvedTypeName = alias;
+            }
+        }
+
+        typeInfo[@"originalTypeName"] = typeName;
+        typeInfo[@"resolvedTypeName"] = resolvedTypeName;
+    }];
+}
+
+/**
  Perform some processing on the classes.
  
  When loaded from the json file, the classes are a dictionary, with the key being the name of the class, and
@@ -225,6 +253,8 @@ ECDefineDebugChannel(ComaModelChannel);
     NSDictionary* typeInfo = [self infoForTypeNamed:type];
     if (typeInfo)
     {
+        info[@"type"] = typeInfo[@"resolvedTypeName"];
+        
         // if the type requires some headers, add them to the import property
         NSString* requires = typeInfo[@"requires"];
         if (requires)
@@ -323,7 +353,7 @@ ECDefineDebugChannel(ComaModelChannel);
     {
         result = self.types[@"«default»"];
     }
-
+    
     return result;
 }
 

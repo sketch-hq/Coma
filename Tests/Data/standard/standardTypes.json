@@ -1,6 +1,41 @@
 {
     "items" :
     {
+        "CoreDataScalarInt16" :
+        {
+            "alias" : "int16_t"
+        },
+
+        "CoreDataScalarInt32" :
+        {
+            "alias" : "int32_t"
+        },
+
+        "CoreDataScalarInt64" :
+        {
+            "alias" : "int64_t"
+        },
+
+        "CoreDataScalarDecimal" :
+        {
+            "alias" : "NSInteger"
+        },
+
+        "CoreDataScalarFloat" :
+        {
+            "alias" : "float"
+        },
+
+        "CoreDataScalarDouble" :
+        {
+            "alias" : "double"
+        },
+
+        "CoreDataScalarBoolean" :
+        {
+            "alias" : "BOOL"
+        },
+
         "int16_t" :
         {
             "metatype" : "Basic",
