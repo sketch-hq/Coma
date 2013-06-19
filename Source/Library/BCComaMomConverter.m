@@ -235,6 +235,11 @@
             info[@"transform"] = transform;
         }
 
+        // add any unused userInfo from the model to the property
+        [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if (!info[key])
+                info[key] = obj;
+        }];
 
         properties[attributeName] = info;
     }];
@@ -259,6 +264,12 @@
         {
             info[@"inverse"] = inverse.name;
         }
+
+        // add any unused userInfo from the relationship to the property
+        [relationship.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if (!info[key])
+                info[key] = obj;
+        }];
 
         relationships[relationshipName] = info;
     }];
