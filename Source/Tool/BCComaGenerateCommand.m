@@ -47,7 +47,10 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
 
     if (result == ECCommandLineResultOK)
     {
+        BOOL showUnchanged = [[engine optionWithName:@"show-unchanged"].value boolValue];
         BCComaEngine* generator = [BCComaEngine new];
+        __block NSUInteger processed = 0;
+        __block NSUInteger unchanged = 0;
         [generator generateModelAtURL:inputURL withTemplatesAtURL:templatesURL outputBlock:^(NSString *name, NSString *output, NSError* error) {
 
             if (output)
@@ -59,10 +62,15 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
                 {
                     if ([existing isEqualToString:output])
                     {
-                        [engine outputFormat:@"Generated %@ - unchanged\n", name];
+                        ++unchanged;
+                        ++processed;
+                        if (showUnchanged) {
+                            [engine outputFormat:@"Generated %@ - unchanged\n", name];
+                        }
                     }
                     else if ([output writeToURL:fileURL atomically:YES encoding:NSUTF8StringEncoding error:&error])
                     {
+                        ++processed;
                         [engine outputFormat:@"Generated %@\n", name];
                     }
                     else
@@ -79,6 +87,8 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
                 result = ECCommandLineResultImplementationReturnedError;
             }
         }];
+
+        [engine outputFormat:@"%ld files processed (%ld were unchanged).\n", processed, unchanged];
     }
 
 	return result;

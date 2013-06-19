@@ -9,6 +9,7 @@
 #import "BCComaConvertCommand.h"
 
 #import <Coma/Coma.h>
+#import <ECCommandLine/ECCommandLine.h>
 
 @interface BCComaConvertCommand()
 
@@ -45,6 +46,8 @@
             NSString* existing = nil;
             result = [self outputFileWithName:name engine:engine URL:&fileURL existing:&existing];
 
+            BOOL showUnchanged = [[engine optionWithName:@"show-unchanged"].value boolValue];
+
             if (result == ECCommandLineResultOK)
             {
                 BCComaMomConverter* generator = [BCComaMomConverter new];
@@ -57,7 +60,10 @@
                         NSString* dataAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                         if ([existing isEqualToString:dataAsString])
                         {
-                            [engine outputFormat:@"Converted %@ to %@ - Unchanged\n", inputName, name];
+                            if (showUnchanged)
+                            {
+                                [engine outputFormat:@"Converted %@ to %@ - Unchanged\n", inputName, name];
+                            }
                         }
                         else if ([data writeToURL:fileURL options:NSDataWritingAtomic error:&error])
                         {

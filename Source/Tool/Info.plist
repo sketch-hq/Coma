@@ -75,6 +75,7 @@
 				<array>
 					<string>output</string>
 					<string>overwriting</string>
+					<string>show-unchanged</string>
 				</array>
 			</dict>
 		</dict>
@@ -107,6 +108,7 @@
 				<array>
 					<string>output</string>
 					<string>overwriting</string>
+					<string>show-unchanged</string>
 				</array>
 			</dict>
 		</dict>
@@ -121,6 +123,19 @@
 			<string>optional</string>
 			<key>help</key>
 			<string>set this to YES to allow coda to overwrite existing files with newly generated ones</string>
+			<key>default</key>
+			<false/>
+			<key>type</key>
+			<string>boolean</string>
+		</dict>
+		<key>show-unchanged</key>
+		<dict>
+			<key>short</key>
+			<string>u</string>
+			<key>mode</key>
+			<string>optional</string>
+			<key>help</key>
+			<string>set this to YES to see the files that weren&apos;t touched because they already existed and the output was unchanged</string>
 			<key>default</key>
 			<false/>
 			<key>type</key>
