@@ -14,6 +14,8 @@
 
 @implementation BCComaMomConverter
 
+// TODO: this method came from Mogenerator; either credit it's use or replace it
+
 - (NSString*)xcodeSelectPrintPath {
     NSString *result = @"";
 
@@ -41,6 +43,8 @@
 
     return result;
 }
+
+// TODO: this method came from Mogenerator; either credit it's use or replace it
 
 - (NSManagedObjectModel*)loadModel:(NSURL *)momOrXCDataModelURL error:(NSError *__autoreleasing *)error
 {
@@ -114,20 +118,7 @@
             }
         }}
 
-        NSMutableString *momcOptions = [NSMutableString string];
-        {{
-            NSArray *supportedMomcOptions = [NSArray arrayWithObjects:
-                                             @"MOMC_NO_WARNINGS",
-                                             @"MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS",
-                                             @"MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR",
-                                             nil];
-            for (NSString *momcOption in supportedMomcOptions) {
-                if ([[[NSProcessInfo processInfo] environment] objectForKey:momcOption]) {
-                    [momcOptions appendFormat:@" -%@ ", momcOption];
-                }
-            }
-        }}
-
+        NSString *momcOptions = @" -MOMC_NO_WARNINGS -MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS -MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR";
         NSString *momcIncantation = nil;
         {{
             NSString *tempGeneratedMomFileName = [[[NSProcessInfo processInfo] globallyUniqueString] stringByAppendingPathExtension:@"mom"];
