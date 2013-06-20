@@ -1,7 +1,7 @@
 {
     "items" :
     {
-        "Basic" :
+        "Scalar" :
         {
             "dynamicTemplates" :
             {
@@ -9,8 +9,9 @@
             "mode" : "assign",
         },
 
-        "NSObject" :
+        "Object" :
         {
+            "mode" : "strong",
             "copyMethod" : "copyWithZone",
             "mutableCopyMethod" : "mutableCopyWithZone",
             "dynamicTemplates" :

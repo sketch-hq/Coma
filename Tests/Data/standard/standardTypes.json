@@ -38,63 +38,63 @@
 
         "int16_t" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
         },
 
         "int32_t" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
         },
 
         "int64_t" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
         },
 
         "NSInteger" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
         },
 
         "NSUInteger" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "unsignedInteger",
         },
 
         "float" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "float",
             "NSNumberType" : "float",
         },
 
         "double" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
         },
 
         "CGFloat" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
         },
 
         "NSRect" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "NSEncodeTransformer" : "NSStringFromRect",
             "NSDecodeTransformer" : "NSRectFromString",
             "basicType" : "NSRect",
@@ -103,7 +103,7 @@
 
         "NSPoint" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "NSEncodeTransformer" : "NSStringFromPoint",
             "NSDecodeTransformer" : "NSPointFromString",
             "basicType" : "NSPoint",
@@ -112,14 +112,14 @@
 
         "BOOL" :
         {
-            "metatype" : "Basic",
+            "metatype" : "Scalar",
             "basicType" : "bool",
             "NSNumberType" : "bool",
         },
 
         "«default»" :
         {
-            "metatype" : "NSObject",
+            "metatype" : "Object",
         },
 
     }

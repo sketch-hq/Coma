@@ -16,7 +16,7 @@
 			{
                 "SVGColor" :
                 {
-                    "metatype" : "NSObject",
+                    "metatype" : "Object",
                     "requires" : "SVGColor.h",
                 }
 			}
