@@ -1,5 +1,15 @@
-¶
-{{# properties}}{{# requires}}@class {{type}};
+
+{{# properties}}{{# requires}}
+{{#basicType}}#import "{{import}}"{{/}}
 {{/ requires}}{{/ properties}}
-{{# relationships}}{{# requires}}@class {{type}};
+{{# relationships}}{{# requires}}
+{{#basicType}}#import "{{import}}"{{/}}
+{{/ requires}}{{/ relationships}}
+
+
+{{# properties}}{{# requires}}
+{{^basicType}}@class {{type}};{{/}}
+{{/ requires}}{{/ properties}}
+{{# relationships}}{{# requires}}
+{{^basicType}}@class {{type}};{{/}}
 {{/ requires}}{{/ relationships}}
