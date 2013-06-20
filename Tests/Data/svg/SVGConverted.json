@@ -6,16 +6,16 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
@@ -27,14 +27,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -98,7 +99,7 @@
         },
         "properties" : {
             "weight" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "family" : {
                 "type" : "NSString"
@@ -107,7 +108,7 @@
                 "type" : "NSString"
             },
             "size" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "identifier" : {
                 "type" : "NSString"
@@ -119,7 +120,7 @@
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             }
         },
         "relationships" : {
@@ -159,9 +160,10 @@
         },
         "properties" : {
             "position" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "color" : {
+                "attributeValueClassName" : "SVGColor",
                 "type" : "SVGColor"
             },
             "title" : {
@@ -177,7 +179,7 @@
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             }
         },
         "relationships" : {
@@ -210,22 +212,22 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
             },
             "cornerRadius" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "identifier" : {
                 "type" : "NSString"
@@ -234,14 +236,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -298,24 +301,25 @@
         },
         "properties" : {
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "cx" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "rx" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "cy" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "ry" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "title" : {
@@ -329,16 +333,16 @@
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             }
         },
         "relationships" : {
@@ -395,30 +399,31 @@
         },
         "properties" : {
             "dx" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "anchor" : {
-                "type" : "int16_t"
+                "type" : "CoreDataScalarInt16"
             },
             "rotate" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "x" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "dy" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "y" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "title" : {
@@ -428,29 +433,29 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "type" : {
                 "type" : "NSString"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "length" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "text" : {
                 "type" : "NSString"
             },
             "adjustSpacingAndGlyphs" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             }
         },
         "relationships" : {
@@ -507,19 +512,19 @@
         },
         "properties" : {
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "cx" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "cy" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "r" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "desc" : {
                 "type" : "NSString"
@@ -535,16 +540,17 @@
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             }
         },
         "relationships" : {
@@ -609,7 +615,7 @@
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             }
         },
         "relationships" : {
@@ -642,19 +648,19 @@
         },
         "properties" : {
             "toY" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "absolute" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "radial" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "fromY" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "desc" : {
                 "type" : "NSString"
@@ -666,16 +672,17 @@
                 "type" : "NSString"
             },
             "toX" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "type" : {
                 "type" : "NSString"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "fromX" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             }
         },
         "relationships" : {
@@ -735,16 +742,16 @@
         },
         "properties" : {
             "y2" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "x2" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "type" : {
                 "type" : "NSString"
@@ -760,22 +767,23 @@
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "y1" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "x1" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             }
         },
         "relationships" : {
@@ -832,16 +840,16 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
@@ -853,14 +861,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -917,16 +926,16 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
@@ -938,14 +947,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -1002,13 +1012,13 @@
         },
         "properties" : {
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "closed" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "type" : {
                 "type" : "NSString"
@@ -1024,18 +1034,20 @@
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "path" : {
+                "attributeValueClassName" : "NSBezierPath",
                 "type" : "NSBezierPath"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             }
         },
@@ -1093,13 +1105,13 @@
         },
         "properties" : {
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "closed" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "type" : {
                 "type" : "NSString"
@@ -1115,18 +1127,20 @@
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             },
             "path" : {
+                "attributeValueClassName" : "NSBezierPath",
                 "type" : "NSBezierPath"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             }
         },
@@ -1184,16 +1198,16 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
@@ -1205,14 +1219,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -1269,16 +1284,18 @@
         },
         "properties" : {
             "dashes" : {
+                "attributeValueClassName" : "NSArray",
                 "type" : "NSArray"
             },
             "color" : {
+                "attributeValueClassName" : "SVGColor",
                 "type" : "SVGColor"
             },
             "title" : {
                 "type" : "NSString"
             },
             "width" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "identifier" : {
                 "type" : "NSString"
@@ -1290,7 +1307,7 @@
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             }
         },
         "relationships" : {
@@ -1336,6 +1353,7 @@
         },
         "properties" : {
             "color" : {
+                "attributeValueClassName" : "SVGColor",
                 "type" : "SVGColor"
             },
             "desc" : {
@@ -1351,7 +1369,7 @@
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             }
         },
         "relationships" : {
@@ -1397,16 +1415,16 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
@@ -1418,14 +1436,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {
@@ -1488,21 +1507,22 @@
         },
         "properties" : {
             "hidden" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "clips" : {
-                "type" : "BOOL"
+                "type" : "CoreDataScalarBoolean"
             },
             "desc" : {
                 "type" : "NSString"
             },
             "index" : {
-                "type" : "int64_t"
+                "type" : "CoreDataScalarInt64"
             },
             "title" : {
                 "type" : "NSString"
             },
             "image" : {
+                "attributeValueClassName" : "NSImage",
                 "type" : "NSImage"
             },
             "identifier" : {
@@ -1512,14 +1532,15 @@
                 "type" : "NSString"
             },
             "opacity" : {
-                "type" : "double"
+                "type" : "CoreDataScalarDouble"
             },
             "transform" : {
+                "attributeValueClassName" : "NSAffineTransform",
                 "type" : "NSAffineTransform"
             },
             "rect_" : {
                 "type" : "id",
-                "transform" : "NSRect"
+                "scalarAttributeType" : "NSRect"
             }
         },
         "relationships" : {

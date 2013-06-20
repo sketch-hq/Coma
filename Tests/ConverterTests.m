@@ -81,7 +81,7 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
 
-    ECTestAssertTrue([info isEqualTo:expected]);
+    [self assertString:[info description] matchesString:[expected description] mode:ECAssertStringTestShowLinesIgnoreWhitespace];
 
 #if WRITE_TO_DESKTOP
     NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];

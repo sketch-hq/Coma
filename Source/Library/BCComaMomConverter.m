@@ -199,41 +199,47 @@
                 basicType = @"CoreDataScalarBoolean";
                 break;
 
+            case NSTransformableAttributeType:
+                if (!className)
+                    className = @"id";
+                break;
+                
             default:
                 basicType = nil;
         }
 
-        NSString* transform = attribute.userInfo[@"scalarAttributeType"];
-        NSString* type;
-        if (transform)
+
+        NSString* explicitScalarType = attribute.userInfo[@"scalarAttributeType"];
+        NSString* explicitObjectType = attribute.userInfo[@"objectAttributeType"];
+        NSString* explicitType;
+        NSString* type = nil;
+        if (basicType)
         {
-            if (basicType)
-                type = transform;
-            else
-                type = @"id";
-        }
-        else if (basicType)
-        {
+            explicitType = explicitScalarType;
             type = basicType;
         }
         else if (className)
         {
+            explicitType = explicitObjectType;
             type = className;
         }
-        else
-        {
+
+        if (explicitType)
+            type = explicitType;
+
+        if (!type)
+            type = explicitObjectType;
+
+        if (!type)
+            type = explicitScalarType;
+
+        if (!type)
             type = @"NSObject";
-        }
 
         NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
         @{
           @"type" : type
           }];
-
-        if (transform)
-        {
-            info[@"transform"] = transform;
-        }
 
         // add any unused userInfo from the model to the property
         [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
