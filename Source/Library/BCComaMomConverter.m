@@ -160,126 +160,141 @@
     }
 }
 
+- (NSMutableDictionary*)infoForAttributeNamed:(NSString*)attributeName attribute:(NSAttributeDescription*)attribute entity:(NSEntityDescription*)entity {
+    NSString* className = attribute.attributeValueClassName;
+    if (!className)
+        className = attribute.userInfo[@"attributeValueClassName"];
+
+    NSString* basicType;
+    NSString* explicitScalarType = attribute.userInfo[@"scalarAttributeType"];
+    NSString* explicitObjectType = attribute.userInfo[@"objectAttributeType"];
+    switch (attribute.attributeType)
+    {
+        case NSInteger16AttributeType:
+            basicType = @"CoreDataScalarInt16";
+            break;
+
+        case NSInteger32AttributeType:
+            basicType = @"CoreDataScalarInt32";
+            break;
+
+        case NSInteger64AttributeType:
+            basicType = @"CoreDataScalarInt64";
+            break;
+
+        case NSDecimalAttributeType:
+            basicType = @"CoreDataScalarDecimal";
+            break;
+
+        case NSDoubleAttributeType:
+            basicType = @"CoreDataScalarDouble";
+            break;
+
+        case NSFloatAttributeType:
+            basicType = @"CoreDataScalarFloat";
+            break;
+
+        case NSBooleanAttributeType:
+            basicType = @"CoreDataScalarBoolean";
+            break;
+
+        case NSTransformableAttributeType:
+            if (explicitScalarType)
+                basicType = explicitScalarType;
+            else if (!className)
+                className = @"id";
+            break;
+
+        default:
+            basicType = nil;
+    }
+
+
+    NSString* explicitType;
+    NSString* type = nil;
+    if (basicType)
+    {
+        explicitType = explicitScalarType;
+        type = basicType;
+    }
+    else if (className)
+    {
+        explicitType = explicitObjectType;
+        type = className;
+    }
+
+    if (explicitType)
+        type = explicitType;
+
+    if (!type)
+        type = explicitObjectType;
+
+    if (!type)
+        type = explicitScalarType;
+
+    if (!type)
+        type = @"NSObject";
+
+    NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   @"type" : type
+                                   }];
+
+    // add any unused userInfo from the model to the property
+    [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if (!info[key])
+            info[key] = obj;
+    }];
+
+    return info;
+}
+
+- (NSMutableDictionary*)infoForRelationshipNamed:(NSString*)relationshipName relationship:(NSRelationshipDescription*)relationship entity:(NSEntityDescription*)entity {
+    NSString* className = relationship.destinationEntity.name;
+    NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   @"type" : className,
+                                   @"minimum" : @(relationship.minCount),
+                                   @"maximum" : @(relationship.maxCount)
+                                   }];
+
+    if (relationship.maxCount == 0)
+    {
+        info[@"toMany"] = @YES;
+    }
+
+    NSRelationshipDescription* inverse = relationship.inverseRelationship;
+    if (inverse)
+    {
+        info[@"inverse"] = inverse.name;
+    }
+
+    // add any unused userInfo from the relationship to the property
+    [relationship.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if (!info[key])
+            info[key] = obj;
+    }];
+
+    return info;
+}
+
 - (NSDictionary*)infoForEntity:(NSEntityDescription*)entity
 {
+    NSEntityDescription* superEntity = entity.superentity;
     __block NSMutableDictionary* properties = [NSMutableDictionary dictionary];
     [entity.attributesByName enumerateKeysAndObjectsUsingBlock:^(NSString* attributeName, NSAttributeDescription* attribute, BOOL *stop) {
-        NSString* className = attribute.attributeValueClassName;
-        if (!className)
-            className = attribute.userInfo[@"attributeValueClassName"];
-
-        NSString* basicType;
-        NSString* explicitScalarType = attribute.userInfo[@"scalarAttributeType"];
-        NSString* explicitObjectType = attribute.userInfo[@"objectAttributeType"];
-        switch (attribute.attributeType)
+        if (!superEntity.attributesByName[attributeName]) // don't process attributes that are part of the superclass
         {
-            case NSInteger16AttributeType:
-                basicType = @"CoreDataScalarInt16";
-                break;
-
-            case NSInteger32AttributeType:
-                basicType = @"CoreDataScalarInt32";
-                break;
-
-            case NSInteger64AttributeType:
-                basicType = @"CoreDataScalarInt64";
-                break;
-
-            case NSDecimalAttributeType:
-                basicType = @"CoreDataScalarDecimal";
-                break;
-
-            case NSDoubleAttributeType:
-                basicType = @"CoreDataScalarDouble";
-                break;
-
-            case NSFloatAttributeType:
-                basicType = @"CoreDataScalarFloat";
-                break;
-
-            case NSBooleanAttributeType:
-                basicType = @"CoreDataScalarBoolean";
-                break;
-
-            case NSTransformableAttributeType:
-                if (explicitScalarType)
-                    basicType = explicitScalarType;
-                else if (!className)
-                    className = @"id";
-                break;
-                
-            default:
-                basicType = nil;
+            properties[attributeName] = [self infoForAttributeNamed:attributeName attribute:attribute entity:entity];
         }
-
-
-        NSString* explicitType;
-        NSString* type = nil;
-        if (basicType)
-        {
-            explicitType = explicitScalarType;
-            type = basicType;
-        }
-        else if (className)
-        {
-            explicitType = explicitObjectType;
-            type = className;
-        }
-
-        if (explicitType)
-            type = explicitType;
-
-        if (!type)
-            type = explicitObjectType;
-
-        if (!type)
-            type = explicitScalarType;
-
-        if (!type)
-            type = @"NSObject";
-
-        NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
-        @{
-          @"type" : type
-          }];
-
-        // add any unused userInfo from the model to the property
-        [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if (!info[key])
-                info[key] = obj;
-        }];
-
-        properties[attributeName] = info;
     }];
 
     __block NSMutableDictionary* relationships = [NSMutableDictionary dictionary];
     [entity.relationshipsByName enumerateKeysAndObjectsUsingBlock:^(NSString* relationshipName, NSRelationshipDescription* relationship, BOOL *stop) {
-        NSString* className = relationship.destinationEntity.name;
-        NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
-        @{
-          @"type" : className,
-          @"minimum" : @(relationship.minCount),
-          @"maximum" : @(relationship.maxCount)
-          }];
-
-        if (relationship.maxCount == 0)
+        if (!superEntity.relationshipsByName[relationshipName]) // don't process relationships that are part of the superclass
         {
-            info[@"toMany"] = @YES;
+            relationships[relationshipName] = [self infoForRelationshipNamed:relationshipName relationship:relationship entity:entity];
         }
-        
-        NSRelationshipDescription* inverse = relationship.inverseRelationship;
-        if (inverse)
-        {
-            info[@"inverse"] = inverse.name;
-        }
-
-        // add any unused userInfo from the relationship to the property
-        [relationship.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if (!info[key])
-                info[key] = obj;
-        }];
-
-        relationships[relationshipName] = info;
     }];
 
     NSMutableDictionary* result = [NSMutableDictionary dictionaryWithDictionary:
