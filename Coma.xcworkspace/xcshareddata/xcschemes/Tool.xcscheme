@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0500"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "NO"
+      buildImplicitDependencies = "NO">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "228CF1E817562478003E1D25"
+               BuildableName = "libECLogging.a"
+               BlueprintName = "ECLoggingMacStatic"
+               ReferencedContainer = "container:Modules/ECLogging/ECLogging.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2296287017621E33008D887F"
+               BuildableName = "libECCore.a"
+               BlueprintName = "ECCoreMacStatic"
+               ReferencedContainer = "container:Modules/ECCore/ECCore.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2296287017621E33008D887F"
+               BuildableName = "libECCommandLine.a"
+               BlueprintName = "ECCommandLineMacStatic"
+               ReferencedContainer = "container:Modules/ECCommandLine/ECCommandLine.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56DEC247152631040031E8DC"
+               BuildableName = "libGRMustache6-MacOS.a"
+               BlueprintName = "GRMustache6-MacOS"
+               ReferencedContainer = "container:Modules/GRMustache/src/GRMustache.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "229628021760E1D5008D887F"
+               BuildableName = "libComa.a"
+               BlueprintName = "Library"
+               ReferencedContainer = "container:Coma.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "229627ED1760E1BF008D887F"
+               BuildableName = "coma"
+               BlueprintName = "Tool"
+               ReferencedContainer = "container:Coma.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "22FF8E8516F1E5EB008FC10D"
+               BuildableName = "ECUnitTests.framework"
+               BlueprintName = "ECUnitTestsMac"
+               ReferencedContainer = "container:Modules/ECLogging/ECLogging.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "229628141760E1D5008D887F"
+               BuildableName = "LibraryTests.octest"
+               BlueprintName = "LibraryTests"
+               ReferencedContainer = "container:Coma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "229627ED1760E1BF008D887F"
+            BuildableName = "coma"
+            BlueprintName = "Tool"
+            ReferencedContainer = "container:Coma.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "229627ED1760E1BF008D887F"
+            BuildableName = "coma"
+            BlueprintName = "Tool"
+            ReferencedContainer = "container:Coma.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/Tests/Data/example.json&quot; &quot;$(SOURCE_ROOT)/Tests/Data/basic/templates&quot; --output=&quot;$(SOURCE_ROOT)/Tests/Data/basic&quot; --overwriting"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/Tests/Data/example.json&quot; &quot;$(SOURCE_ROOT)/Tests/Data/undo/templates&quot; --output=&quot;$(SOURCE_ROOT)/Tests/Data/undo&quot; --overwriting"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "convert &quot;$(SOURCE_ROOT)/Tests/Data/SVGModel.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/Tests/Data/SVGModelBase.json&quot; --output=&quot;$(SOURCE_ROOT)/Tests/Data/&quot; --overwriting"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/../Sketch/Modules/SVGKit/Source/SVGModel.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/../Sketch/Modules/SVGKit/Source/Coma/Machine&quot; --output=&quot;$(SOURCE_ROOT)/../Sketch/Modules/SVGKit/Source/Model/Generated&quot; --overwriting"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/Sketch.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/Empty&quot; --output=&quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/Generated&quot; --overwriting"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/Tests/Data/coredata/CoreData.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/Tests/Data/coredata/templates/generated&quot; --output=&quot;$(SOURCE_ROOT)/Tests/Data/coredata/Coma/Generated&quot; --overwriting"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "generate &quot;$(SOURCE_ROOT)/Tests/Data/coredata/CoreData.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/Tests/Data/coredata/templates/user&quot; --output=&quot;$(SOURCE_ROOT)/Tests/Data/coredata/Coma&quot;"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--version"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "help convert"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "229627ED1760E1BF008D887F"
+            BuildableName = "coma"
+            BlueprintName = "Tool"
+            ReferencedContainer = "container:Coma.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
