@@ -169,6 +169,8 @@
             className = attribute.userInfo[@"attributeValueClassName"];
 
         NSString* basicType;
+        NSString* explicitScalarType = attribute.userInfo[@"scalarAttributeType"];
+        NSString* explicitObjectType = attribute.userInfo[@"objectAttributeType"];
         switch (attribute.attributeType)
         {
             case NSInteger16AttributeType:
@@ -200,7 +202,9 @@
                 break;
 
             case NSTransformableAttributeType:
-                if (!className)
+                if (explicitScalarType)
+                    basicType = explicitScalarType;
+                else if (!className)
                     className = @"id";
                 break;
                 
@@ -209,8 +213,6 @@
         }
 
 
-        NSString* explicitScalarType = attribute.userInfo[@"scalarAttributeType"];
-        NSString* explicitObjectType = attribute.userInfo[@"objectAttributeType"];
         NSString* explicitType;
         NSString* type = nil;
         if (basicType)
