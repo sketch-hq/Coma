@@ -7,16 +7,16 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -28,14 +28,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -99,7 +100,7 @@
             },
             "properties" : {
                 "weight" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "family" : {
                     "type" : "NSString"
@@ -108,7 +109,7 @@
                     "type" : "NSString"
                 },
                 "size" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "identifier" : {
                     "type" : "NSString"
@@ -120,7 +121,7 @@
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 }
             },
             "relationships" : {
@@ -160,10 +161,11 @@
             },
             "properties" : {
                 "position" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "color" : {
-                    "type" : "SVGColor"
+                    "type" : "SVGColor",
+                    "attributeValueClassName" : "SVGColor"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -178,7 +180,7 @@
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 }
             },
             "relationships" : {
@@ -211,22 +213,22 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
                 },
                 "cornerRadius" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "identifier" : {
                     "type" : "NSString"
@@ -235,14 +237,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -299,25 +302,26 @@
             },
             "properties" : {
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "cx" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "rx" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "cy" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "ry" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -330,16 +334,16 @@
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 }
             },
             "relationships" : {
@@ -396,31 +400,32 @@
             },
             "properties" : {
                 "dx" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "anchor" : {
-                    "type" : "int16_t"
+                    "type" : "CoreDataScalarInt16"
                 },
                 "rotate" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "x" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "dy" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "y" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -429,29 +434,29 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "type" : {
                     "type" : "NSString"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "length" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "text" : {
                     "type" : "NSString"
                 },
                 "adjustSpacingAndGlyphs" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 }
             },
             "relationships" : {
@@ -508,19 +513,19 @@
             },
             "properties" : {
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "cx" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "cy" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "r" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "desc" : {
                     "type" : "NSString"
@@ -536,16 +541,17 @@
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 }
             },
             "relationships" : {
@@ -610,7 +616,7 @@
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 }
             },
             "relationships" : {
@@ -643,19 +649,19 @@
             },
             "properties" : {
                 "toY" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "absolute" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "radial" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "fromY" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "desc" : {
                     "type" : "NSString"
@@ -667,16 +673,17 @@
                     "type" : "NSString"
                 },
                 "toX" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "type" : {
                     "type" : "NSString"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "fromX" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 }
             },
             "relationships" : {
@@ -736,16 +743,16 @@
             },
             "properties" : {
                 "y2" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "x2" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "type" : {
                     "type" : "NSString"
@@ -761,22 +768,23 @@
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "y1" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "x1" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 }
             },
             "relationships" : {
@@ -833,16 +841,16 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -854,14 +862,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -918,16 +927,16 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -939,14 +948,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -1003,13 +1013,13 @@
             },
             "properties" : {
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "closed" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "type" : {
                     "type" : "NSString"
@@ -1025,19 +1035,21 @@
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "path" : {
-                    "type" : "NSBezierPath"
+                    "type" : "NSBezierPath",
+                    "attributeValueClassName" : "NSBezierPath"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 }
             },
             "relationships" : {
@@ -1094,13 +1106,13 @@
             },
             "properties" : {
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "closed" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "type" : {
                     "type" : "NSString"
@@ -1116,19 +1128,21 @@
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 },
                 "path" : {
-                    "type" : "NSBezierPath"
+                    "type" : "NSBezierPath",
+                    "attributeValueClassName" : "NSBezierPath"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 }
             },
             "relationships" : {
@@ -1185,16 +1199,16 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -1206,14 +1220,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -1270,16 +1285,18 @@
             },
             "properties" : {
                 "dashes" : {
-                    "type" : "NSArray"
+                    "type" : "NSArray",
+                    "attributeValueClassName" : "NSArray"
                 },
                 "color" : {
-                    "type" : "SVGColor"
+                    "type" : "SVGColor",
+                    "attributeValueClassName" : "SVGColor"
                 },
                 "title" : {
                     "type" : "NSString"
                 },
                 "width" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "identifier" : {
                     "type" : "NSString"
@@ -1291,7 +1308,7 @@
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 }
             },
             "relationships" : {
@@ -1337,7 +1354,8 @@
             },
             "properties" : {
                 "color" : {
-                    "type" : "SVGColor"
+                    "type" : "SVGColor",
+                    "attributeValueClassName" : "SVGColor"
                 },
                 "desc" : {
                     "type" : "NSString"
@@ -1352,7 +1370,7 @@
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 }
             },
             "relationships" : {
@@ -1398,16 +1416,16 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
@@ -1419,14 +1437,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -1489,22 +1508,23 @@
             },
             "properties" : {
                 "hidden" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "clips" : {
-                    "type" : "BOOL"
+                    "type" : "CoreDataScalarBoolean"
                 },
                 "desc" : {
                     "type" : "NSString"
                 },
                 "index" : {
-                    "type" : "int64_t"
+                    "type" : "CoreDataScalarInt64"
                 },
                 "title" : {
                     "type" : "NSString"
                 },
                 "image" : {
-                    "type" : "NSImage"
+                    "type" : "NSImage",
+                    "attributeValueClassName" : "NSImage"
                 },
                 "identifier" : {
                     "type" : "NSString"
@@ -1513,14 +1533,15 @@
                     "type" : "NSString"
                 },
                 "opacity" : {
-                    "type" : "double"
+                    "type" : "CoreDataScalarDouble"
                 },
                 "transform" : {
-                    "type" : "NSAffineTransform"
+                    "type" : "NSAffineTransform",
+                    "attributeValueClassName" : "NSAffineTransform"
                 },
                 "rect_" : {
                     "type" : "id",
-                    "transform" : "NSRect"
+                    "scalarAttributeType" : "NSRect"
                 }
             },
             "relationships" : {
@@ -1581,7 +1602,7 @@
         }
     },
     "types" : {
-        "base" : "../standard/standardTypes",
+        "base" : "..\/standard\/standardTypes",
         "items" : {
             "SVGColor" : {
                 "metatype" : "NSObject",
@@ -1590,7 +1611,7 @@
         }
     },
     "metas" : {
-        "base" : "../standard/standardMetas",
+        "base" : "..\/standard\/standardMetas",
         "items" : {
             
         }

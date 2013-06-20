@@ -108,7 +108,7 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSData* expectedData = [NSData dataWithContentsOfURL:expectedURL];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:expectedData options:0 error:&error];
 
-    ECTestAssertTrue([svgMerged isEqualTo:expected]);
+    [self assertString:[svgMerged description] matchesString:[expected description] mode:ECAssertStringTestShowLinesIgnoreWhitespace];
 
 #if WRITE_TO_DESKTOP
     NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/svg.json" stringByStandardizingPath]];
