@@ -87,7 +87,8 @@
   if ([[momOrXCDataModelFilePath pathExtension] isEqualToString:@"xcdatamodel"]) {
     //  We've been handed a .xcdatamodel data model, transparently compile it into a .mom managed object model.
     NSString *momcTool = nil;
-    {{
+    {
+      {
         if (NO && [fm fileExistsAtPath:@"/usr/bin/xcrun"]) {
           // Cool, we can just use Xcode 3.2.6/4.x's xcrun command to find and execute momc for us.
           momcTool = @"/usr/bin/xcrun momc";
@@ -115,21 +116,15 @@
     }
     NSString *momcOptions = @" -MOMC_NO_WARNINGS -MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS -MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR";
     NSString *momcIncantation = nil;
-    {{
-        NSString *tempGeneratedMomFileName = [[[NSProcessInfo processInfo] globallyUniqueString] stringByAppendingPathExtension:@"mom"];
-        tempGeneratedMomFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:tempGeneratedMomFileName];
-        momcIncantation = [NSString stringWithFormat:@"%@ %@ \"%@\" \"%@\"",
-                           momcTool,
-                           momcOptions,
-                           momOrXCDataModelFilePath,
-                           tempGeneratedMomFilePath];
-      }
-    }
-    {{
-        system([momcIncantation UTF8String]); // Ignore system() result since momc sadly doesn't return any relevent error codes.
-        momFilePath = tempGeneratedMomFilePath;
-      }
-    }
+    NSString *tempGeneratedMomFileName = [[[NSProcessInfo processInfo] globallyUniqueString] stringByAppendingPathExtension:@"mom"];
+    tempGeneratedMomFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:tempGeneratedMomFileName];
+    momcIncantation = [NSString stringWithFormat:@"%@ %@ \"%@\" \"%@\"",
+                       momcTool,
+                       momcOptions,
+                       momOrXCDataModelFilePath,
+                       tempGeneratedMomFilePath];
+    system([momcIncantation UTF8String]); // Ignore system() result since momc sadly doesn't return any relevent error codes.
+    momFilePath = tempGeneratedMomFilePath;
   } else {
     momFilePath = momOrXCDataModelFilePath;
   }
@@ -336,7 +331,5 @@
 
   return result;
 }
-
-
 
 @end
