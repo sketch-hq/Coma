@@ -228,8 +228,22 @@
 
     NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   @"type" : type
+                                   @"type" : type,
+                                 @"optional" : @(attribute.isOptional),
+                                 @"transient" : @(attribute.isTransient),
+                                 @"indexed" : @(attribute.isIndexed),
+                                 @"external" : @(attribute.isStoredInExternalRecord),
                                    }];
+
+    if (attribute.defaultValue)
+    {
+        info[@"default"] = attribute.defaultValue;
+    }
+
+    if (attribute.valueTransformerName)
+    {
+        info[@"transformer"] = attribute.valueTransformerName;
+    }
 
     // add any unused userInfo from the model to the property
     [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -242,6 +256,8 @@
 
 - (NSMutableDictionary*)infoForRelationshipNamed:(NSString*)relationshipName relationship:(NSRelationshipDescription*)relationship entity:(NSEntityDescription*)entity {
     NSString* className = relationship.destinationEntity.name;
+
+
     NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
                                    @"type" : className,
@@ -249,6 +265,30 @@
                                    @"maximum" : @(relationship.maxCount)
                                    }];
 
+    NSString* deleteRule;
+    switch (relationship.deleteRule)
+    {
+        case NSNullifyDeleteRule:
+            deleteRule = @"nullify";
+            break;
+
+        case NSCascadeDeleteRule:
+            deleteRule = @"cascade";
+            break;
+
+        case NSDenyDeleteRule:
+            deleteRule = @"deny";
+            break;
+
+        default:
+            deleteRule = nil;
+    }
+
+    if (deleteRule)
+    {
+        info[@"delete"] = deleteRule;
+    }
+    
     if (relationship.maxCount == 0)
     {
         info[@"toMany"] = @YES;
