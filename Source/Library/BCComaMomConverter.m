@@ -19,7 +19,8 @@
 - (NSString *)xcodeSelectPrintPath {
   NSString *result = @"";
 
-  @try {
+  @try
+  {
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:@"/usr/bin/xcode-select"];
 
@@ -37,7 +38,9 @@
     NSData *data = [file readDataToEndOfFile];
     result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     result = [result substringToIndex:[result length]-1]; // trim newline
-  } @catch(NSException *ex) {
+  }
+
+  @catch(NSException *ex) {
     NSLog(@"WARNING couldn't launch /usr/bin/xcode-select");
   }
 
@@ -87,32 +90,28 @@
   if ([[momOrXCDataModelFilePath pathExtension] isEqualToString:@"xcdatamodel"]) {
     //  We've been handed a .xcdatamodel data model, transparently compile it into a .mom managed object model.
     NSString *momcTool = nil;
-    {
-      {
-        if (NO && [fm fileExistsAtPath:@"/usr/bin/xcrun"]) {
-          // Cool, we can just use Xcode 3.2.6/4.x's xcrun command to find and execute momc for us.
-          momcTool = @"/usr/bin/xcrun momc";
-        } else {
-          // Rats, don't have xcrun. Hunt around for momc in various places where various versions of Xcode stashed it.
-          NSString *xcodeSelectMomcPath = [NSString stringWithFormat:@"%@/usr/bin/momc", [self xcodeSelectPrintPath]];
-          if ([fm fileExistsAtPath:xcodeSelectMomcPath]) {
-            momcTool = [NSString stringWithFormat:@"\"%@\"", xcodeSelectMomcPath]; // Quote for safety.
-          } else if ([fm fileExistsAtPath:@"/Applications/Xcode.app/Contents/Developer/usr/bin/momc"]) {
-            // Xcode 4.3 - Command Line Tools for Xcode
-            momcTool = @"/Applications/Xcode.app/Contents/Developer/usr/bin/momc";
-          } else if ([fm fileExistsAtPath:@"/Developer/usr/bin/momc"]) {
-            // Xcode 3.1.
-            momcTool = @"/Developer/usr/bin/momc";
-          } else if ([fm fileExistsAtPath:@"/Library/Application Support/Apple/Developer Tools/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc"]) {
-            // Xcode 3.0.
-            momcTool = @"\"/Library/Application Support/Apple/Developer Tools/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc\"";
-          } else if ([fm fileExistsAtPath:@"/Developer/Library/Xcode/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc"]) {
-            // Xcode 2.4.
-            momcTool = @"/Developer/Library/Xcode/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc";
-          }
-          assert(momcTool && "momc not found");
-        }
+    if (NO && [fm fileExistsAtPath:@"/usr/bin/xcrun"]) {
+      // Cool, we can just use Xcode 3.2.6/4.x's xcrun command to find and execute momc for us.
+      momcTool = @"/usr/bin/xcrun momc";
+    } else {
+      // Rats, don't have xcrun. Hunt around for momc in various places where various versions of Xcode stashed it.
+      NSString *xcodeSelectMomcPath = [NSString stringWithFormat:@"%@/usr/bin/momc", [self xcodeSelectPrintPath]];
+      if ([fm fileExistsAtPath:xcodeSelectMomcPath]) {
+        momcTool = [NSString stringWithFormat:@"\"%@\"", xcodeSelectMomcPath]; // Quote for safety.
+      } else if ([fm fileExistsAtPath:@"/Applications/Xcode.app/Contents/Developer/usr/bin/momc"]) {
+        // Xcode 4.3 - Command Line Tools for Xcode
+        momcTool = @"/Applications/Xcode.app/Contents/Developer/usr/bin/momc";
+      } else if ([fm fileExistsAtPath:@"/Developer/usr/bin/momc"]) {
+        // Xcode 3.1.
+        momcTool = @"/Developer/usr/bin/momc";
+      } else if ([fm fileExistsAtPath:@"/Library/Application Support/Apple/Developer Tools/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc"]) {
+        // Xcode 3.0.
+        momcTool = @"\"/Library/Application Support/Apple/Developer Tools/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc\"";
+      } else if ([fm fileExistsAtPath:@"/Developer/Library/Xcode/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc"]) {
+        // Xcode 2.4.
+        momcTool = @"/Developer/Library/Xcode/Plug-ins/XDCoreDataModel.xdplugin/Contents/Resources/momc";
       }
+      assert(momcTool && "momc not found");
     }
     NSString *momcOptions = @" -MOMC_NO_WARNINGS -MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS -MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR";
     NSString *momcIncantation = nil;
