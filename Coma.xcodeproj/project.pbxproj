@@ -692,14 +692,12 @@
 		229627FA1760E1C0008D887F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 			};
 			name = Debug;
 		};
 		229627FB1760E1C0008D887F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 			};
 			name = Release;
 		};
