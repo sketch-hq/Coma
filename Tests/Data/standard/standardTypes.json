@@ -99,6 +99,7 @@
             "NSDecodeTransformer" : "NSRectFromString",
             "basicType" : "NSRect",
             "NSCompareType" : "Rect",
+            "default" : "NSZeroRect"
         },
 
         "NSPoint" :
@@ -108,6 +109,7 @@
             "NSDecodeTransformer" : "NSPointFromString",
             "basicType" : "NSPoint",
             "NSCompareType" : "Point",
+            "default" : "NSZeroPoint"
         },
 
         "BOOL" :
