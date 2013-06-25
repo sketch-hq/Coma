@@ -1,3 +1,4 @@
+
 //
 //  BCMomConverter.m
 //  Coma
@@ -13,6 +14,8 @@
 @end
 
 @implementation BCComaMomConverter
+
+ECDefineDebugChannel(MomConverterChannel);
 
 // TODO: this method came from Mogenerator; either credit it's use or replace it
 
@@ -218,18 +221,23 @@
                                  @"external" : @(attribute.isStoredInExternalRecord),
                                }];
 
-  if (attribute.defaultValue)
-    info[@"default"] = attribute.defaultValue;
 
   if (attribute.valueTransformerName)
     info[@"transformer"] = attribute.valueTransformerName;
 
   // add any unused userInfo from the model to the property
-  [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
+  [attribute.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop)
    {
      if (!info[key])
-       info[key] = obj;
+       info[key] = value;
    }];
+
+  if (attribute.defaultValue) {
+    if (info[@"default"])
+      ECDebug(MomConverterChannel, @"default from userInfo overrides %@", attribute.defaultValue);
+    else
+      info[@"default"] = attribute.defaultValue;
+  }
 
   return info;
 }
