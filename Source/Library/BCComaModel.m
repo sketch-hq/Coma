@@ -259,17 +259,6 @@ ECDefineDebugChannel(ComaModelChannel);
         NSString* resolvedName = typeInfo[@"resolvedTypeName"];
         if (resolvedName)
             info[@"type"] = resolvedName;
-        
-        // if the type requires some headers, add them to the import property
-        NSString* requires = typeInfo[@"requires"];
-        if (requires)
-        {
-            info[@"requires"] = @{@"import" : requires };
-        }
-        else if ([self.classes objectForKey:type])
-        {
-            info[@"requires"] = @{@"import" : [NSString stringWithFormat:@"%@.h", type] };
-        }
 
         // add the type and metatype entries to the property info
         // this allows templates to pick up and use these properties directly
