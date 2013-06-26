@@ -9,6 +9,15 @@
             "mode" : "assign",
         },
 
+        "Enumeration" :
+        {
+            "dynamicTemplates" :
+            {
+            },
+            "mode" : "assign",
+            "basicType" : "integer",
+        },
+
         "Object" :
         {
             "mode" : "strong",
