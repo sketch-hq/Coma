@@ -259,6 +259,12 @@ ECDefineDebugChannel(ComaModelChannel);
         NSString* resolvedName = typeInfo[@"resolvedTypeName"];
         if (resolvedName)
             info[@"type"] = resolvedName;
+        
+        // if the type is one of our classes, add it to the requires property
+        if ([self.classes objectForKey:type])
+        {
+            info[@"requires"] = [NSString stringWithFormat:@"%@.h", type];
+        }
 
         // add the type and metatype entries to the property info
         // this allows templates to pick up and use these properties directly
