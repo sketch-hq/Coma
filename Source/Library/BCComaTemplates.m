@@ -9,7 +9,7 @@
 #import "BCComaTemplates.h"
 #import "BCComaEngine.h"
 
-#import <GRMustache.h>
+#import <GRMustache/GRMustache.h>
 
 @interface BCComaTemplates()
 

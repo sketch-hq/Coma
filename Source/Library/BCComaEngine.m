@@ -10,7 +10,7 @@
 #import "BCComaModel.h"
 #import "BCComaTemplates.h"
 
-#import <GRMustache.h>
+#import <GRMustache/GRMustache.h>
 
 NSString *const BCComaEngineErrorDomain = @"BCComaEngineErrorDomain";
 
