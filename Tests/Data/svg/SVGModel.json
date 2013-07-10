@@ -1,506 +1,825 @@
 {
-    "classes" : {
-        "SVGClipPath" : {
-            "super" : {
-                "class" : "SVGGroupElement",
-                "import" : "SVGGroupElement.h"
-            },
-            "properties" : {
+  "classes" : {
+    "SVGClipPath" : {
+      "super" : {
+        "class" : "SVGGroupElement",
+        "import" : "SVGGroupElement.h"
+      },
+      "properties" : {
 
-            },
-            "relationships" : {
-                "clipping" : {
-                    "minimum" : 0,
-                    "inverse" : "clip",
-                    "type" : "SVGDrawableElement",
-                    "maximum" : 0,
-                    "toMany" : true
-                }
-            }
-        },
-        "SVGFont" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "family" : {
-                    "type" : "NSString"
-                },
-                "size" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "weight" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-                "usedBy" : {
-                    "minimum" : 0,
-                    "inverse" : "font",
-                    "type" : "SVGDrawableElement",
-                    "maximum" : 0,
-                    "toMany" : true
-                }
-            }
-        },
-        "SVGGradientStop" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "color" : {
-                    "type" : "SVGColor",
-                    "attributeValueClassName" : "SVGColor"
-                },
-                "position" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGRectangleShape" : {
-            "super" : {
-                "class" : "SVGBasicShape",
-                "import" : "SVGBasicShape.h"
-            },
-            "properties" : {
-                "cornerRadius" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGEllipseShape" : {
-            "super" : {
-                "class" : "SVGBasicShape",
-                "import" : "SVGBasicShape.h"
-            },
-            "properties" : {
-                "cx" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "ry" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "rx" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "cy" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGText" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-                "anchor" : {
-                    "type" : "CoreDataScalarInt16"
-                },
-                "dy" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "length" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "y" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "rotate" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "x" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "text" : {
-                    "type" : "NSString"
-                },
-                "dx" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "adjustSpacingAndGlyphs" : {
-                    "type" : "CoreDataScalarBoolean"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGCircleShape" : {
-            "super" : {
-                "class" : "SVGBasicShape",
-                "import" : "SVGBasicShape.h"
-            },
-            "properties" : {
-                "cy" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "cx" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "r" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGElement" : {
-            "properties" : {
-                "desc" : {
-                    "type" : "NSString"
-                },
-                "title" : {
-                    "type" : "NSString"
-                },
-                "type" : {
-                    "type" : "NSString"
-                },
-                "identifier" : {
-                    "type" : "NSString"
-                },
-                "index" : {
-                    "type" : "CoreDataScalarInt64"
-                }
-            },
-            "relationships" : {
-                "parent" : {
-                    "minimum" : 1,
-                    "inverse" : "children",
-                    "type" : "SVGElement",
-                    "maximum" : 1
-                },
-                "linked" : {
-                    "minimum" : 0,
-                    "inverse" : "link",
-                    "type" : "SVGLink",
-                    "maximum" : 0,
-                    "toMany" : true
-                },
-                "children" : {
-                    "minimum" : 0,
-                    "inverse" : "parent",
-                    "type" : "SVGElement",
-                    "maximum" : 0,
-                    "toMany" : true
-                }
-            }
-        },
-        "SVGGradient" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "radial" : {
-                    "type" : "CoreDataScalarBoolean"
-                },
-                "toX" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "fromX" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "fromY" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "toY" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "transform" : {
-                    "type" : "NSAffineTransform",
-                    "attributeValueClassName" : "NSAffineTransform"
-                },
-                "absolute" : {
-                    "type" : "CoreDataScalarBoolean"
-                }
-            },
-            "relationships" : {
-                "linkedFrom" : {
-                    "minimum" : 0,
-                    "inverse" : "linkedTo",
-                    "type" : "SVGGradient",
-                    "maximum" : 0,
-                    "toMany" : true
-                },
-                "usedByFills" : {
-                    "minimum" : 0,
-                    "inverse" : "gradient",
-                    "type" : "SVGFill",
-                    "maximum" : 0,
-                    "toMany" : true
-                },
-                "usedByStrokes" : {
-                    "minimum" : 0,
-                    "inverse" : "gradient",
-                    "type" : "SVGStroke",
-                    "maximum" : 0,
-                    "toMany" : true
-                },
-                "linkedTo" : {
-                    "minimum" : 1,
-                    "inverse" : "linkedFrom",
-                    "type" : "SVGGradient",
-                    "maximum" : 1
-                }
-            }
-        },
-        "SVGLineShape" : {
-            "super" : {
-                "class" : "SVGBasicShape",
-                "import" : "SVGBasicShape.h"
-            },
-            "properties" : {
-                "x2" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "x1" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "y2" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "y1" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGDrawableElement" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "opacity" : {
-                    "type" : "CoreDataScalarDouble"
-                },
-                "rect_" : {
-                    "type" : "NSRect",
-                    "scalarAttributeType" : "NSRect"
-                },
-                "transform" : {
-                    "type" : "NSAffineTransform",
-                    "attributeValueClassName" : "NSAffineTransform"
-                },
-                "clips" : {
-                    "type" : "CoreDataScalarBoolean"
-                },
-                "hidden" : {
-                    "type" : "CoreDataScalarBoolean"
-                }
-            },
-            "relationships" : {
-                "stroke" : {
-                    "minimum" : 1,
-                    "inverse" : "usedBy",
-                    "type" : "SVGStroke",
-                    "maximum" : 1
-                },
-                "clip" : {
-                    "minimum" : 1,
-                    "inverse" : "clipping",
-                    "type" : "SVGClipPath",
-                    "maximum" : 1
-                },
-                "fill" : {
-                    "minimum" : 1,
-                    "inverse" : "usedBy",
-                    "type" : "SVGFill",
-                    "maximum" : 1
-                },
-                "font" : {
-                    "minimum" : 1,
-                    "inverse" : "usedBy",
-                    "type" : "SVGFont",
-                    "maximum" : 1
-                }
-            }
-        },
-        "SVGBasicShape" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGPathShape" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-                "closed" : {
-                    "type" : "CoreDataScalarBoolean"
-                },
-                "path" : {
-                    "type" : "NSBezierPath",
-                    "attributeValueClassName" : "NSBezierPath"
-                }
-            },
-            "relationships" : {
-
-            }
-        },
-        "SVGPolygonShape" : {
-            "super" : {
-                "class" : "SVGPathShape",
-                "import" : "SVGPathShape.h"
-            },
-            "properties" : {
-                
-            },
-            "relationships" : {
-                
-            }
-        },
-        "SVGGroupElement" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-                
-            },
-            "relationships" : {
-                
-            }
-        },
-        "SVGStroke" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "dashes" : {
-                    "type" : "NSArray",
-                    "attributeValueClassName" : "NSArray"
-                },
-                "color" : {
-                    "type" : "SVGColor",
-                    "attributeValueClassName" : "SVGColor"
-                },
-                "width" : {
-                    "type" : "CoreDataScalarDouble"
-                }
-            },
-            "relationships" : {
-                "gradient" : {
-                    "minimum" : 0,
-                    "inverse" : "usedByStrokes",
-                    "type" : "SVGGradient",
-                    "maximum" : 1
-                },
-                "usedBy" : {
-                    "minimum" : 0,
-                    "inverse" : "stroke",
-                    "type" : "SVGDrawableElement",
-                    "maximum" : 0,
-                    "toMany" : true
-                }
-            }
-        },
-        "SVGFill" : {
-            "super" : {
-                "class" : "SVGElement",
-                "import" : "SVGElement.h"
-            },
-            "properties" : {
-                "color" : {
-                    "type" : "SVGColor",
-                    "attributeValueClassName" : "SVGColor"
-                }
-            },
-            "relationships" : {
-                "gradient" : {
-                    "minimum" : 0,
-                    "inverse" : "usedByFills",
-                    "type" : "SVGGradient",
-                    "maximum" : 1
-                },
-                "usedBy" : {
-                    "minimum" : 0,
-                    "inverse" : "fill",
-                    "type" : "SVGDrawableElement",
-                    "maximum" : 0,
-                    "toMany" : true
-                }
-            }
-        },
-        "SVGLink" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-                
-            },
-            "relationships" : {
-                "link" : {
-                    "minimum" : 1,
-                    "inverse" : "linked",
-                    "type" : "SVGElement",
-                    "maximum" : 1
-                }
-            }
-        },
-        "SVGImage" : {
-            "super" : {
-                "class" : "SVGDrawableElement",
-                "import" : "SVGDrawableElement.h"
-            },
-            "properties" : {
-                "image" : {
-                    "type" : "NSImage",
-                    "attributeValueClassName" : "NSImage"
-                }
-            },
-            "relationships" : {
-                
-            }
+      },
+      "relationships" : {
+        "clipping" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "clip",
+          "type" : "SVGDrawableElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
         }
+      }
     },
-    "templates" : [
-                   "source.h",
-                   "source.m"
-                   ],
-    "defaults" : {
-        "super" : {
-            "class" : "NSObject"
+    "SVGFont" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "family" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : false
+        },
+        "size" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "weight" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
         }
+      },
+      "relationships" : {
+        "usedBy" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "font",
+          "type" : "SVGDrawableElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        }
+      }
     },
-    "types" : {
-        "base" : "..\/standard\/standardTypes",
-        "items" : {
-            "SVGColor" : {
-                "metatype" : "NSObject",
-                "requires" : "SVGColor.h"
-            }
+    "SVGGradientStop" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "color" : {
+          "optional" : true,
+          "attributeValueClassName" : "SVGColor",
+          "transient" : false,
+          "type" : "SVGColor",
+          "external" : false,
+          "indexed" : false
+        },
+        "position" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
         }
+      },
+      "relationships" : {
+
+      }
     },
-    "metas" : {
-        "base" : "..\/standard\/standardMetas",
-        "items" : {
-            
+    "SVGRectangleShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "cornerRadius" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
         }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGEllipseShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "cx" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "ry" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "rx" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "cy" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGText" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "anchor" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarInt16",
+          "external" : false,
+          "indexed" : false
+        },
+        "dy" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "length" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "y" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "rotate" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "x" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "text" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : false
+        },
+        "dx" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "adjustSpacingAndGlyphs" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGCircleShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "cy" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "cx" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "r" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGElement" : {
+      "properties" : {
+        "desc" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : false
+        },
+        "title" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : false
+        },
+        "type" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : true
+        },
+        "identifier" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "NSString",
+          "external" : false,
+          "indexed" : true
+        },
+        "index" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarInt64",
+          "external" : false,
+          "indexed" : true
+        }
+      },
+      "relationships" : {
+        "parent" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "children",
+          "type" : "SVGElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        },
+        "linked" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "link",
+          "type" : "SVGLink",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "children" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "parent",
+          "type" : "SVGElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        }
+      }
+    },
+    "SVGGradient" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "radial" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        },
+        "toX" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "fromX" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "fromY" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "toY" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "transform" : {
+          "optional" : true,
+          "attributeValueClassName" : "NSAffineTransform",
+          "transient" : false,
+          "type" : "NSAffineTransform",
+          "external" : false,
+          "indexed" : false
+        },
+        "absolute" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+        "linkedFrom" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "linkedTo",
+          "type" : "SVGGradient",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "usedByFills" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "gradient",
+          "type" : "SVGFill",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "usedByStrokes" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "gradient",
+          "type" : "SVGStroke",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "linkedTo" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "linkedFrom",
+          "type" : "SVGGradient",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        }
+      }
+    },
+    "SVGLineShape" : {
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
+      "properties" : {
+        "x2" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "x1" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "y2" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "y1" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGDrawableElement" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "opacity" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        },
+        "rect_" : {
+          "optional" : true,
+          "scalarAttributeType" : "NSRect",
+          "transient" : false,
+          "type" : "NSRect",
+          "external" : false,
+          "indexed" : false
+        },
+        "transform" : {
+          "optional" : true,
+          "indexed" : false,
+          "transformer" : "",
+          "transient" : false,
+          "type" : "NSAffineTransform",
+          "external" : false,
+          "attributeValueClassName" : "NSAffineTransform"
+        },
+        "clips" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        },
+        "hidden" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+        "stroke" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "usedBy",
+          "type" : "SVGStroke",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        },
+        "clip" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "clipping",
+          "type" : "SVGClipPath",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        },
+        "fill" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "usedBy",
+          "type" : "SVGFill",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        },
+        "font" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "usedBy",
+          "type" : "SVGFont",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        }
+      }
+    },
+    "SVGBasicShape" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGPathShape" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "closed" : {
+          "optional" : true,
+          "transient" : false,
+          "type" : "CoreDataScalarBoolean",
+          "external" : false,
+          "indexed" : false
+        },
+        "path" : {
+          "optional" : true,
+          "attributeValueClassName" : "NSBezierPath",
+          "transient" : false,
+          "type" : "NSBezierPath",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGPolygonShape" : {
+      "super" : {
+        "class" : "SVGPathShape",
+        "import" : "SVGPathShape.h"
+      },
+      "properties" : {
+
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGGroupElement" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+
+      },
+      "relationships" : {
+
+      }
+    },
+    "SVGStroke" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "dashes" : {
+          "optional" : true,
+          "attributeValueClassName" : "NSArray",
+          "transient" : false,
+          "type" : "NSArray",
+          "external" : false,
+          "indexed" : false
+        },
+        "color" : {
+          "optional" : true,
+          "attributeValueClassName" : "SVGColor",
+          "transient" : false,
+          "type" : "SVGColor",
+          "external" : false,
+          "indexed" : false
+        },
+        "width" : {
+          "optional" : true,
+          "default" : 0,
+          "transient" : false,
+          "type" : "CoreDataScalarDouble",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+        "gradient" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "usedByStrokes",
+          "type" : "SVGGradient",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "usedBy" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "stroke",
+          "type" : "SVGDrawableElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        }
+      }
+    },
+    "SVGFill" : {
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
+      "properties" : {
+        "color" : {
+          "optional" : true,
+          "attributeValueClassName" : "SVGColor",
+          "transient" : false,
+          "type" : "SVGColor",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+        "gradient" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "usedByFills",
+          "type" : "SVGGradient",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        },
+        "usedBy" : {
+          "optional" : true,
+          "maximum" : 0,
+          "indexed" : true,
+          "delete" : "nullify",
+          "toMany" : true,
+          "inverse" : "fill",
+          "type" : "SVGDrawableElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 0
+        }
+      }
+    },
+    "SVGLink" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+
+      },
+      "relationships" : {
+        "link" : {
+          "optional" : true,
+          "maximum" : 1,
+          "indexed" : true,
+          "delete" : "nullify",
+          "inverse" : "linked",
+          "type" : "SVGElement",
+          "transient" : false,
+          "external" : false,
+          "minimum" : 1
+        }
+      }
+    },
+    "SVGImage" : {
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
+      "properties" : {
+        "image" : {
+          "optional" : true,
+          "attributeValueClassName" : "NSImage",
+          "transient" : false,
+          "type" : "NSImage",
+          "external" : false,
+          "indexed" : false
+        }
+      },
+      "relationships" : {
+
+      }
     }
+  },
+  "templates" : [
+    "source.h",
+    "source.m"
+  ],
+  "defaults" : {
+    "super" : {
+      "class" : "NSObject"
+    }
+  },
+  "types" : {
+    "base" : "..\/standard\/standardTypes",
+    "items" : {
+      "SVGColor" : {
+        "metatype" : "NSObject",
+        "requires" : "SVGColor.h"
+      }
+    }
+  },
+  "metas" : {
+    "base" : "..\/standard\/standardMetas",
+    "items" : {
+
+    }
+  }
 }

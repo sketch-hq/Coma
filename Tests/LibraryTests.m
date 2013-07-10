@@ -49,17 +49,16 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSURL* input = [bundle URLForResource:@"example" withExtension:@"json" subdirectory:@"Data"];
     NSURL* templates = [bundle URLForResource:@"templates" withExtension:@"" subdirectory:[NSString stringWithFormat:@"Data/%@", templateName]];
 
-    NSError* error;
-    NSString* expectedHeader = [NSString stringWithContentsOfURL:[bundle URLForResource:generatedName withExtension:@"h"] encoding:NSUTF8StringEncoding error:&error];
-    NSString* expectedSource = [NSString stringWithContentsOfURL:[bundle URLForResource:generatedName withExtension:@"m"] encoding:NSUTF8StringEncoding error:&error];
+    NSURL* expectedHeader = [bundle URLForResource:generatedName withExtension:@"h"];
+    NSURL* expectedSource = [bundle URLForResource:generatedName withExtension:@"m"];
     NSDictionary* expected = @{ [generatedName stringByAppendingPathExtension:@"h"] : expectedHeader, [generatedName stringByAppendingPathExtension:@"m"] : expectedSource };
 
     [engine generateModelAtURL:input withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
         
         if (output)
         {
-            NSString* expectedOutput = expected[name];
-            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLinesIgnoreWhitespace];
+            NSURL* expectedOutput = expected[name];
+            [self assertString:output matchesContentsOfURL:expectedOutput mode:ECAssertStringDiff];
 
 #if WRITE_TO_DESKTOP
             NSURL* outputURL = [NSURL fileURLWithPath:[[@"~/Desktop" stringByStandardizingPath] stringByAppendingPathComponent:name]];

@@ -9,30 +9,15 @@
 @implementation ExampleUndo
 
 /**
- Set string to new value.
- @param value The new value for string.
+ Set boolean to new value.
+ @param value The new value for boolean.
 */
 
-- (void)setString:(NSString*)value {
-    if (self.string != value) {
-    if (![self isEqual:value]) {
-            [self.undoManager registerUndoWithTarget:self selector:_cmd object:self.string];
-            [self.undoManager setActionName:@"Set String"];
-            [super setString:value];
-    }
-    }
-}
-
-/**
- Set integer to new value.
- @param value The new value for integer.
-*/
-
-- (void)setInteger:(NSInteger)value {
-    if (self.integer != value) {
-        [[self.undoManager prepareWithInvocationTarget:self] setInteger:self.integer];
-        [self.undoManager setActionName:@"Set Integer"];
-        [super setInteger:value];
+- (void)setBoolean:(BOOL)value {
+    if (self.boolean != value) {
+        [[self.undoManager prepareWithInvocationTarget:self] setBoolean:self.boolean];
+        [self.undoManager setActionName:@"Set Boolean"];
+        [super setBoolean:value];
     }
 }
 
@@ -48,6 +33,34 @@
             [self.undoManager setActionName:@"Set Custom"];
             [super setCustom:value];
     }
+    }
+}
+
+/**
+ Set date to new value.
+ @param value The new value for date.
+*/
+
+- (void)setDate:(NSDate*)value {
+    if (self.date != value) {
+    if (![self isEqual:value]) {
+            [self.undoManager registerUndoWithTarget:self selector:_cmd object:self.date];
+            [self.undoManager setActionName:@"Set Date"];
+            [super setDate:value];
+    }
+    }
+}
+
+/**
+ Set integer to new value.
+ @param value The new value for integer.
+*/
+
+- (void)setInteger:(NSInteger)value {
+    if (self.integer != value) {
+        [[self.undoManager prepareWithInvocationTarget:self] setInteger:self.integer];
+        [self.undoManager setActionName:@"Set Integer"];
+        [super setInteger:value];
     }
 }
 
@@ -70,15 +83,15 @@
 }
 
 /**
- Set unsignedInteger to new value.
- @param value The new value for unsignedInteger.
+ Set real to new value.
+ @param value The new value for real.
 */
 
-- (void)setUnsignedInteger:(NSUInteger)value {
-    if (self.unsignedInteger != value) {
-        [[self.undoManager prepareWithInvocationTarget:self] setUnsignedInteger:self.unsignedInteger];
-        [self.undoManager setActionName:@"Set UInteger"];
-        [super setUnsignedInteger:value];
+- (void)setReal:(CGFloat)value {
+    if (self.real != value) {
+        [[self.undoManager prepareWithInvocationTarget:self] setReal:self.real];
+        [self.undoManager setActionName:@"Set Real"];
+        [super setReal:value];
     }
 }
 
@@ -101,43 +114,30 @@
 }
 
 /**
- Set date to new value.
- @param value The new value for date.
+ Set string to new value.
+ @param value The new value for string.
 */
 
-- (void)setDate:(NSDate*)value {
-    if (self.date != value) {
+- (void)setString:(NSString*)value {
+    if (self.string != value) {
     if (![self isEqual:value]) {
-            [self.undoManager registerUndoWithTarget:self selector:_cmd object:self.date];
-            [self.undoManager setActionName:@"Set Date"];
-            [super setDate:value];
+            [self.undoManager registerUndoWithTarget:self selector:_cmd object:self.string];
+            [self.undoManager setActionName:@"Set String"];
+            [super setString:value];
     }
     }
 }
 
 /**
- Set boolean to new value.
- @param value The new value for boolean.
+ Set unsignedInteger to new value.
+ @param value The new value for unsignedInteger.
 */
 
-- (void)setBoolean:(BOOL)value {
-    if (self.boolean != value) {
-        [[self.undoManager prepareWithInvocationTarget:self] setBoolean:self.boolean];
-        [self.undoManager setActionName:@"Set Boolean"];
-        [super setBoolean:value];
-    }
-}
-
-/**
- Set real to new value.
- @param value The new value for real.
-*/
-
-- (void)setReal:(CGFloat)value {
-    if (self.real != value) {
-        [[self.undoManager prepareWithInvocationTarget:self] setReal:self.real];
-        [self.undoManager setActionName:@"Set Real"];
-        [super setReal:value];
+- (void)setUnsignedInteger:(NSUInteger)value {
+    if (self.unsignedInteger != value) {
+        [[self.undoManager prepareWithInvocationTarget:self] setUnsignedInteger:self.unsignedInteger];
+        [self.undoManager setActionName:@"Set UInteger"];
+        [super setUnsignedInteger:value];
     }
 }
 

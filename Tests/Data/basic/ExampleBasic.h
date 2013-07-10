@@ -13,18 +13,10 @@
 
 
 /**
- NSString example
+ BOOL example
  */
 
-@property (strong, nonatomic) NSString* string;
-
-
-
-/**
- NSInteger example
- */
-
-@property (assign, nonatomic) NSInteger integer;
+@property (assign, nonatomic) BOOL boolean;
 
 
 
@@ -37,6 +29,22 @@
 
 
 /**
+ NSDate example
+ */
+
+@property (strong, nonatomic) NSDate* date;
+
+
+
+/**
+ NSInteger example
+ */
+
+@property (assign, nonatomic) NSInteger integer;
+
+
+
+/**
  NSPoint example
  */
 
@@ -45,10 +53,10 @@
 
 
 /**
- NSUInteger example
+ CGFloat example
  */
 
-@property (assign, nonatomic) NSUInteger unsignedInteger;
+@property (assign, nonatomic) CGFloat real;
 
 
 
@@ -61,26 +69,18 @@
 
 
 /**
- NSDate example
+ NSString example
  */
 
-@property (strong, nonatomic) NSDate* date;
+@property (strong, nonatomic) NSString* string;
 
 
 
 /**
- BOOL example
+ NSUInteger example
  */
 
-@property (assign, nonatomic) BOOL boolean;
-
-
-
-/**
- CGFloat example
- */
-
-@property (assign, nonatomic) CGFloat real;
+@property (assign, nonatomic) NSUInteger unsignedInteger;
 
 /**
  Returns a list of NSStrings with the names of the properties in it.
