@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GRMustache.h>
+#import <GRMustache/GRMustache.h>
 
 @class BCComaTemplates;
 

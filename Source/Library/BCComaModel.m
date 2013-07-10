@@ -10,7 +10,7 @@
 #import "BCComaTemplates.h"
 #import "BCComaLazyLoadingTemplate.h"
 
-#import <GRMustache.h>
+#import <GRMustache/GRMustache.h>
 
 @interface BCComaModel()
 
@@ -219,7 +219,13 @@ ECDefineDebugChannel(ComaModelChannel);
         [properties enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
             [self preprocessProperty:info name:key];
         }];
-        info[@"properties"] = [properties allValues];
+
+        NSArray* sortedProperties = [[properties allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
+            NSString* name1 = prop1[@"name"];
+            NSString* name2 = prop2[@"name"];
+            return [name1 compare:name2];
+        }];
+        info[@"properties"] = sortedProperties;
 
         NSMutableDictionary* relationships = info[@"relationships"];
         if (relationships)
@@ -227,7 +233,13 @@ ECDefineDebugChannel(ComaModelChannel);
             [relationships enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
                 [self preprocessProperty:info name:key];
             }];
-            info[@"relationships"] = [relationships allValues];
+
+            NSArray* sortedRelationships = [[relationships allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
+                NSString* name1 = prop1[@"name"];
+                NSString* name2 = prop2[@"name"];
+                return [name1 compare:name2];
+            }];
+            info[@"relationships"] = sortedRelationships;
         }
 
         // merge in any default values that are missing
