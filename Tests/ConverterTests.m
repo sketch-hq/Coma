@@ -76,8 +76,10 @@ ECDeclareDebugChannel(ComaModelChannel);
 
     NSDictionary* info = [converter infoForModel:model];
     NSURL* expectedURL = [self URLForTestResource:@"SVGConverted" withExtension:@"json" subdirectory:@"Data/svg"];
+    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
 
-    [self assertCollection:info matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
+    [self assertCollection:info matchesCollection:expected];
+    //    [self assertCollection:info matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
 
 #if WRITE_TO_DESKTOP
     NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];
@@ -101,7 +103,10 @@ ECDeclareDebugChannel(ComaModelChannel);
     ECTestAssertNotNil(svgMerged);
 
     NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data/svg"];
-    [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
+    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
+
+    [self assertCollection:svgMerged matchesCollection:expected];
+    //    [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
 
 #if WRITE_TO_DESKTOP
     NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/svg.json" stringByStandardizingPath]];
