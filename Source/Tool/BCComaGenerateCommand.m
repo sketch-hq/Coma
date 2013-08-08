@@ -38,8 +38,8 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
         if (!converted)
         {
           NSString* description = [error userInfo][@"NSDebugDescription"];
-          [engine outputError:error format:@"Failed to convert %@.%@ Is the base json file corrupt?", description ? description : @"", [inputURL lastPathComponent]];
-            result = ECCommandLineResultImplementationReturnedError;
+          [engine outputError:error format:@"Failed to convert %@.%@ Is the base json file corrupt?", [inputURL lastPathComponent], description ? description : @""];
+          result = ECCommandLineResultImplementationReturnedError;
         }
         else
         {
