@@ -33,10 +33,12 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
 
     if ([[inputURL pathExtension] isEqualToString:@"xcdatamodeld"])
     {
-        NSURL* converted = [self convertToTemporaryFileFromCoreDataModel:inputURL];
+      NSError* error = nil;
+      NSURL* converted = [self convertToTemporaryFileFromCoreDataModel:inputURL error:&error];
         if (!converted)
         {
-            [engine outputError:nil format:@"Failed to convert %@", [inputURL lastPathComponent]];
+          NSString* description = [error userInfo][@"NSDebugDescription"];
+          [engine outputError:error format:@"Failed to convert %@.%@ Is the base json file corrupt?", description ? description : @"", [inputURL lastPathComponent]];
             result = ECCommandLineResultImplementationReturnedError;
         }
         else
@@ -94,31 +96,34 @@ ECDeclareDebugChannel(ComaTemplatesChannel);
 	return result;
 }
 
-- (NSURL*)convertToTemporaryFileFromCoreDataModel:(NSURL*)inputURL
+- (NSURL*)convertToTemporaryFileFromCoreDataModel:(NSURL*)inputURL error:(NSError**)error
 {
     // we've been given a model - try to convert it
-    NSError* error;
     NSURL* result = nil;
     NSString* name = [[inputURL lastPathComponent] stringByDeletingPathExtension];
     NSURL* baseURL = [[[inputURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@Base", name]] URLByAppendingPathExtension:@"json"];
-    NSData* baseData = [[NSData alloc] initWithContentsOfURL:baseURL options:0 error:&error];
+    NSData* baseData = [[NSData alloc] initWithContentsOfURL:baseURL options:0 error:error];
     if (baseData)
     {
-        NSDictionary* baseDictionary = [NSJSONSerialization JSONObjectWithData:baseData options:0 error:&error];
+        NSDictionary* baseDictionary = [NSJSONSerialization JSONObjectWithData:baseData options:0 error:error];
         if (baseDictionary)
         {
             BCComaMomConverter* generator = [BCComaMomConverter new];
-            NSDictionary* mergedDictionary = [generator mergeModelAtURL:inputURL into:baseDictionary error:&error];
+            NSDictionary* mergedDictionary = [generator mergeModelAtURL:inputURL into:baseDictionary error:error];
             if (mergedDictionary)
             {
                 //                NSURL* tempURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"ComaTemp.json"];
                 NSURL* tempURL = [inputURL URLByAppendingPathExtension:@"json"];
-                NSData* tempData = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:&error];
+                NSData* tempData = [NSJSONSerialization dataWithJSONObject:mergedDictionary options:NSJSONWritingPrettyPrinted error:error];
                 if ([tempData writeToURL:tempURL atomically:YES])
                 {
                     result = tempURL;
                 }
             }
+        }
+        else
+        {
+
         }
     }
 
