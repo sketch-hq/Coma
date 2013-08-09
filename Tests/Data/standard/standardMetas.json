@@ -16,6 +16,7 @@
             },
             "mode" : "assign",
             "basicType" : "integer",
+            "encodeMethod" : "encodeInteger",
         },
 
         "Object" :
@@ -23,6 +24,7 @@
             "mode" : "strong",
             "copyMethod" : "copyWithZone",
             "mutableCopyMethod" : "mutableCopyWithZone",
+            "encodeMethod" : "encodeObject",
             "dynamicTemplates" :
             {
             },

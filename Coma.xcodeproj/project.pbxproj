@@ -53,6 +53,7 @@
 		229628D017622726008D887F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628CF17622726008D887F /* IOKit.framework */; };
 		229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D2176238D5008D887F /* ECUnitTests.framework */; };
 		2296A8541768987E00BF0566 /* BCComaGenerateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */; };
+		22B450C417B541E40065DCC4 /* ComaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B450C317B541E40065DCC4 /* ComaSupport.m */; };
 		22C112ED176C93B50056A4B6 /* _Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867CE176B7B18001F96FB /* _Job.m */; };
 		22C112EE176C93B50056A4B6 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D0176B7B18001F96FB /* _Person.m */; };
 		22C112EF176C93B50056A4B6 /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867D2176B7B18001F96FB /* Job.m */; };
@@ -178,6 +179,8 @@
 		229628D2176238D5008D887F /* ECUnitTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2296A8521768987E00BF0566 /* BCComaGenerateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaGenerateCommand.h; sourceTree = "<group>"; };
 		2296A8531768987E00BF0566 /* BCComaGenerateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaGenerateCommand.m; sourceTree = "<group>"; };
+		22B450C217B541E40065DCC4 /* ComaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComaSupport.h; sourceTree = "<group>"; };
+		22B450C317B541E40065DCC4 /* ComaSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComaSupport.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,8 @@
 				229628231760E1D5008D887F /* LibraryTests.m */,
 				2296285D1761DA1A008D887F /* BaseClass.h */,
 				2296285E1761DA1A008D887F /* BaseClass.m */,
+				22B450C217B541E40065DCC4 /* ComaSupport.h */,
+				22B450C317B541E40065DCC4 /* ComaSupport.m */,
 				229628521761D8AC008D887F /* ExampleBasic.h */,
 				229628531761D8AC008D887F /* ExampleBasic.m */,
 				22962865176204D2008D887F /* ExampleUndo.h */,
@@ -656,6 +661,7 @@
 				22C112EE176C93B50056A4B6 /* _Person.m in Sources */,
 				22C112ED176C93B50056A4B6 /* _Job.m in Sources */,
 				227867B3176B7061001F96FB /* CoreDataTests.m in Sources */,
+				22B450C417B541E40065DCC4 /* ComaSupport.m in Sources */,
 				229628241760E1D5008D887F /* LibraryTests.m in Sources */,
 				227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */,
 				22C112F0176C93B50056A4B6 /* Person.m in Sources */,

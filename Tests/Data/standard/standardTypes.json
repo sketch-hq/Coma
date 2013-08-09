@@ -41,6 +41,7 @@
             "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
+            "encodeMethod" : "encodeInt16",
         },
 
         "int32_t" :
@@ -48,6 +49,7 @@
             "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
+            "encodeMethod" : "encodeInt32",
         },
 
         "int64_t" :
@@ -55,6 +57,7 @@
             "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
+            "encodeMethod" : "encodeInt64",
         },
 
         "NSInteger" :
@@ -62,6 +65,7 @@
             "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
+            "encodeMethod" : "encodeInteger",
         },
 
         "NSUInteger" :
@@ -69,6 +73,7 @@
             "metatype" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "unsignedInteger",
+            "encodeMethod" : "encodeInteger",
         },
 
         "float" :
@@ -76,6 +81,7 @@
             "metatype" : "Scalar",
             "basicType" : "float",
             "NSNumberType" : "float",
+            "encodeMethod" : "encodeFloat",
         },
 
         "double" :
@@ -83,6 +89,7 @@
             "metatype" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
+            "encodeMethod" : "encodeDouble",
         },
 
         "CGFloat" :
@@ -90,26 +97,27 @@
             "metatype" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
+            "encodeMethod" : "encodeDouble",
         },
 
         "NSRect" :
         {
             "metatype" : "Scalar",
-            "NSEncodeTransformer" : "NSStringFromRect",
             "NSDecodeTransformer" : "NSRectFromString",
             "basicType" : "NSRect",
             "NSCompareType" : "Rect",
-            "default" : "NSZeroRect"
+            "default" : "NSZeroRect",
+            "encodeMethod" : "encodeRectAsString",
         },
 
         "NSPoint" :
         {
             "metatype" : "Scalar",
-            "NSEncodeTransformer" : "NSStringFromPoint",
             "NSDecodeTransformer" : "NSPointFromString",
             "basicType" : "NSPoint",
             "NSCompareType" : "Point",
-            "default" : "NSZeroPoint"
+            "default" : "NSZeroPoint",
+            "encodeMethod" : "encodePointAsString",
         },
 
         "BOOL" :
@@ -117,6 +125,7 @@
             "metatype" : "Scalar",
             "basicType" : "bool",
             "NSNumberType" : "bool",
+            "encodeMethod" : "encodeBool",
         },
 
         "«default»" :

@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ComaSupport.h"
 
-@interface BaseClass : NSObject
-
-- (id)copyWithZone:(NSZone *)zone;
-
+@interface NSCoder(ComaSupport)
+- (void)encodeRectAsString:(NSRect)rect forKey:(NSString*)key;
+- (void)encodePointAsString:(NSPoint)point forKey:(NSString*)key;
 @end

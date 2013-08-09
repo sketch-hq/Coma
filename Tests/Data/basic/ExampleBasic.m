@@ -96,9 +96,9 @@ static NSArray* sExampleAttributes = nil;
     [coder encodeObject:self.custom forKey:@"custom"];
     [coder encodeObject:self.date forKey:@"date"];
     [coder encodeInteger:self.integer forKey:@"integer"];
-    [coder encodeObject:NSStringFromPoint(self.point) forKey:@"point"];
+    [coder encodePointAsString:self.point forKey:@"point"];
     [coder encodeDouble:self.real forKey:@"real"];
-    [coder encodeObject:NSStringFromRect(self.rect) forKey:@"rect"];
+    [coder encodeRectAsString:self.rect forKey:@"rect"];
     [coder encodeObject:self.string forKey:@"string"];
     [coder encodeInteger:self.unsignedInteger forKey:@"unsignedInteger"];
 }
