@@ -27,6 +27,7 @@
                     "copyMethod" : "deepCopyWithZone",
                     "mutableCopyMethod" : "mutableDeepCopyWithZone",
                     "encodeMethod" : "encodeObject",
+                    "decodeMethod" : "decodeObject",
 				},
 			}
 		},

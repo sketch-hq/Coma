@@ -106,15 +106,15 @@ static NSArray* sExampleAttributes = nil;
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-        _boolean = [coder decodeBoolForKey:@"boolean"];
-        _custom = [coder decodeObjectForKey:@"custom"];
-        _date = [coder decodeObjectForKey:@"date"];
-        _integer = [coder decodeIntegerForKey:@"integer"];
-        _point = NSPointFromString([coder decodeObjectForKey:@"point"]);
-        _real = [coder decodeDoubleForKey:@"real"];
-        _rect = NSRectFromString([coder decodeObjectForKey:@"rect"]);
-        _string = [coder decodeObjectForKey:@"string"];
-        _unsignedInteger = [coder decodeIntegerForKey:@"unsignedInteger"];
+      _boolean = [coder decodeBoolForKey:@"boolean"];
+      _custom = [coder decodeObjectForKey:@"custom"];
+      _date = [coder decodeObjectForKey:@"date"];
+      _integer = [coder decodeIntegerForKey:@"integer"];
+      _point = [coder decodePointFromStringForKey:@"point"];
+      _real = [coder decodeDoubleForKey:@"real"];
+      _rect = [coder decodeRectFromStringForKey:@"rect"];
+      _string = [coder decodeObjectForKey:@"string"];
+      _unsignedInteger = [coder decodeIntegerForKey:@"unsignedInteger"];
     }
     return self;
 }

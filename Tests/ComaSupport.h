@@ -11,4 +11,6 @@
 @interface NSCoder(ComaSupport)
 - (void)encodeRectAsString:(NSRect)rect forKey:(NSString*)key;
 - (void)encodePointAsString:(NSPoint)point forKey:(NSString*)key;
+- (NSRect)decodeRectFromStringForKey:(NSString *)key;
+- (NSPoint)decodePointFromStringForKey:(NSString *)key;
 @end

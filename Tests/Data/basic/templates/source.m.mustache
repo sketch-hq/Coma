@@ -24,9 +24,7 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-        {{# properties}}
-        {{> ../../standard/decoding.m}}
-        {{/ properties}}
+{{# properties}}{{> ../../standard/decoding.m}}{{/ properties}}
     }
 
     return self;

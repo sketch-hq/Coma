@@ -1,13 +1,1 @@
-{{! are we supposed to use a custom transformer? }}
-{{#typeInfo.NSDecodeTransformer}}
-        _{{name}} = {{typeInfo.NSDecodeTransformer}}([coder decodeObjectForKey:@"{{name}}"]);
-{{^}}
-
-{{! otherwise if it's a basic type, we have one variant of the encoding }}
-{{#typeInfo.basicType}}
-        _{{name}} = [coder decode{{mixedcapsInitialCapital(typeInfo.basicType)}}ForKey:@"{{name}}"];
-{{^}}
-
-{{! if it's an object type, we have a slightly different variant }}
-        _{{name}} = [coder decodeObjectForKey:@"{{name}}"];
-{{/}}{{/}}
+      _{{name}} = [coder {{decodeMethod}}ForKey:@"{{name}}"];

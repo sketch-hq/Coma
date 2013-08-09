@@ -20,4 +20,14 @@
   [self encodeObject:NSStringFromPoint(point) forKey:key];
 }
 
+- (NSRect)decodeRectFromStringForKey:(NSString *)key
+{
+  return NSRectFromString([self decodeObjectForKey:key]);
+}
+
+- (NSPoint)decodePointFromStringForKey:(NSString *)key
+{
+  return NSPointFromString([self decodeObjectForKey:key]);
+}
+
 @end
