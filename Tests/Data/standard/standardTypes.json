@@ -114,8 +114,8 @@
             "basicType" : "NSRect",
             "NSCompareType" : "Rect",
             "default" : "NSZeroRect",
-            "encodeMethod" : "encodeRectAsString",
-            "decodeMethod" : "decodeRectFromString",
+            "encodeMethod" : "encodeRect",
+            "decodeMethod" : "decodeRect",
         },
 
         "NSPoint" :
@@ -124,8 +124,8 @@
             "basicType" : "NSPoint",
             "NSCompareType" : "Point",
             "default" : "NSZeroPoint",
-            "encodeMethod" : "encodePointAsString",
-            "decodeMethod" : "decodePointFromString",
+            "encodeMethod" : "encodePoint",
+            "decodeMethod" : "decodePoint",
         },
 
         "BOOL" :

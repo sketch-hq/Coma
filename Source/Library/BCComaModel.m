@@ -121,7 +121,7 @@ ECDefineDebugChannel(ComaModelChannel);
         if (baseDictionary)
         {
             NSMutableDictionary* baseItems = [self loadItemsWithInheritance:baseDictionary];
-            [baseItems addEntriesFromDictionary:items];
+            [baseItems mergeEntriesFromDictionary:items];
             items = baseItems;
         }
     }

@@ -10,7 +10,20 @@
 				{
 					"metatype" : "DeepCopyObject",
           "requires" : "CustomClass.h",
-				}
+				},
+
+        "NSRect" :
+				{
+          "encodeMethod" : "encodeRectAsString",
+          "decodeMethod" : "decodeRectFromString",
+				},
+
+        "NSPoint" :
+				{
+          "encodeMethod" : "encodePointAsString",
+          "decodeMethod" : "decodePointFromString",
+				},
+
 			}
 		},
 	
