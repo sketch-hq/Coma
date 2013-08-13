@@ -212,9 +212,25 @@ ECDefineDebugChannel(ComaModelChannel);
   NSDictionary* defaults = self.data[@"defaults"];
   NSMutableDictionary* classes = self.data[@"classes"];
   self.classes = classes;
+
+  // initial pass through the classes to update some basic info
+  // need to do this first so that the typeInfo for all classes have been processed before we start working on the attributes and relationships
   [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
     info[@"name"] = key;
     info[@"coma"] = comaInfo;
+    // merge in any default values that are missing
+    [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+      if (![info objectForKey:key])
+      {
+        info[key] = value;
+      }
+    }];
+  }];
+
+  // second pass through classes to process the attribute and relationship values
+  [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
+
+    // process attributes
     NSMutableDictionary* attributes = info[@"attributes"];
     [attributes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
       [self preprocessProperty:info name:key];
@@ -228,6 +244,8 @@ ECDefineDebugChannel(ComaModelChannel);
     info[@"attributes"] = sortedAttributes;
 
     NSMutableArray* properties = [NSMutableArray arrayWithArray:sortedAttributes];
+
+    // process relationships
     NSMutableDictionary* relationships = info[@"relationships"];
     if (relationships)
     {
@@ -253,13 +271,6 @@ ECDefineDebugChannel(ComaModelChannel);
     }];
     info[@"properties"] = sortedProperties;
 
-    // merge in any default values that are missing
-    [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-      if (![info objectForKey:key])
-      {
-        info[key] = value;
-      }
-    }];
 
     [self addFiltersToDictionary:info];
   }];
@@ -335,6 +346,22 @@ ECDefineDebugChannel(ComaModelChannel);
     result = self.types[name];
   }
 
+  // if this is a class we're generating, merge in the info from the class definition
+  NSDictionary* classInfo = self.classes[name];
+  if (classInfo)
+  {
+    if (result)
+    {
+      NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:classInfo];
+      [merged addEntriesFromDictionary:result];
+      result = merged;
+    }
+    else
+    {
+      result = classInfo;
+    }
+  }
+
   // if there's no entry for this class, use the default info
   if (!result && useDefault)
   {
@@ -344,20 +371,16 @@ ECDefineDebugChannel(ComaModelChannel);
     result = defaultInfo;
   }
 
-  // if this is a class we're generating, merge in the info from the class definition
-  NSDictionary* classInfo = self.classes[name];
-  if (classInfo)
-  {
-    NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:classInfo];
-    [merged addEntriesFromDictionary:result];
-    result = merged;
-  }
 
   if (result)
   {
-    NSString* superclass = result[@"super"];
+    id superclass = result[@"super"];
     if (superclass)
     {
+      // may be a string, or a dictionary with "class" and "include" keys
+      if ([superclass isKindOfClass:[NSDictionary class]])
+        superclass = superclass[@"class"];
+
       NSDictionary* superinfo = [self infoForTypeNamed:superclass useDefault:NO];
       NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:superinfo];
       [merged addEntriesFromDictionary:result];
