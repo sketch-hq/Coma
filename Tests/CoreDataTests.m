@@ -138,18 +138,15 @@ ECDeclareDebugChannel(ComaModelChannel);
         NSString* engine = @"Coma";
 #endif
         NSString* subdirectory = [NSString stringWithFormat:@"Data/coredata/%@/Generated", engine];
-        NSURL* expectedURL = [bundle URLForResource:[expectedName stringByDeletingPathExtension] withExtension:[expectedName pathExtension] subdirectory:subdirectory];
-        NSString* expectedValue = [NSString stringWithContentsOfURL:expectedURL encoding:NSUTF8StringEncoding error:&error];
-        if (expectedValue)
-            expected[expectedName] = expectedValue;
+        expected[expectedName] = [bundle URLForResource:[expectedName stringByDeletingPathExtension] withExtension:[expectedName pathExtension] subdirectory:subdirectory];
     }
 
     [engine generateModelAtURL:mergedURL withTemplatesAtURL:templates outputBlock:^(NSString *name, NSString *output, NSError* error) {
 
         if (output)
         {
-            NSString* expectedOutput = expected[name];
-            [self assertString:output matchesString:expectedOutput mode:ECAssertStringTestShowLinesIgnoreWhitespace];
+            NSURL* expectedURL = expected[name];
+            [self assertString:output matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
 
 #if WRITE_TO_DESKTOP
             NSURL* outputURL = [NSURL fileURLWithPath:[[@"~/Desktop" stringByStandardizingPath] stringByAppendingPathComponent:name]];

@@ -28,8 +28,8 @@ static NSArray* sPersonAttributes = nil;
 + (NSArray*)propertyNames {
     if (!sPersonProperties) {
         sPersonProperties = @[
-                             @"name",
                              @"job",
+                             @"name",
               ];
 
         if ([super respondsToSelector:@selector(propertyNames)])
