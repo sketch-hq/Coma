@@ -367,7 +367,7 @@ ECDefineDebugChannel(ComaModelChannel);
   {
     NSMutableDictionary* defaultInfo = [NSMutableDictionary dictionaryWithDictionary:self.defaultTypeInfo];
     if (name)
-      defaultInfo[@"resolvedTypeName"] = name;
+      defaultInfo[@"originalTypeName"] = defaultInfo[@"resolvedTypeName"] = name;
     result = defaultInfo;
   }
 
@@ -383,6 +383,8 @@ ECDefineDebugChannel(ComaModelChannel);
 
       NSDictionary* superinfo = [self infoForTypeNamed:superclass useDefault:NO];
       NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:superinfo];
+      [merged removeObjectForKey:@"originalTypeName"];
+      [merged removeObjectForKey:@"resolvedTypeName"];
       [merged addEntriesFromDictionary:result];
       result = merged;
     }
