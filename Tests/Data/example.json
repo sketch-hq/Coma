@@ -1,128 +1,121 @@
-	{
-        "templates":["source.h", "source.m"],
+{
+  "templates":["source.h", "source.m"],
 
-		"types":
-		{
-			"base" : "standard/standardTypes",
-			"items" :
-			{
-				"CustomClass" :
-				{
-					"metatype" : "DeepCopyObject",
-          "requires" : "CustomClass.h",
-				},
+  "types":
+  {
+    "base" : "standard/standardTypes",
+    "items" :
+    {
+      "CustomClass" :
+      {
+        "super" : "DeepCopyObject",
+        "requires" : "CustomClass.h",
+      },
 
-        "NSRect" :
-				{
-          "encodeMethod" : "encodeRectAsString",
-          "decodeMethod" : "decodeRectFromString",
-				},
+      "NSRect" :
+      {
+        "encodeMethod" : "encodeRectAsString",
+        "decodeMethod" : "decodeRectFromString",
+      },
 
-        "NSPoint" :
-				{
-          "encodeMethod" : "encodePointAsString",
-          "decodeMethod" : "decodePointFromString",
-				},
+      "NSPoint" :
+      {
+        "encodeMethod" : "encodePointAsString",
+        "decodeMethod" : "decodePointFromString",
+      },
 
-			}
-		},
-	
-		"metas":
-		{
-			"base" : "standard/standardMetas",
-			"items" :
-			{
-		        "DeepCopyObject" :
-		        {
-                    "dynamicTemplates" :
-                    {
-                    },
-                    "copyMethod" : "deepCopyWithZone",
-                    "mutableCopyMethod" : "mutableDeepCopyWithZone",
-                    "encodeMethod" : "encodeObject",
-                    "decodeMethod" : "decodeObject",
-				},
-			}
-		},
-	
-		"classes":
-		{
-			"Example" :
-			{
-			    "super":
-                {
-                    "class" : "BaseClass",
-                    "import" : "BaseClass.h"
-                },
-                "protocols" : "<NSCoding, NSCopying>",
-                "generateMutableCopy" : false,
-			    "attributes":
-			    {
-					"string" :
-			        {
-			            "type" : "NSString",
-                        "undo" : "Set String",
-						"description" : "NSString example",
-			        },
-				
-					"integer" :
-			        {
-			            "type" : "NSInteger",
-                        "undo" : "Set Integer",
-						"description" : "NSInteger example"
-					},
+      "DeepCopyObject" :
+      {
+        "dynamicTemplates" :
+        {
+        },
+        "copyMethod" : "deepCopyWithZone",
+        "mutableCopyMethod" : "mutableDeepCopyWithZone",
+        "encodeMethod" : "encodeObject",
+        "decodeMethod" : "decodeObject",
+      },
 
-                    "unsignedInteger" :
-			        {
-			            "type" : "NSUInteger",
-                        "undo" : "Set UInteger",
-						"description" : "NSUInteger example"
-					},
+    }
+  },
 
-                    "real" :
-			        {
-			            "type" : "CGFloat",
-                        "undo" : "Set Real",
-						"description" : "CGFloat example"
-					},
+  "classes":
+  {
+    "Example" :
+    {
+      "super":
+      {
+        "class" : "BaseClass",
+        "import" : "BaseClass.h"
+      },
+      "protocols" : "<NSCoding, NSCopying>",
+      "generateMutableCopy" : false,
+      "attributes":
+      {
+        "string" :
+        {
+          "type" : "NSString",
+          "undo" : "Set String",
+          "description" : "NSString example",
+        },
 
-                    "rect" :
-			        {
-			            "type" : "NSRect",
-                        "undo" : "Set Rect",
-						"description" : "NSRect example"
-					},
+        "integer" :
+        {
+          "type" : "NSInteger",
+          "undo" : "Set Integer",
+          "description" : "NSInteger example"
+        },
 
-                    "point" :
-			        {
-			            "type" : "NSPoint",
-                        "undo" : "Set Point",
-						"description" : "NSPoint example"
-					},
+        "unsignedInteger" :
+        {
+          "type" : "NSUInteger",
+          "undo" : "Set UInteger",
+          "description" : "NSUInteger example"
+        },
 
-                    "date" :
-			        {
-			            "type" : "NSDate",
-                        "undo" : "Set Date",
-						"description" : "NSDate example"
-					},
+        "real" :
+        {
+          "type" : "CGFloat",
+          "undo" : "Set Real",
+          "description" : "CGFloat example"
+        },
 
-                    "boolean" :
-			        {
-			            "type" : "BOOL",
-                        "undo" : "Set Boolean",
-						"description" : "BOOL example"
-					},
+        "rect" :
+        {
+          "type" : "NSRect",
+          "undo" : "Set Rect",
+          "description" : "NSRect example"
+        },
 
-					"custom" :
-			        {
-			            "type" : "CustomClass",
-                        "undo" : "Set Custom",
-						"description" : "Property with custom object that needs to be deep copied for some reason"
-					}
-				
-				}    
-			}
-		}
-	}
+        "point" :
+        {
+          "type" : "NSPoint",
+          "undo" : "Set Point",
+          "description" : "NSPoint example"
+        },
+
+        "date" :
+        {
+          "type" : "NSDate",
+          "undo" : "Set Date",
+          "description" : "NSDate example"
+        },
+
+        "boolean" :
+        {
+          "type" : "BOOL",
+          "undo" : "Set Boolean",
+          "description" : "BOOL example"
+        },
+
+        "custom" :
+        {
+          "type" : "CustomClass",
+          "undo" : "Set Custom",
+          "description" : "Property with custom object that needs to be deep copied for some reason"
+        }
+
+      }
+    }
+  }
+}
 

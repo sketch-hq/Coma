@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSMutableDictionary* data;
 @property (strong, nonatomic) BCComaTemplates* templates;
 @property (strong, nonatomic) NSDictionary* types;
-@property (strong, nonatomic) NSDictionary* metas;
+@property (strong, nonatomic) NSDictionary* defaultTypeInfo;
 @property (strong, nonatomic) NSDictionary* classes;
 
 @end
@@ -59,7 +59,7 @@ ECDefineDebugChannel(ComaModelChannel);
 /**
  Set things up.
 
- We load the types and metas from the dictionary, processing any inheritance.
+ We load the types from the dictionary, processing any inheritance.
  We then preprocess the classes to tidy them up and add some dynamically generated keys.
 
  */
@@ -70,7 +70,7 @@ ECDefineDebugChannel(ComaModelChannel);
 
   self.data = modelDictionary;
   self.types = [self loadItemsWithInheritance:modelDictionary[@"types"]];
-  self.metas = [self loadItemsWithInheritance:modelDictionary[@"metas"]];
+  self.defaultTypeInfo = self.types[@"«default»"];
 
   [self preprocessTypes];
   [self preprocessClasses];
@@ -276,7 +276,7 @@ ECDefineDebugChannel(ComaModelChannel);
 
   // look up the property type and try to obtain some type info for it
   NSString* type = info[@"type"];
-  NSDictionary* typeInfo = [self infoForTypeNamed:type];
+  NSDictionary* typeInfo = [self infoForTypeNamed:type useDefault:YES];
   if (typeInfo)
   {
     NSString* resolvedName = typeInfo[@"resolvedTypeName"];
@@ -299,44 +299,6 @@ ECDefineDebugChannel(ComaModelChannel);
         info[key] = obj;
     }];
 
-
-    // try to get the metatype data associated with the type
-    // (for convenience, mutliple types share the same metatype - eg most basic types will have a metatype of "Basic")
-    NSString* meta = typeInfo[@"metatype"];
-    NSDictionary* metaInfo = self.metas[meta];
-    if (metaInfo)
-    {
-      info[@"metaInfo"] = metaInfo;
-
-      // process the list of dynamic template names in the meta info
-      // for each of these, we try to load the corresponding template
-      // if successful, we add the template as an entry in the property dictionary
-      // this allows the top-level templates to "include" one of these type-specific templates just by referring to it
-      // (eg a type-specific template called "getters" is expanded by an entry in a top-level template of {{gettters}})
-      //
-      // the purpose of all this is to allow top-level templates to refer to a sub-template by name (eg "getters") but to have the
-      // engine actually use a different template depending on the type of the property being processed.
-      // this is how, for example, we can have one template for copying objects using [object copy], and another for copying basic members like integers using assignment.
-      NSDictionary* propertyTemplates = metaInfo[@"dynamicTemplates"];
-      [propertyTemplates enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* templateName, BOOL *stop) {
-        BCComaLazyLoadingTemplate* template = [BCComaLazyLoadingTemplate templateWithName:templateName templates:self.templates];
-        if (template)
-        {
-          info[key] = template;
-        }
-      }];
-
-      // merge in any meta info keys that don't have values set in the property or the type info
-      [metaInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if (!info[key])
-          info[key] = obj;
-      }];
-    }
-    else
-    {
-      NSLog(@"error - meta info missing for %@ in type %@", meta, type);
-      // TODO: better error reporting
-    }
   }
   else
   {
@@ -364,7 +326,7 @@ ECDefineDebugChannel(ComaModelChannel);
  If an entry for the given type isn't found, we use the default entry instead.
  */
 
-- (NSDictionary*)infoForTypeNamed:(NSString*)name
+- (NSDictionary*)infoForTypeNamed:(NSString*)name useDefault:(BOOL)useDefault
 {
   NSDictionary* result = nil;
   if (name)
@@ -372,9 +334,24 @@ ECDefineDebugChannel(ComaModelChannel);
     result = self.types[name];
   }
 
-  if (!result)
+  if (!result && useDefault)
   {
-    result = self.types[@"«default»"];
+    NSMutableDictionary* defaultInfo = [NSMutableDictionary dictionaryWithDictionary:self.defaultTypeInfo];
+    if (name)
+      defaultInfo[@"resolvedTypeName"] = name;
+    result = defaultInfo;
+  }
+
+  if (result)
+  {
+    NSString* superclass = result[@"super"];
+    if (superclass)
+    {
+      NSDictionary* superinfo = [self infoForTypeNamed:superclass useDefault:NO];
+      NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:superinfo];
+      [merged addEntriesFromDictionary:result];
+      result = merged;
+    }
   }
 
   return result;

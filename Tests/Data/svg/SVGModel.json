@@ -1,12 +1,12 @@
 {
   "classes" : {
     "SVGClipPath" : {
+      "attributes" : {
+
+      },
       "super" : {
         "class" : "SVGGroupElement",
         "import" : "SVGGroupElement.h"
-      },
-      "attributes" : {
-
       },
       "relationships" : {
         "clipping" : {
@@ -24,10 +24,6 @@
       }
     },
     "SVGFont" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "family" : {
           "optional" : true,
@@ -53,6 +49,10 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
       "relationships" : {
         "usedBy" : {
           "optional" : true,
@@ -69,10 +69,6 @@
       }
     },
     "SVGGradientStop" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "color" : {
           "optional" : true,
@@ -91,15 +87,15 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGRectangleShape" : {
-      "super" : {
-        "class" : "SVGBasicShape",
-        "import" : "SVGBasicShape.h"
-      },
       "attributes" : {
         "cornerRadius" : {
           "optional" : true,
@@ -110,15 +106,15 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGEllipseShape" : {
-      "super" : {
-        "class" : "SVGBasicShape",
-        "import" : "SVGBasicShape.h"
-      },
       "attributes" : {
         "cx" : {
           "optional" : true,
@@ -153,15 +149,15 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGText" : {
-      "super" : {
-        "class" : "SVGDrawableElement",
-        "import" : "SVGDrawableElement.h"
-      },
       "attributes" : {
         "anchor" : {
           "optional" : true,
@@ -234,15 +230,15 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGCircleShape" : {
-      "super" : {
-        "class" : "SVGBasicShape",
-        "import" : "SVGBasicShape.h"
-      },
       "attributes" : {
         "cy" : {
           "optional" : true,
@@ -268,6 +264,10 @@
           "external" : false,
           "indexed" : false
         }
+      },
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
       },
       "relationships" : {
 
@@ -351,10 +351,6 @@
       }
     },
     "SVGGradient" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "radial" : {
           "optional" : true,
@@ -411,6 +407,10 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
+      },
       "relationships" : {
         "linkedFrom" : {
           "optional" : true,
@@ -462,10 +462,6 @@
       }
     },
     "SVGLineShape" : {
-      "super" : {
-        "class" : "SVGBasicShape",
-        "import" : "SVGBasicShape.h"
-      },
       "attributes" : {
         "x2" : {
           "optional" : true,
@@ -500,15 +496,15 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGBasicShape",
+        "import" : "SVGBasicShape.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGDrawableElement" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "opacity" : {
           "optional" : true,
@@ -548,6 +544,10 @@
           "external" : false,
           "indexed" : false
         }
+      },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
       },
       "relationships" : {
         "stroke" : {
@@ -597,22 +597,18 @@
       }
     },
     "SVGBasicShape" : {
+      "attributes" : {
+
+      },
       "super" : {
         "class" : "SVGDrawableElement",
         "import" : "SVGDrawableElement.h"
-      },
-      "attributes" : {
-
       },
       "relationships" : {
 
       }
     },
     "SVGPathShape" : {
-      "super" : {
-        "class" : "SVGDrawableElement",
-        "import" : "SVGDrawableElement.h"
-      },
       "attributes" : {
         "closed" : {
           "optional" : true,
@@ -630,39 +626,39 @@
           "indexed" : false
         }
       },
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
+      },
       "relationships" : {
 
       }
     },
     "SVGPolygonShape" : {
+      "attributes" : {
+
+      },
       "super" : {
         "class" : "SVGPathShape",
         "import" : "SVGPathShape.h"
-      },
-      "attributes" : {
-
       },
       "relationships" : {
 
       }
     },
     "SVGGroupElement" : {
+      "attributes" : {
+
+      },
       "super" : {
         "class" : "SVGDrawableElement",
         "import" : "SVGDrawableElement.h"
-      },
-      "attributes" : {
-
       },
       "relationships" : {
 
       }
     },
     "SVGStroke" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "dashes" : {
           "optional" : true,
@@ -688,6 +684,10 @@
           "external" : false,
           "indexed" : false
         }
+      },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
       },
       "relationships" : {
         "gradient" : {
@@ -716,10 +716,6 @@
       }
     },
     "SVGFill" : {
-      "super" : {
-        "class" : "SVGElement",
-        "import" : "SVGElement.h"
-      },
       "attributes" : {
         "color" : {
           "optional" : true,
@@ -729,6 +725,10 @@
           "external" : false,
           "indexed" : false
         }
+      },
+      "super" : {
+        "class" : "SVGElement",
+        "import" : "SVGElement.h"
       },
       "relationships" : {
         "gradient" : {
@@ -757,12 +757,12 @@
       }
     },
     "SVGLink" : {
+      "attributes" : {
+
+      },
       "super" : {
         "class" : "SVGDrawableElement",
         "import" : "SVGDrawableElement.h"
-      },
-      "attributes" : {
-
       },
       "relationships" : {
         "link" : {
@@ -779,10 +779,6 @@
       }
     },
     "SVGImage" : {
-      "super" : {
-        "class" : "SVGDrawableElement",
-        "import" : "SVGDrawableElement.h"
-      },
       "attributes" : {
         "image" : {
           "optional" : true,
@@ -792,6 +788,10 @@
           "external" : false,
           "indexed" : false
         }
+      },
+      "super" : {
+        "class" : "SVGDrawableElement",
+        "import" : "SVGDrawableElement.h"
       },
       "relationships" : {
 
@@ -811,15 +811,9 @@
     "base" : "..\/standard\/standardTypes",
     "items" : {
       "SVGColor" : {
-        "metatype" : "NSObject",
+        "super" : "NSObject",
         "requires" : "SVGColor.h"
       }
-    }
-  },
-  "metas" : {
-    "base" : "..\/standard\/standardMetas",
-    "items" : {
-
     }
   }
 }

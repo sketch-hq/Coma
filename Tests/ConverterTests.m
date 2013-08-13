@@ -103,9 +103,9 @@ ECDeclareDebugChannel(ComaModelChannel);
     ECTestAssertNotNil(svgMerged);
 
     NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data/svg"];
-    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
+  //    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
 
-    [self assertCollection:svgMerged matchesCollection:expected];
+  [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
     //    [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
 
 #if WRITE_TO_DESKTOP

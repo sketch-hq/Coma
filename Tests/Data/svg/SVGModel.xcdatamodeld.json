@@ -1584,15 +1584,9 @@
     "base" : "..\/standard\/standardTypes",
     "items" : {
       "SVGColor" : {
-        "metatype" : "NSObject",
+        "super" : "NSObject",
         "requires" : "SVGColor.h"
       }
     }
   },
-  "metas" : {
-    "base" : "..\/standard\/standardMetas",
-    "items" : {
-
-    }
-  }
 }

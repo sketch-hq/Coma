@@ -8,26 +8,21 @@
 			{
 				"CustomClass" :
 				{
-					"metatype" : "DeepCopyObject",
+					"super" : "DeepCopyObject",
 					"import" : "CustomClass.h"
-				}
-			}
-		},
-	
-		"templates":
-		{
-			"base" : "standardTemplates",
-			"templates" :
-			{
-		        "DeepCopyObject" : 
-		        {
-		            "setter": "objectSetter.template",
-		            "getter": "objectGetter.template",
-		            "copy": "deepCopy.template"
 				},
+
+        "DeepCopyObject" :
+        {
+          "setter": "objectSetter.template",
+          "getter": "objectGetter.template",
+          "copy": "deepCopy.template"
+				},
+
 			}
 		},
-	
+
+
 		"classes":
 		{
 			"Person" :

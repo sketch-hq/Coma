@@ -7,4 +7,4 @@
 {{/}}
 
 ¶
-@property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) {{type}}{{^typeInfo.basicType}}*{{/typeInfo.basicType}} {{name}};
+@property ({{#mode}}{{.}}{{/mode}}{{^mode}}strong{{/mode}}, nonatomic) {{type}}{{^typeInfo.basicType}}*{{/typeInfo.basicType}} {{name}};

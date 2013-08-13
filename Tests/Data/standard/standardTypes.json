@@ -38,7 +38,7 @@
 
         "int16_t" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
             "encodeMethod" : "encodeInt16",
@@ -47,7 +47,7 @@
 
         "int32_t" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
             "encodeMethod" : "encodeInt32",
@@ -56,7 +56,7 @@
 
         "int64_t" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
             "encodeMethod" : "encodeInt64",
@@ -65,7 +65,7 @@
 
         "NSInteger" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "integer",
             "encodeMethod" : "encodeInteger",
@@ -74,7 +74,7 @@
 
         "NSUInteger" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "integer",
             "NSNumberType" : "unsignedInteger",
             "encodeMethod" : "encodeInteger",
@@ -83,7 +83,7 @@
 
         "float" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "float",
             "NSNumberType" : "float",
             "encodeMethod" : "encodeFloat",
@@ -92,7 +92,7 @@
 
         "double" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
             "encodeMethod" : "encodeDouble",
@@ -101,7 +101,7 @@
 
         "CGFloat" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "double",
             "NSNumberType" : "double",
             "encodeMethod" : "encodeDouble",
@@ -110,7 +110,7 @@
 
         "NSRect" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "NSRect",
             "NSCompareType" : "Rect",
             "default" : "NSZeroRect",
@@ -120,7 +120,7 @@
 
         "NSPoint" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "NSPoint",
             "NSCompareType" : "Point",
             "default" : "NSZeroPoint",
@@ -130,16 +130,47 @@
 
         "BOOL" :
         {
-            "metatype" : "Scalar",
+            "super" : "Scalar",
             "basicType" : "bool",
             "NSNumberType" : "bool",
             "encodeMethod" : "encodeBool",
             "decodeMethod" : "decodeBool",
         },
 
+        "Scalar" :
+        {
+          "dynamicTemplates" :
+          {
+          },
+          "mode" : "assign",
+        },
+
+        "Enumeration" :
+        {
+          "dynamicTemplates" :
+          {
+          },
+          "mode" : "assign",
+          "basicType" : "integer",
+          "encodeMethod" : "encodeInteger",
+          "decodeMethod" : "decodeInteger",
+        },
+
+        "Object" :
+        {
+          "mode" : "strong",
+          "copyMethod" : "copyWithZone",
+          "mutableCopyMethod" : "mutableCopyWithZone",
+          "encodeMethod" : "encodeObject",
+          "decodeMethod" : "decodeObject",
+          "dynamicTemplates" :
+          {
+          },
+        },
+
         "«default»" :
         {
-            "metatype" : "Object",
+            "super" : "Object",
         },
 
     }

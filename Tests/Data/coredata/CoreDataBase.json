@@ -16,18 +16,10 @@
 			{
                 "SVGColor" :
                 {
-                    "metatype" : "Object",
+                    "super" : "Object",
                     "requires" : "SVGColor.h",
                 }
 			}
-		},
-	
-		"metas":
-		{
-			"base" : "../standard/standardMetas",
-			"items" :
-			{
-            }
 		},
 	
 		"classes":

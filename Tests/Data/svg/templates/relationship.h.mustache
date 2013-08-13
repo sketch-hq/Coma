@@ -3,7 +3,7 @@
  */{{/}}
 
 {{# toMany}}
-@property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) NSSet* {{name}};
+@property ({{#mode}}{{.}}{{/mode}}{{^mode}}strong{{/mode}}, nonatomic) NSSet* {{name}};
 {{^}}
-@property ({{#metaInfo.mode}}{{.}}{{/metaInfo.mode}}{{^metaInfo.mode}}strong{{/metaInfo.mode}}, nonatomic) {{type}}* {{name}};
+@property ({{#mode}}{{.}}{{/mode}}{{^mode}}strong{{/mode}}, nonatomic) {{type}}* {{name}};
 {{/}}
