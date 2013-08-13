@@ -328,18 +328,29 @@ ECDefineDebugChannel(ComaModelChannel);
 
 - (NSDictionary*)infoForTypeNamed:(NSString*)name useDefault:(BOOL)useDefault
 {
+  // try to get the basic info
   NSDictionary* result = nil;
   if (name)
   {
     result = self.types[name];
   }
 
+  // if there's no entry for this class, use the default info
   if (!result && useDefault)
   {
     NSMutableDictionary* defaultInfo = [NSMutableDictionary dictionaryWithDictionary:self.defaultTypeInfo];
     if (name)
       defaultInfo[@"resolvedTypeName"] = name;
     result = defaultInfo;
+  }
+
+  // if this is a class we're generating, merge in the info from the class definition
+  NSDictionary* classInfo = self.classes[name];
+  if (classInfo)
+  {
+    NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:classInfo];
+    [merged addEntriesFromDictionary:result];
+    result = merged;
   }
 
   if (result)
