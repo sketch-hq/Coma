@@ -18,13 +18,13 @@
 
 ¶
 - (void)encodeWithCoder:(NSCoder *)coder {
-{{# properties}}{{> ../../standard/encoding.m}}{{/ properties}}}
+{{# attributes}}{{> ../../standard/encoding.m}}{{/ attributes}}}
 
 ¶
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-{{# properties}}{{> ../../standard/decoding.m}}{{/ properties}}
+{{# attributes}}{{> ../../standard/decoding.m}}{{/ attributes}}
     }
 
     return self;
@@ -37,9 +37,9 @@
 - (id)copyWithZone:(NSZone *)zone {
     {{name}}Basic* copy = [super copyWithZone:zone];
 
-    {{# properties}}
+    {{# attributes}}
     {{> ../../standard/copying.m}}
-    {{/ properties}}
+    {{/ attributes}}
 
     return copy;
 }
@@ -49,7 +49,7 @@
 - (id)mutableCopyWithZone:(NSZone *)zone {
     {{name}}Basic* copy = [self new];
 
-{{# properties}}{{> ../../standard/mutableCopying.m}}{{/ properties}}
+{{# attributes}}{{> ../../standard/mutableCopying.m}}{{/ attributes}}
     return copy;
 }
 {{/ generateMutableCopy}}

@@ -5,7 +5,7 @@
 // ----------------------------------------
 
 #import "_{{name}}.h"
-{{# properties}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ properties}}
+{{# attributes}}{{# requires}}#import "{{import}}"{{/ requires}}{{/ attributes}}
 
 @implementation _{{name}}
 
@@ -20,9 +20,9 @@
 
 #pragma mark - Attributes
 
-{{# properties}}
-{{> property.m}}
-{{/ properties}}
+{{# attributes}}
+{{> attribute.m}}
+{{/ attributes}}
 
 #pragma mark - Relationships
 

@@ -97,7 +97,7 @@
         "class" : "SVGElement",
         "import" : "SVGElement.h"
       },
-      "properties" : {
+      "attributes" : {
         "weight" : {
           "type" : "double"
         },
@@ -158,7 +158,7 @@
         "class" : "SVGElement",
         "import" : "SVGElement.h"
       },
-      "properties" : {
+      "attributes" : {
         "position" : {
           "type" : "double"
         },
@@ -209,7 +209,7 @@
         "class" : "SVGBasicShape",
         "import" : "SVGBasicShape.h"
       },
-      "properties" : {
+      "attributes" : {
         "hidden" : {
           "type" : "BOOL"
         },
@@ -297,7 +297,7 @@
         "class" : "SVGBasicShape",
         "import" : "SVGBasicShape.h"
       },
-      "properties" : {
+      "attributes" : {
         "index" : {
           "type" : "int64_t"
         },
@@ -394,7 +394,7 @@
         "class" : "SVGDrawableElement",
         "import" : "SVGDrawableElement.h"
       },
-      "properties" : {
+      "attributes" : {
         "dx" : {
           "type" : "double"
         },
@@ -506,7 +506,7 @@
         "class" : "SVGBasicShape",
         "import" : "SVGBasicShape.h"
       },
-      "properties" : {
+      "attributes" : {
         "index" : {
           "type" : "int64_t"
         },

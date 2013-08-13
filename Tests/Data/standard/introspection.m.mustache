@@ -21,8 +21,7 @@ static NSArray* s{{name}}Attributes = nil;
 + (NSArray*)propertyNames {
     if (!s{{name}}Properties) {
         s{{name}}Properties = @[{{# properties}}
-                             @"{{name}}",{{/ properties}}{{# relationships}}
-                             @"{{name}}",{{/ relationships}}
+                             @"{{name}}",{{/ properties}}
               ];
 ¶
         if ([super respondsToSelector:@selector(propertyNames)])
@@ -62,8 +61,8 @@ static NSArray* s{{name}}Attributes = nil;
 ¶
 + (NSArray*)attributeNames {
     if (!s{{name}}Attributes) {
-        s{{name}}Attributes = @[{{# properties}}
-                             @"{{name}}",{{/ properties}}
+        s{{name}}Attributes = @[{{# attributes}}
+                             @"{{name}}",{{/ attributes}}
               ];
 ¶
         if ([super respondsToSelector:@selector(attributeNames)])

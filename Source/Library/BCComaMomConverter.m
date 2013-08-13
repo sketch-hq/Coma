@@ -391,13 +391,13 @@ ECDefineDebugChannel(MomConverterChannel);
 - (NSDictionary*)infoForEntity:(NSEntityDescription*)entity
 {
 	NSEntityDescription* superEntity = entity.superentity;
-	__block NSMutableDictionary* properties = [NSMutableDictionary dictionary];
+	__block NSMutableDictionary* attributes = [NSMutableDictionary dictionary];
 	[entity.attributesByName enumerateKeysAndObjectsUsingBlock:^(NSString* attributeName, NSAttributeDescription* attribute, BOOL* stop)
 	 {
 	     if (!superEntity.attributesByName[attributeName])  // don't process attributes that are part of the superclass
 
 	     {
-	         properties[attributeName] = [self infoForAttributeNamed:attributeName attribute:attribute entity:entity];
+	         attributes[attributeName] = [self infoForAttributeNamed:attributeName attribute:attribute entity:entity];
 		 }
 	 }];
 
@@ -413,7 +413,7 @@ ECDefineDebugChannel(MomConverterChannel);
 
 	NSMutableDictionary* result = [NSMutableDictionary dictionaryWithDictionary:
 	                               @{
-	                                   @"properties" : properties,
+	                                   @"attributes" : attributes,
 	                                   @"relationships" : relationships,
 								   }];
 

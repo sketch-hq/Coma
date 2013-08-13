@@ -7,8 +7,8 @@
 {{# super.import}}#import "{{.}}"{{/ super.import}}
 
 ¶
-{{# properties}}{{# requires}}@class {{type}};
-{{/ requires}}{{/ properties}}
+{{# attributes}}{{# requires}}@class {{type}};
+{{/ requires}}{{/ attributes}}
 {{# relationships}}{{# requires}}@class {{type}};
 {{/ requires}}{{/ relationships}}
 
@@ -19,9 +19,9 @@
 
 
 {{! Declaration for each attribute }}
-{{# properties}}
+{{# attributes}}
 {{> attribute.h}}
-{{/ properties}}
+{{/ attributes}}
 
 {{! Declaration for each relationship }}
 {{# relationships}}

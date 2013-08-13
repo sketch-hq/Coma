@@ -1,7 +1,7 @@
 {
   "classes" : {
     "Job" : {
-      "properties" : {
+      "attributes" : {
         "name" : {
           "type" : "NSString"
         }
@@ -17,7 +17,7 @@
       }
     },
     "Person" : {
-      "properties" : {
+      "attributes" : {
         "name" : {
           "type" : "NSString"
         }

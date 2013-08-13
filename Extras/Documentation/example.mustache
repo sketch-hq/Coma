@@ -8,9 +8,9 @@
 
 @interface {{class}} : {{base}}
 
-{{# properties}}
-	{{> property-template}}
-{{/ properties}}
+{{# attributes}}
+	{{> attribute-template}}
+{{/ attributes}}
 
 @end
 
@@ -27,10 +27,10 @@
 
 @implementation {{class}}
 
-{{# properties}}
+{{# attributes}}
 	{{> getter-template}}
 	{{> setter-template}}
-{{/ properties}}
+{{/ attributes}}
 
 {{# encoding}}
 	{{> encoding-template}}
@@ -70,7 +70,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	{{# encoding}}
-	{{> encode-property-template}}
+	{{> encode-attribute-template}}
 	{{/ encoding}}
 }
 
@@ -92,7 +92,7 @@
     self = [super init];
     if (self) {
 		{{# decoding}}
-		{{> decode-property-template}}
+		{{> decode-attribute-template}}
 		{{/ decoding}}
 	}
     return self;
@@ -116,7 +116,7 @@ _{{name}} = [coder decodeIntegerForKey:@"{{name}}"];
 - (id)copyWithZone:(NSZone *)zone {
         id copy = [self new];
 		{{# copying}}
-		{{> copy-property-template}}
+		{{> copy-attribute-template}}
 		{{/ copying}}
         return copy;
     }

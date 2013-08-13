@@ -6,8 +6,8 @@
 
 {{# super.import}}#import "{{.}}"{{/ super.import}}
 
-{{# properties}}{{# requires}}@class {{type}};
-{{/ requires}}{{/ properties}}
+{{# attributes}}{{# requires}}@class {{type}};
+{{/ requires}}{{/ attributes}}
 {{# relationships}}{{# requires}}@class {{type}};
 {{/ requires}}{{/ relationships}}
 
@@ -15,11 +15,12 @@
 
 {{> ../../standard/introspection.h}}
 
-{{! Declaration for each property }}
-{{# properties}}
-{{> property.h}}
-{{/ properties}}
+{{! Declaration for each attribute }}
+{{# attributes}}
+{{> attribute.h}}
+{{/ attributes}}
 
+{{! Declaration for each relationship }}
 {{# relationships}}
 {{> relationship.h}}
 {{/ relationships}}

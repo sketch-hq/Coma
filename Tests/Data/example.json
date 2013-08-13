@@ -56,7 +56,7 @@
                 },
                 "protocols" : "<NSCoding, NSCopying>",
                 "generateMutableCopy" : false,
-			    "properties":
+			    "attributes":
 			    {
 					"string" :
 			        {

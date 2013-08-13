@@ -4,7 +4,7 @@
       "class" : "SVGGroupElement",
       "import" : "SVGGroupElement.h"
     },
-    "properties" : {
+    "attributes" : {
 
     },
     "relationships" : {
@@ -27,7 +27,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "family" : {
         "optional" : true,
         "transient" : false,
@@ -72,7 +72,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "color" : {
         "optional" : true,
         "attributeValueClassName" : "SVGColor",
@@ -99,7 +99,7 @@
       "class" : "SVGBasicShape",
       "import" : "SVGBasicShape.h"
     },
-    "properties" : {
+    "attributes" : {
       "cornerRadius" : {
         "optional" : true,
         "default" : 0,
@@ -118,7 +118,7 @@
       "class" : "SVGBasicShape",
       "import" : "SVGBasicShape.h"
     },
-    "properties" : {
+    "attributes" : {
       "cx" : {
         "optional" : true,
         "default" : 0,
@@ -161,7 +161,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "anchor" : {
         "optional" : true,
         "default" : 0,
@@ -242,7 +242,7 @@
       "class" : "SVGBasicShape",
       "import" : "SVGBasicShape.h"
     },
-    "properties" : {
+    "attributes" : {
       "cy" : {
         "optional" : true,
         "default" : 0,
@@ -273,7 +273,7 @@
     }
   },
   "SVGElement" : {
-    "properties" : {
+    "attributes" : {
       "desc" : {
         "optional" : true,
         "transient" : false,
@@ -354,7 +354,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "radial" : {
         "optional" : true,
         "transient" : false,
@@ -465,7 +465,7 @@
       "class" : "SVGBasicShape",
       "import" : "SVGBasicShape.h"
     },
-    "properties" : {
+    "attributes" : {
       "x2" : {
         "optional" : true,
         "default" : 0,
@@ -508,7 +508,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "opacity" : {
         "optional" : true,
         "transient" : false,
@@ -600,7 +600,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
 
     },
     "relationships" : {
@@ -612,7 +612,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "closed" : {
         "optional" : true,
         "transient" : false,
@@ -638,7 +638,7 @@
       "class" : "SVGPathShape",
       "import" : "SVGPathShape.h"
     },
-    "properties" : {
+    "attributes" : {
 
     },
     "relationships" : {
@@ -650,7 +650,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
 
     },
     "relationships" : {
@@ -662,7 +662,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "dashes" : {
         "optional" : true,
         "attributeValueClassName" : "NSArray",
@@ -719,7 +719,7 @@
       "class" : "SVGElement",
       "import" : "SVGElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "color" : {
         "optional" : true,
         "attributeValueClassName" : "SVGColor",
@@ -760,7 +760,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
 
     },
     "relationships" : {
@@ -782,7 +782,7 @@
       "class" : "SVGDrawableElement",
       "import" : "SVGDrawableElement.h"
     },
-    "properties" : {
+    "attributes" : {
       "image" : {
         "optional" : true,
         "attributeValueClassName" : "NSImage",

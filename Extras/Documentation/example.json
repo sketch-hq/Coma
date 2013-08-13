@@ -34,7 +34,7 @@
 			{
 			    "super": "BaseClass",
        
-			    "properties":
+			    "attributes":
 			    {
 					"name" :
 			        {

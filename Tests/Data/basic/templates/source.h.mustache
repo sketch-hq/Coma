@@ -8,15 +8,15 @@
 {{# super.import}}#import "{{.}}"{{/ super.import}}
 
 ¶
-{{# properties}}{{# requires}}@class {{type}};
-{{/ requires}}{{/ properties}}
+{{# attributes}}{{# requires}}@class {{type}};
+{{/ requires}}{{/ attributes}}
 
 ¶
 @interface {{name}}Basic : {{super.class}}{{protocols}}
 
-{{# properties}}
-{{> ../../standard/property.h}}
-{{/ properties}}
+{{# attributes}}
+{{> ../../standard/attribute.h}}
+{{/ attributes}}
 
 {{> ../../standard/introspection.h}}
 
