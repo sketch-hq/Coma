@@ -227,6 +227,11 @@ ECDefineDebugChannel(ComaModelChannel);
     }];
   }];
 
+  [self buildPropertyListsForClasses:classes];
+  [self buildAllPropertiesListsForClasses:classes];
+}
+
+- (void)buildPropertyListsForClasses:(NSMutableDictionary*)classes {
   // second pass through classes to process the attribute and relationship values
   [classes enumerateKeysAndObjectsUsingBlock:^(id className, NSMutableDictionary* info, BOOL *stop) {
 
@@ -236,11 +241,7 @@ ECDefineDebugChannel(ComaModelChannel);
       [self preprocessProperty:info name:key className:className];
     }];
 
-    NSArray* sortedAttributes = [[attributes allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
-      NSString* name1 = prop1[@"name"];
-      NSString* name2 = prop2[@"name"];
-      return [name1 compare:name2];
-    }];
+    NSArray* sortedAttributes = [self sortByName:[attributes allValues] ];
     info[@"attributes"] = sortedAttributes;
 
     NSMutableArray* properties = [NSMutableArray arrayWithArray:sortedAttributes];
@@ -253,27 +254,58 @@ ECDefineDebugChannel(ComaModelChannel);
         [self preprocessProperty:info name:key className:className];
       }];
 
-      NSArray* sortedRelationships = [[relationships allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
-        NSString* name1 = prop1[@"name"];
-        NSString* name2 = prop2[@"name"];
-        return [name1 compare:name2];
-      }];
+      NSArray* sortedRelationships = [self sortByName:[relationships allValues]];
       info[@"relationships"] = sortedRelationships;
-
       [properties addObjectsFromArray:sortedRelationships];
     }
 
     // combine attributes and relationships into a properties list
-    NSArray* sortedProperties = [properties sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
-      NSString* name1 = prop1[@"name"];
-      NSString* name2 = prop2[@"name"];
-      return [name1 compare:name2];
-    }];
+    NSArray* sortedProperties = [self sortByName:properties];
     info[@"properties"] = sortedProperties;
-
 
     [self addFiltersToDictionary:info];
   }];
+}
+
+- (NSArray*)sortByName:(NSArray*)array {
+  NSArray* result = [array sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
+    NSString* name1 = prop1[@"name"];
+    NSString* name2 = prop2[@"name"];
+    return [name1 compare:name2];
+  }];
+
+  return result;
+}
+
+- (void)buildAllPropertiesListsForClasses:(NSMutableDictionary*)classes {
+  // third pass through classes to build up allProperties, allAttributes, allRelationships
+  [classes enumerateKeysAndObjectsUsingBlock:^(id className, NSMutableDictionary* info, BOOL *stop) {
+    NSMutableArray* allProperties = [NSMutableArray array];
+    [self addItemsToArray:allProperties forClass:className key:@"properties"];
+    info[@"allProperties"] = [self sortByName:allProperties];
+
+    NSMutableArray* allAttributes = [NSMutableArray array];
+    [self addItemsToArray:allAttributes forClass:className key:@"attributes"];
+    info[@"allAttributes"] = [self sortByName:allAttributes];
+
+    NSMutableArray* allRelationships = [NSMutableArray array];
+    [self addItemsToArray:allRelationships forClass:className key:@"relationships"];
+    info[@"allRelationships"] = [self sortByName:allRelationships];
+  }];
+
+}
+
+- (void)addItemsToArray:(NSMutableArray*)array forClass:(NSString*)className key:(NSString*)key {
+  NSDictionary* info = self.classes[className];
+  if (info) {
+    id superclass = [self superclassNameFromInfo:info];
+    if (superclass)
+    {
+      [self addItemsToArray:array forClass:superclass key:key];
+    }
+
+    [array addObjectsFromArray:info[key]];
+  }
 }
 
 /**
@@ -373,6 +405,18 @@ ECDefineDebugChannel(ComaModelChannel);
 
 }
 
+- (NSString*)superclassNameFromInfo:(NSDictionary*)info {
+  id superclass = info[@"super"];
+  if (superclass)
+  {
+    // may be a string, or a dictionary with "class" and "include" keys
+    if ([superclass isKindOfClass:[NSDictionary class]])
+      superclass = superclass[@"class"];
+  }
+
+  return superclass;
+}
+
 /**
  Return information from the types dictionary for a type of a given name.
  If an entry for the given type isn't found, we use the default entry instead.
@@ -415,13 +459,9 @@ ECDefineDebugChannel(ComaModelChannel);
 
   if (result)
   {
-    id superclass = result[@"super"];
+    id superclass = [self superclassNameFromInfo:result];
     if (superclass)
     {
-      // may be a string, or a dictionary with "class" and "include" keys
-      if ([superclass isKindOfClass:[NSDictionary class]])
-        superclass = superclass[@"class"];
-
       NSDictionary* superinfo = [self infoForTypeNamed:superclass useDefault:NO];
       NSMutableDictionary* merged = [NSMutableDictionary dictionaryWithDictionary:superinfo];
       [merged removeObjectForKey:@"originalTypeName"];
