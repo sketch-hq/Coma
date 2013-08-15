@@ -217,6 +217,7 @@ ECDefineDebugChannel(ComaModelChannel);
   // need to do this first so that the typeInfo for all classes have been processed before we start working on the attributes and relationships
   [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
     info[@"name"] = key;
+    info[@"class"] = key; // unambiguous key, since name will be shadowed by the property name when iterating over properties
     info[@"coma"] = comaInfo;
     // merge in any default values that are missing
     [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
