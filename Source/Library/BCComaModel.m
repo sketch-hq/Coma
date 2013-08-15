@@ -215,9 +215,8 @@ ECDefineDebugChannel(ComaModelChannel);
 
   // initial pass through the classes to update some basic info
   // need to do this first so that the typeInfo for all classes have been processed before we start working on the attributes and relationships
-  [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-    info[@"name"] = key;
-    info[@"class"] = key; // unambiguous key, since name will be shadowed by the property name when iterating over properties
+  [classes enumerateKeysAndObjectsUsingBlock:^(id className, NSMutableDictionary* info, BOOL *stop) {
+    info[@"name"] = className;
     info[@"coma"] = comaInfo;
     // merge in any default values that are missing
     [defaults enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
@@ -229,12 +228,12 @@ ECDefineDebugChannel(ComaModelChannel);
   }];
 
   // second pass through classes to process the attribute and relationship values
-  [classes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
+  [classes enumerateKeysAndObjectsUsingBlock:^(id className, NSMutableDictionary* info, BOOL *stop) {
 
     // process attributes
     NSMutableDictionary* attributes = info[@"attributes"];
     [attributes enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-      [self preprocessProperty:info name:key];
+      [self preprocessProperty:info name:key className:className];
     }];
 
     NSArray* sortedAttributes = [[attributes allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
@@ -251,7 +250,7 @@ ECDefineDebugChannel(ComaModelChannel);
     if (relationships)
     {
       [relationships enumerateKeysAndObjectsUsingBlock:^(id key, NSMutableDictionary* info, BOOL *stop) {
-        [self preprocessProperty:info name:key];
+        [self preprocessProperty:info name:key className:className];
       }];
 
       NSArray* sortedRelationships = [[relationships allValues] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(NSDictionary* prop1, NSDictionary* prop2) {
@@ -281,10 +280,11 @@ ECDefineDebugChannel(ComaModelChannel);
  Perform some processing on a property dictionary.
  */
 
-- (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name
+- (void)preprocessProperty:(NSMutableDictionary*)info name:(NSString*)name className:(NSString*)className
 {
   // add the name of the property to the info dictionary, so we can fetch it later
   info[@"name"] = name;
+  info[@"class"] = className;
 
   // look up the property type and try to obtain some type info for it
   NSString* type = info[@"type"];
