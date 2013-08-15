@@ -331,6 +331,46 @@ ECDefineDebugChannel(ComaModelChannel);
     return [string mixedcaseStringInitialCapitalFromMixedCase];
   }];
 
+  dictionary[@"uppedcaseUnderscoreFromMixed"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string uppercaseUnderscoreStringFromMixedCase];
+  }];
+
+  dictionary[@"lowercaseUnderscoreFromMixed"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string lowercaseUnderscoreStringFromMixedCase];
+  }];
+
+  dictionary[@"mixedcapsInitialCapitalFromWords"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string mixedcaseStringInitialCapitalFromWords];
+  }];
+
+  dictionary[@"mixedcapsFromWords"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string mixedcaseStringFromWords];
+  }];
+
+  dictionary[@"lowercaseUnderscoreFromWords"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string lowercaseUnderscoreStringFromWords];
+  }];
+
+  dictionary[@"uppercaseUnderscoreFromWords"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string uppercaseUnderscoreStringFromWords];
+  }];
+
+  dictionary[@"wordsFromMixed"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [string stringBySplittingMixedCaps];
+  }];
+
+  dictionary[@"wordsFromMixedCapitalized"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    NSString* string = [value description];
+    return [[string stringBySplittingMixedCaps] capitalizedString];
+  }];
+
 }
 
 /**
