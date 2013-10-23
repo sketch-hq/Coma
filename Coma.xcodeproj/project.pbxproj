@@ -97,6 +97,7 @@
 /* Begin PBXFileReference section */
 		2207E4CA176877760003F042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2207E4CE176883810003F042 /* libECCommandLine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECCommandLine.a; path = "../../../../../../../../../Caches/DerivedData/Coma-gyfgohgadfspibaebjmfbhfnbcbs/Build/Products/Debug/libECCommandLine.a"; sourceTree = "<group>"; };
+		22164D9318181F1400ECDC0F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; wrapsLines = 1; };
 		2277B1FA177204490062D9BA /* standard */ = {isa = PBXFileReference; lastKnownFileType = folder; name = standard; path = Tests/Data/standard; sourceTree = SOURCE_ROOT; };
 		227867A31769CD7F001F96FB /* BCComaMomConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaMomConverter.h; sourceTree = "<group>"; };
 		227867A41769CD7F001F96FB /* BCComaMomConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaMomConverter.m; sourceTree = "<group>"; };
@@ -293,6 +294,7 @@
 		229627E51760E1BF008D887F = {
 			isa = PBXGroup;
 			children = (
+				22164D9318181F1400ECDC0F /* README.md */,
 				229627F31760E1BF008D887F /* Tool */,
 				2296280A1760E1D5008D887F /* Library */,
 				2296281C1760E1D5008D887F /* Tests */,
