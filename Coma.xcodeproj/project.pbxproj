@@ -586,6 +586,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "HUMAN_DIR=\"${SOURCE_ROOT}/Tests/Data/coredata/Mogenerator/\"\nMACHINE_DIR=\"${HUMAN_DIR}/Generated\"\n\nmkdir -p \"${HUMAN_DIR}\"\nmkdir -p \"${MACHINE_DIR}\"\n\nmg=/usr/local/bin/mogenerator\n\n$mg --model \"${SOURCE_ROOT}/Tests/Data/coredata/CoreData.xcdatamodeld/CoreData.xcdatamodel\" --human-dir \"${HUMAN_DIR}\" --machine-dir \"${MACHINE_DIR}\" --template-var arc=true\n\n";
+			showEnvVarsInLog = 0;
 		};
 		22949B9A1770DF07008E8174 /* Update Version */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -614,6 +615,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			showEnvVarsInLog = 0;
 		};
 		229628631761DC14008D887F /* Copy Example Source */ = {
 			isa = PBXShellScriptBuildPhase;
