@@ -15,7 +15,7 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "229628141760E1D5008D887F"
-                     BuildableName = "LibraryTests.octest"
+                     BuildableName = "LibraryTests.xctest"
                      BlueprintName = "LibraryTests"
                      ReferencedContainer = "container:Coma.xcodeproj">
                   </BuildableReference>
@@ -135,7 +135,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "229628141760E1D5008D887F"
-               BuildableName = "LibraryTests.octest"
+               BuildableName = "LibraryTests.xctest"
                BlueprintName = "LibraryTests"
                ReferencedContainer = "container:Coma.xcodeproj">
             </BuildableReference>
