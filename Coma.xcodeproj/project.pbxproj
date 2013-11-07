@@ -138,7 +138,7 @@
 		229628091760E1D5008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2296280D1760E1D5008D887F /* BCComaEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCComaEngine.h; sourceTree = "<group>"; };
 		2296280E1760E1D5008D887F /* BCComaEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCComaEngine.m; sourceTree = "<group>"; };
-		229628151760E1D5008D887F /* LibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628151760E1D5008D887F /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628161760E1D5008D887F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2296281E1760E1D5008D887F /* Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		229628201760E1D5008D887F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			children = (
 				229627EE1760E1BF008D887F /* coma */,
 				229628031760E1D5008D887F /* libComa.a */,
-				229628151760E1D5008D887F /* LibraryTests.octest */,
+				229628151760E1D5008D887F /* LibraryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -532,7 +532,7 @@
 			);
 			name = LibraryTests;
 			productName = LibraryTests;
-			productReference = 229628151760E1D5008D887F /* LibraryTests.octest */;
+			productReference = 229628151760E1D5008D887F /* LibraryTests.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -781,7 +781,7 @@
 				INFOPLIST_FILE = Tests/Tests.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
@@ -800,7 +800,7 @@
 				INFOPLIST_FILE = Tests/Tests.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
