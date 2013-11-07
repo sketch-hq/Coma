@@ -68,7 +68,7 @@ ECDeclareDebugChannel(ComaModelChannel);
         }
         else
         {
-            STFail(@"rendering error %@", error);
+            ECTestFail(@"rendering error %@", error);
         }
 
     }];
@@ -87,13 +87,13 @@ ECDeclareDebugChannel(ComaModelChannel);
 
 - (void)checkExample:(ExampleBasic*)example
 {
-    STAssertTrue([example.string isEqualToString:@"String"], @"unexpected string %@", example.string);
-    STAssertTrue(example.integer == -123, @"unexpected integer %ld", example.integer);
-    STAssertTrue(example.unsignedInteger == 123, @"unexpected unsigned %ld", example.unsignedInteger);
-    STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
-    STAssertTrue([example.date isEqualToDate:self.date], @"unexpected date %@", example.date);
-    STAssertTrue(example.real == 1.234, @"unexpected real %lf", example.real);
-    STAssertTrue([example.custom.string isEqualToString:@"Test"], @"unexpected string %@", example.custom.string);
+    ECTestAssertTrueFormat([example.string isEqualToString:@"String"], @"unexpected string %@", example.string);
+    ECTestAssertTrueFormat(example.integer == -123, @"unexpected integer %ld", example.integer);
+    ECTestAssertTrueFormat(example.unsignedInteger == 123, @"unexpected unsigned %ld", example.unsignedInteger);
+    ECTestAssertTrueFormat(example.real == 1.234, @"unexpected real %lf", example.real);
+    ECTestAssertTrueFormat([example.date isEqualToDate:self.date], @"unexpected date %@", example.date);
+    ECTestAssertTrueFormat(example.real == 1.234, @"unexpected real %lf", example.real);
+    ECTestAssertTrueFormat([example.custom.string isEqualToString:@"Test"], @"unexpected string %@", example.custom.string);
 }
 
 - (void)testExample

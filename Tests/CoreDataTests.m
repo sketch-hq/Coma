@@ -156,7 +156,7 @@ ECDeclareDebugChannel(ComaModelChannel);
         }
         else
         {
-            STFail(@"rendering error %@", error);
+            ECTestFail(@"rendering error %@", error);
         }
         
     }];

@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B77AF95C-77FC-45D7-B32F-9654EFE01C38</string>
+	<string>A6B7D237-93EF-4DEE-AB1F-0E20D9EA552B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Coma</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -16,6 +18,8 @@
 		<string>ssh://github.com/samdeane/GRMustache.git</string>
 		<key>714CCC03-4158-4903-B5A6-561A1B3BE31C</key>
 		<string>ssh://github.com/elegantchaos/ECCommandLine.git</string>
+		<key>73E8D3FA-8730-4B11-83EC-90DFF65ACA7D</key>
+		<string>git://github.com/samdeane/OCUnit2JUnit.git</string>
 		<key>7648D126-28FB-4190-BCEB-43B1C82C6064</key>
 		<string>ssh://github.com/elegantchaos/ECCore.git</string>
 		<key>7B07B92D-8148-457F-829F-45F4F2CEEB9E</key>
@@ -24,8 +28,6 @@
 		<string>ssh://github.com/elegantchaos/ECLogging.git</string>
 		<key>C7C54A48-A965-43F5-8CD9-7A50C8CFCBBB</key>
 		<string>https://github.com/mustache/spec.git</string>
-		<key>D215F9FD-FF98-4D2B-948C-F4142A4DBF6E</key>
-		<string>https://github.com/ciryon/OCUnit2JUnit</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Coma.xcworkspace</string>
@@ -39,6 +41,8 @@
 		<string>../Modules/GRMustache</string>
 		<key>714CCC03-4158-4903-B5A6-561A1B3BE31C</key>
 		<string>../Modules/ECCommandLine</string>
+		<key>73E8D3FA-8730-4B11-83EC-90DFF65ACA7D</key>
+		<string>../Modules/ECLogging/Extras/Scripts/ocunit2junit</string>
 		<key>7648D126-28FB-4190-BCEB-43B1C82C6064</key>
 		<string>../Modules/ECCore</string>
 		<key>7B07B92D-8148-457F-829F-45F4F2CEEB9E</key>
@@ -47,8 +51,6 @@
 		<string>../Modules/ECLogging</string>
 		<key>C7C54A48-A965-43F5-8CD9-7A50C8CFCBBB</key>
 		<string>../Modules/GRMustache/src/tests/vendor/mustache/spec</string>
-		<key>D215F9FD-FF98-4D2B-948C-F4142A4DBF6E</key>
-		<string>../Modules/ECLogging/Extras/Scripts/ocunit2junit</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/BohemianCoding/Coma.git</string>
@@ -58,30 +60,6 @@
 	<string>472093E4-78DC-4CF5-A7B1-BD61EEDAC7A0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7648D126-28FB-4190-BCEB-43B1C82C6064</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ECCore</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6812ECB9-736C-4A28-BB9B-D2123B5483E5</string>
-			<key>IDESourceControlWCCName</key>
-			<string>GRMustache</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>809BA4FF-45EC-45BF-ABD6-980F8C46173E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ECLogging</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -102,17 +80,33 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C7C54A48-A965-43F5-8CD9-7A50C8CFCBBB</string>
+			<string>7648D126-28FB-4190-BCEB-43B1C82C6064</string>
 			<key>IDESourceControlWCCName</key>
-			<string>spec</string>
+			<string>ECCore</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D215F9FD-FF98-4D2B-948C-F4142A4DBF6E</string>
+			<string>809BA4FF-45EC-45BF-ABD6-980F8C46173E</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ocunit2junit</string>
+			<string>ECLogging</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6812ECB9-736C-4A28-BB9B-D2123B5483E5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GRMustache</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7B07B92D-8148-457F-829F-45F4F2CEEB9E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>jrswizzle</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -126,9 +120,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7B07B92D-8148-457F-829F-45F4F2CEEB9E</string>
+			<string>73E8D3FA-8730-4B11-83EC-90DFF65ACA7D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>jrswizzle</string>
+			<string>ocunit2junit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C7C54A48-A965-43F5-8CD9-7A50C8CFCBBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spec</string>
 		</dict>
 	</array>
 </dict>

@@ -20,6 +20,7 @@
 		227867AE176A01FF001F96FB /* BCComaCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867AD176A01FB001F96FB /* BCComaCommand.m */; };
 		227867B3176B7061001F96FB /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227867B2176B7061001F96FB /* CoreDataTests.m */; };
 		227867B8176B72C0001F96FB /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227867B5176B72C0001F96FB /* CoreData.xcdatamodeld */; };
+		227A0DA8182AA2E0002A0DC0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A0DA7182AA2E0002A0DC0 /* XCTest.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2282891B176F132A008A8B6F /* standard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2282891A176F132A008A8B6F /* standard */; };
 		229627F51760E1BF008D887F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229627F41760E1BF008D887F /* main.m */; };
 		229627F91760E1C0008D887F /* Coma.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 229627F81760E1C0008D887F /* Coma.1 */; };
@@ -124,6 +125,7 @@
 		227867D2176B7B18001F96FB /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
 		227867D3176B7B18001F96FB /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		227867D4176B7B18001F96FB /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		227A0DA7182AA2E0002A0DC0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2282891A176F132A008A8B6F /* standard */ = {isa = PBXFileReference; lastKnownFileType = folder; name = standard; path = ../../Tests/Data/standard; sourceTree = "<group>"; };
 		229627EE1760E1BF008D887F /* coma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = coma; sourceTree = BUILT_PRODUCTS_DIR; };
 		229627F11760E1BF008D887F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,12 +213,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227A0DA8182AA2E0002A0DC0 /* XCTest.framework in Frameworks */,
+				229628441760E827008D887F /* SenTestingKit.framework in Frameworks */,
 				22F06D2A1768D138005E727B /* libGRMustache6-MacOS.a in Frameworks */,
 				229628D3176238D5008D887F /* ECUnitTests.framework in Frameworks */,
 				229628D017622726008D887F /* IOKit.framework in Frameworks */,
 				229628CB176221F6008D887F /* libECCore.a in Frameworks */,
 				229628CC176221F6008D887F /* libECLogging.a in Frameworks */,
-				229628441760E827008D887F /* SenTestingKit.framework in Frameworks */,
 				229628181760E1D5008D887F /* Cocoa.framework in Frameworks */,
 				2296281B1760E1D5008D887F /* libComa.a in Frameworks */,
 			);
@@ -318,6 +321,7 @@
 		229627F01760E1BF008D887F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227A0DA7182AA2E0002A0DC0 /* XCTest.framework */,
 				2207E4CE176883810003F042 /* libECCommandLine.a */,
 				229628D2176238D5008D887F /* ECUnitTests.framework */,
 				229628CF17622726008D887F /* IOKit.framework */,
