@@ -146,7 +146,7 @@ ECDeclareDebugChannel(ComaModelChannel);
         if (output)
         {
             NSURL* expectedURL = expected[name];
-            [self assertString:output matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
+            [self assertString:output matchesContentsOfURL:expectedURL mode:ECTestComparisonShowLinesIgnoreWhitespace];
 
 #if WRITE_TO_DESKTOP
             NSURL* outputURL = [NSURL fileURLWithPath:[[@"~/Desktop" stringByStandardizingPath] stringByAppendingPathComponent:name]];
