@@ -315,6 +315,11 @@ ECDefineDebugChannel(MomConverterChannel);
             info[@"default"] = attribute.defaultValue;
         }
 	}
+    
+    // we set a defaultSupplied key if default was set
+    // (this is to allow templates to distinguish between default being absent and default being zero)
+    if (info[@"default"])
+        info[@"defaultSupplied"] = @(YES);
 
 	return info;
 }
