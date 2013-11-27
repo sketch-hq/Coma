@@ -192,7 +192,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "generate &quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/Sketch.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/MSModelObject&quot; --output=&quot;$(SOURCE_ROOT)/../Sketch/Sketch/Other Sources/Model Generation/Generated&quot; --overwriting"
+            argument = "generate &quot;$(SOURCE_ROOT)/../Sketch/Modules/SketchModel/Source/Sketch.xcdatamodeld&quot; &quot;$(SOURCE_ROOT)/../Sketch/Modules/SketchModel/Source/Templates&quot; --output=&quot;$(SOURCE_ROOT)/../Sketch/Modules/SketchModel/Source/Generated&quot; --overwriting"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
