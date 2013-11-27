@@ -78,14 +78,13 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSURL* expectedURL = [self URLForTestResource:@"SVGConverted" withExtension:@"json" subdirectory:@"Data/svg"];
     NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
 
-    [self assertCollection:info matchesCollection:expected];
-    //    [self assertCollection:info matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
-
-#if WRITE_TO_DESKTOP
-    NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];
-    NSData* output = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
-    [output writeToURL:outputURL atomically:YES];
-#endif
+    BOOL ok = [self assertCollection:info matchesCollection:expected];
+    ECTestAssertTrue(ok);
+    if (!ok) {
+        NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/SVGConverted.json" stringByStandardizingPath]];
+        NSData* output = [NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:&error];
+        [output writeToURL:outputURL atomically:YES];
+    }
 }
 
 - (void)testMerging
@@ -105,13 +104,13 @@ ECDeclareDebugChannel(ComaModelChannel);
     NSURL* expectedURL = [self URLForTestResource:@"SVGModel" withExtension:@"json" subdirectory:@"Data/svg"];
   //    NSDictionary* expected = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:expectedURL] options:0 error:&error];
 
-  [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECTestComparisonShowLinesIgnoreWhitespace];
-    //    [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECAssertStringDiff];
-
-#if WRITE_TO_DESKTOP
-    NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/svg.json" stringByStandardizingPath]];
-    NSData* output = [NSJSONSerialization dataWithJSONObject:svgMerged options:NSJSONWritingPrettyPrinted error:&error];
-    [output writeToURL:outputURL atomically:YES];
-#endif
+    BOOL ok = [self assertCollection:svgMerged matchesContentsOfURL:expectedURL mode:ECTestComparisonShowLinesIgnoreWhitespace];
+    ECTestAssertTrue(ok);
+    if (!ok) {
+        NSURL* outputURL = [NSURL fileURLWithPath:[@"~/Desktop/svg.json" stringByStandardizingPath]];
+        NSData* output = [NSJSONSerialization dataWithJSONObject:svgMerged options:NSJSONWritingPrettyPrinted error:&error];
+        [output writeToURL:outputURL atomically:YES];
+    }
 }
+
 @end

@@ -102,7 +102,7 @@
 		2277B1FA177204490062D9BA /* standard */ = {isa = PBXFileReference; lastKnownFileType = folder; name = standard; path = Tests/Data/standard; sourceTree = SOURCE_ROOT; };
 		227867A31769CD7F001F96FB /* BCComaMomConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaMomConverter.h; sourceTree = "<group>"; };
 		227867A41769CD7F001F96FB /* BCComaMomConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaMomConverter.m; sourceTree = "<group>"; };
-		227867A71769CF82001F96FB /* ConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterTests.m; sourceTree = "<group>"; };
+		227867A71769CF82001F96FB /* ConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterTests.m; sourceTree = "<group>"; tabWidth = 4; };
 		227867A91769FC9A001F96FB /* BCComaConvertCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCComaConvertCommand.h; sourceTree = "<group>"; };
 		227867AA1769FC9A001F96FB /* BCComaConvertCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCComaConvertCommand.m; sourceTree = "<group>"; };
 		227867AC176A01FB001F96FB /* BCComaCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCComaCommand.h; path = ../Configs/BCComaCommand.h; sourceTree = "<group>"; };

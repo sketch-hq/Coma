@@ -34,19 +34,21 @@
         },
         "size" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "weight" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -80,11 +82,12 @@
         },
         "position" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -99,11 +102,12 @@
       "attributes" : {
         "cornerRadius" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -118,35 +122,39 @@
       "attributes" : {
         "cx" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "ry" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "rx" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "cy" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -161,51 +169,57 @@
       "attributes" : {
         "anchor" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarInt16",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "dy" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "length" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "y" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "rotate" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "x" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "text" : {
           "optional" : true,
@@ -216,11 +230,12 @@
         },
         "dx" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "adjustSpacingAndGlyphs" : {
           "optional" : true,
@@ -242,27 +257,30 @@
       "attributes" : {
         "cy" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "cx" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "r" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -305,11 +323,12 @@
         },
         "index" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : true,
           "transient" : false,
           "type" : "CoreDataScalarInt64",
-          "external" : false,
-          "indexed" : true
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "relationships" : {
@@ -361,35 +380,39 @@
         },
         "toX" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "fromX" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "fromY" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "toY" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "transform" : {
           "optional" : true,
@@ -465,35 +488,39 @@
       "attributes" : {
         "x2" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "x1" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "y2" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         },
         "y1" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
@@ -678,11 +705,12 @@
         },
         "width" : {
           "optional" : true,
-          "default" : 0,
+          "external" : false,
+          "indexed" : false,
           "transient" : false,
           "type" : "CoreDataScalarDouble",
-          "external" : false,
-          "indexed" : false
+          "defaultSupplied" : true,
+          "default" : 0
         }
       },
       "super" : {
