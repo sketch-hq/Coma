@@ -353,7 +353,17 @@ ECDefineDebugChannel(ComaModelChannel);
 
 - (void)addFiltersToDictionary:(NSMutableDictionary*)dictionary
 {
-  dictionary[@"mixedcaps"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+    dictionary[@"initialCapital"] = [GRMustacheFilter filterWithBlock:^id(id value) {
+        NSString* string = [value description];
+        NSString* result;
+        if ([string length] < 2)
+            result = [string uppercaseString];
+        else
+            result = [[[string substringToIndex:1] uppercaseString] stringByAppendingString:[string substringFromIndex:1]];
+        return result;
+    }];
+
+    dictionary[@"mixedcaps"] = [GRMustacheFilter filterWithBlock:^id(id value) {
     NSString* string = [value description];
     return [string mixedcaseStringFromMixedCaseWithInitialCapital];
   }];
