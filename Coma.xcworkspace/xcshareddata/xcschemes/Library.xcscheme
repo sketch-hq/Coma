@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56DEC247152631040031E8DC"
-               BuildableName = "libGRMustache6-MacOS.a"
-               BlueprintName = "GRMustache6-MacOS"
-               ReferencedContainer = "container:Modules/GRMustache/src/GRMustache.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "228CF1E817562478003E1D25"
                BuildableName = "libECLogging.a"
                BlueprintName = "ECLoggingMacStatic"
@@ -46,6 +32,20 @@
                BuildableName = "libECCore.a"
                BlueprintName = "ECCoreMacStatic"
                ReferencedContainer = "container:Modules/ECCore/ECCore.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56DEC247152631040031E8DC"
+               BuildableName = "libGRMustache6-MacOS.a"
+               BlueprintName = "GRMustache6-MacOS"
+               ReferencedContainer = "container:Modules/GRMustache/src/GRMustache.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
