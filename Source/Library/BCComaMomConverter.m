@@ -106,7 +106,7 @@ ECDefineDebugChannel(MomConverterChannel);
 	{
 		//  We've been handed a .xcdatamodel data model, transparently compile it into a .mom managed object model.
 		NSString* momcTool = nil;
-		if (NO && [fm fileExistsAtPath:@"/usr/bin/xcrun"])
+		if ([fm fileExistsAtPath:@"/usr/bin/xcrun"])
 		{
 			// Cool, we can just use Xcode 3.2.6/4.x's xcrun command to find and execute momc for us.
 			momcTool = @"/usr/bin/xcrun momc";
