@@ -294,7 +294,9 @@
 				229627EF1760E1BF008D887F /* Products */,
 				229628451760E95F008D887F /* Extras */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		229627EF1760E1BF008D887F /* Products */ = {
 			isa = PBXGroup;
