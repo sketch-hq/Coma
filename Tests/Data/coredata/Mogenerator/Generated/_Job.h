@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 
-
 extern const struct JobAttributes {
 	__unsafe_unretained NSString *name;
 } JobAttributes;
@@ -12,12 +11,7 @@ extern const struct JobRelationships {
 	__unsafe_unretained NSString *staff;
 } JobRelationships;
 
-extern const struct JobFetchedProperties {
-} JobFetchedProperties;
-
 @class Person;
-
-
 
 @interface JobID : NSManagedObjectID {}
 @end
@@ -26,34 +20,19 @@ extern const struct JobFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (JobID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) JobID* objectID;
 
 @property (nonatomic, strong) NSString* name;
 
-
-
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSSet *staff;
 
 - (NSMutableSet*)staffSet;
 
-
-
-
-
 @end
 
-@interface _Job (CoreDataGeneratedAccessors)
-
+@interface _Job (StaffCoreDataGeneratedAccessors)
 - (void)addStaff:(NSSet*)value_;
 - (void)removeStaff:(NSSet*)value_;
 - (void)addStaffObject:(Person*)value_;
@@ -63,16 +42,10 @@ extern const struct JobFetchedProperties {
 
 @interface _Job (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-
-
-
-
 - (NSMutableSet*)primitiveStaff;
 - (void)setPrimitiveStaff:(NSMutableSet*)value;
-
 
 @end

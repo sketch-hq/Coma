@@ -129,6 +129,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "228CF1E817562478003E1D25"
+            BuildableName = "libECLogging.a"
+            BlueprintName = "ECLoggingMacStatic"
+            ReferencedContainer = "container:Modules/ECLogging/ECLogging.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

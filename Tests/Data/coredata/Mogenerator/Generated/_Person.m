@@ -11,9 +11,6 @@ const struct PersonRelationships PersonRelationships = {
 	.job = @"job",
 };
 
-const struct PersonFetchedProperties PersonFetchedProperties = {
-};
-
 @implementation PersonID
 @end
 
@@ -39,28 +36,13 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic name;
-
-
-
-
-
 
 @dynamic job;
 
-	
-
-
-
-
-
-
 @end
+

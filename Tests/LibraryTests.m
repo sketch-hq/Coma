@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Bohemian Coding. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import <ECUnitTests/ECUnitTests.h>
 
 #import "ExampleBasic.h"

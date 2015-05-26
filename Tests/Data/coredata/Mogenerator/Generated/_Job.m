@@ -11,9 +11,6 @@ const struct JobRelationships JobRelationships = {
 	.staff = @"staff",
 };
 
-const struct JobFetchedProperties JobFetchedProperties = {
-};
-
 @implementation JobID
 @end
 
@@ -39,37 +36,22 @@ const struct JobFetchedProperties JobFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic name;
-
-
-
-
-
 
 @dynamic staff;
 
-	
 - (NSMutableSet*)staffSet {
 	[self willAccessValueForKey:@"staff"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"staff"];
-  
+
 	[self didAccessValueForKey:@"staff"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+
