@@ -141,8 +141,9 @@ ECDefineDebugChannel(MomConverterChannel);
 			}
 			assert(momcTool && "momc not found");
 		}
-		NSString* momcOptions = @" -MOMC_NO_WARNINGS -MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS -MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR";
-		NSString* momcIncantation = nil;
+		// NSString* momcOptions = @" -MOMC_NO_WARNINGS -MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS -MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR";
+    NSString *momcOptions = @" --no-warnings --no-inverse-relationship-warnings";
+    NSString* momcIncantation = nil;
 
 		NSString* tempGeneratedMomFileName = [[[NSProcessInfo processInfo] globallyUniqueString] stringByAppendingPathExtension:@"mom"];
 		tempGeneratedMomFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:tempGeneratedMomFileName];
