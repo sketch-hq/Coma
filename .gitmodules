@@ -1,6 +1,3 @@
-[submodule "Modules/GRMustache"]
-	path = Modules/GRMustache
-	url = git@github.com:samdeane/GRMustache.git
 [submodule "Modules/ECCore"]
 	path = Modules/ECCore
 	url = git@github.com:BohemianCoding/ECCore.git
